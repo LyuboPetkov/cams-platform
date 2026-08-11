@@ -15,3 +15,6 @@ frontend/dist/
 # Spring Boot — do not commit if it contains plaintext secrets
 
 .env
+
+# Claude Code project instructions (local-only)
+CLAUDE.md
