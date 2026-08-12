@@ -2,6 +2,8 @@ package com.lyubo_learning.cams.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.JdbcType;
+import org.hibernate.dialect.type.PostgreSQLEnumJdbcType;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -30,6 +32,11 @@ public class User {
 
     @Column(name = "full_name", nullable = false)
     private String fullName;
+
+    @Enumerated(EnumType.STRING)
+    @JdbcType(PostgreSQLEnumJdbcType.class)
+    @Column(name = "role", nullable = false)
+    private Role role;
 
     @CreatedDate
     @Column(name = "created_at", nullable = false, updatable = false)
