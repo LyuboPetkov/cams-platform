@@ -1,6 +1,7 @@
 package com.lyubo_learning.cams.service;
 
 import com.lyubo_learning.cams.dto.EmployerRequestResponse;
+import com.lyubo_learning.cams.entity.Company;
 import com.lyubo_learning.cams.entity.EmployerRequest;
 import com.lyubo_learning.cams.entity.EmployerRequestStatus;
 import com.lyubo_learning.cams.entity.Role;
@@ -25,6 +26,7 @@ public class EmployerRequestService {
     private final EmployerRequestRepository employerRequestRepository;
     private final UserRepository userRepository;
     private final EmployerRequestMapper mapper;
+    private final CompanyService companyService;
 
     private User getAuthenticatedUser() {
         String email = SecurityContextHolder.getContext()
@@ -67,20 +69,27 @@ public class EmployerRequestService {
         User admin = getAuthenticatedUser();
         EmployerRequest request = getPendingRequest(id);
 
-        request.setStatus(EmployerRequestStatus.APPROVED);
-        request.setReviewedAt(Instant.now());
-        request.setReviewedBy(admin);
+        if (request.getUser().getCompany() != null) {
+            throw new InvalidRequestStateException("This user is already linked to a company");
+        }
+
+        Company company = companyService.createFromEmployerRequest(request);
 
         User requester = request.getUser();
         requester.setRole(Role.EMPLOYER);
+        requester.setCompany(company);
         userRepository.save(requester);
 
-        // TODO Phase 10: create Company entity from request details
+        request.setStatus(EmployerRequestStatus.APPROVED);
+        request.setReviewedAt(Instant.now());
+        request.setReviewedBy(admin);
+        request.setCreatedCompany(company);
 
         EmployerRequest saved = employerRequestRepository.save(request);
         return mapper.toResponse(saved);
     }
 
+    @Transactional
     public EmployerRequestResponse reject(Long id, String rejectionReason) {
         User admin = getAuthenticatedUser();
         EmployerRequest request = getPendingRequest(id);
