@@ -54,4 +54,8 @@ public class EmployerRequest {
     @Column(name = "rejection_reason")
     private String rejectionReason;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "created_company_id")
+    private Company createdCompany;
+
 }
