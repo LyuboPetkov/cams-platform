@@ -24,4 +24,16 @@ public class RegisterRequest {
     @NotBlank(message = "Full name is required")
     @Schema(description = "Name of the applicant", example = "John Smith")
     private String fullName;
+
+    @Schema(description = "Company name — providing this submits an employer request alongside registration", example = "Acme Inc.")
+    private String companyName;
+
+    @Schema(description = "Optional company description", example = "We build widgets.")
+    private String companyDescription;
+
+    @Schema(description = "Optional company website", example = "https://acme.example.com")
+    private String companyWebsite;
+
+    @Schema(description = "Optional company location", example = "Sofia, Bulgaria")
+    private String companyLocation;
 }
