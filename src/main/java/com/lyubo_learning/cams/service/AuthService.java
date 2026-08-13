@@ -3,6 +3,7 @@ package com.lyubo_learning.cams.service;
 import com.lyubo_learning.cams.dto.auth.AuthResponse;
 import com.lyubo_learning.cams.dto.auth.LoginRequest;
 import com.lyubo_learning.cams.dto.auth.RegisterRequest;
+import com.lyubo_learning.cams.entity.Role;
 import com.lyubo_learning.cams.entity.User;
 import com.lyubo_learning.cams.exception.EmailAlreadyExistsException;
 import com.lyubo_learning.cams.exception.InvalidCredentialsException;
@@ -38,6 +39,7 @@ public class AuthService {
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .fullName(request.getFullName())
+                .role(Role.CANDIDATE)
                 .build();
 
         userRepository.save(user);
