@@ -18,3 +18,10 @@ frontend/dist/
 
 # Claude Code project instructions (local-only)
 CLAUDE.md
+
+#Phase docs, meant for local use only
+docs/
+
+# ESCO source dataset — only needed to regenerate V10; the migration itself
+# is the artifact of record, so the 9MB CSV stays out of the repo
+esco-v1.2.1-en/
