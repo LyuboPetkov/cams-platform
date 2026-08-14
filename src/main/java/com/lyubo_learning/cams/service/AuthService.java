@@ -3,6 +3,7 @@ package com.lyubo_learning.cams.service;
 import com.lyubo_learning.cams.dto.auth.AuthResponse;
 import com.lyubo_learning.cams.dto.auth.LoginRequest;
 import com.lyubo_learning.cams.dto.auth.RegisterRequest;
+import com.lyubo_learning.cams.entity.CandidateProfile;
 import com.lyubo_learning.cams.entity.EmployerRequest;
 import com.lyubo_learning.cams.entity.EmployerRequestStatus;
 import com.lyubo_learning.cams.entity.Role;
@@ -10,6 +11,7 @@ import com.lyubo_learning.cams.entity.User;
 import com.lyubo_learning.cams.exception.EmailAlreadyExistsException;
 import com.lyubo_learning.cams.exception.InvalidCredentialsException;
 import com.lyubo_learning.cams.exception.InvalidRequestStateException;
+import com.lyubo_learning.cams.repository.CandidateProfileRepository;
 import com.lyubo_learning.cams.repository.EmployerRequestRepository;
 import com.lyubo_learning.cams.repository.UserRepository;
 import com.lyubo_learning.cams.security.JwtUtil;
@@ -31,6 +33,7 @@ public class AuthService {
 
     private final UserRepository userRepository;
     private final EmployerRequestRepository employerRequestRepository;
+    private final CandidateProfileRepository candidateProfileRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtUtil jwtUtil;
     private final AuthenticationManager authenticationManager;
@@ -52,6 +55,10 @@ public class AuthService {
                 .build();
 
         userRepository.save(user);
+
+        // Every account gets a profile up front, so nothing downstream has to treat
+        // "no profile yet" as a case — unlike Company, where absence is the norm.
+        candidateProfileRepository.save(CandidateProfile.builder().user(user).build());
 
         if (request.getCompanyName() != null && !request.getCompanyName().isBlank()) {
             createEmployerRequest(user, request);
