@@ -76,16 +76,4 @@ public class GlobalExceptionHandler {
                 .body(new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), "An unexpected error occurred"));
     }
 
-
-    // EXPOSE INTERNAL LOGIC
-//    @ExceptionHandler(Exception.class)
-//    public ResponseEntity<ErrorResponse> handleGenericException(Exception ex) {
-//        ex.printStackTrace(); // add this temporarily
-//        return ResponseEntity
-//                .status(HttpStatus.INTERNAL_SERVER_ERROR)
-//                .body(new ErrorResponse(
-//                        HttpStatus.INTERNAL_SERVER_ERROR.value(),
-//                        ex.getMessage() // change this temporarily to see the real message
-//                ));
-//    }
 }
