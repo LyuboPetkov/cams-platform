@@ -69,6 +69,13 @@ public class GlobalExceptionHandler {
     }
 
 
+    @ExceptionHandler(JobListingAlreadyArchivedException.class)
+    public ResponseEntity<ErrorResponse> handleJobListingAlreadyArchived(JobListingAlreadyArchivedException ex) {
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(new ErrorResponse(HttpStatus.CONFLICT.value(), ex.getMessage()));
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleGenericException(Exception ex) {
         return ResponseEntity
