@@ -3,6 +3,7 @@ package com.lyubo_learning.cams.security;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -40,6 +41,12 @@ public class SecurityConfig {
                         .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html").permitAll()
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .requestMatchers("/api/companies/me").hasRole("EMPLOYER")
+                        // Matchers are first-match-wins, and /api/job-listings/**
+                        // matches zero or more segments, so it covers the bare
+                        // collection root too. Browse has to be carved out above
+                        // it, and scoped to GET so that POST /api/job-listings
+                        // (create) stays EMPLOYER-only on the very same path.
+                        .requestMatchers(HttpMethod.GET, "/api/job-listings").authenticated()
                         .requestMatchers("/api/job-listings/**").hasRole("EMPLOYER")
                         .anyRequest().authenticated()
                 )

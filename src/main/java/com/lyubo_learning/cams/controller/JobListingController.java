@@ -1,11 +1,15 @@
 package com.lyubo_learning.cams.controller;
 
+import com.lyubo_learning.cams.dto.JobListingBrowseResponse;
 import com.lyubo_learning.cams.dto.JobListingCreateRequest;
 import com.lyubo_learning.cams.dto.JobListingResponse;
 import com.lyubo_learning.cams.dto.JobListingSkillsUpdateRequest;
 import com.lyubo_learning.cams.dto.JobListingUpdateRequest;
+import com.lyubo_learning.cams.dto.PageResponse;
+import com.lyubo_learning.cams.entity.JobLevel;
 import com.lyubo_learning.cams.service.JobListingService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -17,12 +21,51 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Tag(name = "Job Listings", description = "Employer-side creation and management of job listings")
+@Tag(name = "Job Listings", description = "Employer-side creation and management of job listings, plus the candidate-facing browse")
 @RestController
 @RequiredArgsConstructor
 public class JobListingController {
 
     private final JobListingService jobListingService;
+
+    @Operation(summary = "Browse open job listings",
+            description = """
+                    Returns OPEN listings from across the whole platform — archived listings are never \
+                    included and cannot be requested. Readable by any authenticated user, not just candidates.
+
+                    Filters are optional and ANDed together: an omitted filter means "don't care". \
+                    location is a case-insensitive substring match, so ?location=Bulgaria works as a \
+                    country filter; listings with no location never match it, and are reached via ?remote=true. \
+                    remote has three states — omitted means "don't care", true means remote only, false means onsite only. \
+                    skillIds is ANY-of, not all-of: ?skillIds=3&skillIds=17 returns listings requiring \
+                    either skill. An unknown skill id simply matches nothing rather than being an error.
+
+                    page is 0-based and defaults to 0. size defaults to 20 and is capped at 50. Out-of-range \
+                    values are clamped rather than rejected. The sort is fixed to newest-first and cannot be \
+                    changed; results are not ranked by relevance.""")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Page of matching listings retrieved successfully"),
+            @ApiResponse(responseCode = "400", description = "A query parameter could not be parsed, e.g. an unknown level or a non-numeric page"),
+            @ApiResponse(responseCode = "401", description = "Missing or invalid JWT token")
+    })
+    @GetMapping("/api/job-listings")
+    public ResponseEntity<PageResponse<JobListingBrowseResponse>> browse(
+            @Parameter(description = "Case-insensitive substring of the listing's location", example = "Sofia")
+            @RequestParam(required = false) String location,
+            // Boolean, never boolean: with a primitive an absent parameter would
+            // bind to false, silently turning "don't care" into "onsite only".
+            @Parameter(description = "Omit for both, true for remote only, false for onsite only")
+            @RequestParam(required = false) Boolean remote,
+            @Parameter(description = "Seniority level of the role")
+            @RequestParam(required = false) JobLevel level,
+            @Parameter(description = "Match listings requiring ANY of these skills", example = "3")
+            @RequestParam(required = false) List<Long> skillIds,
+            @Parameter(description = "Page index, 0-based", example = "0")
+            @RequestParam(defaultValue = "0") int page,
+            @Parameter(description = "Results per page, capped at 50", example = "20")
+            @RequestParam(defaultValue = "20") int size) {
+        return ResponseEntity.ok(jobListingService.browseListings(location, remote, level, skillIds, page, size));
+    }
 
     @Operation(summary = "Create a job listing",
             description = "The owning company and the posting employer are taken from the authenticated user. New listings are always created OPEN.")
