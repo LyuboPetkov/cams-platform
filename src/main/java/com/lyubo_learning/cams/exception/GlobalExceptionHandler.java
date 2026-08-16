@@ -77,6 +77,13 @@ public class GlobalExceptionHandler {
                 .body(new ErrorResponse(HttpStatus.CONFLICT.value(), ex.getMessage()));
     }
 
+    @ExceptionHandler(CandidacyAlreadyDecidedException.class)
+    public ResponseEntity<ErrorResponse> handleCandidacyAlreadyDecided(CandidacyAlreadyDecidedException ex) {
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(new ErrorResponse(HttpStatus.CONFLICT.value(), ex.getMessage()));
+    }
+
     @ExceptionHandler(CandidacyAlreadyExistsException.class)
     public ResponseEntity<ErrorResponse> handleCandidacyAlreadyExists(CandidacyAlreadyExistsException ex) {
         return ResponseEntity

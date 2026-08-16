@@ -26,13 +26,16 @@ public interface CandidacyRepository extends JpaRepository<Candidacy, Long> {
             """)
     List<Candidacy> findByCandidateIdFetchingListing(@Param("candidateId") Long candidateId);
 
+    // The employer read also needs the applying user, so this one fetch-joins
+    // candidate on top of the listing and company the mapper already reads.
     @Query("""
             SELECT c FROM Candidacy c
             JOIN FETCH c.jobListing l
             JOIN FETCH l.company
+            JOIN FETCH c.candidate
             WHERE l.id = :jobListingId
             ORDER BY c.appliedAt DESC, c.id DESC
             """)
-    List<Candidacy> findByJobListingIdFetchingListing(@Param("jobListingId") Long jobListingId);
+    List<Candidacy> findByJobListingIdFetchingListingAndCandidate(@Param("jobListingId") Long jobListingId);
 
 }

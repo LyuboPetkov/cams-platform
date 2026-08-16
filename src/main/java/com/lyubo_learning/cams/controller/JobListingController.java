@@ -1,6 +1,6 @@
 package com.lyubo_learning.cams.controller;
 
-import com.lyubo_learning.cams.dto.CandidacyResponse;
+import com.lyubo_learning.cams.dto.CandidacyApplicantResponse;
 import com.lyubo_learning.cams.dto.JobListingBrowseResponse;
 import com.lyubo_learning.cams.dto.JobListingCreateRequest;
 import com.lyubo_learning.cams.dto.JobListingResponse;
@@ -163,14 +163,19 @@ public class JobListingController {
     // so this route inherits it for free. That makes this the first controller in
     // the codebase to depend on a second service — a deliberate shape, not drift.
     @Operation(summary = "List the candidacies submitted against one of the company's listings",
-            description = "Company-scoped through the same ownership check as the other listing routes.")
+            description = """
+                    Company-scoped through the same ownership check as the other listing routes. Each row \
+                    inlines who applied — name, email, headline and selected skills — so the list is usable \
+                    for shortlisting without a second request per applicant. Candidates who never filled in \
+                    a profile come back with a null headline and an empty skill list rather than an error. \
+                    Not paginated: the result is bounded by construction to one listing's applicants.""")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Candidacies retrieved successfully"),
             @ApiResponse(responseCode = "403", description = "Authenticated user is not an employer, or the listing belongs to another company"),
             @ApiResponse(responseCode = "404", description = "Listing not found")
     })
     @GetMapping("/api/job-listings/{id}/candidacies")
-    public ResponseEntity<List<CandidacyResponse>> getCandidacies(@PathVariable Long id) {
+    public ResponseEntity<List<CandidacyApplicantResponse>> getCandidacies(@PathVariable Long id) {
         return ResponseEntity.ok(candidacyService.getCandidaciesForListing(id));
     }
 }

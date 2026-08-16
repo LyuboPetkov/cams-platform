@@ -86,6 +86,22 @@ public class JobApplicationService {
         return jobApplicationRepository.save(application);
     }
 
+    // Called only from CandidacyService.transitionStatus(), never from a
+    // controller. Runs inside that method's transaction, so the candidacy
+    // decision and this status change commit together or not at all.
+    //
+    // Keeping the write here rather than in CandidacyService means every
+    // JobApplication mutation still goes through this service, instead of
+    // another service reaching into a repository it does not own.
+    public void syncStatusFromCandidacy(Candidacy candidacy, ApplicationStatus newStatus) {
+        JobApplication application = jobApplicationRepository.findByCandidacyId(candidacy.getId())
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "No linked job application found for candidacy " + candidacy.getId()));
+
+        application.setStatus(newStatus);
+        jobApplicationRepository.save(application);
+    }
+
     public JobApplicationResponse update(Long id, JobApplicationRequest request) {
         User user = getAuthenticatedUser();
         JobApplication application = getApplicationOwnedByUser(id, user.getId());

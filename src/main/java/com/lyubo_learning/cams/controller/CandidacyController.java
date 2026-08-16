@@ -51,4 +51,38 @@ public class CandidacyController {
     public ResponseEntity<List<CandidacyResponse>> getMine() {
         return ResponseEntity.ok(candidacyService.getMyCandidacies());
     }
+
+    // Two endpoints rather than one status field: accept and reject have two
+    // possible target states, so choosing the endpoint is the choice. Same
+    // dedicated-action shape as POST /api/job-listings/{id}/archive.
+    @Operation(summary = "Accept a candidacy",
+            description = """
+                    Moves the candidacy SUBMITTED -> ACCEPTED and the candidate's linked tracker entry to \
+                    INTERVIEWING, in one transaction. Any employer at the company owning the listing may \
+                    decide. The decision is terminal: an already-decided candidacy cannot be changed again.""")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Candidacy accepted"),
+            @ApiResponse(responseCode = "403", description = "Caller is not an employer, or the listing belongs to another company"),
+            @ApiResponse(responseCode = "404", description = "Candidacy not found"),
+            @ApiResponse(responseCode = "409", description = "Candidacy has already been accepted or rejected")
+    })
+    @PostMapping("/api/candidacies/{id}/accept")
+    public ResponseEntity<CandidacyResponse> accept(@PathVariable Long id) {
+        return ResponseEntity.ok(candidacyService.accept(id));
+    }
+
+    @Operation(summary = "Reject a candidacy",
+            description = """
+                    Moves the candidacy SUBMITTED -> REJECTED and the candidate's linked tracker entry to \
+                    REJECTED, in one transaction. Terminal, exactly as accept is.""")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Candidacy rejected"),
+            @ApiResponse(responseCode = "403", description = "Caller is not an employer, or the listing belongs to another company"),
+            @ApiResponse(responseCode = "404", description = "Candidacy not found"),
+            @ApiResponse(responseCode = "409", description = "Candidacy has already been accepted or rejected")
+    })
+    @PostMapping("/api/candidacies/{id}/reject")
+    public ResponseEntity<CandidacyResponse> reject(@PathVariable Long id) {
+        return ResponseEntity.ok(candidacyService.reject(id));
+    }
 }
