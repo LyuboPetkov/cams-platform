@@ -1,8 +1,10 @@
 package com.lyubo_learning.cams.controller;
 
 import com.lyubo_learning.cams.dto.CandidacyApplicantResponse;
+import com.lyubo_learning.cams.dto.CandidateMatchResponse;
 import com.lyubo_learning.cams.dto.JobListingBrowseResponse;
 import com.lyubo_learning.cams.dto.JobListingCreateRequest;
+import com.lyubo_learning.cams.dto.JobListingMatchResponse;
 import com.lyubo_learning.cams.dto.JobListingResponse;
 import com.lyubo_learning.cams.dto.JobListingSkillsUpdateRequest;
 import com.lyubo_learning.cams.dto.JobListingUpdateRequest;
@@ -10,6 +12,7 @@ import com.lyubo_learning.cams.dto.PageResponse;
 import com.lyubo_learning.cams.entity.JobLevel;
 import com.lyubo_learning.cams.service.CandidacyService;
 import com.lyubo_learning.cams.service.JobListingService;
+import com.lyubo_learning.cams.service.MatchingService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -30,6 +33,7 @@ public class JobListingController {
 
     private final JobListingService jobListingService;
     private final CandidacyService candidacyService;
+    private final MatchingService matchingService;
 
     @Operation(summary = "Browse open job listings",
             description = """
@@ -156,6 +160,40 @@ public class JobListingController {
     @PostMapping("/api/job-listings/{id}/archive")
     public ResponseEntity<JobListingResponse> archive(@PathVariable Long id) {
         return ResponseEntity.ok(jobListingService.archiveListing(id));
+    }
+
+    @Operation(summary = "Get the caller's own top job-listing matches",
+            description = """
+                    Candidate-facing: ranks OPEN listings by cosine similarity to the caller's own \
+                    CandidateProfile embedding. Excludes any listing the caller already has a Candidacy \
+                    against — see GET /api/candidacies/mine for those. Bounded by construction to a fixed \
+                    number of results; not paginated and has no floor/threshold parameter.""")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Ranked matches retrieved successfully"),
+            @ApiResponse(responseCode = "403", description = "Missing or invalid JWT token"),
+            @ApiResponse(responseCode = "409", description = "The caller's profile has no embedding yet — add a headline, description or skills first")
+    })
+    @GetMapping("/api/job-listings/matches")
+    public ResponseEntity<List<JobListingMatchResponse>> getMatches() {
+        return ResponseEntity.ok(matchingService.getMatchesForCandidate());
+    }
+
+    @Operation(summary = "Get the top candidate matches for one of the company's listings",
+            description = """
+                    Employer-facing, the mirror image of GET /api/job-listings/matches: ranks candidates by \
+                    cosine similarity to this listing's embedding. Company-scoped through the same ownership \
+                    check as the other listing routes. Excludes any candidate who already has a Candidacy \
+                    against this listing — see GET /api/job-listings/{id}/candidacies for those. Bounded by \
+                    construction to a fixed number of results; not paginated and has no floor/threshold parameter.""")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Ranked matches retrieved successfully"),
+            @ApiResponse(responseCode = "403", description = "Authenticated user is not an employer, or the listing belongs to another company"),
+            @ApiResponse(responseCode = "404", description = "Listing not found"),
+            @ApiResponse(responseCode = "409", description = "This listing has no embedding yet")
+    })
+    @GetMapping("/api/job-listings/{id}/matches")
+    public ResponseEntity<List<CandidateMatchResponse>> getMatchesForListing(@PathVariable Long id) {
+        return ResponseEntity.ok(matchingService.getMatchesForListing(id));
     }
 
     // Lives here rather than in CandidacyController on purpose: the EMPLOYER role
