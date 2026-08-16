@@ -11,6 +11,11 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
     volumes:
       - postgres_data:/var/lib/postgresql
+    # Phase 18: scripts/matching-eval/evaluate_matching.py connects to Postgres
+    # directly from the host via psycopg, with no dependency on the backend
+    # being up, so the port needs to reach the host, not just other containers.
+    ports:
+      - "5432:5432"
     networks:
       - cams-network
 
