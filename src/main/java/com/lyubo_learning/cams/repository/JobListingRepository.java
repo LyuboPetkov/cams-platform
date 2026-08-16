@@ -77,4 +77,24 @@ public interface JobListingRepository extends JpaRepository<JobListing, Long> {
                                     @Param("skillIds") List<Long> skillIds,
                                     Pageable pageable);
 
+    // The candidate-facing match query. l.embedding IS NOT NULL skips listings
+    // the async pipeline hasn't embedded yet, same "just skip it" treatment
+    // browse gives every other optional field. The NOT EXISTS excludes listings
+    // the candidate already has a Candidacy against — those are already visible
+    // via GET /api/candidacies/mine, matches exists to surface listings they
+    // haven't seen, not to repeat their own application list back at them.
+    @Query("""
+            SELECT l FROM JobListing l
+            WHERE l.status = :status
+              AND l.embedding IS NOT NULL
+              AND NOT EXISTS (
+                    SELECT 1 FROM Candidacy c
+                    WHERE c.jobListing = l AND c.candidate.id = :candidateId)
+            ORDER BY cosine_distance(l.embedding, :embedding) ASC
+            """)
+    List<JobListing> findTopMatchesForCandidate(@Param("status") JobListingStatus status,
+                                                @Param("embedding") float[] embedding,
+                                                @Param("candidateId") Long candidateId,
+                                                Pageable pageable);
+
 }
