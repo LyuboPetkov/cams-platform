@@ -47,6 +47,10 @@ public class SecurityConfig {
                         // it, and scoped to GET so that POST /api/job-listings
                         // (create) stays EMPLOYER-only on the very same path.
                         .requestMatchers(HttpMethod.GET, "/api/job-listings").authenticated()
+                        // Same reasoning as the browse carve-out above: /matches is
+                        // candidate-facing and would otherwise fall under the wildcard
+                        // below and get EMPLOYER-gated by accident.
+                        .requestMatchers(HttpMethod.GET, "/api/job-listings/matches").authenticated()
                         .requestMatchers("/api/job-listings/**").hasRole("EMPLOYER")
                         .anyRequest().authenticated()
                 )
