@@ -66,6 +66,15 @@
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		<!-- Not covered by Spring Boot 4.0.6's dependency management (resolved
+		     hibernate-core is 7.2.12.Final); pinned explicitly since no matching
+		     7.2.x hibernate-vector release exists yet — 7.0.2.Final is the newest
+		     published version as of Phase 16. -->
+		<dependency>
+			<groupId>org.hibernate.orm</groupId>
+			<artifactId>hibernate-vector</artifactId>
+			<version>7.2.12.Final</version>
+		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
