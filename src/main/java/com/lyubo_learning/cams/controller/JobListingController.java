@@ -46,7 +46,12 @@ public class JobListingController {
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Page of matching listings retrieved successfully"),
             @ApiResponse(responseCode = "400", description = "A query parameter could not be parsed, e.g. an unknown level or a non-numeric page"),
-            @ApiResponse(responseCode = "401", description = "Missing or invalid JWT token")
+            // Documented as 403 rather than the 401 the other endpoints here claim,
+            // because 403 is what this application actually returns for a missing
+            // token: no AuthenticationEntryPoint is configured, so Spring Security
+            // falls back to Http403ForbiddenEntryPoint. The older 401s in this file
+            // are inaccurate for the same reason and are left as they are.
+            @ApiResponse(responseCode = "403", description = "Missing or invalid JWT token")
     })
     @GetMapping("/api/job-listings")
     public ResponseEntity<PageResponse<JobListingBrowseResponse>> browse(
