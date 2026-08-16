@@ -1,13 +1,30 @@
 services:
 
   db:
-    image: postgres:18-alpine
+    # postgres:18-alpine has no vector extension available; pgvector/pgvector
+    # is the official postgres image with pgvector pre-installed, matching the
+    # same major version (Phase 16 needs CREATE EXTENSION vector — see V18).
+    image: pgvector/pgvector:pg18
     environment:
       POSTGRES_DB: cams_db
       POSTGRES_USER: cams_user
       POSTGRES_PASSWORD: ${DB_PASSWORD}
     volumes:
       - postgres_data:/var/lib/postgresql
+    networks:
+      - cams-network
+
+  # Model weights are downloaded from Hugging Face on first build/run, so the
+  # first `docker compose up --build` needs network access for this service.
+  embedding-service:
+    build:
+      context: ./embedding-service
+      dockerfile: Dockerfile
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     networks:
       - cams-network
 
@@ -20,8 +37,12 @@ services:
       SPRING_DATASOURCE_USERNAME: cams_user
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
       JWT_SECRET: ${JWT_SECRET}
+      EMBEDDING_SERVICE_URL: http://embedding-service:8000
     depends_on:
-      - db
+      db:
+        condition: service_started
+      embedding-service:
+        condition: service_healthy
     ports:
       - "8080:8080"
     networks:
