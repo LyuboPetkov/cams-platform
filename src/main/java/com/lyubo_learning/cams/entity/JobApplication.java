@@ -54,6 +54,13 @@ public class JobApplication {
     @Column(name = "applied_date", nullable = false)
     private LocalDate appliedDate;
 
+    // Null for the freeform rows a user types in themselves; set only on rows the
+    // apply flow auto-creates. Its presence is what makes a row job-board-sourced,
+    // which restricts what update() may change and blocks delete() entirely.
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "candidacy_id")
+    private Candidacy candidacy;
+
     @CreatedDate
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
