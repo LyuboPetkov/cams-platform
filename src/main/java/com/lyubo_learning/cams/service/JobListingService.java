@@ -69,7 +69,12 @@ public class JobListingService {
 
     // Access is company-scoped, not poster-scoped: any employer at the owning
     // company may read, edit and archive the listing.
-    private JobListing getListingOwnedByCompany(Long id) {
+    //
+    // Public rather than private so CandidacyService can resolve-and-authorize a
+    // listing on the employer's behalf. Resolving the company from
+    // SecurityContextHolder stays correct across that call: the invoking request
+    // is still the employer's own JWT.
+    public JobListing getListingOwnedByCompany(Long id) {
         JobListing listing = jobListingRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Job listing not found"));
 

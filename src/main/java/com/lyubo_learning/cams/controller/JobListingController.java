@@ -1,5 +1,6 @@
 package com.lyubo_learning.cams.controller;
 
+import com.lyubo_learning.cams.dto.CandidacyResponse;
 import com.lyubo_learning.cams.dto.JobListingBrowseResponse;
 import com.lyubo_learning.cams.dto.JobListingCreateRequest;
 import com.lyubo_learning.cams.dto.JobListingResponse;
@@ -7,6 +8,7 @@ import com.lyubo_learning.cams.dto.JobListingSkillsUpdateRequest;
 import com.lyubo_learning.cams.dto.JobListingUpdateRequest;
 import com.lyubo_learning.cams.dto.PageResponse;
 import com.lyubo_learning.cams.entity.JobLevel;
+import com.lyubo_learning.cams.service.CandidacyService;
 import com.lyubo_learning.cams.service.JobListingService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -27,6 +29,7 @@ import java.util.List;
 public class JobListingController {
 
     private final JobListingService jobListingService;
+    private final CandidacyService candidacyService;
 
     @Operation(summary = "Browse open job listings",
             description = """
@@ -153,5 +156,21 @@ public class JobListingController {
     @PostMapping("/api/job-listings/{id}/archive")
     public ResponseEntity<JobListingResponse> archive(@PathVariable Long id) {
         return ResponseEntity.ok(jobListingService.archiveListing(id));
+    }
+
+    // Lives here rather than in CandidacyController on purpose: the EMPLOYER role
+    // gate is keyed on the /api/job-listings/** path, not on the controller class,
+    // so this route inherits it for free. That makes this the first controller in
+    // the codebase to depend on a second service — a deliberate shape, not drift.
+    @Operation(summary = "List the candidacies submitted against one of the company's listings",
+            description = "Company-scoped through the same ownership check as the other listing routes.")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Candidacies retrieved successfully"),
+            @ApiResponse(responseCode = "403", description = "Authenticated user is not an employer, or the listing belongs to another company"),
+            @ApiResponse(responseCode = "404", description = "Listing not found")
+    })
+    @GetMapping("/api/job-listings/{id}/candidacies")
+    public ResponseEntity<List<CandidacyResponse>> getCandidacies(@PathVariable Long id) {
+        return ResponseEntity.ok(candidacyService.getCandidaciesForListing(id));
     }
 }

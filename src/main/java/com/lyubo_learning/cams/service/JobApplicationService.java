@@ -4,8 +4,10 @@ import com.lyubo_learning.cams.dto.JobApplicationRequest;
 import com.lyubo_learning.cams.dto.JobApplicationResponse;
 import com.lyubo_learning.cams.entity.ApplicationSource;
 import com.lyubo_learning.cams.entity.ApplicationStatus;
+import com.lyubo_learning.cams.entity.Candidacy;
 import com.lyubo_learning.cams.entity.JobApplication;
 import com.lyubo_learning.cams.entity.User;
+import com.lyubo_learning.cams.exception.JobApplicationLinkedToCandidacyException;
 import com.lyubo_learning.cams.exception.ResourceNotFoundException;
 import com.lyubo_learning.cams.exception.UnauthorizedAccessException;
 import com.lyubo_learning.cams.mapper.JobApplicationMapper;
@@ -67,17 +69,42 @@ public class JobApplicationService {
                 .toList();
     }
 
+    // Called only from CandidacyService.apply(), never from a controller. It runs
+    // inside that method's transaction, so an unknown-listing or duplicate-apply
+    // failure rolls this row back with the candidacy.
+    public JobApplication createFromCandidacy(Candidacy candidacy) {
+        JobApplication application = JobApplication.builder()
+                .user(candidacy.getCandidate())
+                .companyName(candidacy.getJobListing().getCompany().getName())
+                .jobTitle(candidacy.getJobListing().getTitle())
+                .status(ApplicationStatus.APPLIED)
+                .source(ApplicationSource.JOB_BOARD)
+                .appliedDate(candidacy.getAppliedAt().toLocalDate())
+                .candidacy(candidacy)
+                .build();
+
+        return jobApplicationRepository.save(application);
+    }
+
     public JobApplicationResponse update(Long id, JobApplicationRequest request) {
         User user = getAuthenticatedUser();
         JobApplication application = getApplicationOwnedByUser(id, user.getId());
 
-        application.setCompanyName(request.getCompanyName());
-        application.setJobTitle(request.getJobTitle());
-        application.setStatus(request.getStatus());
-        application.setSource(request.getSource());
+        // On a job-board-sourced row the facts of the application belong to the
+        // Candidacy, not to this tracker entry, so they are ignored rather than
+        // rejected — the same "submitted but not applied" shape as
+        // JobListingService.updateListing() ignoring status. Only the user's own
+        // annotations are editable. Freeform rows keep full-overwrite behaviour.
+        if (application.getCandidacy() == null) {
+            application.setCompanyName(request.getCompanyName());
+            application.setJobTitle(request.getJobTitle());
+            application.setStatus(request.getStatus());
+            application.setSource(request.getSource());
+            application.setAppliedDate(request.getAppliedDate());
+        }
+
         application.setJobUrl(request.getJobUrl());
         application.setNotes(request.getNotes());
-        application.setAppliedDate(request.getAppliedDate());
 
         JobApplication saved = jobApplicationRepository.save(application);
         return mapper.toResponse(saved);
@@ -86,6 +113,16 @@ public class JobApplicationService {
     public void delete(Long id) {
         User user = getAuthenticatedUser();
         JobApplication application = getApplicationOwnedByUser(id, user.getId());
+
+        // Deleting this row would not touch the underlying Candidacy, so the
+        // application to the employer would stay live while the candidate's own
+        // record of it vanished. There is no withdraw path yet to make removal
+        // mean anything, so refuse rather than mislead.
+        if (application.getCandidacy() != null) {
+            throw new JobApplicationLinkedToCandidacyException(
+                    "This application was created by applying through the job board and cannot be deleted");
+        }
+
         jobApplicationRepository.delete(application);
     }
 

@@ -77,6 +77,28 @@ public class GlobalExceptionHandler {
                 .body(new ErrorResponse(HttpStatus.CONFLICT.value(), ex.getMessage()));
     }
 
+    @ExceptionHandler(CandidacyAlreadyExistsException.class)
+    public ResponseEntity<ErrorResponse> handleCandidacyAlreadyExists(CandidacyAlreadyExistsException ex) {
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(new ErrorResponse(HttpStatus.CONFLICT.value(), ex.getMessage()));
+    }
+
+    @ExceptionHandler(JobListingNotOpenException.class)
+    public ResponseEntity<ErrorResponse> handleJobListingNotOpen(JobListingNotOpenException ex) {
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(new ErrorResponse(HttpStatus.CONFLICT.value(), ex.getMessage()));
+    }
+
+    @ExceptionHandler(JobApplicationLinkedToCandidacyException.class)
+    public ResponseEntity<ErrorResponse> handleJobApplicationLinkedToCandidacy(
+            JobApplicationLinkedToCandidacyException ex) {
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(new ErrorResponse(HttpStatus.CONFLICT.value(), ex.getMessage()));
+    }
+
     // Without this, an unparseable path variable or query parameter — ?page=abc,
     // ?level=SENOIR, /api/job-listings/abc — falls through to the catch-all below
     // and comes back as a 500, because @ControllerAdvice resolvers run ahead of
