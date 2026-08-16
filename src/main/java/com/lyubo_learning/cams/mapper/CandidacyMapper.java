@@ -39,8 +39,6 @@ public class CandidacyMapper {
     public CandidacyApplicantResponse toApplicantResponse(Candidacy entity,
                                                           CandidateProfile profile,
                                                           List<Skill> skills) {
-        User candidate = entity.getCandidate();
-
         return CandidacyApplicantResponse.builder()
                 .id(entity.getId())
                 .jobListingId(entity.getJobListing().getId())
@@ -48,12 +46,18 @@ public class CandidacyMapper {
                 .companyName(entity.getJobListing().getCompany().getName())
                 .status(entity.getStatus())
                 .appliedAt(entity.getAppliedAt())
-                .candidate(CandidateSummary.builder()
-                        .name(candidate.getFullName())
-                        .email(candidate.getEmail())
-                        .headline(profile == null ? null : profile.getHeadline())
-                        .skills(skills.stream().map(skillMapper::toResponse).toList())
-                        .build())
+                .candidate(toCandidateSummary(entity.getCandidate(), profile, skills))
+                .build();
+    }
+
+    // Shared with MatchingService, which has no Candidacy to build a full
+    // CandidacyApplicantResponse around — it only needs the identity block.
+    public CandidateSummary toCandidateSummary(User candidate, CandidateProfile profile, List<Skill> skills) {
+        return CandidateSummary.builder()
+                .name(candidate.getFullName())
+                .email(candidate.getEmail())
+                .headline(profile == null ? null : profile.getHeadline())
+                .skills(skills.stream().map(skillMapper::toResponse).toList())
                 .build();
     }
 }
