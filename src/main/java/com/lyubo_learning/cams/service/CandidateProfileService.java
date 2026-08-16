@@ -6,6 +6,7 @@ import com.lyubo_learning.cams.entity.CandidateProfile;
 import com.lyubo_learning.cams.entity.CandidateProfileSkill;
 import com.lyubo_learning.cams.entity.Skill;
 import com.lyubo_learning.cams.entity.User;
+import com.lyubo_learning.cams.event.CandidateProfileChangedEvent;
 import com.lyubo_learning.cams.exception.ResourceNotFoundException;
 import com.lyubo_learning.cams.mapper.CandidateProfileMapper;
 import com.lyubo_learning.cams.repository.CandidateProfileRepository;
@@ -13,6 +14,7 @@ import com.lyubo_learning.cams.repository.CandidateProfileSkillRepository;
 import com.lyubo_learning.cams.repository.SkillRepository;
 import com.lyubo_learning.cams.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,6 +33,7 @@ public class CandidateProfileService {
     private final SkillRepository skillRepository;
     private final UserRepository userRepository;
     private final CandidateProfileMapper mapper;
+    private final ApplicationEventPublisher eventPublisher;
 
     private User getAuthenticatedUser() {
         String email = SecurityContextHolder.getContext()
@@ -88,6 +91,7 @@ public class CandidateProfileService {
         }
 
         CandidateProfile saved = candidateProfileRepository.save(profile);
+        eventPublisher.publishEvent(new CandidateProfileChangedEvent(saved.getId()));
         return mapper.toResponse(saved, getSkillsOf(saved));
     }
 
@@ -122,6 +126,7 @@ public class CandidateProfileService {
                 .toList();
         candidateProfileSkillRepository.saveAll(toAdd);
 
+        eventPublisher.publishEvent(new CandidateProfileChangedEvent(profile.getId()));
         return mapper.toResponse(profile, getSkillsOf(profile));
     }
 }

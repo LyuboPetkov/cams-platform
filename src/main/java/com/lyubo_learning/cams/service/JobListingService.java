@@ -12,6 +12,7 @@ import com.lyubo_learning.cams.entity.JobListingSkill;
 import com.lyubo_learning.cams.entity.JobListingStatus;
 import com.lyubo_learning.cams.entity.Skill;
 import com.lyubo_learning.cams.entity.User;
+import com.lyubo_learning.cams.event.JobListingChangedEvent;
 import com.lyubo_learning.cams.exception.JobListingAlreadyArchivedException;
 import com.lyubo_learning.cams.exception.ResourceNotFoundException;
 import com.lyubo_learning.cams.exception.UnauthorizedAccessException;
@@ -21,6 +22,7 @@ import com.lyubo_learning.cams.repository.JobListingSkillRepository;
 import com.lyubo_learning.cams.repository.SkillRepository;
 import com.lyubo_learning.cams.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -46,6 +48,7 @@ public class JobListingService {
     private final SkillRepository skillRepository;
     private final UserRepository userRepository;
     private final JobListingMapper mapper;
+    private final ApplicationEventPublisher eventPublisher;
 
     private User getAuthenticatedUser() {
         String email = SecurityContextHolder.getContext()
@@ -151,6 +154,7 @@ public class JobListingService {
             reconcileSkills(saved, request.getSkillIds());
         }
 
+        eventPublisher.publishEvent(new JobListingChangedEvent(saved.getId()));
         return mapper.toResponse(saved, getSkillsOf(saved));
     }
 
@@ -192,6 +196,7 @@ public class JobListingService {
         }
 
         JobListing saved = jobListingRepository.save(listing);
+        eventPublisher.publishEvent(new JobListingChangedEvent(saved.getId()));
         return mapper.toResponse(saved, getSkillsOf(saved));
     }
 
@@ -201,6 +206,7 @@ public class JobListingService {
 
         reconcileSkills(listing, skillIds);
 
+        eventPublisher.publishEvent(new JobListingChangedEvent(listing.getId()));
         return mapper.toResponse(listing, getSkillsOf(listing));
     }
 

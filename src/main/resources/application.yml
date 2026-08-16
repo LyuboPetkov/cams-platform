@@ -26,6 +26,8 @@ application:
     jwt:
       secret-key: ${JWT_SECRET}
       expiration: 86400000 # 24 hours in milliseconds
+  embedding-service:
+    base-url: ${EMBEDDING_SERVICE_URL:http://localhost:8000}
 
 springdoc:
   swagger-ui:
