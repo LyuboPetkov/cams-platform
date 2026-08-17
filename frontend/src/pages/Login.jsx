@@ -23,8 +23,12 @@ function Login() {
         password,
       })
       login(response.data)
-      const goToEmployerPending = response.data.role === 'EMPLOYER' || response.data.hasPendingEmployerRequest
-      navigate(goToEmployerPending ? '/employer-pending' : '/dashboard')
+      if (response.data.role === 'ADMIN') {
+        navigate('/admin')
+      } else {
+        const goToEmployerPending = response.data.role === 'EMPLOYER' || response.data.hasPendingEmployerRequest
+        navigate(goToEmployerPending ? '/employer-pending' : '/dashboard')
+      }
     } catch (err) {
       setError('Invalid email or password.')
     } finally {

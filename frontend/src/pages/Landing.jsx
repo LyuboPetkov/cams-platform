@@ -9,6 +9,10 @@ function Landing() {
   }
 
   if (user) {
+    if (user.role === 'ADMIN') {
+      return <Navigate to="/admin" replace />
+    }
+
     // /dashboard has no role gate, so it's the one target that can never bounce
     // back here — anything other than a confirmed EMPLOYER or still-pending
     // employer lands there rather than risking a redirect loop with
