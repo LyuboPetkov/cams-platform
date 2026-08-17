@@ -67,8 +67,17 @@ public class AuthService {
         UserDetails userDetails = userDetailsService.loadUserByUsername(user.getEmail());
         String token = jwtUtil.generateToken(userDetails);
 
-        return new AuthResponse(token, user.getEmail(), user.getFullName(), user.getRole());
+        return new AuthResponse(token, user.getEmail(), user.getFullName(), user.getRole(),
+                hasPendingEmployerRequest(user));
 
+    }
+
+    // Same lookup createEmployerRequest() already does to guard against a
+    // duplicate PENDING request, just read-only here.
+    private boolean hasPendingEmployerRequest(User user) {
+        return employerRequestRepository.findFirstByUserIdOrderByRequestedAtDesc(user.getId())
+                .map(request -> request.getStatus() == EmployerRequestStatus.PENDING)
+                .orElse(false);
     }
 
     // A brand-new user can never already have a PENDING request, so this never trips
@@ -115,6 +124,7 @@ public class AuthService {
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new InvalidCredentialsException("Invalid email or password"));
 
-        return new AuthResponse(token, user.getEmail(), user.getFullName(), user.getRole());
+        return new AuthResponse(token, user.getEmail(), user.getFullName(), user.getRole(),
+                hasPendingEmployerRequest(user));
     }
 }
