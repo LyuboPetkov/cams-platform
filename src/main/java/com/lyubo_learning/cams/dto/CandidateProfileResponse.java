@@ -27,6 +27,9 @@ public class CandidateProfileResponse {
     @Schema(description = "Where the candidate is based", example = "Sofia, Bulgaria", nullable = true)
     private String location;
 
+    @Schema(description = "URL of the candidate's profile picture", nullable = true)
+    private String pictureUrl;
+
     @Schema(description = "Whether the candidate is open to remote work; null means not stated", nullable = true)
     private Boolean openToRemote;
 

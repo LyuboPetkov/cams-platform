@@ -40,6 +40,9 @@ public class CandidateProfile {
     @Column(name = "location")
     private String location;
 
+    @Column(name = "picture_url")
+    private String pictureUrl;
+
     @Column(name = "open_to_remote")
     private Boolean openToRemote;
 

@@ -101,6 +101,9 @@ public class CandidateProfileService {
         if (request.getLocation() != null) {
             profile.setLocation(request.getLocation());
         }
+        if (request.getPictureUrl() != null) {
+            profile.setPictureUrl(request.getPictureUrl());
+        }
         if (request.getOpenToRemote() != null) {
             profile.setOpenToRemote(request.getOpenToRemote());
         }

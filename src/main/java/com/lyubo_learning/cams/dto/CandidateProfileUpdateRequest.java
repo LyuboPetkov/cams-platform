@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.URL;
 
 @Getter
 @NoArgsConstructor
@@ -21,6 +22,11 @@ public class CandidateProfileUpdateRequest {
     @Size(max = 255, message = "Location must be at most 255 characters")
     @Schema(description = "Where the candidate is based", example = "Sofia, Bulgaria")
     private String location;
+
+    @URL(message = "Picture URL must be a valid URL")
+    @Size(max = 500, message = "Picture URL must be at most 500 characters")
+    @Schema(description = "URL of the candidate's profile picture")
+    private String pictureUrl;
 
     @Schema(description = "Whether the candidate is open to remote work")
     private Boolean openToRemote;
