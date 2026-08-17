@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import Card from '../components/ui/Card'
 import Button from '../components/ui/Button'
 import LoadingSpinner from '../components/ui/LoadingSpinner'
+import Avatar from '../components/ui/Avatar'
 import {
   getMyProfile,
   updateMyProfile,
@@ -11,6 +12,7 @@ import {
   setMyEducation,
 } from '../api/candidateProfile'
 import { searchSkills } from '../api/skills'
+import { useAuth } from '../context/AuthContext'
 
 const WORKING_HOURS_OPTIONS = [
   { value: '', label: 'Not stated' },
@@ -53,6 +55,8 @@ function toEducationRequest(entry) {
 }
 
 function CandidateProfile() {
+  const { user } = useAuth()
+
   const [profile, setProfile] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -62,6 +66,7 @@ function CandidateProfile() {
   const [headline, setHeadline] = useState('')
   const [description, setDescription] = useState('')
   const [location, setLocation] = useState('')
+  const [pictureUrl, setPictureUrl] = useState('')
   const [openToRemote, setOpenToRemote] = useState(false)
   const [flexibleHours, setFlexibleHours] = useState(false)
   const [desiredWorkingHours, setDesiredWorkingHours] = useState('')
@@ -96,6 +101,7 @@ function CandidateProfile() {
         setHeadline(data.headline ?? '')
         setDescription(data.description ?? '')
         setLocation(data.location ?? '')
+        setPictureUrl(data.pictureUrl ?? '')
         setOpenToRemote(Boolean(data.openToRemote))
         setFlexibleHours(Boolean(data.flexibleHours))
         setDesiredWorkingHours(data.desiredWorkingHours ?? '')
@@ -117,6 +123,7 @@ function CandidateProfile() {
         headline,
         description,
         location,
+        pictureUrl,
         openToRemote,
         flexibleHours,
         desiredWorkingHours: desiredWorkingHours || null,
@@ -249,10 +256,27 @@ function CandidateProfile() {
       <Navbar />
 
       <div className="max-w-3xl mx-auto px-6 py-8 space-y-6">
-        <h1 className="text-2xl font-bold text-gray-800">Your Profile</h1>
+        <div className="flex items-center gap-4">
+          <Avatar src={pictureUrl} name={user?.fullName} size="lg" />
+          <h1 className="text-2xl font-bold text-gray-800">Your Profile</h1>
+        </div>
 
         <Card>
           <form onSubmit={handleSaveProfile} className="space-y-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Picture URL</label>
+              <div className="flex items-center gap-3">
+                <Avatar src={pictureUrl} name={user?.fullName} size="md" />
+                <input
+                  type="url"
+                  value={pictureUrl}
+                  onChange={(e) => setPictureUrl(e.target.value)}
+                  placeholder="https://example.com/photo.jpg"
+                  className="flex-1 border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+            </div>
+
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Headline</label>
               <input

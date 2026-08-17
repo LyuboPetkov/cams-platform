@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import Card from '../components/ui/Card'
 import Button from '../components/ui/Button'
 import LoadingSpinner from '../components/ui/LoadingSpinner'
+import Avatar from '../components/ui/Avatar'
 import { getMyCompany, updateMyCompany } from '../api/companies'
 
 function CompanyProfile() {
@@ -69,7 +70,10 @@ function CompanyProfile() {
       <Navbar />
 
       <div className="max-w-3xl mx-auto px-6 py-8 space-y-6">
-        <h1 className="text-2xl font-bold text-gray-800">Company Profile</h1>
+        <div className="flex items-center gap-4">
+          <Avatar src={logoUrl} name={company.name} size="lg" />
+          <h1 className="text-2xl font-bold text-gray-800">Company Profile</h1>
+        </div>
 
         <Card>
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -118,13 +122,16 @@ function CompanyProfile() {
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Logo URL</label>
-              <input
-                type="url"
-                value={logoUrl}
-                onChange={(e) => setLogoUrl(e.target.value)}
-                placeholder="https://acme.example.com/logo.png"
-                className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
+              <div className="flex items-center gap-3">
+                <Avatar src={logoUrl} name={company.name} size="md" />
+                <input
+                  type="url"
+                  value={logoUrl}
+                  onChange={(e) => setLogoUrl(e.target.value)}
+                  placeholder="https://acme.example.com/logo.png"
+                  className="flex-1 border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
             </div>
 
             <div className="flex items-center gap-3">
