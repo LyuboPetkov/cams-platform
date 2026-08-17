@@ -1,11 +1,15 @@
 package com.lyubo_learning.cams.service;
 
 import com.lyubo_learning.cams.client.EmbeddingClient;
+import com.lyubo_learning.cams.entity.CandidateEducation;
+import com.lyubo_learning.cams.entity.CandidateExperience;
 import com.lyubo_learning.cams.entity.CandidateProfileSkill;
 import com.lyubo_learning.cams.entity.JobListingSkill;
 import com.lyubo_learning.cams.entity.Skill;
 import com.lyubo_learning.cams.event.CandidateProfileChangedEvent;
 import com.lyubo_learning.cams.event.JobListingChangedEvent;
+import com.lyubo_learning.cams.repository.CandidateEducationRepository;
+import com.lyubo_learning.cams.repository.CandidateExperienceRepository;
 import com.lyubo_learning.cams.repository.CandidateProfileRepository;
 import com.lyubo_learning.cams.repository.CandidateProfileSkillRepository;
 import com.lyubo_learning.cams.repository.JobListingRepository;
@@ -21,6 +25,7 @@ import org.springframework.transaction.event.TransactionalEventListener;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 // Listens for the four save-time trigger points (Section 3.5 of the Phase 16
@@ -33,16 +38,34 @@ public class EmbeddingService {
 
     private final CandidateProfileRepository candidateProfileRepository;
     private final CandidateProfileSkillRepository candidateProfileSkillRepository;
+    private final CandidateExperienceRepository candidateExperienceRepository;
+    private final CandidateEducationRepository candidateEducationRepository;
     private final JobListingRepository jobListingRepository;
     private final JobListingSkillRepository jobListingSkillRepository;
     private final EmbeddingClient embeddingClient;
 
-    private String buildEmbeddingText(String headlineOrTitle, String description, List<String> skillNames) {
+    // extraParts is candidate-only (experience/education text, Phase 21b Section
+    // 3.6) — job listings pass an empty list, so this stays the one shared
+    // assembly point for both entity types rather than forking into two methods.
+    private String buildEmbeddingText(String headlineOrTitle, String description, List<String> skillNames,
+                                       List<String> extraParts) {
         List<String> parts = new ArrayList<>();
         if (headlineOrTitle != null && !headlineOrTitle.isBlank()) parts.add(headlineOrTitle);
         if (description != null && !description.isBlank()) parts.add(description);
         if (!skillNames.isEmpty()) parts.add("Skills: " + String.join(", ", skillNames));
+        parts.addAll(extraParts);
         return String.join(". ", parts);
+    }
+
+    private String describeExperience(CandidateExperience experience) {
+        if (experience.getDescription() != null && !experience.getDescription().isBlank()) {
+            return experience.getRoleTitle() + ": " + experience.getDescription();
+        }
+        return experience.getRoleTitle();
+    }
+
+    private String describeEducation(CandidateEducation education) {
+        return education.getLevel() + " at " + education.getInstitutionName();
     }
 
     // @Transactional opens the async thread's own session — the thread has none
@@ -62,7 +85,22 @@ public class EmbeddingService {
                     .map(CandidateProfileSkill::getSkill)
                     .map(Skill::getName)
                     .toList();
-            String text = buildEmbeddingText(profile.getHeadline(), profile.getDescription(), skillNames);
+
+            List<String> experienceParts = candidateExperienceRepository.findByCandidateProfileId(profile.getId())
+                    .stream()
+                    .map(this::describeExperience)
+                    .toList();
+
+            List<String> educationParts = candidateEducationRepository.findByCandidateProfileId(profile.getId())
+                    .stream()
+                    .map(this::describeEducation)
+                    .toList();
+
+            List<String> extraParts = new ArrayList<>();
+            extraParts.addAll(experienceParts);
+            extraParts.addAll(educationParts);
+
+            String text = buildEmbeddingText(profile.getHeadline(), profile.getDescription(), skillNames, extraParts);
             if (text.isBlank()) return;
 
             try {
@@ -86,7 +124,8 @@ public class EmbeddingService {
                     .map(JobListingSkill::getSkill)
                     .map(Skill::getName)
                     .toList();
-            String text = buildEmbeddingText(listing.getTitle(), listing.getDescription(), skillNames);
+            String text = buildEmbeddingText(listing.getTitle(), listing.getDescription(), skillNames,
+                    Collections.emptyList());
             if (text.isBlank()) return;
 
             try {
