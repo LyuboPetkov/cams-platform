@@ -7,3 +7,11 @@ export function applyToListing(jobListingId) {
 export function getMyCandidacies() {
   return axiosInstance.get('/api/candidacies/mine')
 }
+
+export function acceptCandidacy(id) {
+  return axiosInstance.post(`/api/candidacies/${id}/accept`)
+}
+
+export function rejectCandidacy(id) {
+  return axiosInstance.post(`/api/candidacies/${id}/reject`)
+}
