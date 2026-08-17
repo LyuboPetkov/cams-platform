@@ -1,15 +1,19 @@
-import { useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 
-// Static confirmation state only. Real employer dashboard, company setup and
-// /employer-requests/me polling are Phase 20's job — see CAMS_Phase19 brief 3.1.
 function EmployerPending() {
-  const { logout } = useAuth()
+  const { user, logout } = useAuth()
   const navigate = useNavigate()
 
   function handleLogout() {
     logout()
     navigate('/login')
+  }
+
+  // Reachable only by a stale direct navigation now that Login/Landing route
+  // an already-approved EMPLOYER straight to /listings.
+  if (user?.role === 'EMPLOYER') {
+    return <Navigate to="/listings" replace />
   }
 
   return (

@@ -10,9 +10,11 @@ function Landing() {
 
   if (user) {
     // /dashboard has no role gate, so it's the one target that can never bounce
-    // back here — anything other than a confirmed EMPLOYER lands there rather
-    // than risking a redirect loop with /employer-pending's own role gate.
-    return <Navigate to={user.role === 'EMPLOYER' ? '/employer-pending' : '/dashboard'} replace />
+    // back here — anything other than a confirmed EMPLOYER or still-pending
+    // employer lands there rather than risking a redirect loop with
+    // /employer-pending's own role gate.
+    const goToEmployerPending = user.role === 'EMPLOYER' || user.hasPendingEmployerRequest
+    return <Navigate to={goToEmployerPending ? '/employer-pending' : '/dashboard'} replace />
   }
 
   return (
