@@ -11,8 +11,9 @@ useEffect(() => {
   const token = localStorage.getItem('token')
   const email = localStorage.getItem('email')
   const fullName = localStorage.getItem('fullName')
+  const role = localStorage.getItem('role')
   if (token) {
-    setUser({ token, email, fullName })
+    setUser({ token, email, fullName, role })
   }
   setInitializing(false)
 }, [])
@@ -22,13 +23,15 @@ useEffect(() => {
         localStorage.setItem('token', data.token)
         localStorage.setItem('email', data.email)
         localStorage.setItem('fullName', data.fullName)
-        setUser({token: data.token, email: data.email, fullName: data.fullName})
+        localStorage.setItem('role', data.role)
+        setUser({token: data.token, email: data.email, fullName: data.fullName, role: data.role})
     }
 
     function logout() {
         localStorage.removeItem('token')
         localStorage.removeItem('email')
         localStorage.removeItem('fullName')
+        localStorage.removeItem('role')
         setUser(null)
     }
 
