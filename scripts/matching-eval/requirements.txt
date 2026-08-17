@@ -1,0 +1,20 @@
+# Pinned to the exact versions PyPI resolved for these three top-level deps
+# at authoring time (2026-08), same discipline as embedding-service/requirements.txt.
+#
+# UNLIKE embedding-service/requirements.txt, this is NOT a full `pip freeze` of
+# a completed install: this dev sandbox's network proxy (self-signed cert,
+# corrupts/truncates large binary wheel downloads) blocked every attempt to
+# actually complete `pip install` here, in a plain venv, in PowerShell, and
+# inside a fresh Docker container alike - see the Phase 18 session summary.
+# The three versions below ARE real, confirmed by resolving each package's
+# metadata against the live PyPI index (`pip install --dry-run`), just not
+# by a completed install. Regenerate this file for real the first time you
+# run `pip install -r requirements.txt` successfully:
+#   pip install -r requirements.txt && pip freeze > requirements.txt
+#
+# psycopg (v3), not psycopg2: the psycopg project itself designates psycopg2
+# as maintenance-only and recommends psycopg (v3) for new code — checked
+# against the psycopg project's own documentation, not assumed.
+numpy==2.5.2
+psycopg[binary]==3.3.4
+requests==2.34.2

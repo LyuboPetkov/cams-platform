@@ -25,3 +25,7 @@ docs/
 # ESCO source dataset — only needed to regenerate V10; the migration itself
 # is the artifact of record, so the 9MB CSV stays out of the repo
 esco-v1.2.1-en/
+
+# Phase 18 matching-eval scripts — local virtualenv and bytecode cache
+scripts/matching-eval/.venv/
+scripts/matching-eval/__pycache__/
