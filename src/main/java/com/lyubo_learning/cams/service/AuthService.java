@@ -67,7 +67,7 @@ public class AuthService {
         UserDetails userDetails = userDetailsService.loadUserByUsername(user.getEmail());
         String token = jwtUtil.generateToken(userDetails);
 
-        return new AuthResponse(token, user.getEmail(), user.getFullName());
+        return new AuthResponse(token, user.getEmail(), user.getFullName(), user.getRole());
 
     }
 
@@ -115,6 +115,6 @@ public class AuthService {
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new InvalidCredentialsException("Invalid email or password"));
 
-        return new AuthResponse(token, user.getEmail(), user.getFullName());
+        return new AuthResponse(token, user.getEmail(), user.getFullName(), user.getRole());
     }
 }
