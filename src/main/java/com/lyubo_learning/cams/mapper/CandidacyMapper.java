@@ -57,6 +57,7 @@ public class CandidacyMapper {
                 .name(candidate.getFullName())
                 .email(candidate.getEmail())
                 .headline(profile == null ? null : profile.getHeadline())
+                .pictureUrl(profile == null ? null : profile.getPictureUrl())
                 .skills(skills.stream().map(skillMapper::toResponse).toList())
                 .build();
     }

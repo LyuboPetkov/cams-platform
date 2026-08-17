@@ -29,6 +29,9 @@ public class CandidateSummary {
     @Schema(description = "Candidate's headline, if they have filled one in", example = "Backend developer", nullable = true)
     private String headline;
 
+    @Schema(description = "URL of the candidate's profile picture, if they have set one", nullable = true)
+    private String pictureUrl;
+
     @Schema(description = "Skills the candidate selected; empty if they have none or no profile")
     private List<SkillResponse> skills;
 }
