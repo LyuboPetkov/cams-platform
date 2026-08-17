@@ -14,8 +14,14 @@ services:
     # Phase 18: scripts/matching-eval/evaluate_matching.py connects to Postgres
     # directly from the host via psycopg, with no dependency on the backend
     # being up, so the port needs to reach the host, not just other containers.
+    # Host side is 5433, not 5432: a native Windows Postgres service also binds
+    # 5432, and the two competing for the same host port caused two separate
+    # phases (20, 21a) to land on whichever one happened to win nondeterministically
+    # (Phase 21b Section 3.7). Container-to-container traffic (SPRING_DATASOURCE_URL
+    # below, and the backend service in docker-compose.yml) still targets db:5432 —
+    # only the host-facing side changes.
     ports:
-      - "5432:5432"
+      - "5433:5432"
     networks:
       - cams-network
 

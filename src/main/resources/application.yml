@@ -3,7 +3,10 @@ spring:
     name: cams
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/cams_db
+    # Host-side Postgres port is 5433, not 5432 — see docker-compose.local.yml's
+    # db service comment (Phase 21b Section 3.7). Override with DB_URL if
+    # connecting to a Postgres instance on a different host/port.
+    url: ${DB_URL:jdbc:postgresql://localhost:5433/cams_db}
     username: cams_user
     password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver

@@ -34,9 +34,11 @@ docker compose -f docker-compose.local.yml up --build db embedding-service backe
 — same convention as `scripts/smoke-test-phase17.sh`. An ADMIN account must
 already exist (register normally, then `UPDATE users SET role = 'ADMIN' ...`).
 
-`docker-compose.local.yml`'s `db` service now publishes 5432 to the host
-(added in this phase) — `evaluate_matching.py` needs to reach Postgres
-directly, without the backend running at all.
+`docker-compose.local.yml`'s `db` service publishes port **5433** to the host
+(remapped from 5432 in Phase 21b to permanently avoid clashing with a native
+Postgres install also listening on 5432) — `evaluate_matching.py` needs to
+reach Postgres directly, without the backend running at all. `DB_PORT`
+defaults to `5433`; override it if your setup differs.
 
 ## 2. Set up the Python environment
 

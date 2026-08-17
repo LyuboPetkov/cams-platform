@@ -28,7 +28,7 @@ import psycopg
 import rule_based_baseline
 
 DB_HOST = os.environ.get("DB_HOST", "localhost")
-DB_PORT = os.environ.get("DB_PORT", "5432")
+DB_PORT = os.environ.get("DB_PORT", "5433")
 DB_USER = os.environ.get("DB_USER", "cams_user")
 DB_NAME = os.environ.get("DB_NAME", "cams_db")
 DB_PASSWORD = os.environ.get("DB_PASSWORD")

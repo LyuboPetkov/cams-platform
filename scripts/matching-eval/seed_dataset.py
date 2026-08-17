@@ -29,7 +29,7 @@ Env vars (same convention as scripts/smoke-test-phase17.sh):
     CAMS_ADMIN_EMAIL, CAMS_ADMIN_PASSWORD   an existing ADMIN account
     DB_PASSWORD, DB_HOST, DB_PORT, DB_USER, DB_NAME   for the post-seed
                      embedding_updated_at poll (defaults: localhost,
-                     5432, cams_user, cams_db)
+                     5433, cams_user, cams_db)
 """
 
 import json
@@ -46,7 +46,7 @@ ADMIN_EMAIL = os.environ.get("CAMS_ADMIN_EMAIL")
 ADMIN_PASSWORD = os.environ.get("CAMS_ADMIN_PASSWORD")
 
 DB_HOST = os.environ.get("DB_HOST", "localhost")
-DB_PORT = os.environ.get("DB_PORT", "5432")
+DB_PORT = os.environ.get("DB_PORT", "5433")
 DB_USER = os.environ.get("DB_USER", "cams_user")
 DB_NAME = os.environ.get("DB_NAME", "cams_db")
 DB_PASSWORD = os.environ.get("DB_PASSWORD")
