@@ -23,6 +23,21 @@ public class EmployerRequestResponse {
     @Schema(description = "Name of the company", example = "Acme Inc.")
     private String companyName;
 
+    @Schema(description = "Description of the company submitted with the request", nullable = true)
+    private String companyDescription;
+
+    @Schema(description = "Website of the company submitted with the request", nullable = true)
+    private String companyWebsite;
+
+    @Schema(description = "Location of the company submitted with the request", nullable = true)
+    private String companyLocation;
+
+    @Schema(description = "Full name of the user who submitted the request")
+    private String requesterFullName;
+
+    @Schema(description = "Email of the user who submitted the request")
+    private String requesterEmail;
+
     @Schema(description = "Timestamp when the request was submitted")
     private Instant requestedAt;
 

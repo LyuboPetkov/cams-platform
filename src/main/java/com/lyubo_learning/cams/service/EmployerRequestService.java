@@ -47,6 +47,7 @@ public class EmployerRequestService {
         return request;
     }
 
+    @Transactional(readOnly = true)
     public EmployerRequestResponse getMyRequest() {
         User user = getAuthenticatedUser();
         EmployerRequest request = employerRequestRepository.findFirstByUserIdOrderByRequestedAtDesc(user.getId())
@@ -55,6 +56,7 @@ public class EmployerRequestService {
         return mapper.toResponse(request);
     }
 
+    @Transactional(readOnly = true)
     public List<EmployerRequestResponse> listForAdmin(EmployerRequestStatus status) {
         EmployerRequestStatus filter = status != null ? status : EmployerRequestStatus.PENDING;
 
