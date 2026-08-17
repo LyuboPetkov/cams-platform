@@ -39,6 +39,12 @@ public class CandidateProfileResponse {
     @Schema(description = "Skills attached to this profile")
     private List<SkillResponse> skills;
 
+    @Schema(description = "Work experience entries attached to this profile")
+    private List<CandidateExperienceResponse> experience;
+
+    @Schema(description = "Education entries attached to this profile")
+    private List<CandidateEducationResponse> education;
+
     @Schema(description = "Timestamp when the profile was created")
     private LocalDateTime createdAt;
 }
