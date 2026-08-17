@@ -1,5 +1,7 @@
 package com.lyubo_learning.cams.controller;
 
+import com.lyubo_learning.cams.dto.CandidateEducationUpdateRequest;
+import com.lyubo_learning.cams.dto.CandidateExperienceUpdateRequest;
 import com.lyubo_learning.cams.dto.CandidateProfileResponse;
 import com.lyubo_learning.cams.dto.CandidateProfileUpdateRequest;
 import com.lyubo_learning.cams.dto.CandidateSkillsUpdateRequest;
@@ -58,5 +60,33 @@ public class CandidateProfileController {
     public ResponseEntity<CandidateProfileResponse> setMySkills(
             @Valid @RequestBody CandidateSkillsUpdateRequest request) {
         return ResponseEntity.ok(candidateProfileService.setMySkills(request.getSkillIds()));
+    }
+
+    @Operation(summary = "Set the authenticated user's work experience",
+            description = "Replaces the current experience list with the submitted one. An empty list clears it.")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Experience updated successfully"),
+            @ApiResponse(responseCode = "400", description = "Validation failed"),
+            @ApiResponse(responseCode = "401", description = "Missing or invalid JWT token"),
+            @ApiResponse(responseCode = "404", description = "No candidate profile found for this user")
+    })
+    @PutMapping("/api/candidate-profiles/me/experience")
+    public ResponseEntity<CandidateProfileResponse> setMyExperience(
+            @Valid @RequestBody CandidateExperienceUpdateRequest request) {
+        return ResponseEntity.ok(candidateProfileService.setMyExperience(request.getExperiences()));
+    }
+
+    @Operation(summary = "Set the authenticated user's education",
+            description = "Replaces the current education list with the submitted one. An empty list clears it.")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Education updated successfully"),
+            @ApiResponse(responseCode = "400", description = "Validation failed, e.g. endDate before startDate"),
+            @ApiResponse(responseCode = "401", description = "Missing or invalid JWT token"),
+            @ApiResponse(responseCode = "404", description = "No candidate profile found for this user")
+    })
+    @PutMapping("/api/candidate-profiles/me/education")
+    public ResponseEntity<CandidateProfileResponse> setMyEducation(
+            @Valid @RequestBody CandidateEducationUpdateRequest request) {
+        return ResponseEntity.ok(candidateProfileService.setMyEducation(request.getEducations()));
     }
 }
