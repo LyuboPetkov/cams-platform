@@ -113,6 +113,13 @@ public class GlobalExceptionHandler {
                 .body(new ErrorResponse(HttpStatus.CONFLICT.value(), ex.getMessage()));
     }
 
+    @ExceptionHandler(InvalidCandidateDataException.class)
+    public ResponseEntity<ErrorResponse> handleInvalidCandidateData(InvalidCandidateDataException ex) {
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(new ErrorResponse(HttpStatus.BAD_REQUEST.value(), ex.getMessage()));
+    }
+
     // Without this, an unparseable path variable or query parameter — ?page=abc,
     // ?level=SENOIR, /api/job-listings/abc — falls through to the catch-all below
     // and comes back as a 500, because @ControllerAdvice resolvers run ahead of
