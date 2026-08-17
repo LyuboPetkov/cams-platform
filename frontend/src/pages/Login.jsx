@@ -23,7 +23,7 @@ function Login() {
         password,
       })
       login(response.data)
-      navigate('/dashboard')
+      navigate(response.data.role === 'EMPLOYER' ? '/employer-pending' : '/dashboard')
     } catch (err) {
       setError('Invalid email or password.')
     } finally {
