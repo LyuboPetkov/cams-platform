@@ -5,6 +5,7 @@ import Card from '../components/ui/Card'
 import Button from '../components/ui/Button'
 import EmptyState from '../components/ui/EmptyState'
 import LoadingSpinner from '../components/ui/LoadingSpinner'
+import Avatar from '../components/ui/Avatar'
 import { browseListings } from '../api/jobListings'
 import { searchSkills } from '../api/skills'
 
@@ -201,10 +202,13 @@ function BrowseListings() {
                       <h3 className="text-base font-semibold text-gray-800">{listing.title}</h3>
                       <span className="text-xs text-gray-500">{listing.level}</span>
                     </div>
-                    <p className="text-sm text-gray-500 mt-1">
-                      {listing.company?.name} · {listing.location || 'No location listed'}
-                      {listing.remote ? ' · Remote' : ''}
-                    </p>
+                    <div className="flex items-center gap-2 mt-1">
+                      <Avatar src={listing.company?.logoUrl} name={listing.company?.name} size="sm" />
+                      <p className="text-sm text-gray-500">
+                        {listing.company?.name} · {listing.location || 'No location listed'}
+                        {listing.remote ? ' · Remote' : ''}
+                      </p>
+                    </div>
                     {listing.skills?.length > 0 && (
                       <div className="flex flex-wrap gap-1.5 mt-2">
                         {listing.skills.map((skill) => (

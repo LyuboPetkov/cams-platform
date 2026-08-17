@@ -6,6 +6,7 @@ import Badge from '../components/ui/Badge'
 import Button from '../components/ui/Button'
 import EmptyState from '../components/ui/EmptyState'
 import LoadingSpinner from '../components/ui/LoadingSpinner'
+import Avatar from '../components/ui/Avatar'
 import {
   getListing,
   updateListing,
@@ -366,11 +367,18 @@ function ManageListing() {
                   className="border border-gray-200 rounded-lg p-4"
                 >
                   <div className="flex items-center justify-between">
-                    <div>
-                      <h3 className="text-sm font-semibold text-gray-800">
-                        {candidacy.candidate.name}
-                      </h3>
-                      <p className="text-sm text-gray-500">{candidacy.candidate.email}</p>
+                    <div className="flex items-center gap-3">
+                      <Avatar
+                        src={candidacy.candidate.pictureUrl}
+                        name={candidacy.candidate.name}
+                        size="sm"
+                      />
+                      <div>
+                        <h3 className="text-sm font-semibold text-gray-800">
+                          {candidacy.candidate.name}
+                        </h3>
+                        <p className="text-sm text-gray-500">{candidacy.candidate.email}</p>
+                      </div>
                     </div>
                     <Badge status={candidacy.status} colors={CANDIDACY_STATUS_COLORS} />
                   </div>

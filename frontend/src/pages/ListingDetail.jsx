@@ -3,6 +3,7 @@ import { useLocation, useNavigate, Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Card from '../components/ui/Card'
 import Button from '../components/ui/Button'
+import Avatar from '../components/ui/Avatar'
 import { applyToListing } from '../api/candidacies'
 
 // There is no candidate-facing GET /api/job-listings/{id} — that route is
@@ -69,12 +70,15 @@ function ListingDetail() {
 
         <Card>
           <div className="flex items-start justify-between">
-            <div>
-              <h1 className="text-xl font-bold text-gray-800">{listing.title}</h1>
-              <p className="text-sm text-gray-500 mt-1">
-                {listing.company?.name} · {listing.location || 'No location listed'}
-                {listing.remote ? ' · Remote' : ''}
-              </p>
+            <div className="flex items-start gap-3">
+              <Avatar src={listing.company?.logoUrl} name={listing.company?.name} size="md" />
+              <div>
+                <h1 className="text-xl font-bold text-gray-800">{listing.title}</h1>
+                <p className="text-sm text-gray-500 mt-1">
+                  {listing.company?.name} · {listing.location || 'No location listed'}
+                  {listing.remote ? ' · Remote' : ''}
+                </p>
+              </div>
             </div>
             <span className="text-xs font-medium text-gray-500 bg-gray-100 px-2.5 py-1 rounded-full">
               {listing.level}
