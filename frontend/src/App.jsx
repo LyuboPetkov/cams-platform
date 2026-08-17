@@ -1,18 +1,33 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import ProtectedRoute from './components/ProtectedRoute'
+import Landing from './pages/Landing'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import EmployerPending from './pages/EmployerPending'
 import ApplicationsList from './pages/ApplicationsList'
 import CreateApplication from './pages/CreateApplication'
 import EditApplication from './pages/EditApplication'
 import Dashboard from './pages/Dashboard'
+import CandidateProfile from './pages/CandidateProfile'
+import BrowseListings from './pages/BrowseListings'
+import ListingDetail from './pages/ListingDetail'
+import MyCandidacies from './pages/MyCandidacies'
+import CandidateMatches from './pages/CandidateMatches'
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/applications" replace />} />
+      <Route path="/" element={<Landing />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route
+        path="/employer-pending"
+        element={
+          <ProtectedRoute role="EMPLOYER">
+            <EmployerPending />
+          </ProtectedRoute>
+        }
+      />
       <Route
         path="/dashboard"
         element={
@@ -42,6 +57,46 @@ function App() {
         element={
           <ProtectedRoute>
             <EditApplication />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/profile"
+        element={
+          <ProtectedRoute role="CANDIDATE">
+            <CandidateProfile />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/jobs"
+        element={
+          <ProtectedRoute role="CANDIDATE">
+            <BrowseListings />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/jobs/:id"
+        element={
+          <ProtectedRoute role="CANDIDATE">
+            <ListingDetail />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/candidacies"
+        element={
+          <ProtectedRoute role="CANDIDATE">
+            <MyCandidacies />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/matches"
+        element={
+          <ProtectedRoute role="CANDIDATE">
+            <CandidateMatches />
           </ProtectedRoute>
         }
       />
