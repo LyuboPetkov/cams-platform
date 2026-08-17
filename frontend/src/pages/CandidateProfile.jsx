@@ -3,7 +3,13 @@ import Navbar from '../components/Navbar'
 import Card from '../components/ui/Card'
 import Button from '../components/ui/Button'
 import LoadingSpinner from '../components/ui/LoadingSpinner'
-import { getMyProfile, updateMyProfile, setMySkills } from '../api/candidateProfile'
+import {
+  getMyProfile,
+  updateMyProfile,
+  setMySkills,
+  setMyExperience,
+  setMyEducation,
+} from '../api/candidateProfile'
 import { searchSkills } from '../api/skills'
 
 const WORKING_HOURS_OPTIONS = [
@@ -12,6 +18,39 @@ const WORKING_HOURS_OPTIONS = [
   { value: 'PART_TIME', label: 'Part-time' },
   { value: 'EITHER', label: 'Either' },
 ]
+
+const EDUCATION_LEVEL_OPTIONS = [
+  { value: 'SECONDARY', label: 'Secondary' },
+  { value: 'BACHELORS', label: "Bachelor's" },
+  { value: 'MASTERS', label: "Master's" },
+  { value: 'DOCTORATE', label: 'Doctorate' },
+  { value: 'OTHER', label: 'Other' },
+]
+
+function formatMonthYear(dateStr) {
+  const [year, month] = dateStr.split('-')
+  return new Date(Number(year), Number(month) - 1).toLocaleDateString('en-US', {
+    month: 'short',
+    year: 'numeric',
+  })
+}
+
+function toExperienceRequest(entry) {
+  return {
+    roleTitle: entry.roleTitle,
+    yearsOfExperience: entry.yearsOfExperience,
+    description: entry.description,
+  }
+}
+
+function toEducationRequest(entry) {
+  return {
+    institutionName: entry.institutionName,
+    level: entry.level,
+    startDate: entry.startDate,
+    endDate: entry.endDate,
+  }
+}
 
 function CandidateProfile() {
   const [profile, setProfile] = useState(null)
@@ -30,6 +69,23 @@ function CandidateProfile() {
   const [skillSearch, setSkillSearch] = useState('')
   const [skillResults, setSkillResults] = useState([])
   const [skillsSaving, setSkillsSaving] = useState(false)
+
+  const [experienceForm, setExperienceForm] = useState({
+    roleTitle: '',
+    yearsOfExperience: '',
+    description: '',
+  })
+  const [experienceSaving, setExperienceSaving] = useState(false)
+  const [experienceError, setExperienceError] = useState(null)
+
+  const [educationForm, setEducationForm] = useState({
+    institutionName: '',
+    level: 'BACHELORS',
+    startMonth: '',
+    endMonth: '',
+  })
+  const [educationSaving, setEducationSaving] = useState(false)
+  const [educationError, setEducationError] = useState(null)
 
   function loadProfile() {
     setLoading(true)
@@ -109,6 +165,65 @@ function CandidateProfile() {
     } finally {
       setSkillsSaving(false)
     }
+  }
+
+  async function saveExperience(entries) {
+    setExperienceSaving(true)
+    setExperienceError(null)
+    try {
+      const response = await setMyExperience(entries.map(toExperienceRequest))
+      setProfile(response.data)
+    } catch {
+      setExperienceError('Failed to update experience.')
+    } finally {
+      setExperienceSaving(false)
+    }
+  }
+
+  async function addExperience(e) {
+    e.preventDefault()
+    if (!experienceForm.roleTitle.trim()) return
+    const entry = {
+      roleTitle: experienceForm.roleTitle,
+      yearsOfExperience: Number(experienceForm.yearsOfExperience) || 0,
+      description: experienceForm.description || null,
+    }
+    await saveExperience([...profile.experience, entry])
+    setExperienceForm({ roleTitle: '', yearsOfExperience: '', description: '' })
+  }
+
+  async function removeExperience(id) {
+    await saveExperience(profile.experience.filter((entry) => entry.id !== id))
+  }
+
+  async function saveEducation(entries) {
+    setEducationSaving(true)
+    setEducationError(null)
+    try {
+      const response = await setMyEducation(entries.map(toEducationRequest))
+      setProfile(response.data)
+    } catch (err) {
+      setEducationError(err.response?.data?.message || 'Failed to update education.')
+    } finally {
+      setEducationSaving(false)
+    }
+  }
+
+  async function addEducation(e) {
+    e.preventDefault()
+    if (!educationForm.institutionName.trim() || !educationForm.startMonth) return
+    const entry = {
+      institutionName: educationForm.institutionName,
+      level: educationForm.level,
+      startDate: `${educationForm.startMonth}-01`,
+      endDate: educationForm.endMonth ? `${educationForm.endMonth}-01` : null,
+    }
+    await saveEducation([...profile.education, entry])
+    setEducationForm({ institutionName: '', level: 'BACHELORS', startMonth: '', endMonth: '' })
+  }
+
+  async function removeEducation(id) {
+    await saveEducation(profile.education.filter((entry) => entry.id !== id))
   }
 
   if (loading) {
@@ -270,6 +385,149 @@ function CandidateProfile() {
               })}
             </div>
           )}
+        </Card>
+
+        <Card>
+          <h2 className="text-sm font-semibold text-gray-700 mb-4">Experience</h2>
+
+          <div className="space-y-3 mb-4">
+            {profile.experience.length === 0 && (
+              <p className="text-sm text-gray-500">No experience added yet.</p>
+            )}
+            {profile.experience.map((entry) => (
+              <div
+                key={entry.id}
+                className="flex items-start justify-between gap-3 border border-gray-200 rounded p-3"
+              >
+                <div>
+                  <p className="text-sm font-medium text-gray-800">
+                    {entry.roleTitle} · {entry.yearsOfExperience} yr{entry.yearsOfExperience === 1 ? '' : 's'}
+                  </p>
+                  {entry.description && (
+                    <p className="text-sm text-gray-500 mt-1">{entry.description}</p>
+                  )}
+                </div>
+                <button
+                  type="button"
+                  onClick={() => removeExperience(entry.id)}
+                  disabled={experienceSaving}
+                  className="text-xs text-gray-400 hover:text-red-500 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
+                >
+                  Remove
+                </button>
+              </div>
+            ))}
+          </div>
+
+          {experienceError && <p className="text-sm text-red-500 mb-3">{experienceError}</p>}
+
+          <form onSubmit={addExperience} className="space-y-2">
+            <div className="grid grid-cols-3 gap-2">
+              <input
+                type="text"
+                value={experienceForm.roleTitle}
+                onChange={(e) => setExperienceForm({ ...experienceForm, roleTitle: e.target.value })}
+                placeholder="Role title"
+                className="col-span-2 border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <input
+                type="number"
+                min="0"
+                value={experienceForm.yearsOfExperience}
+                onChange={(e) =>
+                  setExperienceForm({ ...experienceForm, yearsOfExperience: e.target.value })
+                }
+                placeholder="Years"
+                className="border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <textarea
+              value={experienceForm.description}
+              onChange={(e) => setExperienceForm({ ...experienceForm, description: e.target.value })}
+              rows={2}
+              placeholder="Description (optional)"
+              className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <Button type="submit" variant="secondary" disabled={experienceSaving}>
+              {experienceSaving ? 'Adding...' : 'Add'}
+            </Button>
+          </form>
+        </Card>
+
+        <Card>
+          <h2 className="text-sm font-semibold text-gray-700 mb-4">Education</h2>
+
+          <div className="space-y-3 mb-4">
+            {profile.education.length === 0 && (
+              <p className="text-sm text-gray-500">No education added yet.</p>
+            )}
+            {profile.education.map((entry) => (
+              <div
+                key={entry.id}
+                className="flex items-start justify-between gap-3 border border-gray-200 rounded p-3"
+              >
+                <div>
+                  <p className="text-sm font-medium text-gray-800">
+                    {entry.institutionName} ·{' '}
+                    {EDUCATION_LEVEL_OPTIONS.find((opt) => opt.value === entry.level)?.label ?? entry.level}
+                  </p>
+                  <p className="text-sm text-gray-500 mt-1">
+                    {formatMonthYear(entry.startDate)} –{' '}
+                    {entry.endDate ? formatMonthYear(entry.endDate) : 'Present / Expected'}
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => removeEducation(entry.id)}
+                  disabled={educationSaving}
+                  className="text-xs text-gray-400 hover:text-red-500 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
+                >
+                  Remove
+                </button>
+              </div>
+            ))}
+          </div>
+
+          {educationError && <p className="text-sm text-red-500 mb-3">{educationError}</p>}
+
+          <form onSubmit={addEducation} className="space-y-2">
+            <input
+              type="text"
+              value={educationForm.institutionName}
+              onChange={(e) => setEducationForm({ ...educationForm, institutionName: e.target.value })}
+              placeholder="Institution name"
+              className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <div className="grid grid-cols-3 gap-2">
+              <select
+                value={educationForm.level}
+                onChange={(e) => setEducationForm({ ...educationForm, level: e.target.value })}
+                className="border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                {EDUCATION_LEVEL_OPTIONS.map((opt) => (
+                  <option key={opt.value} value={opt.value}>
+                    {opt.label}
+                  </option>
+                ))}
+              </select>
+              <input
+                type="month"
+                value={educationForm.startMonth}
+                onChange={(e) => setEducationForm({ ...educationForm, startMonth: e.target.value })}
+                className="border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <input
+                type="month"
+                value={educationForm.endMonth}
+                onChange={(e) => setEducationForm({ ...educationForm, endMonth: e.target.value })}
+                placeholder="End (optional)"
+                className="border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <Button type="submit" variant="secondary" disabled={educationSaving}>
+              {educationSaving ? 'Adding...' : 'Add'}
+            </Button>
+          </form>
         </Card>
       </div>
     </div>

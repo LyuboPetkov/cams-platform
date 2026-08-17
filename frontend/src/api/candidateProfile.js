@@ -11,3 +11,11 @@ export function updateMyProfile(data) {
 export function setMySkills(skillIds) {
   return axiosInstance.put('/api/candidate-profiles/me/skills', { skillIds })
 }
+
+export function setMyExperience(experiences) {
+  return axiosInstance.put('/api/candidate-profiles/me/experience', { experiences })
+}
+
+export function setMyEducation(educations) {
+  return axiosInstance.put('/api/candidate-profiles/me/education', { educations })
+}
