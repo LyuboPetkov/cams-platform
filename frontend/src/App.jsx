@@ -13,6 +13,10 @@ import BrowseListings from './pages/BrowseListings'
 import ListingDetail from './pages/ListingDetail'
 import MyCandidacies from './pages/MyCandidacies'
 import CandidateMatches from './pages/CandidateMatches'
+import CompanyProfile from './pages/CompanyProfile'
+import MyListings from './pages/MyListings'
+import CreateListing from './pages/CreateListing'
+import ManageListing from './pages/ManageListing'
 
 function App() {
   return (
@@ -101,6 +105,38 @@ function App() {
         element={
           <ProtectedRoute role="CANDIDATE">
             <CandidateMatches />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/company"
+        element={
+          <ProtectedRoute role="EMPLOYER">
+            <CompanyProfile />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/listings"
+        element={
+          <ProtectedRoute role="EMPLOYER">
+            <MyListings />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/listings/new"
+        element={
+          <ProtectedRoute role="EMPLOYER">
+            <CreateListing />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/listings/:id"
+        element={
+          <ProtectedRoute role="EMPLOYER">
+            <ManageListing />
           </ProtectedRoute>
         }
       />

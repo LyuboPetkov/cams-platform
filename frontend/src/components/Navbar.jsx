@@ -10,10 +10,16 @@ const CANDIDATE_LINKS = [
   { to: '/profile', label: 'Profile' },
 ]
 
+const EMPLOYER_LINKS = [
+  { to: '/company', label: 'Company' },
+  { to: '/listings', label: 'My Listings' },
+]
+
 function Navbar() {
   const { user, logout } = useAuth()
   const navigate = useNavigate()
   const isCandidate = user?.role === 'CANDIDATE'
+  const isEmployer = user?.role === 'EMPLOYER'
 
   function handleLogout() {
     logout()
@@ -26,7 +32,7 @@ function Navbar() {
         <Link to="/" className="text-lg font-bold text-blue-600">
           CAMS
         </Link>
-        {isCandidate ? (
+        {isCandidate && (
           CANDIDATE_LINKS.map((link) => (
             <NavLink
               key={link.to}
@@ -40,7 +46,23 @@ function Navbar() {
               {link.label}
             </NavLink>
           ))
-        ) : (
+        )}
+        {isEmployer && (
+          EMPLOYER_LINKS.map((link) => (
+            <NavLink
+              key={link.to}
+              to={link.to}
+              className={({ isActive }) =>
+                `text-sm font-medium transition-colors ${
+                  isActive ? 'text-blue-600' : 'text-gray-500 hover:text-gray-900'
+                }`
+              }
+            >
+              {link.label}
+            </NavLink>
+          ))
+        )}
+        {!isCandidate && !isEmployer && (
           <span className="text-sm text-gray-500">
             Your employer account is pending review
           </span>
