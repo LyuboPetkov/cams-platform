@@ -17,6 +17,7 @@ import CompanyProfile from './pages/CompanyProfile'
 import MyListings from './pages/MyListings'
 import CreateListing from './pages/CreateListing'
 import ManageListing from './pages/ManageListing'
+import AdminEmployerRequests from './pages/AdminEmployerRequests'
 
 function App() {
   return (
@@ -137,6 +138,14 @@ function App() {
         element={
           <ProtectedRoute role="EMPLOYER">
             <ManageListing />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/admin"
+        element={
+          <ProtectedRoute role="ADMIN">
+            <AdminEmployerRequests />
           </ProtectedRoute>
         }
       />
