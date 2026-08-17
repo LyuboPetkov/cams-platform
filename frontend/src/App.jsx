@@ -23,7 +23,11 @@ function App() {
       <Route
         path="/employer-pending"
         element={
-          <ProtectedRoute role="EMPLOYER">
+          // Not role-gated to EMPLOYER: a just-registered pending employer is
+          // still role=CANDIDATE until an admin approves them (see
+          // EmployerRequestService.approve), so this route has to be reachable
+          // by both that state and an already-approved EMPLOYER.
+          <ProtectedRoute>
             <EmployerPending />
           </ProtectedRoute>
         }

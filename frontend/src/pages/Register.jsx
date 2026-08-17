@@ -35,7 +35,10 @@ function Register() {
     try {
       const response = await axiosInstance.post('/api/auth/register', payload)
       login(response.data)
-      navigate(response.data.role === 'EMPLOYER' ? '/employer-pending' : '/dashboard')
+      // The account stays role=CANDIDATE until an admin approves the employer
+      // request (see EmployerRequestService.approve) — the toggle, not the
+      // response role, is what tells us registration was the employer branch.
+      navigate(isEmployer ? '/employer-pending' : '/dashboard')
     } catch (err) {
       if (err.response?.status === 409) {
         setError('An account with this email already exists.')

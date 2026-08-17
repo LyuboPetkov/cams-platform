@@ -9,7 +9,10 @@ function Landing() {
   }
 
   if (user) {
-    return <Navigate to={user.role === 'CANDIDATE' ? '/dashboard' : '/employer-pending'} replace />
+    // /dashboard has no role gate, so it's the one target that can never bounce
+    // back here — anything other than a confirmed EMPLOYER lands there rather
+    // than risking a redirect loop with /employer-pending's own role gate.
+    return <Navigate to={user.role === 'EMPLOYER' ? '/employer-pending' : '/dashboard'} replace />
   }
 
   return (
