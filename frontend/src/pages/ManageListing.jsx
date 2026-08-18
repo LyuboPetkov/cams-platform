@@ -7,6 +7,8 @@ import Button from '../components/ui/Button'
 import EmptyState from '../components/ui/EmptyState'
 import LoadingSpinner from '../components/ui/LoadingSpinner'
 import Avatar from '../components/ui/Avatar'
+import SkillTypeahead from '../components/ui/SkillTypeahead'
+import SavedIndicator from '../components/ui/SavedIndicator'
 import {
   getListing,
   updateListing,
@@ -16,7 +18,6 @@ import {
   getMatchesForListing,
 } from '../api/jobListings'
 import { acceptCandidacy, rejectCandidacy } from '../api/candidacies'
-import { searchSkills } from '../api/skills'
 
 const LEVEL_OPTIONS = ['INTERN', 'JUNIOR', 'MID', 'SENIOR']
 const CANDIDACY_STATUS_COLORS = {
@@ -40,9 +41,8 @@ function ManageListing() {
   const [saving, setSaving] = useState(false)
   const [saveMessage, setSaveMessage] = useState(null)
 
-  const [skillSearch, setSkillSearch] = useState('')
-  const [skillResults, setSkillResults] = useState([])
   const [skillsSaving, setSkillsSaving] = useState(false)
+  const [skillsSavedAt, setSkillsSavedAt] = useState(null)
 
   const [archiving, setArchiving] = useState(false)
 
@@ -116,20 +116,6 @@ function ManageListing() {
     }
   }
 
-  async function handleSkillSearch(e) {
-    e.preventDefault()
-    if (!skillSearch.trim()) {
-      setSkillResults([])
-      return
-    }
-    try {
-      const response = await searchSkills(skillSearch)
-      setSkillResults(response.data)
-    } catch {
-      setSkillResults([])
-    }
-  }
-
   async function addSkill(skill) {
     if (listing.skills.some((s) => s.id === skill.id)) return
     const nextSkillIds = [...listing.skills.map((s) => s.id), skill.id]
@@ -146,6 +132,7 @@ function ManageListing() {
     try {
       const response = await setListingSkills(id, skillIds)
       setListing(response.data)
+      setSkillsSavedAt((tick) => tick + 1)
     } catch {
       setSaveMessage('Failed to update skills.')
     } finally {
@@ -278,7 +265,10 @@ function ManageListing() {
         </Card>
 
         <Card>
-          <h2 className="text-sm font-semibold text-gray-700 mb-4">Skills</h2>
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-sm font-semibold text-gray-700">Skills</h2>
+            <SavedIndicator trigger={skillsSavedAt} />
+          </div>
 
           <div className="flex flex-wrap gap-2 mb-4">
             {listing.skills.length === 0 && (
@@ -302,35 +292,11 @@ function ManageListing() {
             ))}
           </div>
 
-          <form onSubmit={handleSkillSearch} className="flex gap-2 mb-3">
-            <input
-              type="text"
-              value={skillSearch}
-              onChange={(e) => setSkillSearch(e.target.value)}
-              placeholder="Search skills to require"
-              className="flex-1 border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <Button type="submit" variant="secondary">Search</Button>
-          </form>
-
-          {skillResults.length > 0 && (
-            <div className="flex flex-wrap gap-2">
-              {skillResults.map((skill) => {
-                const alreadyAdded = listing.skills.some((s) => s.id === skill.id)
-                return (
-                  <button
-                    key={skill.id}
-                    type="button"
-                    disabled={alreadyAdded || skillsSaving}
-                    onClick={() => addSkill(skill)}
-                    className="text-xs font-medium px-2.5 py-1 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
-                  >
-                    {alreadyAdded ? `${skill.name} (added)` : `+ ${skill.name}`}
-                  </button>
-                )
-              })}
-            </div>
-          )}
+          <SkillTypeahead
+            excludeIds={listing.skills.map((s) => s.id)}
+            onSelect={addSkill}
+            placeholder="Search skills to require"
+          />
         </Card>
 
         <Card>
