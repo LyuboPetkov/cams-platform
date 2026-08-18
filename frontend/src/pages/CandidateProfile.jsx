@@ -1,9 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Navbar from '../components/Navbar'
 import Card from '../components/ui/Card'
 import Button from '../components/ui/Button'
 import LoadingSpinner from '../components/ui/LoadingSpinner'
 import Avatar from '../components/ui/Avatar'
+import SkillTypeahead from '../components/ui/SkillTypeahead'
+import SavedIndicator from '../components/ui/SavedIndicator'
 import {
   getMyProfile,
   updateMyProfile,
@@ -11,8 +13,9 @@ import {
   setMyExperience,
   setMyEducation,
 } from '../api/candidateProfile'
-import { searchSkills } from '../api/skills'
 import { useAuth } from '../context/AuthContext'
+
+const PROFILE_AUTOSAVE_DEBOUNCE_MS = 800
 
 const WORKING_HOURS_OPTIONS = [
   { value: '', label: 'Not stated' },
@@ -60,7 +63,6 @@ function CandidateProfile() {
   const [profile, setProfile] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
-  const [saving, setSaving] = useState(false)
   const [saveMessage, setSaveMessage] = useState(null)
 
   const [headline, setHeadline] = useState('')
@@ -70,10 +72,11 @@ function CandidateProfile() {
   const [openToRemote, setOpenToRemote] = useState(false)
   const [flexibleHours, setFlexibleHours] = useState(false)
   const [desiredWorkingHours, setDesiredWorkingHours] = useState('')
+  const [profileSavedAt, setProfileSavedAt] = useState(null)
+  const skipProfileAutosaveRef = useRef(true)
 
-  const [skillSearch, setSkillSearch] = useState('')
-  const [skillResults, setSkillResults] = useState([])
   const [skillsSaving, setSkillsSaving] = useState(false)
+  const [skillsSavedAt, setSkillsSavedAt] = useState(null)
 
   const [experienceForm, setExperienceForm] = useState({
     roleTitle: '',
@@ -82,6 +85,7 @@ function CandidateProfile() {
   })
   const [experienceSaving, setExperienceSaving] = useState(false)
   const [experienceError, setExperienceError] = useState(null)
+  const [experienceSavedAt, setExperienceSavedAt] = useState(null)
 
   const [educationForm, setEducationForm] = useState({
     institutionName: '',
@@ -91,6 +95,7 @@ function CandidateProfile() {
   })
   const [educationSaving, setEducationSaving] = useState(false)
   const [educationError, setEducationError] = useState(null)
+  const [educationSavedAt, setEducationSavedAt] = useState(null)
 
   function loadProfile() {
     setLoading(true)
@@ -105,6 +110,7 @@ function CandidateProfile() {
         setOpenToRemote(Boolean(data.openToRemote))
         setFlexibleHours(Boolean(data.flexibleHours))
         setDesiredWorkingHours(data.desiredWorkingHours ?? '')
+        skipProfileAutosaveRef.current = true
       })
       .catch(() => setError('Failed to load your profile.'))
       .finally(() => setLoading(false))
@@ -114,12 +120,25 @@ function CandidateProfile() {
     loadProfile()
   }, [])
 
-  async function handleSaveProfile(e) {
-    e.preventDefault()
-    setSaving(true)
+  async function saveProfileFields(fields) {
     setSaveMessage(null)
     try {
-      const response = await updateMyProfile({
+      const response = await updateMyProfile(fields)
+      setProfile(response.data)
+      setProfileSavedAt((tick) => tick + 1)
+    } catch {
+      setSaveMessage('Failed to save profile.')
+    }
+  }
+
+  useEffect(() => {
+    if (skipProfileAutosaveRef.current) {
+      skipProfileAutosaveRef.current = false
+      return
+    }
+
+    const timer = setTimeout(() => {
+      saveProfileFields({
         headline,
         description,
         location,
@@ -128,28 +147,10 @@ function CandidateProfile() {
         flexibleHours,
         desiredWorkingHours: desiredWorkingHours || null,
       })
-      setProfile(response.data)
-      setSaveMessage('Profile saved.')
-    } catch {
-      setSaveMessage('Failed to save profile.')
-    } finally {
-      setSaving(false)
-    }
-  }
+    }, PROFILE_AUTOSAVE_DEBOUNCE_MS)
 
-  async function handleSkillSearch(e) {
-    e.preventDefault()
-    if (!skillSearch.trim()) {
-      setSkillResults([])
-      return
-    }
-    try {
-      const response = await searchSkills(skillSearch)
-      setSkillResults(response.data)
-    } catch {
-      setSkillResults([])
-    }
-  }
+    return () => clearTimeout(timer)
+  }, [headline, description, location, pictureUrl, openToRemote, flexibleHours, desiredWorkingHours])
 
   async function addSkill(skill) {
     if (profile.skills.some((s) => s.id === skill.id)) return
@@ -167,6 +168,7 @@ function CandidateProfile() {
     try {
       const response = await setMySkills(skillIds)
       setProfile(response.data)
+      setSkillsSavedAt((tick) => tick + 1)
     } catch {
       setSaveMessage('Failed to update skills.')
     } finally {
@@ -180,6 +182,7 @@ function CandidateProfile() {
     try {
       const response = await setMyExperience(entries.map(toExperienceRequest))
       setProfile(response.data)
+      setExperienceSavedAt((tick) => tick + 1)
     } catch {
       setExperienceError('Failed to update experience.')
     } finally {
@@ -209,6 +212,7 @@ function CandidateProfile() {
     try {
       const response = await setMyEducation(entries.map(toEducationRequest))
       setProfile(response.data)
+      setEducationSavedAt((tick) => tick + 1)
     } catch (err) {
       setEducationError(err.response?.data?.message || 'Failed to update education.')
     } finally {
@@ -262,7 +266,7 @@ function CandidateProfile() {
         </div>
 
         <Card>
-          <form onSubmit={handleSaveProfile} className="space-y-4">
+          <div className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Picture URL</label>
               <div className="flex items-center gap-3">
@@ -347,16 +351,17 @@ function CandidateProfile() {
             </div>
 
             <div className="flex items-center gap-3">
-              <Button type="submit" disabled={saving}>
-                {saving ? 'Saving...' : 'Save Profile'}
-              </Button>
-              {saveMessage && <span className="text-sm text-gray-500">{saveMessage}</span>}
+              <SavedIndicator trigger={profileSavedAt} />
+              {saveMessage && <span className="text-sm text-red-500">{saveMessage}</span>}
             </div>
-          </form>
+          </div>
         </Card>
 
         <Card>
-          <h2 className="text-sm font-semibold text-gray-700 mb-4">Skills</h2>
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-sm font-semibold text-gray-700">Skills</h2>
+            <SavedIndicator trigger={skillsSavedAt} />
+          </div>
 
           <div className="flex flex-wrap gap-2 mb-4">
             {profile.skills.length === 0 && (
@@ -380,39 +385,18 @@ function CandidateProfile() {
             ))}
           </div>
 
-          <form onSubmit={handleSkillSearch} className="flex gap-2 mb-3">
-            <input
-              type="text"
-              value={skillSearch}
-              onChange={(e) => setSkillSearch(e.target.value)}
-              placeholder="Search skills, e.g. 'project management'"
-              className="flex-1 border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <Button type="submit" variant="secondary">Search</Button>
-          </form>
-
-          {skillResults.length > 0 && (
-            <div className="flex flex-wrap gap-2">
-              {skillResults.map((skill) => {
-                const alreadyAdded = profile.skills.some((s) => s.id === skill.id)
-                return (
-                  <button
-                    key={skill.id}
-                    type="button"
-                    disabled={alreadyAdded || skillsSaving}
-                    onClick={() => addSkill(skill)}
-                    className="text-xs font-medium px-2.5 py-1 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
-                  >
-                    {alreadyAdded ? `${skill.name} (added)` : `+ ${skill.name}`}
-                  </button>
-                )
-              })}
-            </div>
-          )}
+          <SkillTypeahead
+            excludeIds={profile.skills.map((s) => s.id)}
+            onSelect={addSkill}
+            placeholder="Search skills, e.g. 'project management'"
+          />
         </Card>
 
         <Card>
-          <h2 className="text-sm font-semibold text-gray-700 mb-4">Experience</h2>
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-sm font-semibold text-gray-700">Experience</h2>
+            <SavedIndicator trigger={experienceSavedAt} />
+          </div>
 
           <div className="space-y-3 mb-4">
             {profile.experience.length === 0 && (
@@ -479,7 +463,10 @@ function CandidateProfile() {
         </Card>
 
         <Card>
-          <h2 className="text-sm font-semibold text-gray-700 mb-4">Education</h2>
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-sm font-semibold text-gray-700">Education</h2>
+            <SavedIndicator trigger={educationSavedAt} />
+          </div>
 
           <div className="space-y-3 mb-4">
             {profile.education.length === 0 && (
