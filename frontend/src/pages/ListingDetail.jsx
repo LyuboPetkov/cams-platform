@@ -5,6 +5,7 @@ import Card from '../components/ui/Card'
 import Button from '../components/ui/Button'
 import Avatar from '../components/ui/Avatar'
 import { applyToListing } from '../api/candidacies'
+import { formatRelativeTime } from '../utils/formatRelativeTime'
 
 // There is no candidate-facing GET /api/job-listings/{id} — that route is
 // employer-ownership-scoped (403 for a candidate). Browse is the only place a
@@ -78,6 +79,11 @@ function ListingDetail() {
                   {listing.company?.name} · {listing.location || 'No location listed'}
                   {listing.remote ? ' · Remote' : ''}
                 </p>
+                {listing.createdAt && (
+                  <p className="text-xs text-gray-400 mt-1">
+                    Posted {formatRelativeTime(listing.createdAt)}
+                  </p>
+                )}
               </div>
             </div>
             <span className="text-xs font-medium text-gray-500 bg-gray-100 px-2.5 py-1 rounded-full">
@@ -86,6 +92,25 @@ function ListingDetail() {
           </div>
 
           <p className="text-sm text-gray-700 mt-4 whitespace-pre-wrap">{listing.description}</p>
+
+          {(listing.company?.description || listing.company?.website) && (
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <h2 className="text-sm font-semibold text-gray-700 mb-2">About the company</h2>
+              {listing.company.description && (
+                <p className="text-sm text-gray-700 whitespace-pre-wrap">{listing.company.description}</p>
+              )}
+              {listing.company.website && (
+                <a
+                  href={listing.company.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-blue-600 hover:underline mt-2 inline-block"
+                >
+                  {listing.company.website}
+                </a>
+              )}
+            </div>
+          )}
 
           {listing.skills?.length > 0 && (
             <div className="mt-4">

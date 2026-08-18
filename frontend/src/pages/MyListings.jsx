@@ -7,6 +7,7 @@ import Button from '../components/ui/Button'
 import EmptyState from '../components/ui/EmptyState'
 import LoadingSpinner from '../components/ui/LoadingSpinner'
 import { getMyListings } from '../api/jobListings'
+import { formatRelativeTime } from '../utils/formatRelativeTime'
 
 const STATUS_COLORS = {
   OPEN: '#10b981',
@@ -67,6 +68,11 @@ function MyListings() {
                     {listing.location || 'No location listed'}
                     {listing.remote ? ' · Remote' : ''} · {listing.level}
                   </p>
+                  {listing.createdAt && (
+                    <p className="text-xs text-gray-400 mt-1">
+                      Posted {formatRelativeTime(listing.createdAt)}
+                    </p>
+                  )}
                 </div>
               </Card>
             ))}

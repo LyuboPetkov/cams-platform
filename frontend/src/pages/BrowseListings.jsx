@@ -8,6 +8,7 @@ import LoadingSpinner from '../components/ui/LoadingSpinner'
 import Avatar from '../components/ui/Avatar'
 import SkillTypeahead from '../components/ui/SkillTypeahead'
 import { browseListings } from '../api/jobListings'
+import { formatRelativeTime } from '../utils/formatRelativeTime'
 
 const LEVEL_OPTIONS = ['', 'INTERN', 'JUNIOR', 'MID', 'SENIOR']
 const REMOTE_OPTIONS = [
@@ -77,7 +78,7 @@ function BrowseListings() {
 
         <Card className="mb-6">
           <form onSubmit={handleFilterSubmit} className="space-y-4">
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Location</label>
                 <input
@@ -169,6 +170,11 @@ function BrowseListings() {
                       <h3 className="text-base font-semibold text-gray-800">{listing.title}</h3>
                       <span className="text-xs text-gray-500">{listing.level}</span>
                     </div>
+                    {listing.createdAt && (
+                      <p className="text-xs text-gray-400 mt-0.5">
+                        Posted {formatRelativeTime(listing.createdAt)}
+                      </p>
+                    )}
                     <div className="flex items-center gap-2 mt-1">
                       <Avatar src={listing.company?.logoUrl} name={listing.company?.name} size="sm" />
                       <p className="text-sm text-gray-500">
