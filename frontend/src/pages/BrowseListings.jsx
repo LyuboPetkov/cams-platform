@@ -6,8 +6,8 @@ import Button from '../components/ui/Button'
 import EmptyState from '../components/ui/EmptyState'
 import LoadingSpinner from '../components/ui/LoadingSpinner'
 import Avatar from '../components/ui/Avatar'
+import SkillTypeahead from '../components/ui/SkillTypeahead'
 import { browseListings } from '../api/jobListings'
-import { searchSkills } from '../api/skills'
 
 const LEVEL_OPTIONS = ['', 'INTERN', 'JUNIOR', 'MID', 'SENIOR']
 const REMOTE_OPTIONS = [
@@ -23,8 +23,6 @@ function BrowseListings() {
   const [remote, setRemote] = useState('')
   const [level, setLevel] = useState('')
   const [skillFilters, setSkillFilters] = useState([])
-  const [skillQuery, setSkillQuery] = useState('')
-  const [skillResults, setSkillResults] = useState([])
 
   const [page, setPage] = useState(0)
   const [pageData, setPageData] = useState(null)
@@ -55,16 +53,6 @@ function BrowseListings() {
     e.preventDefault()
     setPage(0)
     loadListings()
-  }
-
-  async function handleSkillSearch(e) {
-    e.preventDefault()
-    if (!skillQuery.trim()) {
-      setSkillResults([])
-      return
-    }
-    const response = await searchSkills(skillQuery)
-    setSkillResults(response.data)
   }
 
   function addSkillFilter(skill) {
@@ -147,32 +135,11 @@ function BrowseListings() {
                   ))}
                 </div>
               )}
-              <div className="flex gap-2">
-                <input
-                  type="text"
-                  value={skillQuery}
-                  onChange={(e) => setSkillQuery(e.target.value)}
-                  placeholder="Search skills to filter by"
-                  className="flex-1 border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-                <Button type="button" variant="secondary" onClick={handleSkillSearch}>
-                  Search
-                </Button>
-              </div>
-              {skillResults.length > 0 && (
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {skillResults.map((skill) => (
-                    <button
-                      key={skill.id}
-                      type="button"
-                      onClick={() => addSkillFilter(skill)}
-                      className="text-xs font-medium px-2.5 py-1 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 cursor-pointer"
-                    >
-                      + {skill.name}
-                    </button>
-                  ))}
-                </div>
-              )}
+              <SkillTypeahead
+                excludeIds={skillFilters.map((s) => s.id)}
+                onSelect={addSkillFilter}
+                placeholder="Search skills to filter by"
+              />
             </div>
 
             <Button type="submit">Apply Filters</Button>
