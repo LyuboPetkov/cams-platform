@@ -23,13 +23,16 @@ public class SkillController {
 
     @Operation(summary = "Search the skill vocabulary",
             description = "Case-insensitive substring match on the skill name. Omitting 'search' returns the entire "
-                    + "vocabulary (thousands of rows), so callers should normally pass it.")
+                    + "vocabulary (thousands of rows), so callers should normally pass it. 'limit' is optional and "
+                    + "caps the number of results returned; omitting it returns every match, as before.")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Skills retrieved successfully"),
             @ApiResponse(responseCode = "401", description = "Missing or invalid JWT token")
     })
     @GetMapping("/api/skills")
-    public ResponseEntity<List<SkillResponse>> search(@RequestParam(required = false) String search) {
-        return ResponseEntity.ok(skillService.search(search));
+    public ResponseEntity<List<SkillResponse>> search(
+            @RequestParam(required = false) String search,
+            @RequestParam(required = false) Integer limit) {
+        return ResponseEntity.ok(skillService.search(search, limit));
     }
 }
