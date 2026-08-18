@@ -76,7 +76,7 @@ function Dashboard() {
         <h1 className="text-2xl font-bold text-gray-800 mb-8">Dashboard</h1>
 
         {/* Summary counts */}
-        <div className="w-full grid grid-cols-3 gap-4 mb-10">
+        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
           <div className="bg-white rounded-lg border border-gray-200 p-5">
             <p className="text-sm text-gray-500">Total Applications</p>
             <p className="text-3xl font-bold text-gray-800 mt-1">{applications.length}</p>
@@ -95,7 +95,7 @@ function Dashboard() {
           </div>
         </div>
         {/* Charts */}
-        <div className="grid grid-cols-2 gap-6 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
 
           {/* Status pie chart */}
           <div className="bg-white rounded-lg border border-gray-200 p-5">

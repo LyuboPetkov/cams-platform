@@ -314,7 +314,7 @@ function CandidateProfile() {
               />
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <label className="flex items-center gap-2 text-sm text-gray-700">
                 <input
                   type="checkbox"
@@ -430,7 +430,7 @@ function CandidateProfile() {
           {experienceError && <p className="text-sm text-red-500 mb-3">{experienceError}</p>}
 
           <form onSubmit={addExperience} className="space-y-2">
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
               <input
                 type="text"
                 value={experienceForm.roleTitle}
@@ -509,7 +509,7 @@ function CandidateProfile() {
               placeholder="Institution name"
               className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
               <select
                 value={educationForm.level}
                 onChange={(e) => setEducationForm({ ...educationForm, level: e.target.value })}
