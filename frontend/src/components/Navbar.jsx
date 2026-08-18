@@ -94,9 +94,18 @@ function Navbar() {
       </div>
 
       <div className="flex items-center gap-4">
-        <span className={`text-sm ${isAdmin ? 'text-slate-300' : 'text-gray-600'}`}>
-          {user?.fullName}
-        </span>
+        {isCandidate || isEmployer ? (
+          <Link
+            to={isCandidate ? '/profile' : '/company'}
+            className="text-sm text-gray-600 hover:text-gray-900"
+          >
+            {user?.fullName}
+          </Link>
+        ) : (
+          <span className={`text-sm ${isAdmin ? 'text-slate-300' : 'text-gray-600'}`}>
+            {user?.fullName}
+          </span>
+        )}
         <button
           style={{ cursor: 'pointer' }}
           onClick={handleLogout}
