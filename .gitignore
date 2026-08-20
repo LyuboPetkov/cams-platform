@@ -28,4 +28,4 @@ esco-v1.2.1-en/
 
 # Phase 18 matching-eval scripts — local virtualenv and bytecode cache
 scripts/matching-eval/.venv/
-scripts/matching-eval/__pycache__/
+scripts/matching-eval/__pycache__/scripts/
