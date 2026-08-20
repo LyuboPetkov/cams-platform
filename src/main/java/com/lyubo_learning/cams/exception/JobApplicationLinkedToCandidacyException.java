@@ -1,7 +1,0 @@
-package com.lyubo_learning.cams.exception;
-
-public class JobApplicationLinkedToCandidacyException extends RuntimeException {
-    public JobApplicationLinkedToCandidacyException(String message) {
-        super(message);
-    }
-}
