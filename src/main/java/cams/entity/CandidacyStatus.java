@@ -4,5 +4,6 @@ package cams.entity;
 public enum CandidacyStatus {
     SUBMITTED,
     ACCEPTED,
+    OFFERED,
     REJECTED
 }
