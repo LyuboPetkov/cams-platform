@@ -1,0 +1,80 @@
+services:
+
+  db:
+    # pgvector/pgvector, not postgres:18-alpine: same major version with pgvector
+    # pre-installed (V18 runs CREATE EXTENSION vector).
+    image: pgvector/pgvector:pg18
+    environment:
+      POSTGRES_DB: cams_db
+      POSTGRES_USER: cams_user
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    networks:
+      - cams-network
+
+  # Model weights are downloaded from Hugging Face on first build/run, so the
+  # first `docker compose up --build` needs network access for this service.
+  embedding-service:
+    build:
+      context: ./embedding-service
+      dockerfile: Dockerfile
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - cams-network
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/cams_db
+      SPRING_DATASOURCE_USERNAME: cams_user
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+      EMBEDDING_SERVICE_URL: http://embedding-service:8000
+      # No local MinIO here - a real S3-compatible bucket (S3, R2, ...) is
+      # expected in production, configured entirely through these env vars.
+      STORAGE_ENDPOINT: ${STORAGE_ENDPOINT}
+      STORAGE_PUBLIC_URL_BASE: ${STORAGE_PUBLIC_URL_BASE}
+      STORAGE_REGION: ${STORAGE_REGION}
+      STORAGE_BUCKET: ${STORAGE_BUCKET}
+      STORAGE_ACCESS_KEY: ${STORAGE_ACCESS_KEY}
+      STORAGE_SECRET_KEY: ${STORAGE_SECRET_KEY}
+    depends_on:
+      db:
+        condition: service_started
+      embedding-service:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    networks:
+      - cams-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: https://cams-tracker.online
+        NGINX_CONF: nginx.conf
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+    networks:
+      - cams-network
+
+networks:
+  cams-network:
+    driver: bridge
+
+volumes:
+  postgres_data:

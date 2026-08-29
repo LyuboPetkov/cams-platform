@@ -1,0 +1,108 @@
+services:
+
+  db:
+    # pgvector/pgvector, not postgres:18-alpine: same major version with pgvector
+    # pre-installed (V18 runs CREATE EXTENSION vector).
+    image: pgvector/pgvector:pg18
+    environment:
+      POSTGRES_DB: cams_db
+      POSTGRES_USER: cams_user
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    # Host-mapped so local eval scripts can reach Postgres via psycopg. Host side
+    # is 5433 to avoid clashing with a native Windows Postgres on 5432; containers
+    # still talk to db:5432.
+    ports:
+      - "5433:5432"
+    networks:
+      - cams-network
+
+  # Model weights are downloaded from Hugging Face on first build/run, so the
+  # first `docker compose up --build` needs network access for this service.
+  embedding-service:
+    build:
+      context: ./embedding-service
+      dockerfile: Dockerfile
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports:
+      - "8000:8000"
+    networks:
+      - cams-network
+
+  # S3-compatible object storage for pictures/logos, local-dev only (production
+  # points STORAGE_* at a real S3/R2 bucket). Pinned to a release tag, not :latest.
+  minio:
+    image: minio/minio:RELEASE.2025-09-07T16-13-09Z
+    command: server /data
+    environment:
+      MINIO_ROOT_USER: ${STORAGE_ACCESS_KEY}
+      MINIO_ROOT_PASSWORD: ${STORAGE_SECRET_KEY}
+    volumes:
+      - minio_data:/data
+    # curl/wget were removed from this image in late 2023 (minio/minio#18371);
+    # mc is MinIO's own client and the documented healthcheck replacement.
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports:
+      - "9000:9000"
+    networks:
+      - cams-network
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/cams_db
+      SPRING_DATASOURCE_USERNAME: cams_user
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+      EMBEDDING_SERVICE_URL: http://embedding-service:8000
+      # Backend reaches MinIO on the container network; the public URL saved on
+      # uploads uses the host-mapped port, which is what the browser resolves.
+      STORAGE_ENDPOINT: http://minio:9000
+      STORAGE_PUBLIC_URL_BASE: http://localhost:9000
+      STORAGE_ACCESS_KEY: ${STORAGE_ACCESS_KEY}
+      STORAGE_SECRET_KEY: ${STORAGE_SECRET_KEY}
+      TZ: Europe/Sofia
+    depends_on:
+      db:
+        condition: service_started
+      embedding-service:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    networks:
+      - cams-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: http://localhost:8080
+        NGINX_CONF: nginx.local.conf
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+    networks:
+      - cams-network
+
+networks:
+  cams-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  minio_data:
