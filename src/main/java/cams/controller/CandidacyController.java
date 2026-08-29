@@ -69,18 +69,19 @@ public class CandidacyController {
         return ResponseEntity.ok(candidacyService.getCandidateProfileForEmployer(id));
     }
 
-    // Two endpoints rather than one status field - the endpoint is the choice.
-    // Same dedicated-action shape as POST /api/job-listings/{id}/archive.
+    // A dedicated endpoint per decision rather than one status field - the endpoint
+    // is the choice. Same dedicated-action shape as POST /api/job-listings/{id}/archive.
     @Operation(summary = "Accept a candidacy",
             description = """
                     Moves the candidacy SUBMITTED -> ACCEPTED and the candidate's linked tracker entry to \
                     INTERVIEWING, in one transaction. Any employer at the company owning the listing may \
-                    decide. The decision is terminal: an already-decided candidacy cannot be changed again.""")
+                    decide. Only a SUBMITTED candidacy can be accepted; the post-interview move out of \
+                    ACCEPTED is /offer or /reject.""")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Candidacy accepted"),
             @ApiResponse(responseCode = "403", description = "Caller is not an employer, or the listing belongs to another company"),
             @ApiResponse(responseCode = "404", description = "Candidacy not found"),
-            @ApiResponse(responseCode = "409", description = "Candidacy has already been accepted or rejected")
+            @ApiResponse(responseCode = "409", description = "Candidacy is not SUBMITTED, so it cannot be accepted")
     })
     @PostMapping("/api/candidacies/{id}/accept")
     public ResponseEntity<CandidacyResponse> accept(@PathVariable Long id) {
@@ -89,16 +90,33 @@ public class CandidacyController {
 
     @Operation(summary = "Reject a candidacy",
             description = """
-                    Moves the candidacy SUBMITTED -> REJECTED and the candidate's linked tracker entry to \
-                    REJECTED, in one transaction. Terminal, exactly as accept is.""")
+                    Moves the candidacy to REJECTED and the candidate's linked tracker entry to REJECTED, \
+                    in one transaction. Allowed from SUBMITTED (a plain rejection) or from ACCEPTED (a \
+                    post-interview rejection). Terminal once reached.""")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Candidacy rejected"),
             @ApiResponse(responseCode = "403", description = "Caller is not an employer, or the listing belongs to another company"),
             @ApiResponse(responseCode = "404", description = "Candidacy not found"),
-            @ApiResponse(responseCode = "409", description = "Candidacy has already been accepted or rejected")
+            @ApiResponse(responseCode = "409", description = "Candidacy is neither SUBMITTED nor ACCEPTED, so it cannot be rejected")
     })
     @PostMapping("/api/candidacies/{id}/reject")
     public ResponseEntity<CandidacyResponse> reject(@PathVariable Long id) {
         return ResponseEntity.ok(candidacyService.reject(id));
+    }
+
+    @Operation(summary = "Mark a candidacy as offered",
+            description = """
+                    Moves the candidacy ACCEPTED -> OFFERED and the candidate's linked tracker entry to \
+                    OFFERED, in one transaction. The post-interview outcome: only an already-ACCEPTED \
+                    candidacy can be offered. Terminal once reached.""")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Candidacy marked as offered"),
+            @ApiResponse(responseCode = "403", description = "Caller is not an employer, or the listing belongs to another company"),
+            @ApiResponse(responseCode = "404", description = "Candidacy not found"),
+            @ApiResponse(responseCode = "409", description = "Candidacy is not ACCEPTED, so it cannot be offered")
+    })
+    @PostMapping("/api/candidacies/{id}/offer")
+    public ResponseEntity<CandidacyResponse> offer(@PathVariable Long id) {
+        return ResponseEntity.ok(candidacyService.offer(id));
     }
 }
