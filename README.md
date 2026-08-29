@@ -1,4 +1,4 @@
-# CAMS — Career Activity Management System
+# CAMS - Career Activity Management System
 
 CAMS is a full-stack, two-sided job board. Candidates build a profile and browse
 and apply to openings; companies register, post job listings, and review the
@@ -24,7 +24,7 @@ command.
   experience, education, and courses.
 - Browse open job listings across the whole platform, with optional filters for
   location, remote/on-site, seniority level, company, and required skills.
-- See a personal **"top matches"** list — open jobs ranked by how well they fit
+- See a personal **"top matches"** list - open jobs ranked by how well they fit
   the candidate's profile, not just whether they contain a search term.
 - Apply to a listing in one click. Applying also creates an entry in the
   candidate's personal application tracker.
@@ -53,7 +53,7 @@ command.
 
 Plain-language version: when a candidate saves their profile or a company saves a
 listing, CAMS sends the relevant text to a small machine-learning service that
-returns a list of 384 numbers — an **embedding** — that represents the meaning of
+returns a list of 384 numbers - an **embedding** - that represents the meaning of
 that text. Two pieces of text with similar meaning get embeddings that sit close
 together. PostgreSQL (via the `pgvector` extension) stores these vectors and can
 sort listings by distance to a candidate's vector directly in a database query,
@@ -63,7 +63,7 @@ Technical version:
 - The embedding model is `sentence-transformers/all-MiniLM-L6-v2`, served over
   HTTP by a FastAPI app. It produces 384-dimensional vectors.
 - Embeddings are computed **asynchronously, after the triggering database
-  transaction commits** — never inline with the user's request. A failed
+  transaction commits** - never inline with the user's request. A failed
   embedding call is logged and retried later, and never blocks a save.
 - Candidate and listing vectors are stored in `vector(384)` columns on
   `candidate_profiles` and `job_listings`.
@@ -95,7 +95,7 @@ All versions below are the ones currently pinned in `pom.xml`,
 | JJWT (`jjwt-api`/`impl`/`jackson`) | 0.12.6 | JWT creation and verification |
 | Flyway | Boot-managed (`flyway-database-postgresql`) | Versioned schema migrations |
 | SpringDoc OpenAPI | 2.8.8 | Swagger UI / OpenAPI 3 docs |
-| AWS SDK for Java — S3 | 2.46.7 | S3-compatible object storage client (pictures, logos) |
+| AWS SDK for Java - S3 | 2.46.7 | S3-compatible object storage client (pictures, logos) |
 | Maven | 3.9.15 (via `./mvnw`) | Build |
 
 ### Frontend
@@ -157,7 +157,7 @@ All versions below are the ones currently pinned in `pom.xml`,
   (For frontend development, the Vite dev server runs it directly and calls the
   backend at `VITE_API_URL`.)
 - **Backend** is a stateless REST API. Authentication is a signed JWT in the
-  `Authorization: Bearer` header, validated on every request — there are no
+  `Authorization: Bearer` header, validated on every request - there are no
   server-side sessions. The database schema is owned by Flyway migrations;
   Hibernate runs in `validate` mode and never alters the schema.
 - **Embedding service** is stateless and single-purpose: text in, vector out.
@@ -178,10 +178,10 @@ All versions below are the ones currently pinned in `pom.xml`,
 | `service/` | Business logic and authorization; all database writes go through here |
 | `repository/` | Spring Data JPA repositories, including the vector-ordered match query |
 | `entity/` | JPA entities and enums |
-| `dto/` | Separate request and response DTOs — entities are never used as request/response bodies |
+| `dto/` | Separate request and response DTOs - entities are never used as request/response bodies |
 | `mapper/` | The only place entity ↔ DTO translation happens |
 | `security/` | JWT utilities, the auth filter, user-details service, security config |
-| `client/` | `EmbeddingClient` — HTTP client for the embedding service |
+| `client/` | `EmbeddingClient` - HTTP client for the embedding service |
 | `event/` | Domain events that trigger asynchronous re-embedding |
 | `exception/` | Custom exceptions and a single `@RestControllerAdvice` handler |
 
@@ -388,7 +388,7 @@ never delays or breaks a save.
 single `pgvector`-ordered query rather than loading rows and ranking them in Java.
 
 **Client-side dashboard statistics.** The tracker dashboard fetches the plain
-applications list and computes chart data in the browser with a pure function —
+applications list and computes chart data in the browser with a pure function -
 there are no backend aggregation endpoints for display-only stats.
 
 **One codebase, two environments.** `docker-compose.local.yml` uses plain HTTP
