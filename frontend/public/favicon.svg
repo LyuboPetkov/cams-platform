@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <!-- Smooth gradient for a modern tech/corporate feel -->
+    <linearGradient id="camsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb" /> <!-- Vivid Blue -->
+      <stop offset="100%" stop-color="#0f172a" /> <!-- Deep Slate/Navy -->
+    </linearGradient>
+  </defs>
+
+  <!-- Background Icon Base (Soft Rounded Square) -->
+  <rect width="32" height="32" rx="7" fill="url(#camsGrad)" />
+
+  <!-- Stylized 'C' that doubles as a checklist/pathway -->
+  <path d="M 22 9 
+           C 14 9, 10 12, 10 16 
+           C 10 20, 14 23, 22 23" 
+        fill="none" 
+        stroke="#ffffff" 
+        stroke-width="3.5" 
+        stroke-linecap="round" />
+
+  <!-- Dynamic Success Checkmark (Representing Career/Application Success) -->
+  <path d="M 17 16 L 20 19 L 26 12" 
+        fill="none" 
+        stroke="#10b981"
+        stroke-width="3.5" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" />
+</svg>

@@ -1,0 +1,22 @@
+# Build context for the `frontend` service (docker-compose.yml -> context: ./frontend).
+#
+# node_modules matters for correctness, not just size: the Dockerfile runs
+# `npm ci` and THEN `COPY . .`, so a host node_modules would be copied straight
+# over the one just installed inside the image - potentially platform-mismatched
+# binaries built for Windows landing in a node:22-alpine container.
+node_modules
+dist
+
+# Vite reads .env.local during `npm run build`. A local-dev file has no business
+# influencing a production image build, where VITE_API_URL arrives as a build arg.
+.env.local
+.env.*.local
+
+# Version control and build metadata
+.git
+.gitignore
+Dockerfile
+.dockerignore
+
+# NOTE: nginx.conf and nginx.local.conf are deliberately NOT excluded - the
+# Dockerfile copies one of them via the NGINX_CONF build arg.
