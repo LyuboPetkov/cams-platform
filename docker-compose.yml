@@ -36,6 +36,8 @@ services:
       SPRING_DATASOURCE_USERNAME: cams_user
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
       JWT_SECRET: ${JWT_SECRET}
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
       EMBEDDING_SERVICE_URL: http://embedding-service:8000
       # No local MinIO here - a real S3-compatible bucket (S3, R2, ...) is
       # expected in production, configured entirely through these env vars.
