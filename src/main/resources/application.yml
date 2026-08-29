@@ -1,0 +1,61 @@
+spring:
+  application:
+    name: cams
+
+  datasource:
+    # Host-side Postgres port is 5433, not 5432 (see docker-compose.local.yml).
+    # Override with DB_URL to connect to a different host/port.
+    url: ${DB_URL:jdbc:postgresql://localhost:5433/cams_db}
+    username: cams_user
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: false
+
+  # Headroom above the 5MB application-level cap in StorageService, so an
+  # oversized upload gets that service's own clear error rather than Tomcat's
+  # generic MaxUploadSizeExceededException.
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+application:
+  security:
+    jwt:
+      secret-key: ${JWT_SECRET}
+      expiration: 86400000 # 24 hours in milliseconds
+  embedding-service:
+    base-url: ${EMBEDDING_SERVICE_URL:http://localhost:8000}
+  admin-bootstrap:
+    email: ${ADMIN_EMAIL:}
+    password: ${ADMIN_PASSWORD:}
+  # S3-compatible object storage (candidate pictures, company logos). Defaults
+  # target the local MinIO container from docker-compose.local.yml; STORAGE_*
+  # env vars point this at a real S3/R2 bucket in production instead.
+  storage:
+    endpoint: ${STORAGE_ENDPOINT:http://localhost:9000}
+    public-url-base: ${STORAGE_PUBLIC_URL_BASE:http://localhost:9000}
+    region: ${STORAGE_REGION:us-east-1}
+    bucket: ${STORAGE_BUCKET:cams-uploads}
+    access-key: ${STORAGE_ACCESS_KEY}
+    secret-key: ${STORAGE_SECRET_KEY}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
+
+kind: Application
