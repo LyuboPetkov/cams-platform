@@ -1,0 +1,752 @@
+# seed,35,# sample,60/720,# scale,"0=not relevant, 1=weak/partial, 2=good, 3=excellent"
+# strata,"{""cross-area"":20,""education-capped"":10,""same-area-other"":12,""seniority-mismatch"":18}",# note,"STRATIFIED, not uniform: over-weights seniority-mismatch and education-capped pairs, which are the hardest cases and the ones most likely to be contaminated. Agreement measured on this sample is therefore CONSERVATIVE - a uniform sample would score higher because it would be mostly trivial cross-area zeroes."
+candidateKey,listingKey,candidate_text,listing_text,human_grade
+dsg-graphic-junior-1,dsg-graphic-junior,"HEADLINE: Graphic designer
+ABOUT: Two years of studio production work - layouts, social assets, packaging adaptations. I am fussy about type in a way that occasionally annoys account managers, and I intend to stay that way.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: graphic design, Adobe Photoshop, Adobe Illustrator, typography
+EXPERIENCE: Graphic Designer (2024-10-01 - present): Produces print and digital layouts for retail and hospitality clients, adapts packaging artwork across formats, and prepares the artwork files that go to print.
+EDUCATION: BACHELORS at National Academy of Art in Graphic Design (2020-09-20 - 2024-06-30)","TITLE: Junior Graphic Designer
+COMPANY: Studio Osem
+DESCRIPTION: Production work for a small studio with retail and hospitality clients: layouts, social assets, the occasional packaging adaptation, and a lot of resizing. You will get art direction rather than being left alone with a brief, and you will be expected to care about type. Portfolio matters far more to us than years.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: JUNIOR
+REQUIRED EDUCATION: none
+REQUIRED SKILLS: graphic design, Adobe Photoshop, Adobe Illustrator, typography",3
+dsg-graphic-junior-1,dsg-ux-mid,"HEADLINE: Graphic designer
+ABOUT: Two years of studio production work - layouts, social assets, packaging adaptations. I am fussy about type in a way that occasionally annoys account managers, and I intend to stay that way.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: graphic design, Adobe Photoshop, Adobe Illustrator, typography
+EXPERIENCE: Graphic Designer (2024-10-01 - present): Produces print and digital layouts for retail and hospitality clients, adapts packaging artwork across formats, and prepares the artwork files that go to print.
+EDUCATION: BACHELORS at National Academy of Art in Graphic Design (2020-09-20 - 2024-06-30)","TITLE: UX Designer
+COMPANY: Cobalt Health
+DESCRIPTION: Design the flows clinicians actually use, which means sitting in a ward watching someone fight our software before you open any design tool. Wireframes, prototypes and usability sessions are the daily work; the visual polish is shared with a colleague. We would rather you came back and told us the feature should not be built.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: MID
+REQUIRED EDUCATION: BACHELORS
+REQUIRED SKILLS: design thinking, create prototype of user experience solutions, create website wireframe, application usability",1
+dsg-graphic-mid-1,dsg-ux-mid,"HEADLINE: Senior graphic designer
+ABOUT: Five years in-house at a beverage company doing packaging, point of sale and the occasional brand refresh. I have learned to design for a printing process rather than for a screenshot.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: graphic design, Adobe Photoshop, adobe creative suite, create brand guidelines, typography
+EXPERIENCE: Graphic Designer (2021-07-01 - present): Designs packaging and in-store point-of-sale material for a beverage portfolio, maintains the brand asset library and briefs external print suppliers.
+EDUCATION: BACHELORS at National Academy of Art in Graphic Design (2017-09-20 - 2021-06-30)","TITLE: UX Designer
+COMPANY: Cobalt Health
+DESCRIPTION: Design the flows clinicians actually use, which means sitting in a ward watching someone fight our software before you open any design tool. Wireframes, prototypes and usability sessions are the daily work; the visual polish is shared with a colleague. We would rather you came back and told us the feature should not be built.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: MID
+REQUIRED EDUCATION: BACHELORS
+REQUIRED SKILLS: design thinking, create prototype of user experience solutions, create website wireframe, application usability",1
+dsg-graphic-mid-1,it-backend-mid,"HEADLINE: Senior graphic designer
+ABOUT: Five years in-house at a beverage company doing packaging, point of sale and the occasional brand refresh. I have learned to design for a printing process rather than for a screenshot.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: graphic design, Adobe Photoshop, adobe creative suite, create brand guidelines, typography
+EXPERIENCE: Graphic Designer (2021-07-01 - present): Designs packaging and in-store point-of-sale material for a beverage portfolio, maintains the brand asset library and briefs external print suppliers.
+EDUCATION: BACHELORS at National Academy of Art in Graphic Design (2017-09-20 - 2021-06-30)","TITLE: Backend Engineer - Java & Spring
+COMPANY: Vertex Systems
+DESCRIPTION: Own backend services in a Java and Spring Boot stack, design the REST endpoints our web and mobile clients depend on, and work with a PostgreSQL schema that sees real load rather than demo traffic. You will be on call for what you ship, which is also why you get to decide how it is built. The team runs in two-week iterations and you would be expected to take part in planning them, not just receive them. We care more about how you reason about data and failure than about how many frameworks you have listed.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: MID
+REQUIRED EDUCATION: BACHELORS
+REQUIRED SKILLS: Java (computer programming), SQL, Spring Boot, Agile project management",0
+dsg-lead-senior-1,dsg-lead-senior,"HEADLINE: Design lead
+ABOUT: Twelve years in design and five leading teams. I still design, but the part of the week that matters most is the critique session. I have shipped one design system that outlived the product it was built for.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: manage visual communications, create brand guidelines, design thinking, graphic design
+EXPERIENCE: Senior Designer (2014-03-03 - 2019-12-31): Handled brand and campaign design for an agency's largest retail account, including the guidelines the client's in-house team still works from.
+EXPERIENCE: Design Lead (2020-01-06 - present): Leads four designers across product and brand work, owns the design system and the review process, and represents design in roadmap planning.
+EDUCATION: MASTERS at National Academy of Art in Visual Communication (2012-09-20 - 2014-06-30)","TITLE: Design Lead
+COMPANY: Perla Interactive
+DESCRIPTION: Lead a team of four across product and brand work, own the design system, and be the person who decides what ships when the deadline and the craft disagree. Half the job is reviewing other people's work well enough that they get better at it. We are looking for someone who has already led designers, not only projects.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: SENIOR
+REQUIRED EDUCATION: none
+REQUIRED SKILLS: manage visual communications, create brand guidelines, design thinking",3
+dsg-lead-senior-1,fin-analyst-mid,"HEADLINE: Design lead
+ABOUT: Twelve years in design and five leading teams. I still design, but the part of the week that matters most is the critique session. I have shipped one design system that outlived the product it was built for.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: manage visual communications, create brand guidelines, design thinking, graphic design
+EXPERIENCE: Senior Designer (2014-03-03 - 2019-12-31): Handled brand and campaign design for an agency's largest retail account, including the guidelines the client's in-house team still works from.
+EXPERIENCE: Design Lead (2020-01-06 - present): Leads four designers across product and brand work, owns the design system and the review process, and represents design in roadmap planning.
+EDUCATION: MASTERS at National Academy of Art in Visual Communication (2012-09-20 - 2014-06-30)","TITLE: Financial Analyst
+COMPANY: Meridian Capital
+DESCRIPTION: Build and maintain the models behind our portfolio reviews, turn the monthly actuals into something the investment committee can argue about, and flag the trend nobody has noticed yet. You will spend a lot of the week in spreadsheets and the rest explaining what they mean to people who do not want to open them.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: MID
+REQUIRED EDUCATION: none
+REQUIRED SKILLS: financial analysis, analyse financial performance of a company, use spreadsheets software",0
+dsg-ux-mid-1,dsg-ux-mid,"HEADLINE: UX designer
+ABOUT: Four years designing software people use because they have to, not because they want to - warehouse systems, then a clinical tool. Most of my value is in the research, and most of my arguments are about scope.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: design thinking, create prototype of user experience solutions, create website wireframe, application usability
+EXPERIENCE: UX Designer (2022-08-01 - present): Runs contextual research and usability sessions with operational staff, produces wireframes and interactive prototypes, and works with engineers through implementation.
+EDUCATION: BACHELORS at New Bulgarian University in Interaction Design (2018-10-01 - 2022-06-28)
+COURSE: Interaction Design Foundation Membership (Interaction Design Foundation)","TITLE: UX Designer
+COMPANY: Cobalt Health
+DESCRIPTION: Design the flows clinicians actually use, which means sitting in a ward watching someone fight our software before you open any design tool. Wireframes, prototypes and usability sessions are the daily work; the visual polish is shared with a colleague. We would rather you came back and told us the feature should not be built.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: MID
+REQUIRED EDUCATION: BACHELORS
+REQUIRED SKILLS: design thinking, create prototype of user experience solutions, create website wireframe, application usability",3
+dsg-ux-mid-1,hr-generalist-mid,"HEADLINE: UX designer
+ABOUT: Four years designing software people use because they have to, not because they want to - warehouse systems, then a clinical tool. Most of my value is in the research, and most of my arguments are about scope.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: design thinking, create prototype of user experience solutions, create website wireframe, application usability
+EXPERIENCE: UX Designer (2022-08-01 - present): Runs contextual research and usability sessions with operational staff, produces wireframes and interactive prototypes, and works with engineers through implementation.
+EDUCATION: BACHELORS at New Bulgarian University in Interaction Design (2018-10-01 - 2022-06-28)
+COURSE: Interaction Design Foundation Membership (Interaction Design Foundation)","TITLE: HR Generalist
+COMPANY: Danube Logistics
+DESCRIPTION: The single HR point of contact for around two hundred staff across three sites: contracts, payroll handover, the awkward conversations, and the labour-law questions that arrive at four on a Friday. You need to know Bulgarian employment law well enough to be trusted without a lawyer in the room for the routine cases.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: MID
+REQUIRED EDUCATION: BACHELORS
+REQUIRED SKILLS: personnel management, labour law, manage payroll",0
+dsg-ux-mid-1,mkt-content-junior,"HEADLINE: UX designer
+ABOUT: Four years designing software people use because they have to, not because they want to - warehouse systems, then a clinical tool. Most of my value is in the research, and most of my arguments are about scope.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: design thinking, create prototype of user experience solutions, create website wireframe, application usability
+EXPERIENCE: UX Designer (2022-08-01 - present): Runs contextual research and usability sessions with operational staff, produces wireframes and interactive prototypes, and works with engineers through implementation.
+EDUCATION: BACHELORS at New Bulgarian University in Interaction Design (2018-10-01 - 2022-06-28)
+COURSE: Interaction Design Foundation Membership (Interaction Design Foundation)","TITLE: Junior Content Marketing Specialist
+COMPANY: Northwind Retail
+DESCRIPTION: Write for our blog and social channels, help shape the monthly campaign calendar, and report on what actually moved engagement rather than what looked busy. This is a first or second marketing role for someone who writes well in Bulgarian and English and is curious about the numbers underneath the content. You will sit with the wider commercial team in our Sofia office.
+LOCATION: Sofia, Bulgaria | remote: False
+LEVEL: JUNIOR
+REQUIRED EDUCATION: BACHELORS
+REQUIRED SKILLS: content marketing strategy, apply social media marketing",0
+fin-accountant-junior-1,fin-controller-senior,"HEADLINE: Junior accountant
+ABOUT: Eighteen months posting and reconciling for a group of three small companies. I am the person who notices when the bank line does not tie, which is apparently rarer than it should be.
+LOCATION: Sofia, Bulgaria | open to remote: False
+SKILLS: accounting, accounting entries, use spreadsheets software
+EXPERIENCE: Junior Accountant (2025-02-03 - present): Posts purchase and sales ledger entries, reconciles bank and supplier accounts, and prepares the supporting schedules for the monthly close.
+EDUCATION: BACHELORS at University of National and World Economy in Accounting and Control (2020-09-15 - 2024-07-05)","TITLE: Financial Controller
+COMPANY: Rhodope Manufacturing
+DESCRIPTION: Own the monthly and annual close for a manufacturing business with two plants, run the budgeting cycle, and be the person the auditors deal with. Cost accounting is the heart of this job: we make physical things and the margin lives in the detail. Based at the Plovdiv site, on site, because that is where the operation is.
+LOCATION: Plovdiv, Bulgaria | remote: False
+LEVEL: SENIOR
+REQUIRED EDUCATION: MASTERS
+REQUIRED SKILLS: cost management, manage budgets, conduct financial audits",0
+fin-analyst-mid-1,fin-controller-senior,"HEADLINE: Financial analyst
+ABOUT: Four years building the models that decide where an investment company puts its money, and rebuilding them every time someone changes the assumptions. I spend more time on data quality than on the analysis itself and I have stopped resenting that.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: financial analysis, analyse financial performance of a company, use spreadsheets software, data analytics
+EXPERIENCE: Financial Analyst (2022-06-01 - present): Maintains the valuation and cash-flow models behind quarterly portfolio reviews, analyses company performance against forecast, and prepares the pack the investment committee works from.
+EDUCATION: BACHELORS at University of National and World Economy in Finance (2018-09-15 - 2022-06-30)
+COURSE: Financial Modelling and Valuation (Corporate Finance Institute)","TITLE: Financial Controller
+COMPANY: Rhodope Manufacturing
+DESCRIPTION: Own the monthly and annual close for a manufacturing business with two plants, run the budgeting cycle, and be the person the auditors deal with. Cost accounting is the heart of this job: we make physical things and the margin lives in the detail. Based at the Plovdiv site, on site, because that is where the operation is.
+LOCATION: Plovdiv, Bulgaria | remote: False
+LEVEL: SENIOR
+REQUIRED EDUCATION: MASTERS
+REQUIRED SKILLS: cost management, manage budgets, conduct financial audits",1
+fin-analyst-mid-1,ops-coordinator-junior,"HEADLINE: Financial analyst
+ABOUT: Four years building the models that decide where an investment company puts its money, and rebuilding them every time someone changes the assumptions. I spend more time on data quality than on the analysis itself and I have stopped resenting that.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: financial analysis, analyse financial performance of a company, use spreadsheets software, data analytics
+EXPERIENCE: Financial Analyst (2022-06-01 - present): Maintains the valuation and cash-flow models behind quarterly portfolio reviews, analyses company performance against forecast, and prepares the pack the investment committee works from.
+EDUCATION: BACHELORS at University of National and World Economy in Finance (2018-09-15 - 2022-06-30)
+COURSE: Financial Modelling and Valuation (Corporate Finance Institute)","TITLE: Logistics Coordinator
+COMPANY: Pontos Shipping
+DESCRIPTION: Keep the daily flow moving between the Varna warehouse, the carriers and the customers who call when a delivery is late. Stock counts, paperwork, and the phone. It is an entry-level operations job in a port city and the shifts are real shifts - the work is on site at the depot, not from a laptop.
+LOCATION: Varna, Bulgaria | remote: False
+LEVEL: JUNIOR
+REQUIRED EDUCATION: none
+REQUIRED SKILLS: inventory management rules, manage warehouse inventory, customer service",0
+fin-audit-mid-1,fin-controller-senior,"HEADLINE: Internal auditor
+ABOUT: Five years in internal audit for a banking group. The job is largely writing findings that people will act on rather than argue with, so I have become a much better writer than I was.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: conduct financial audits, audit techniques, internal auditing, accounting
+EXPERIENCE: Internal Auditor (2021-09-01 - present): Plans and executes internal audit assignments across credit operations and finance, tests controls, and presents findings and remediation deadlines to the audit committee.
+EDUCATION: BACHELORS at University of National and World Economy in Accounting and Control (2017-09-15 - 2021-07-05)","TITLE: Financial Controller
+COMPANY: Rhodope Manufacturing
+DESCRIPTION: Own the monthly and annual close for a manufacturing business with two plants, run the budgeting cycle, and be the person the auditors deal with. Cost accounting is the heart of this job: we make physical things and the margin lives in the detail. Based at the Plovdiv site, on site, because that is where the operation is.
+LOCATION: Plovdiv, Bulgaria | remote: False
+LEVEL: SENIOR
+REQUIRED EDUCATION: MASTERS
+REQUIRED SKILLS: cost management, manage budgets, conduct financial audits",1
+fin-audit-mid-1,ops-manager-senior,"HEADLINE: Internal auditor
+ABOUT: Five years in internal audit for a banking group. The job is largely writing findings that people will act on rather than argue with, so I have become a much better writer than I was.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: conduct financial audits, audit techniques, internal auditing, accounting
+EXPERIENCE: Internal Auditor (2021-09-01 - present): Plans and executes internal audit assignments across credit operations and finance, tests controls, and presents findings and remediation deadlines to the audit committee.
+EDUCATION: BACHELORS at University of National and World Economy in Accounting and Control (2017-09-15 - 2021-07-05)","TITLE: Operations Manager
+COMPANY: Iskar Industrial
+DESCRIPTION: Run the whole operation: two warehouses, a transport fleet, forty-odd people and a budget that has not been rebuilt since 2021. We want the processes redesigned rather than defended, and we want the person doing it to have run something at this scale before. Reports to the managing director.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: SENIOR
+REQUIRED EDUCATION: MASTERS
+REQUIRED SKILLS: manage warehouse operations, identify process improvements, project management, manage budgets",0
+fin-controller-senior-1,fin-analyst-mid,"HEADLINE: Financial controller, manufacturing
+ABOUT: Thirteen years in industrial finance and seven of them as controller of a plant in Plovdiv. I know where the margin hides in a manufacturing business and I have had the argument with production about it more than once.
+LOCATION: Plovdiv, Bulgaria | open to remote: False
+SKILLS: cost management, manage budgets, conduct financial audits, accounting
+EXPERIENCE: Cost Accountant (2013-09-02 - 2019-08-30): Built and maintained standard costing for two production lines and investigated the variances the plant manager did not want to hear about.
+EXPERIENCE: Financial Controller (2019-09-02 - present): Owns the monthly and annual close for a two-plant manufacturer, runs the budgeting and forecasting cycle, and is the primary contact for the external auditors.
+EDUCATION: MASTERS at University of Economics - Varna in Accounting and Finance (2011-09-15 - 2013-06-30)","TITLE: Financial Analyst
+COMPANY: Meridian Capital
+DESCRIPTION: Build and maintain the models behind our portfolio reviews, turn the monthly actuals into something the investment committee can argue about, and flag the trend nobody has noticed yet. You will spend a lot of the week in spreadsheets and the rest explaining what they mean to people who do not want to open them.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: MID
+REQUIRED EDUCATION: none
+REQUIRED SKILLS: financial analysis, analyse financial performance of a company, use spreadsheets software",1
+fin-ongoing-degree-1,fin-accountant-junior,"HEADLINE: Senior financial accountant
+ABOUT: Six years in financial accounting for an industrial group in Plovdiv, currently a year into a part-time Master's in accounting and finance that I am taking because I want the controller role, not because anyone asked me to.
+LOCATION: Plovdiv, Bulgaria | open to remote: False
+SKILLS: accounting, manage budgets, cost management, financial analysis
+EXPERIENCE: Senior Financial Accountant (2020-04-01 - present): Runs the monthly close for two legal entities, maintains the cost allocation model across production centres, and prepares the annual budget submission with the plant management team.
+EDUCATION: BACHELORS at Plovdiv University Paisii Hilendarski in Accounting and Control (2015-09-20 - 2019-07-10)
+EDUCATION: MASTERS at University of National and World Economy in Accounting and Finance (2025-09-01 - ongoing)","TITLE: Junior Accountant
+COMPANY: Sabina Group
+DESCRIPTION: Post and reconcile the daily ledger entries, prepare supporting schedules for the monthly close, and chase the documents nobody sent. It is unglamorous and it is how you learn where the numbers actually come from. You will report to the chief accountant and work from our Sofia office alongside a team of five.
+LOCATION: Sofia, Bulgaria | remote: False
+LEVEL: JUNIOR
+REQUIRED EDUCATION: BACHELORS
+REQUIRED SKILLS: accounting, accounting entries, use spreadsheets software",1
+fin-ongoing-degree-1,fin-controller-senior,"HEADLINE: Senior financial accountant
+ABOUT: Six years in financial accounting for an industrial group in Plovdiv, currently a year into a part-time Master's in accounting and finance that I am taking because I want the controller role, not because anyone asked me to.
+LOCATION: Plovdiv, Bulgaria | open to remote: False
+SKILLS: accounting, manage budgets, cost management, financial analysis
+EXPERIENCE: Senior Financial Accountant (2020-04-01 - present): Runs the monthly close for two legal entities, maintains the cost allocation model across production centres, and prepares the annual budget submission with the plant management team.
+EDUCATION: BACHELORS at Plovdiv University Paisii Hilendarski in Accounting and Control (2015-09-20 - 2019-07-10)
+EDUCATION: MASTERS at University of National and World Economy in Accounting and Finance (2025-09-01 - ongoing)","TITLE: Financial Controller
+COMPANY: Rhodope Manufacturing
+DESCRIPTION: Own the monthly and annual close for a manufacturing business with two plants, run the budgeting cycle, and be the person the auditors deal with. Cost accounting is the heart of this job: we make physical things and the margin lives in the detail. Based at the Plovdiv site, on site, because that is where the operation is.
+LOCATION: Plovdiv, Bulgaria | remote: False
+LEVEL: SENIOR
+REQUIRED EDUCATION: MASTERS
+REQUIRED SKILLS: cost management, manage budgets, conduct financial audits",3
+fin-ongoing-degree-1,ops-supplychain-mid,"HEADLINE: Senior financial accountant
+ABOUT: Six years in financial accounting for an industrial group in Plovdiv, currently a year into a part-time Master's in accounting and finance that I am taking because I want the controller role, not because anyone asked me to.
+LOCATION: Plovdiv, Bulgaria | open to remote: False
+SKILLS: accounting, manage budgets, cost management, financial analysis
+EXPERIENCE: Senior Financial Accountant (2020-04-01 - present): Runs the monthly close for two legal entities, maintains the cost allocation model across production centres, and prepares the annual budget submission with the plant management team.
+EDUCATION: BACHELORS at Plovdiv University Paisii Hilendarski in Accounting and Control (2015-09-20 - 2019-07-10)
+EDUCATION: MASTERS at University of National and World Economy in Accounting and Finance (2025-09-01 - ongoing)","TITLE: Supply Chain Specialist
+COMPANY: Verano Distribution
+DESCRIPTION: Plan replenishment across four regional depots, manage the supplier relationships that keep them stocked, and reduce the amount of capital sitting still on our shelves. You will be measured on stock availability and on working capital at the same time, which is the interesting part of the job.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: MID
+REQUIRED EDUCATION: BACHELORS
+REQUIRED SKILLS: supply chain management, supplier management, carry out inventory planning",0
+fin-payroll-junior-1,fin-analyst-mid,"HEADLINE: Payroll and accounts assistant
+ABOUT: Two years running payroll for about a hundred and eighty people alongside the general ledger work. It is the part of accounting where a mistake is personal to someone, which keeps me careful.
+LOCATION: Sofia, Bulgaria | open to remote: False
+SKILLS: manage payroll, accounting entries, use spreadsheets software, accounting
+EXPERIENCE: Payroll and Accounts Assistant (2024-08-01 - present): Prepares monthly payroll for around 180 employees including deductions and statutory filings, and posts the resulting journals into the general ledger.
+EDUCATION: BACHELORS at University of Economics - Varna in Accounting (2020-09-15 - 2024-06-28)","TITLE: Financial Analyst
+COMPANY: Meridian Capital
+DESCRIPTION: Build and maintain the models behind our portfolio reviews, turn the monthly actuals into something the investment committee can argue about, and flag the trend nobody has noticed yet. You will spend a lot of the week in spreadsheets and the rest explaining what they mean to people who do not want to open them.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: MID
+REQUIRED EDUCATION: none
+REQUIRED SKILLS: financial analysis, analyse financial performance of a company, use spreadsheets software",1
+fin-payroll-junior-1,fin-controller-senior,"HEADLINE: Payroll and accounts assistant
+ABOUT: Two years running payroll for about a hundred and eighty people alongside the general ledger work. It is the part of accounting where a mistake is personal to someone, which keeps me careful.
+LOCATION: Sofia, Bulgaria | open to remote: False
+SKILLS: manage payroll, accounting entries, use spreadsheets software, accounting
+EXPERIENCE: Payroll and Accounts Assistant (2024-08-01 - present): Prepares monthly payroll for around 180 employees including deductions and statutory filings, and posts the resulting journals into the general ledger.
+EDUCATION: BACHELORS at University of Economics - Varna in Accounting (2020-09-15 - 2024-06-28)","TITLE: Financial Controller
+COMPANY: Rhodope Manufacturing
+DESCRIPTION: Own the monthly and annual close for a manufacturing business with two plants, run the budgeting cycle, and be the person the auditors deal with. Cost accounting is the heart of this job: we make physical things and the margin lives in the detail. Based at the Plovdiv site, on site, because that is where the operation is.
+LOCATION: Plovdiv, Bulgaria | remote: False
+LEVEL: SENIOR
+REQUIRED EDUCATION: MASTERS
+REQUIRED SKILLS: cost management, manage budgets, conduct financial audits",0
+hr-generalist-mid-1,hr-recruiter-junior,"HEADLINE: HR generalist
+ABOUT: Sole HR person for a distribution business of a hundred and forty people. Contracts, payroll handover, disciplinaries, and the labour-law question that always arrives late on a Friday. I read the Labour Code more often than most lawyers do.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: personnel management, labour law, manage payroll, human resources department processes
+EXPERIENCE: HR Generalist (2022-01-10 - present): Handles the full employee lifecycle for around 140 staff: contracts and amendments, payroll input, absence and disciplinary process, and day-to-day labour-law advice to managers.
+EDUCATION: BACHELORS at University of National and World Economy in Human Resource Management (2017-09-15 - 2021-07-05)","TITLE: Junior Recruitment Specialist
+COMPANY: Bluewater Services
+DESCRIPTION: Source and screen for our commercial and support roles, run first-stage interviews, and keep candidates informed instead of leaving them wondering. We hire about forty people a year, so you will see the whole cycle quickly. Good fit for someone a year or two into recruitment, or moving in from a people-facing role.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: JUNIOR
+REQUIRED EDUCATION: none
+REQUIRED SKILLS: recruit employees, interview techniques",2
+hr-recruiter-junior-1,hr-head-senior,"HEADLINE: Recruitment specialist
+ABOUT: Eighteen months recruiting for retail and warehouse roles, which means high volume and a lot of phone screening. I am better at the first conversation than at the paperwork and I am working on the paperwork.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: recruit employees, interview techniques, recruit personnel
+EXPERIENCE: Recruitment Specialist (2025-01-06 - present): Sources and screens candidates for retail and warehouse vacancies, runs first-stage interviews, and manages the offer and onboarding paperwork with the hiring managers.
+EDUCATION: BACHELORS at Sofia University St. Kliment Ohridski in Psychology (2020-09-15 - 2024-07-01)","TITLE: Head of People
+COMPANY: Aeon Software
+DESCRIPTION: We grew from thirty to two hundred and forty people in three years and the practices have not kept up. You would rebuild them: how we hire, how we decide what someone is paid, why our best engineers stay. Reports to the CEO, sits on the leadership team, and will be expected to disagree with it in writing when necessary.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: SENIOR
+REQUIRED EDUCATION: none
+REQUIRED SKILLS: human resources department processes, talent management strategies, develop employee retention programs",1
+hr-recruiter-junior-1,hr-recruiter-junior,"HEADLINE: Recruitment specialist
+ABOUT: Eighteen months recruiting for retail and warehouse roles, which means high volume and a lot of phone screening. I am better at the first conversation than at the paperwork and I am working on the paperwork.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: recruit employees, interview techniques, recruit personnel
+EXPERIENCE: Recruitment Specialist (2025-01-06 - present): Sources and screens candidates for retail and warehouse vacancies, runs first-stage interviews, and manages the offer and onboarding paperwork with the hiring managers.
+EDUCATION: BACHELORS at Sofia University St. Kliment Ohridski in Psychology (2020-09-15 - 2024-07-01)","TITLE: Junior Recruitment Specialist
+COMPANY: Bluewater Services
+DESCRIPTION: Source and screen for our commercial and support roles, run first-stage interviews, and keep candidates informed instead of leaving them wondering. We hire about forty people a year, so you will see the whole cycle quickly. Good fit for someone a year or two into recruitment, or moving in from a people-facing role.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: JUNIOR
+REQUIRED EDUCATION: none
+REQUIRED SKILLS: recruit employees, interview techniques",3
+it-backend-mid-1,dsg-graphic-junior,"HEADLINE: Backend Java developer
+ABOUT: Backend developer on the fulfilment side of a logistics company. Most weeks are REST API design, PostgreSQL query tuning and keeping a deployment pipeline honest. I have taken two services from an empty schema to production and I still maintain both.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: Java (computer programming), SQL, Spring Boot, PostgreSQL, Agile project management
+EXPERIENCE: Backend Developer (2021-03-01 - present): Builds and maintains Spring Boot microservices backed by PostgreSQL, with an emphasis on API contracts, migration safety and query performance under load.
+EDUCATION: BACHELORS at Technical University of Sofia in Computer Science (2016-09-01 - 2020-06-30)
+COURSE: Spring Professional (VMware)","TITLE: Junior Graphic Designer
+COMPANY: Studio Osem
+DESCRIPTION: Production work for a small studio with retail and hospitality clients: layouts, social assets, the occasional packaging adaptation, and a lot of resizing. You will get art direction rather than being left alone with a brief, and you will be expected to care about type. Portfolio matters far more to us than years.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: JUNIOR
+REQUIRED EDUCATION: none
+REQUIRED SKILLS: graphic design, Adobe Photoshop, Adobe Illustrator, typography",0
+it-backend-mid-1,it-backend-mid,"HEADLINE: Backend Java developer
+ABOUT: Backend developer on the fulfilment side of a logistics company. Most weeks are REST API design, PostgreSQL query tuning and keeping a deployment pipeline honest. I have taken two services from an empty schema to production and I still maintain both.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: Java (computer programming), SQL, Spring Boot, PostgreSQL, Agile project management
+EXPERIENCE: Backend Developer (2021-03-01 - present): Builds and maintains Spring Boot microservices backed by PostgreSQL, with an emphasis on API contracts, migration safety and query performance under load.
+EDUCATION: BACHELORS at Technical University of Sofia in Computer Science (2016-09-01 - 2020-06-30)
+COURSE: Spring Professional (VMware)","TITLE: Backend Engineer - Java & Spring
+COMPANY: Vertex Systems
+DESCRIPTION: Own backend services in a Java and Spring Boot stack, design the REST endpoints our web and mobile clients depend on, and work with a PostgreSQL schema that sees real load rather than demo traffic. You will be on call for what you ship, which is also why you get to decide how it is built. The team runs in two-week iterations and you would be expected to take part in planning them, not just receive them. We care more about how you reason about data and failure than about how many frameworks you have listed.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: MID
+REQUIRED EDUCATION: BACHELORS
+REQUIRED SKILLS: Java (computer programming), SQL, Spring Boot, Agile project management",3
+it-backend-mid-1,it-frontend-junior,"HEADLINE: Backend Java developer
+ABOUT: Backend developer on the fulfilment side of a logistics company. Most weeks are REST API design, PostgreSQL query tuning and keeping a deployment pipeline honest. I have taken two services from an empty schema to production and I still maintain both.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: Java (computer programming), SQL, Spring Boot, PostgreSQL, Agile project management
+EXPERIENCE: Backend Developer (2021-03-01 - present): Builds and maintains Spring Boot microservices backed by PostgreSQL, with an emphasis on API contracts, migration safety and query performance under load.
+EDUCATION: BACHELORS at Technical University of Sofia in Computer Science (2016-09-01 - 2020-06-30)
+COURSE: Spring Professional (VMware)","TITLE: Junior Frontend Developer
+COMPANY: Larkspur Digital
+DESCRIPTION: You will work on the customer-facing side of our booking product, turning designs into components and fixing the rough edges real users keep reporting. Expect close pairing with a senior for the first few months. We are looking for someone early in their career who already writes their own JavaScript rather than assembling it from snippets, and who cares when a page feels slow.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: JUNIOR
+REQUIRED EDUCATION: none
+REQUIRED SKILLS: JavaScript, React, Git",1
+it-cross-domain-1,dsg-lead-senior,"HEADLINE: Electrical engineer moving into software
+ABOUT: Five years designing medium-voltage distribution for industrial sites. I have written a fair amount of SQL against our asset database and worked through a Python course in the evenings, and I would like to move into a development role.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: electrical engineering, SQL
+EXPERIENCE: Electrical Design Engineer (2021-04-01 - present): Designs medium-voltage distribution schemes for industrial and warehouse sites, sizes protection equipment, and produces the single-line diagrams and cable schedules that go to the contractor.
+EDUCATION: MASTERS at Technical University of Sofia in Electrical Power Engineering (2015-09-15 - 2021-02-10)
+COURSE: Python for Everybody (University of Michigan)","TITLE: Design Lead
+COMPANY: Perla Interactive
+DESCRIPTION: Lead a team of four across product and brand work, own the design system, and be the person who decides what ships when the deadline and the craft disagree. Half the job is reviewing other people's work well enough that they get better at it. We are looking for someone who has already led designers, not only projects.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: SENIOR
+REQUIRED EDUCATION: none
+REQUIRED SKILLS: manage visual communications, create brand guidelines, design thinking",0
+it-cross-domain-1,it-backend-mid,"HEADLINE: Electrical engineer moving into software
+ABOUT: Five years designing medium-voltage distribution for industrial sites. I have written a fair amount of SQL against our asset database and worked through a Python course in the evenings, and I would like to move into a development role.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: electrical engineering, SQL
+EXPERIENCE: Electrical Design Engineer (2021-04-01 - present): Designs medium-voltage distribution schemes for industrial and warehouse sites, sizes protection equipment, and produces the single-line diagrams and cable schedules that go to the contractor.
+EDUCATION: MASTERS at Technical University of Sofia in Electrical Power Engineering (2015-09-15 - 2021-02-10)
+COURSE: Python for Everybody (University of Michigan)","TITLE: Backend Engineer - Java & Spring
+COMPANY: Vertex Systems
+DESCRIPTION: Own backend services in a Java and Spring Boot stack, design the REST endpoints our web and mobile clients depend on, and work with a PostgreSQL schema that sees real load rather than demo traffic. You will be on call for what you ship, which is also why you get to decide how it is built. The team runs in two-week iterations and you would be expected to take part in planning them, not just receive them. We care more about how you reason about data and failure than about how many frameworks you have listed.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: MID
+REQUIRED EDUCATION: BACHELORS
+REQUIRED SKILLS: Java (computer programming), SQL, Spring Boot, Agile project management",0
+it-cross-domain-1,it-devops-senior,"HEADLINE: Electrical engineer moving into software
+ABOUT: Five years designing medium-voltage distribution for industrial sites. I have written a fair amount of SQL against our asset database and worked through a Python course in the evenings, and I would like to move into a development role.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: electrical engineering, SQL
+EXPERIENCE: Electrical Design Engineer (2021-04-01 - present): Designs medium-voltage distribution schemes for industrial and warehouse sites, sizes protection equipment, and produces the single-line diagrams and cable schedules that go to the contractor.
+EDUCATION: MASTERS at Technical University of Sofia in Electrical Power Engineering (2015-09-15 - 2021-02-10)
+COURSE: Python for Everybody (University of Michigan)","TITLE: Senior DevOps Engineer
+COMPANY: Orbital Freight Tech
+DESCRIPTION: We run about sixty services across three Kubernetes clusters and the build pipeline has grown faster than anyone planned. You would own it: container images, deployment automation, the monitoring that tells us before a customer does. This is a senior role because we want the person who has already lived through the outage this setup is heading towards, and can say what to change first.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: SENIOR
+REQUIRED EDUCATION: none
+REQUIRED SKILLS: DevOps, Docker, Kubernetes, CI/CD",0
+it-esco-gap-1,dsg-graphic-junior,"HEADLINE: Java developer
+ABOUT: I have spent the last five years writing Spring Boot services against PostgreSQL for a healthcare integrator, including the messaging layer that moves patient records between hospital systems. Most of what I know is not on a certificate.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: Java (computer programming)
+EXPERIENCE: Software Developer (2021-06-01 - present): Designs and maintains Spring Boot REST services over a PostgreSQL database, writes the SQL behind the reporting endpoints, and manages the Flyway migrations for a schema shared by four teams.
+EDUCATION: BACHELORS at Plovdiv University Paisii Hilendarski in Informatics (2016-09-20 - 2020-07-15)","TITLE: Junior Graphic Designer
+COMPANY: Studio Osem
+DESCRIPTION: Production work for a small studio with retail and hospitality clients: layouts, social assets, the occasional packaging adaptation, and a lot of resizing. You will get art direction rather than being left alone with a brief, and you will be expected to care about type. Portfolio matters far more to us than years.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: JUNIOR
+REQUIRED EDUCATION: none
+REQUIRED SKILLS: graphic design, Adobe Photoshop, Adobe Illustrator, typography",0
+it-esco-gap-1,it-frontend-junior,"HEADLINE: Java developer
+ABOUT: I have spent the last five years writing Spring Boot services against PostgreSQL for a healthcare integrator, including the messaging layer that moves patient records between hospital systems. Most of what I know is not on a certificate.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: Java (computer programming)
+EXPERIENCE: Software Developer (2021-06-01 - present): Designs and maintains Spring Boot REST services over a PostgreSQL database, writes the SQL behind the reporting endpoints, and manages the Flyway migrations for a schema shared by four teams.
+EDUCATION: BACHELORS at Plovdiv University Paisii Hilendarski in Informatics (2016-09-20 - 2020-07-15)","TITLE: Junior Frontend Developer
+COMPANY: Larkspur Digital
+DESCRIPTION: You will work on the customer-facing side of our booking product, turning designs into components and fixing the rough edges real users keep reporting. Expect close pairing with a senior for the first few months. We are looking for someone early in their career who already writes their own JavaScript rather than assembling it from snippets, and who cares when a page feels slow.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: JUNIOR
+REQUIRED EDUCATION: none
+REQUIRED SKILLS: JavaScript, React, Git",0
+it-frontend-junior-1,it-backend-mid,"HEADLINE: Frontend developer, React
+ABOUT: I build interfaces for a small SaaS product used by accountants, which means the users notice immediately when something moves. Two years in, comfortable in React, and slowly learning that the hard part is state rather than styling.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: JavaScript, React, Git
+EXPERIENCE: Frontend Developer (2024-09-02 - present): Builds React components against a documented REST API, owns the reporting screens end to end and handles the accessibility fixes that come out of client audits.
+EDUCATION: BACHELORS at New Bulgarian University in Software Engineering (2020-10-01 - 2024-06-28)
+COURSE: Frontend Development with React (SoftUni)","TITLE: Backend Engineer - Java & Spring
+COMPANY: Vertex Systems
+DESCRIPTION: Own backend services in a Java and Spring Boot stack, design the REST endpoints our web and mobile clients depend on, and work with a PostgreSQL schema that sees real load rather than demo traffic. You will be on call for what you ship, which is also why you get to decide how it is built. The team runs in two-week iterations and you would be expected to take part in planning them, not just receive them. We care more about how you reason about data and failure than about how many frameworks you have listed.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: MID
+REQUIRED EDUCATION: BACHELORS
+REQUIRED SKILLS: Java (computer programming), SQL, Spring Boot, Agile project management",0
+it-frontend-junior-1,it-devops-senior,"HEADLINE: Frontend developer, React
+ABOUT: I build interfaces for a small SaaS product used by accountants, which means the users notice immediately when something moves. Two years in, comfortable in React, and slowly learning that the hard part is state rather than styling.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: JavaScript, React, Git
+EXPERIENCE: Frontend Developer (2024-09-02 - present): Builds React components against a documented REST API, owns the reporting screens end to end and handles the accessibility fixes that come out of client audits.
+EDUCATION: BACHELORS at New Bulgarian University in Software Engineering (2020-10-01 - 2024-06-28)
+COURSE: Frontend Development with React (SoftUni)","TITLE: Senior DevOps Engineer
+COMPANY: Orbital Freight Tech
+DESCRIPTION: We run about sixty services across three Kubernetes clusters and the build pipeline has grown faster than anyone planned. You would own it: container images, deployment automation, the monitoring that tells us before a customer does. This is a senior role because we want the person who has already lived through the outage this setup is heading towards, and can say what to change first.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: SENIOR
+REQUIRED EDUCATION: none
+REQUIRED SKILLS: DevOps, Docker, Kubernetes, CI/CD",0
+it-frontend-mid-1,it-frontend-junior,"HEADLINE: Frontend engineer
+ABOUT: Five years of building web applications, the last three on a single large product where I have watched every shortcut we took come back. I care about bundle size and about the component API other developers have to live with.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: JavaScript, React, JavaScript Framework, Git
+EXPERIENCE: Frontend Developer (2021-06-01 - 2023-05-31): Worked across three client projects at an agency, mostly single-page applications in React with a shared component library I helped extract.
+EXPERIENCE: Frontend Engineer (2023-06-01 - present): Owns the front end of a B2B analytics product: component architecture, rendering performance on large tables, and the migration off a legacy framework.
+EDUCATION: BACHELORS at Technical University of Sofia in Computer Systems and Technologies (2017-09-15 - 2021-06-30)","TITLE: Junior Frontend Developer
+COMPANY: Larkspur Digital
+DESCRIPTION: You will work on the customer-facing side of our booking product, turning designs into components and fixing the rough edges real users keep reporting. Expect close pairing with a senior for the first few months. We are looking for someone early in their career who already writes their own JavaScript rather than assembling it from snippets, and who cares when a page feels slow.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: JUNIOR
+REQUIRED EDUCATION: none
+REQUIRED SKILLS: JavaScript, React, Git",2
+it-frontend-mid-1,mkt-brand-senior,"HEADLINE: Frontend engineer
+ABOUT: Five years of building web applications, the last three on a single large product where I have watched every shortcut we took come back. I care about bundle size and about the component API other developers have to live with.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: JavaScript, React, JavaScript Framework, Git
+EXPERIENCE: Frontend Developer (2021-06-01 - 2023-05-31): Worked across three client projects at an agency, mostly single-page applications in React with a shared component library I helped extract.
+EXPERIENCE: Frontend Engineer (2023-06-01 - present): Owns the front end of a B2B analytics product: component architecture, rendering performance on large tables, and the migration off a legacy framework.
+EDUCATION: BACHELORS at Technical University of Sofia in Computer Systems and Technologies (2017-09-15 - 2021-06-30)","TITLE: Head of Brand
+COMPANY: Kestrel Foods
+DESCRIPTION: Our brand has been run by committee for four years and it shows. You would set the positioning, rebuild the guidelines, and hold the line on them across packaging, retail and everything the agencies produce. The role reports to the CMO and carries two direct reports. Expect to spend as much time persuading colleagues as designing anything.
+LOCATION: Sofia, Bulgaria | remote: False
+LEVEL: SENIOR
+REQUIRED EDUCATION: MASTERS
+REQUIRED SKILLS: brand marketing techniques, lead the brand strategic planning process, perform brand analysis",0
+it-thin-profile-1,it-frontend-junior,"HEADLINE: DevOps engineer
+ABOUT: -
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: DevOps, Docker, Kubernetes, CI/CD
+EXPERIENCE: DevOps Engineer (2018-05-02 - present): -
+EDUCATION: BACHELORS at Technical University of Varna in Computer Science (2013-09-16 - 2017-07-07)","TITLE: Junior Frontend Developer
+COMPANY: Larkspur Digital
+DESCRIPTION: You will work on the customer-facing side of our booking product, turning designs into components and fixing the rough edges real users keep reporting. Expect close pairing with a senior for the first few months. We are looking for someone early in their career who already writes their own JavaScript rather than assembling it from snippets, and who cares when a page feels slow.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: JUNIOR
+REQUIRED EDUCATION: none
+REQUIRED SKILLS: JavaScript, React, Git",0
+it-underqualified-1,hr-recruiter-junior,"HEADLINE: Frontend developer, eight months in
+ABOUT: I finished my degree last summer and joined a small product team in December. So far I have shipped two screens on my own and broken production once. Looking for somewhere I can keep learning quickly.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: JavaScript, React
+EXPERIENCE: Junior Frontend Developer (2025-12-15 - present): Builds React screens against an existing API under review from a senior developer, and handles the smaller reported bugs.
+EDUCATION: BACHELORS at Sofia University St. Kliment Ohridski in Informatics (2021-09-20 - 2025-06-30)","TITLE: Junior Recruitment Specialist
+COMPANY: Bluewater Services
+DESCRIPTION: Source and screen for our commercial and support roles, run first-stage interviews, and keep candidates informed instead of leaving them wondering. We hire about forty people a year, so you will see the whole cycle quickly. Good fit for someone a year or two into recruitment, or moving in from a people-facing role.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: JUNIOR
+REQUIRED EDUCATION: none
+REQUIRED SKILLS: recruit employees, interview techniques",0
+it-underqualified-1,it-backend-mid,"HEADLINE: Frontend developer, eight months in
+ABOUT: I finished my degree last summer and joined a small product team in December. So far I have shipped two screens on my own and broken production once. Looking for somewhere I can keep learning quickly.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: JavaScript, React
+EXPERIENCE: Junior Frontend Developer (2025-12-15 - present): Builds React screens against an existing API under review from a senior developer, and handles the smaller reported bugs.
+EDUCATION: BACHELORS at Sofia University St. Kliment Ohridski in Informatics (2021-09-20 - 2025-06-30)","TITLE: Backend Engineer - Java & Spring
+COMPANY: Vertex Systems
+DESCRIPTION: Own backend services in a Java and Spring Boot stack, design the REST endpoints our web and mobile clients depend on, and work with a PostgreSQL schema that sees real load rather than demo traffic. You will be on call for what you ship, which is also why you get to decide how it is built. The team runs in two-week iterations and you would be expected to take part in planning them, not just receive them. We care more about how you reason about data and failure than about how many frameworks you have listed.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: MID
+REQUIRED EDUCATION: BACHELORS
+REQUIRED SKILLS: Java (computer programming), SQL, Spring Boot, Agile project management",0
+it-underqualified-1,ops-supplychain-mid,"HEADLINE: Frontend developer, eight months in
+ABOUT: I finished my degree last summer and joined a small product team in December. So far I have shipped two screens on my own and broken production once. Looking for somewhere I can keep learning quickly.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: JavaScript, React
+EXPERIENCE: Junior Frontend Developer (2025-12-15 - present): Builds React screens against an existing API under review from a senior developer, and handles the smaller reported bugs.
+EDUCATION: BACHELORS at Sofia University St. Kliment Ohridski in Informatics (2021-09-20 - 2025-06-30)","TITLE: Supply Chain Specialist
+COMPANY: Verano Distribution
+DESCRIPTION: Plan replenishment across four regional depots, manage the supplier relationships that keep them stocked, and reduce the amount of capital sitting still on our shelves. You will be measured on stock availability and on working capital at the same time, which is the interesting part of the job.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: MID
+REQUIRED EDUCATION: BACHELORS
+REQUIRED SKILLS: supply chain management, supplier management, carry out inventory planning",0
+it-vocabulary-gap-1,it-devops-senior,"HEADLINE: Backend developer and Scrum Master
+ABOUT: Four and a half years writing Java services, and for the last two of them I have also run the team's Scrum process - sprint planning, refinement, retrospectives, and the awkward conversation when the sprint goal is obviously not going to happen. I rotate the Scrum Master role with a colleague every quarter.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: Java (computer programming), SQL, Spring Boot
+EXPERIENCE: Backend Developer (2022-02-01 - present): Builds Spring Boot services over PostgreSQL for a payments platform, and acts as Scrum Master for a team of six on a rotating basis: facilitates sprint planning and retrospectives, maintains the backlog with the product owner, and reports iteration progress to stakeholders.
+EDUCATION: BACHELORS at Sofia University St. Kliment Ohridski in Informatics (2017-09-15 - 2021-07-05)
+COURSE: Professional Scrum Master I (Scrum.org)","TITLE: Senior DevOps Engineer
+COMPANY: Orbital Freight Tech
+DESCRIPTION: We run about sixty services across three Kubernetes clusters and the build pipeline has grown faster than anyone planned. You would own it: container images, deployment automation, the monitoring that tells us before a customer does. This is a senior role because we want the person who has already lived through the outage this setup is heading towards, and can say what to change first.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: SENIOR
+REQUIRED EDUCATION: none
+REQUIRED SKILLS: DevOps, Docker, Kubernetes, CI/CD",1
+mkt-digital-mid-1,dsg-lead-senior,"HEADLINE: Digital marketing manager
+ABOUT: I run acquisition for a mid-sized e-commerce business: paid search, organic, and an email programme that took two years to stop being an afterthought. I am the person who asks what a channel actually returned before we increase its budget.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: plan marketing campaigns, search engine optimisation, execute email marketing, data analytics
+EXPERIENCE: Digital Marketing Specialist (2021-01-04 - 2022-01-31): Managed paid search and display for three retail brands at an agency and produced the monthly performance reporting.
+EXPERIENCE: Digital Marketing Manager (2022-02-01 - present): Owns the full acquisition funnel and its budget: search engine optimisation, paid campaigns and lifecycle email, with attribution reporting to the commercial director.
+EDUCATION: BACHELORS at University of National and World Economy in Marketing (2016-09-15 - 2020-07-10)","TITLE: Design Lead
+COMPANY: Perla Interactive
+DESCRIPTION: Lead a team of four across product and brand work, own the design system, and be the person who decides what ships when the deadline and the craft disagree. Half the job is reviewing other people's work well enough that they get better at it. We are looking for someone who has already led designers, not only projects.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: SENIOR
+REQUIRED EDUCATION: none
+REQUIRED SKILLS: manage visual communications, create brand guidelines, design thinking",0
+mkt-digital-mid-1,mkt-brand-senior,"HEADLINE: Digital marketing manager
+ABOUT: I run acquisition for a mid-sized e-commerce business: paid search, organic, and an email programme that took two years to stop being an afterthought. I am the person who asks what a channel actually returned before we increase its budget.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: plan marketing campaigns, search engine optimisation, execute email marketing, data analytics
+EXPERIENCE: Digital Marketing Specialist (2021-01-04 - 2022-01-31): Managed paid search and display for three retail brands at an agency and produced the monthly performance reporting.
+EXPERIENCE: Digital Marketing Manager (2022-02-01 - present): Owns the full acquisition funnel and its budget: search engine optimisation, paid campaigns and lifecycle email, with attribution reporting to the commercial director.
+EDUCATION: BACHELORS at University of National and World Economy in Marketing (2016-09-15 - 2020-07-10)","TITLE: Head of Brand
+COMPANY: Kestrel Foods
+DESCRIPTION: Our brand has been run by committee for four years and it shows. You would set the positioning, rebuild the guidelines, and hold the line on them across packaging, retail and everything the agencies produce. The role reports to the CMO and carries two direct reports. Expect to spend as much time persuading colleagues as designing anything.
+LOCATION: Sofia, Bulgaria | remote: False
+LEVEL: SENIOR
+REQUIRED EDUCATION: MASTERS
+REQUIRED SKILLS: brand marketing techniques, lead the brand strategic planning process, perform brand analysis",1
+mkt-digital-mid-1,mkt-digital-mid,"HEADLINE: Digital marketing manager
+ABOUT: I run acquisition for a mid-sized e-commerce business: paid search, organic, and an email programme that took two years to stop being an afterthought. I am the person who asks what a channel actually returned before we increase its budget.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: plan marketing campaigns, search engine optimisation, execute email marketing, data analytics
+EXPERIENCE: Digital Marketing Specialist (2021-01-04 - 2022-01-31): Managed paid search and display for three retail brands at an agency and produced the monthly performance reporting.
+EXPERIENCE: Digital Marketing Manager (2022-02-01 - present): Owns the full acquisition funnel and its budget: search engine optimisation, paid campaigns and lifecycle email, with attribution reporting to the commercial director.
+EDUCATION: BACHELORS at University of National and World Economy in Marketing (2016-09-15 - 2020-07-10)","TITLE: Digital Marketing Manager
+COMPANY: Halcyon Travel Group
+DESCRIPTION: Take the whole digital funnel: paid and organic search, the email programme, and the reporting that tells the board where the bookings came from. You will own a real budget and decide how it is split. We need someone who has already run campaigns end to end and can argue with a spreadsheet when it disagrees with them.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: MID
+REQUIRED EDUCATION: none
+REQUIRED SKILLS: plan marketing campaigns, search engine optimisation, execute email marketing",3
+mkt-education-gate-fail-1,dsg-ux-mid,"HEADLINE: Content and social coordinator
+ABOUT: I did not go to university - I started writing for an online magazine at nineteen and moved into marketing from there. Two years coordinating content for a furniture retailer, and I have taught myself the analytics side out of necessity.
+LOCATION: Sofia, Bulgaria | open to remote: False
+SKILLS: content marketing strategy, apply social media marketing, perform copywriting, plan marketing campaigns
+EXPERIENCE: Marketing Coordinator (2024-06-03 - present): Runs the content calendar and social channels for a furniture retailer, briefs freelance writers and photographers, and compiles the monthly campaign performance summary.
+EDUCATION: SECONDARY at 91st German Language School in - (2017-09-15 - 2022-05-31)
+COURSE: Digital Marketing Fundamentals (Google Digital Garage)","TITLE: UX Designer
+COMPANY: Cobalt Health
+DESCRIPTION: Design the flows clinicians actually use, which means sitting in a ward watching someone fight our software before you open any design tool. Wireframes, prototypes and usability sessions are the daily work; the visual polish is shared with a colleague. We would rather you came back and told us the feature should not be built.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: MID
+REQUIRED EDUCATION: BACHELORS
+REQUIRED SKILLS: design thinking, create prototype of user experience solutions, create website wireframe, application usability",0
+mkt-education-gate-fail-1,mkt-content-junior,"HEADLINE: Content and social coordinator
+ABOUT: I did not go to university - I started writing for an online magazine at nineteen and moved into marketing from there. Two years coordinating content for a furniture retailer, and I have taught myself the analytics side out of necessity.
+LOCATION: Sofia, Bulgaria | open to remote: False
+SKILLS: content marketing strategy, apply social media marketing, perform copywriting, plan marketing campaigns
+EXPERIENCE: Marketing Coordinator (2024-06-03 - present): Runs the content calendar and social channels for a furniture retailer, briefs freelance writers and photographers, and compiles the monthly campaign performance summary.
+EDUCATION: SECONDARY at 91st German Language School in - (2017-09-15 - 2022-05-31)
+COURSE: Digital Marketing Fundamentals (Google Digital Garage)","TITLE: Junior Content Marketing Specialist
+COMPANY: Northwind Retail
+DESCRIPTION: Write for our blog and social channels, help shape the monthly campaign calendar, and report on what actually moved engagement rather than what looked busy. This is a first or second marketing role for someone who writes well in Bulgarian and English and is curious about the numbers underneath the content. You will sit with the wider commercial team in our Sofia office.
+LOCATION: Sofia, Bulgaria | remote: False
+LEVEL: JUNIOR
+REQUIRED EDUCATION: BACHELORS
+REQUIRED SKILLS: content marketing strategy, apply social media marketing",2
+mkt-overqualified-1,mkt-brand-senior,"HEADLINE: Senior marketing manager
+ABOUT: Twelve years across content, campaigns and brand, most recently leading a team of six. I am deliberately looking at smaller roles again - I would rather write and plan than sit in the meetings that come with the title.
+LOCATION: Sofia, Bulgaria | open to remote: False
+SKILLS: content marketing strategy, apply social media marketing, perform copywriting, plan marketing campaigns, search engine optimisation, brand marketing techniques, manage brand assets
+EXPERIENCE: Marketing Manager (2014-02-03 - 2019-12-31): Ran content and campaign marketing for a telecoms reseller, including the editorial calendar, the agency relationship and the annual campaign plan.
+EXPERIENCE: Senior Marketing Manager (2020-01-06 - present): Leads a team of six across content, social and campaigns for a retail group, owns the marketing budget and reports performance to the executive team.
+EDUCATION: MASTERS at University of National and World Economy in Marketing (2011-09-15 - 2013-06-30)","TITLE: Head of Brand
+COMPANY: Kestrel Foods
+DESCRIPTION: Our brand has been run by committee for four years and it shows. You would set the positioning, rebuild the guidelines, and hold the line on them across packaging, retail and everything the agencies produce. The role reports to the CMO and carries two direct reports. Expect to spend as much time persuading colleagues as designing anything.
+LOCATION: Sofia, Bulgaria | remote: False
+LEVEL: SENIOR
+REQUIRED EDUCATION: MASTERS
+REQUIRED SKILLS: brand marketing techniques, lead the brand strategic planning process, perform brand analysis",2
+mkt-social-junior-1,mkt-brand-senior,"HEADLINE: Social media coordinator
+ABOUT: I look after four channels for a fitness chain and produce most of the video myself. Fifteen months in. My strongest skill is knowing what will not work before we spend money on it.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: apply social media marketing, social media management, plan social media marketing campaigns
+EXPERIENCE: Social Media Coordinator (2025-05-05 - present): Plans and publishes across four social channels, produces short-form video in-house, and handles community responses and the monthly engagement report.
+EDUCATION: BACHELORS at New Bulgarian University in Advertising and Public Relations (2021-09-20 - 2025-06-25)","TITLE: Head of Brand
+COMPANY: Kestrel Foods
+DESCRIPTION: Our brand has been run by committee for four years and it shows. You would set the positioning, rebuild the guidelines, and hold the line on them across packaging, retail and everything the agencies produce. The role reports to the CMO and carries two direct reports. Expect to spend as much time persuading colleagues as designing anything.
+LOCATION: Sofia, Bulgaria | remote: False
+LEVEL: SENIOR
+REQUIRED EDUCATION: MASTERS
+REQUIRED SKILLS: brand marketing techniques, lead the brand strategic planning process, perform brand analysis",0
+mkt-social-junior-1,mkt-content-junior,"HEADLINE: Social media coordinator
+ABOUT: I look after four channels for a fitness chain and produce most of the video myself. Fifteen months in. My strongest skill is knowing what will not work before we spend money on it.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: apply social media marketing, social media management, plan social media marketing campaigns
+EXPERIENCE: Social Media Coordinator (2025-05-05 - present): Plans and publishes across four social channels, produces short-form video in-house, and handles community responses and the monthly engagement report.
+EDUCATION: BACHELORS at New Bulgarian University in Advertising and Public Relations (2021-09-20 - 2025-06-25)","TITLE: Junior Content Marketing Specialist
+COMPANY: Northwind Retail
+DESCRIPTION: Write for our blog and social channels, help shape the monthly campaign calendar, and report on what actually moved engagement rather than what looked busy. This is a first or second marketing role for someone who writes well in Bulgarian and English and is curious about the numbers underneath the content. You will sit with the wider commercial team in our Sofia office.
+LOCATION: Sofia, Bulgaria | remote: False
+LEVEL: JUNIOR
+REQUIRED EDUCATION: BACHELORS
+REQUIRED SKILLS: content marketing strategy, apply social media marketing",2
+mkt-social-junior-1,ops-coordinator-junior,"HEADLINE: Social media coordinator
+ABOUT: I look after four channels for a fitness chain and produce most of the video myself. Fifteen months in. My strongest skill is knowing what will not work before we spend money on it.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: apply social media marketing, social media management, plan social media marketing campaigns
+EXPERIENCE: Social Media Coordinator (2025-05-05 - present): Plans and publishes across four social channels, produces short-form video in-house, and handles community responses and the monthly engagement report.
+EDUCATION: BACHELORS at New Bulgarian University in Advertising and Public Relations (2021-09-20 - 2025-06-25)","TITLE: Logistics Coordinator
+COMPANY: Pontos Shipping
+DESCRIPTION: Keep the daily flow moving between the Varna warehouse, the carriers and the customers who call when a delivery is late. Stock counts, paperwork, and the phone. It is an entry-level operations job in a port city and the shifts are real shifts - the work is on site at the depot, not from a laptop.
+LOCATION: Varna, Bulgaria | remote: False
+LEVEL: JUNIOR
+REQUIRED EDUCATION: none
+REQUIRED SKILLS: inventory management rules, manage warehouse inventory, customer service",0
+ops-coordinator-junior-1,fin-controller-senior,"HEADLINE: Logistics coordinator
+ABOUT: Eighteen months at a freight depot in Varna, coordinating between the warehouse floor, the drivers and whoever is on the phone about a late delivery. I am good in the part of the day when everything goes wrong at once.
+LOCATION: Varna, Bulgaria | open to remote: False
+SKILLS: inventory management rules, manage warehouse inventory, customer service
+EXPERIENCE: Logistics Coordinator (2025-02-03 - present): Coordinates daily dispatch between the warehouse, carriers and customers, maintains stock records and cycle counts, and resolves delivery exceptions.
+EDUCATION: SECONDARY at Vocational School of Transport - Varna in Transport Logistics (2019-09-15 - 2023-05-31)","TITLE: Financial Controller
+COMPANY: Rhodope Manufacturing
+DESCRIPTION: Own the monthly and annual close for a manufacturing business with two plants, run the budgeting cycle, and be the person the auditors deal with. Cost accounting is the heart of this job: we make physical things and the margin lives in the detail. Based at the Plovdiv site, on site, because that is where the operation is.
+LOCATION: Plovdiv, Bulgaria | remote: False
+LEVEL: SENIOR
+REQUIRED EDUCATION: MASTERS
+REQUIRED SKILLS: cost management, manage budgets, conduct financial audits",0
+ops-coordinator-junior-1,ops-coordinator-junior,"HEADLINE: Logistics coordinator
+ABOUT: Eighteen months at a freight depot in Varna, coordinating between the warehouse floor, the drivers and whoever is on the phone about a late delivery. I am good in the part of the day when everything goes wrong at once.
+LOCATION: Varna, Bulgaria | open to remote: False
+SKILLS: inventory management rules, manage warehouse inventory, customer service
+EXPERIENCE: Logistics Coordinator (2025-02-03 - present): Coordinates daily dispatch between the warehouse, carriers and customers, maintains stock records and cycle counts, and resolves delivery exceptions.
+EDUCATION: SECONDARY at Vocational School of Transport - Varna in Transport Logistics (2019-09-15 - 2023-05-31)","TITLE: Logistics Coordinator
+COMPANY: Pontos Shipping
+DESCRIPTION: Keep the daily flow moving between the Varna warehouse, the carriers and the customers who call when a delivery is late. Stock counts, paperwork, and the phone. It is an entry-level operations job in a port city and the shifts are real shifts - the work is on site at the depot, not from a laptop.
+LOCATION: Varna, Bulgaria | remote: False
+LEVEL: JUNIOR
+REQUIRED EDUCATION: none
+REQUIRED SKILLS: inventory management rules, manage warehouse inventory, customer service",3
+ops-logistics-senior-1,ops-coordinator-junior,"HEADLINE: Logistics manager
+ABOUT: Nine years in logistics management, currently responsible for warehousing and distribution across three sites. I left university with a bachelor's and never went back, which has cost me at least one job I wanted.
+LOCATION: Sofia, Bulgaria | open to remote: False
+SKILLS: develop efficiency plans for logistics operations, manage warehouse operations, supply chain management, identify process improvements
+EXPERIENCE: Logistics Manager (2017-06-01 - present): Manages warehousing and distribution across three sites, owns the carrier contracts and service levels, and led the slotting redesign that raised picking productivity by a fifth.
+EDUCATION: BACHELORS at University of Economics - Varna in Transport Logistics (2012-09-15 - 2016-07-01)","TITLE: Logistics Coordinator
+COMPANY: Pontos Shipping
+DESCRIPTION: Keep the daily flow moving between the Varna warehouse, the carriers and the customers who call when a delivery is late. Stock counts, paperwork, and the phone. It is an entry-level operations job in a port city and the shifts are real shifts - the work is on site at the depot, not from a laptop.
+LOCATION: Varna, Bulgaria | remote: False
+LEVEL: JUNIOR
+REQUIRED EDUCATION: none
+REQUIRED SKILLS: inventory management rules, manage warehouse inventory, customer service",2
+ops-logistics-senior-1,ops-manager-senior,"HEADLINE: Logistics manager
+ABOUT: Nine years in logistics management, currently responsible for warehousing and distribution across three sites. I left university with a bachelor's and never went back, which has cost me at least one job I wanted.
+LOCATION: Sofia, Bulgaria | open to remote: False
+SKILLS: develop efficiency plans for logistics operations, manage warehouse operations, supply chain management, identify process improvements
+EXPERIENCE: Logistics Manager (2017-06-01 - present): Manages warehousing and distribution across three sites, owns the carrier contracts and service levels, and led the slotting redesign that raised picking productivity by a fifth.
+EDUCATION: BACHELORS at University of Economics - Varna in Transport Logistics (2012-09-15 - 2016-07-01)","TITLE: Operations Manager
+COMPANY: Iskar Industrial
+DESCRIPTION: Run the whole operation: two warehouses, a transport fleet, forty-odd people and a budget that has not been rebuilt since 2021. We want the processes redesigned rather than defended, and we want the person doing it to have run something at this scale before. Reports to the managing director.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: SENIOR
+REQUIRED EDUCATION: MASTERS
+REQUIRED SKILLS: manage warehouse operations, identify process improvements, project management, manage budgets",2
+ops-manager-senior-1,ops-coordinator-junior,"HEADLINE: Operations manager
+ABOUT: Fifteen years in industrial operations, the last seven running two warehouses and a transport fleet. I have rebuilt one operation from the process outwards and inherited another that nobody had touched since 2016.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: manage warehouse operations, identify process improvements, project management, manage budgets
+EXPERIENCE: Warehouse Manager (2011-09-01 - 2018-12-31): Ran a 12,000 square metre distribution centre and its 35 staff, including the shift structure and the pick-accuracy improvement programme.
+EXPERIENCE: Operations Manager (2019-01-07 - present): Responsible for two warehouses and a transport fleet with a combined headcount of 40, owns the operational budget, and led the process redesign that cut order cycle time by a third.
+EDUCATION: MASTERS at University of National and World Economy in Industrial Business and Entrepreneurship (2009-09-15 - 2011-06-30)","TITLE: Logistics Coordinator
+COMPANY: Pontos Shipping
+DESCRIPTION: Keep the daily flow moving between the Varna warehouse, the carriers and the customers who call when a delivery is late. Stock counts, paperwork, and the phone. It is an entry-level operations job in a port city and the shifts are real shifts - the work is on site at the depot, not from a laptop.
+LOCATION: Varna, Bulgaria | remote: False
+LEVEL: JUNIOR
+REQUIRED EDUCATION: none
+REQUIRED SKILLS: inventory management rules, manage warehouse inventory, customer service",1
+ops-procurement-mid-1,fin-accountant-junior,"HEADLINE: Procurement specialist
+ABOUT: Five years buying indirect goods and services for a manufacturing group. Most of the saving comes from writing the specification properly, not from the negotiation everyone focuses on.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: perform procurement processes, negotiate terms with suppliers, supplier management, develop procurement strategy
+EXPERIENCE: Procurement Specialist (2021-09-01 - present): Runs tender and supplier selection processes for indirect categories, negotiates framework agreements and manages supplier performance reviews.
+EDUCATION: BACHELORS at University of National and World Economy in Business Logistics (2017-09-15 - 2021-07-05)","TITLE: Junior Accountant
+COMPANY: Sabina Group
+DESCRIPTION: Post and reconcile the daily ledger entries, prepare supporting schedules for the monthly close, and chase the documents nobody sent. It is unglamorous and it is how you learn where the numbers actually come from. You will report to the chief accountant and work from our Sofia office alongside a team of five.
+LOCATION: Sofia, Bulgaria | remote: False
+LEVEL: JUNIOR
+REQUIRED EDUCATION: BACHELORS
+REQUIRED SKILLS: accounting, accounting entries, use spreadsheets software",0
+ops-procurement-mid-1,mkt-content-junior,"HEADLINE: Procurement specialist
+ABOUT: Five years buying indirect goods and services for a manufacturing group. Most of the saving comes from writing the specification properly, not from the negotiation everyone focuses on.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: perform procurement processes, negotiate terms with suppliers, supplier management, develop procurement strategy
+EXPERIENCE: Procurement Specialist (2021-09-01 - present): Runs tender and supplier selection processes for indirect categories, negotiates framework agreements and manages supplier performance reviews.
+EDUCATION: BACHELORS at University of National and World Economy in Business Logistics (2017-09-15 - 2021-07-05)","TITLE: Junior Content Marketing Specialist
+COMPANY: Northwind Retail
+DESCRIPTION: Write for our blog and social channels, help shape the monthly campaign calendar, and report on what actually moved engagement rather than what looked busy. This is a first or second marketing role for someone who writes well in Bulgarian and English and is curious about the numbers underneath the content. You will sit with the wider commercial team in our Sofia office.
+LOCATION: Sofia, Bulgaria | remote: False
+LEVEL: JUNIOR
+REQUIRED EDUCATION: BACHELORS
+REQUIRED SKILLS: content marketing strategy, apply social media marketing",0
+ops-supplychain-mid-1,ops-coordinator-junior,"HEADLINE: Supply chain specialist
+ABOUT: Four and a half years planning replenishment across a regional depot network. The job is a permanent argument between stock availability and working capital, and I have got reasonably good at holding both numbers in my head.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: supply chain management, supplier management, carry out inventory planning, supply chain principles
+EXPERIENCE: Supply Chain Specialist (2022-01-10 - present): Plans replenishment for four regional depots, manages the supplier order book and lead times, and reports on stock availability and inventory holding value.
+EDUCATION: BACHELORS at University of National and World Economy in Logistics and Supply Chain Management (2017-09-15 - 2021-07-05)","TITLE: Logistics Coordinator
+COMPANY: Pontos Shipping
+DESCRIPTION: Keep the daily flow moving between the Varna warehouse, the carriers and the customers who call when a delivery is late. Stock counts, paperwork, and the phone. It is an entry-level operations job in a port city and the shifts are real shifts - the work is on site at the depot, not from a laptop.
+LOCATION: Varna, Bulgaria | remote: False
+LEVEL: JUNIOR
+REQUIRED EDUCATION: none
+REQUIRED SKILLS: inventory management rules, manage warehouse inventory, customer service",1
+ops-supplychain-mid-1,ops-manager-senior,"HEADLINE: Supply chain specialist
+ABOUT: Four and a half years planning replenishment across a regional depot network. The job is a permanent argument between stock availability and working capital, and I have got reasonably good at holding both numbers in my head.
+LOCATION: Sofia, Bulgaria | open to remote: True
+SKILLS: supply chain management, supplier management, carry out inventory planning, supply chain principles
+EXPERIENCE: Supply Chain Specialist (2022-01-10 - present): Plans replenishment for four regional depots, manages the supplier order book and lead times, and reports on stock availability and inventory holding value.
+EDUCATION: BACHELORS at University of National and World Economy in Logistics and Supply Chain Management (2017-09-15 - 2021-07-05)","TITLE: Operations Manager
+COMPANY: Iskar Industrial
+DESCRIPTION: Run the whole operation: two warehouses, a transport fleet, forty-odd people and a budget that has not been rebuilt since 2021. We want the processes redesigned rather than defended, and we want the person doing it to have run something at this scale before. Reports to the managing director.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: SENIOR
+REQUIRED EDUCATION: MASTERS
+REQUIRED SKILLS: manage warehouse operations, identify process improvements, project management, manage budgets",1
+ops-warehouse-junior-1,fin-controller-senior,"HEADLINE: Warehouse administrator
+ABOUT: Eleven months handling stock paperwork and goods receipt at a distribution centre outside Varna. First proper job. I would like to move into planning eventually.
+LOCATION: Varna, Bulgaria | open to remote: False
+SKILLS: handle paperwork related to warehouse stock, manage warehouse inventory, inventory management rules
+EXPERIENCE: Warehouse Administrator (2025-09-29 - present): Processes goods receipt and dispatch documentation, runs cycle counts and investigates stock discrepancies with the shift supervisors.
+EDUCATION: SECONDARY at Vocational School of Economics - Varna in Business Administration (2020-09-15 - 2024-05-31)","TITLE: Financial Controller
+COMPANY: Rhodope Manufacturing
+DESCRIPTION: Own the monthly and annual close for a manufacturing business with two plants, run the budgeting cycle, and be the person the auditors deal with. Cost accounting is the heart of this job: we make physical things and the margin lives in the detail. Based at the Plovdiv site, on site, because that is where the operation is.
+LOCATION: Plovdiv, Bulgaria | remote: False
+LEVEL: SENIOR
+REQUIRED EDUCATION: MASTERS
+REQUIRED SKILLS: cost management, manage budgets, conduct financial audits",0
+ops-warehouse-junior-1,ops-manager-senior,"HEADLINE: Warehouse administrator
+ABOUT: Eleven months handling stock paperwork and goods receipt at a distribution centre outside Varna. First proper job. I would like to move into planning eventually.
+LOCATION: Varna, Bulgaria | open to remote: False
+SKILLS: handle paperwork related to warehouse stock, manage warehouse inventory, inventory management rules
+EXPERIENCE: Warehouse Administrator (2025-09-29 - present): Processes goods receipt and dispatch documentation, runs cycle counts and investigates stock discrepancies with the shift supervisors.
+EDUCATION: SECONDARY at Vocational School of Economics - Varna in Business Administration (2020-09-15 - 2024-05-31)","TITLE: Operations Manager
+COMPANY: Iskar Industrial
+DESCRIPTION: Run the whole operation: two warehouses, a transport fleet, forty-odd people and a budget that has not been rebuilt since 2021. We want the processes redesigned rather than defended, and we want the person doing it to have run something at this scale before. Reports to the managing director.
+LOCATION: Sofia, Bulgaria | remote: True
+LEVEL: SENIOR
+REQUIRED EDUCATION: MASTERS
+REQUIRED SKILLS: manage warehouse operations, identify process improvements, project management, manage budgets",0

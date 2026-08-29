@@ -1,0 +1,1270 @@
+{
+  "_note": "Benchmark candidates. 40 profiles across 6 professional areas (IT 10, Marketing 6, Finance & Accounting 6, HR 6, Design 6, Operations 6), including the eleven diagnostic fixtures (ten plus `vocabulary-gap`). Every structured skill name is verified against fixtures/vocabulary.txt (regenerated from the skill seed migrations by build_vocabulary.py). Tenure is expressed as real startDate/endDate pairs and is intended to be read against today=2026-08-27; endDate null means ongoing. The `area` field is BOOKKEEPING ONLY and carries no grading authority - it records the area the candidate is SEEKING work in, which is not necessarily where their history is, and the runner uses it to group listings for the diagnostic tables. Grades follow evidence, never the tag (rubric.md sections 3.1 and 8.4); it-cross-domain-1 and dsg-career-changer-1 disagree with their tags on purpose. `pairedWith` is a lab-only field used by the skill-superset diagnostic to locate its twin.",
+  "candidates": [
+    {
+      "key": "it-backend-mid-1",
+      "area": "IT",
+      "diagnostic": null,
+      "headline": "Backend Java developer",
+      "description": "Backend developer on the fulfilment side of a logistics company. Most weeks are REST API design, PostgreSQL query tuning and keeping a deployment pipeline honest. I have taken two services from an empty schema to production and I still maintain both.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": true,
+      "flexibleHours": false,
+      "skills": ["Java (computer programming)", "SQL", "Spring Boot", "PostgreSQL", "Agile project management"],
+      "experiences": [
+        {
+          "roleTitle": "Backend Developer",
+          "startDate": "2021-03-01",
+          "endDate": null,
+          "description": "Builds and maintains Spring Boot microservices backed by PostgreSQL, with an emphasis on API contracts, migration safety and query performance under load."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "Technical University of Sofia",
+          "specialty": "Computer Science",
+          "level": "BACHELORS",
+          "startDate": "2016-09-01",
+          "endDate": "2020-06-30"
+        }
+      ],
+      "courses": [
+        { "name": "Spring Professional", "issuingOrganization": "VMware" }
+      ]
+    },
+    {
+      "key": "it-backend-mid-1-superset",
+      "area": "IT",
+      "diagnostic": "skill-superset",
+      "pairedWith": "it-backend-mid-1",
+      "headline": "Backend Java developer",
+      "description": "Backend developer on the fulfilment side of a logistics company. Most weeks are REST API design, PostgreSQL query tuning and keeping a deployment pipeline honest. I have taken two services from an empty schema to production and I still maintain both.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": true,
+      "flexibleHours": false,
+      "skills": [
+        "Java (computer programming)",
+        "SQL",
+        "Spring Boot",
+        "PostgreSQL",
+        "Agile project management",
+        "accounting",
+        "apply social media marketing",
+        "manage payroll",
+        "graphic design",
+        "manage warehouse inventory",
+        "interview techniques"
+      ],
+      "experiences": [
+        {
+          "roleTitle": "Backend Developer",
+          "startDate": "2021-03-01",
+          "endDate": null,
+          "description": "Builds and maintains Spring Boot microservices backed by PostgreSQL, with an emphasis on API contracts, migration safety and query performance under load."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "Technical University of Sofia",
+          "specialty": "Computer Science",
+          "level": "BACHELORS",
+          "startDate": "2016-09-01",
+          "endDate": "2020-06-30"
+        }
+      ],
+      "courses": [
+        { "name": "Spring Professional", "issuingOrganization": "VMware" }
+      ]
+    },
+    {
+      "key": "it-vocabulary-gap-1",
+      "area": "IT",
+      "diagnostic": "vocabulary-gap",
+      "headline": "Backend developer and Scrum Master",
+      "description": "Four and a half years writing Java services, and for the last two of them I have also run the team's Scrum process - sprint planning, refinement, retrospectives, and the awkward conversation when the sprint goal is obviously not going to happen. I rotate the Scrum Master role with a colleague every quarter.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": true,
+      "flexibleHours": false,
+      "skills": ["Java (computer programming)", "SQL", "Spring Boot"],
+      "experiences": [
+        {
+          "roleTitle": "Backend Developer",
+          "startDate": "2022-02-01",
+          "endDate": null,
+          "description": "Builds Spring Boot services over PostgreSQL for a payments platform, and acts as Scrum Master for a team of six on a rotating basis: facilitates sprint planning and retrospectives, maintains the backlog with the product owner, and reports iteration progress to stakeholders."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "Sofia University St. Kliment Ohridski",
+          "specialty": "Informatics",
+          "level": "BACHELORS",
+          "startDate": "2017-09-15",
+          "endDate": "2021-07-05"
+        }
+      ],
+      "courses": [
+        { "name": "Professional Scrum Master I", "issuingOrganization": "Scrum.org" }
+      ]
+    },
+    {
+      "key": "it-frontend-junior-1",
+      "area": "IT",
+      "diagnostic": null,
+      "headline": "Frontend developer, React",
+      "description": "I build interfaces for a small SaaS product used by accountants, which means the users notice immediately when something moves. Two years in, comfortable in React, and slowly learning that the hard part is state rather than styling.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": true,
+      "flexibleHours": true,
+      "skills": ["JavaScript", "React", "Git"],
+      "experiences": [
+        {
+          "roleTitle": "Frontend Developer",
+          "startDate": "2024-09-02",
+          "endDate": null,
+          "description": "Builds React components against a documented REST API, owns the reporting screens end to end and handles the accessibility fixes that come out of client audits."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "New Bulgarian University",
+          "specialty": "Software Engineering",
+          "level": "BACHELORS",
+          "startDate": "2020-10-01",
+          "endDate": "2024-06-28"
+        }
+      ],
+      "courses": [
+        { "name": "Frontend Development with React", "issuingOrganization": "SoftUni" }
+      ]
+    },
+    {
+      "key": "it-frontend-mid-1",
+      "area": "IT",
+      "diagnostic": null,
+      "headline": "Frontend engineer",
+      "description": "Five years of building web applications, the last three on a single large product where I have watched every shortcut we took come back. I care about bundle size and about the component API other developers have to live with.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": true,
+      "flexibleHours": false,
+      "skills": ["JavaScript", "React", "JavaScript Framework", "Git"],
+      "experiences": [
+        {
+          "roleTitle": "Frontend Developer",
+          "startDate": "2021-06-01",
+          "endDate": "2023-05-31",
+          "description": "Worked across three client projects at an agency, mostly single-page applications in React with a shared component library I helped extract."
+        },
+        {
+          "roleTitle": "Frontend Engineer",
+          "startDate": "2023-06-01",
+          "endDate": null,
+          "description": "Owns the front end of a B2B analytics product: component architecture, rendering performance on large tables, and the migration off a legacy framework."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "Technical University of Sofia",
+          "specialty": "Computer Systems and Technologies",
+          "level": "BACHELORS",
+          "startDate": "2017-09-15",
+          "endDate": "2021-06-30"
+        }
+      ],
+      "courses": []
+    },
+    {
+      "key": "it-devops-senior-1",
+      "area": "IT",
+      "diagnostic": null,
+      "headline": "Senior DevOps engineer",
+      "description": "Nine years in infrastructure, the last five entirely on containers. I have migrated two companies onto Kubernetes and I would tell you honestly that only one of them needed it. Happiest when the deploy is boring.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": true,
+      "flexibleHours": false,
+      "skills": ["DevOps", "Docker", "Kubernetes", "CI/CD", "Jenkins (tools for software configuration management)"],
+      "experiences": [
+        {
+          "roleTitle": "Systems Administrator",
+          "startDate": "2017-02-01",
+          "endDate": "2021-01-31",
+          "description": "Ran the Linux estate and the build servers for a payments company, and introduced the first automated deployment pipeline it had."
+        },
+        {
+          "roleTitle": "DevOps Engineer",
+          "startDate": "2021-02-01",
+          "endDate": null,
+          "description": "Owns three Kubernetes clusters, the container image pipeline and the alerting stack. Led the move from hand-rolled scripts to declarative deployments and reduced release time from a day to under an hour."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "Technical University of Sofia",
+          "specialty": "Computer Systems and Technologies",
+          "level": "BACHELORS",
+          "startDate": "2012-09-15",
+          "endDate": "2016-07-10"
+        }
+      ],
+      "courses": [
+        { "name": "Certified Kubernetes Administrator", "issuingOrganization": "Cloud Native Computing Foundation" }
+      ]
+    },
+    {
+      "key": "it-esco-gap-1",
+      "area": "IT",
+      "diagnostic": "esco-gap",
+      "headline": "Java developer",
+      "description": "I have spent the last five years writing Spring Boot services against PostgreSQL for a healthcare integrator, including the messaging layer that moves patient records between hospital systems. Most of what I know is not on a certificate.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": true,
+      "flexibleHours": false,
+      "skills": ["Java (computer programming)"],
+      "experiences": [
+        {
+          "roleTitle": "Software Developer",
+          "startDate": "2021-06-01",
+          "endDate": null,
+          "description": "Designs and maintains Spring Boot REST services over a PostgreSQL database, writes the SQL behind the reporting endpoints, and manages the Flyway migrations for a schema shared by four teams."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "Plovdiv University Paisii Hilendarski",
+          "specialty": "Informatics",
+          "level": "BACHELORS",
+          "startDate": "2016-09-20",
+          "endDate": "2020-07-15"
+        }
+      ],
+      "courses": []
+    },
+    {
+      "key": "it-thin-profile-1",
+      "area": "IT",
+      "diagnostic": "thin-profile",
+      "headline": "DevOps engineer",
+      "description": "",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": true,
+      "flexibleHours": false,
+      "skills": ["DevOps", "Docker", "Kubernetes", "CI/CD"],
+      "experiences": [
+        {
+          "roleTitle": "DevOps Engineer",
+          "startDate": "2018-05-02",
+          "endDate": null,
+          "description": ""
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "Technical University of Varna",
+          "specialty": "Computer Science",
+          "level": "BACHELORS",
+          "startDate": "2013-09-16",
+          "endDate": "2017-07-07"
+        }
+      ],
+      "courses": []
+    },
+    {
+      "key": "it-underqualified-1",
+      "area": "IT",
+      "diagnostic": "underqualified",
+      "headline": "Frontend developer, eight months in",
+      "description": "I finished my degree last summer and joined a small product team in December. So far I have shipped two screens on my own and broken production once. Looking for somewhere I can keep learning quickly.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": true,
+      "flexibleHours": true,
+      "skills": ["JavaScript", "React"],
+      "experiences": [
+        {
+          "roleTitle": "Junior Frontend Developer",
+          "startDate": "2025-12-15",
+          "endDate": null,
+          "description": "Builds React screens against an existing API under review from a senior developer, and handles the smaller reported bugs."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "Sofia University St. Kliment Ohridski",
+          "specialty": "Informatics",
+          "level": "BACHELORS",
+          "startDate": "2021-09-20",
+          "endDate": "2025-06-30"
+        }
+      ],
+      "courses": []
+    },
+    {
+      "key": "it-cross-domain-1",
+      "area": "IT",
+      "diagnostic": "cross-domain-tenure",
+      "headline": "Electrical engineer moving into software",
+      "description": "Five years designing medium-voltage distribution for industrial sites. I have written a fair amount of SQL against our asset database and worked through a Python course in the evenings, and I would like to move into a development role.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": true,
+      "flexibleHours": false,
+      "skills": ["electrical engineering", "SQL"],
+      "experiences": [
+        {
+          "roleTitle": "Electrical Design Engineer",
+          "startDate": "2021-04-01",
+          "endDate": null,
+          "description": "Designs medium-voltage distribution schemes for industrial and warehouse sites, sizes protection equipment, and produces the single-line diagrams and cable schedules that go to the contractor."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "Technical University of Sofia",
+          "specialty": "Electrical Power Engineering",
+          "level": "MASTERS",
+          "startDate": "2015-09-15",
+          "endDate": "2021-02-10"
+        }
+      ],
+      "courses": [
+        { "name": "Python for Everybody", "issuingOrganization": "University of Michigan" }
+      ]
+    },
+
+    {
+      "key": "mkt-content-junior-1",
+      "area": "Marketing",
+      "diagnostic": null,
+      "headline": "Content marketing specialist",
+      "description": "Almost two years writing for a home-goods retailer: blog, newsletter, and whatever the social calendar demands that week. I like the reporting side more than I expected to, mostly because it settles arguments.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": false,
+      "flexibleHours": true,
+      "skills": ["content marketing strategy", "apply social media marketing", "perform copywriting"],
+      "experiences": [
+        {
+          "roleTitle": "Marketing Assistant",
+          "startDate": "2024-11-01",
+          "endDate": null,
+          "description": "Owns the content calendar and the weekly newsletter, writes long-form and social copy in Bulgarian and English, and reports monthly on which pieces actually drove traffic."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "Sofia University St. Kliment Ohridski",
+          "specialty": "Journalism and Mass Communication",
+          "level": "BACHELORS",
+          "startDate": "2020-09-15",
+          "endDate": "2024-07-01"
+        }
+      ],
+      "courses": []
+    },
+    {
+      "key": "mkt-digital-mid-1",
+      "area": "Marketing",
+      "diagnostic": null,
+      "headline": "Digital marketing manager",
+      "description": "I run acquisition for a mid-sized e-commerce business: paid search, organic, and an email programme that took two years to stop being an afterthought. I am the person who asks what a channel actually returned before we increase its budget.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": true,
+      "flexibleHours": false,
+      "skills": ["plan marketing campaigns", "search engine optimisation", "execute email marketing", "data analytics"],
+      "experiences": [
+        {
+          "roleTitle": "Digital Marketing Specialist",
+          "startDate": "2021-01-04",
+          "endDate": "2022-01-31",
+          "description": "Managed paid search and display for three retail brands at an agency and produced the monthly performance reporting."
+        },
+        {
+          "roleTitle": "Digital Marketing Manager",
+          "startDate": "2022-02-01",
+          "endDate": null,
+          "description": "Owns the full acquisition funnel and its budget: search engine optimisation, paid campaigns and lifecycle email, with attribution reporting to the commercial director."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "University of National and World Economy",
+          "specialty": "Marketing",
+          "level": "BACHELORS",
+          "startDate": "2016-09-15",
+          "endDate": "2020-07-10"
+        }
+      ],
+      "courses": []
+    },
+    {
+      "key": "mkt-brand-senior-1",
+      "area": "Marketing",
+      "diagnostic": null,
+      "headline": "Brand director",
+      "description": "Eleven years in brand, the last six leading it for a consumer food business. I have run one full repositioning and one that was cancelled halfway, and I learned more from the second. Most of the work is persuading people who did not ask to be persuaded.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": false,
+      "flexibleHours": false,
+      "skills": ["brand marketing techniques", "lead the brand strategic planning process", "perform brand analysis", "manage brand assets"],
+      "experiences": [
+        {
+          "roleTitle": "Brand Manager",
+          "startDate": "2015-09-01",
+          "endDate": "2020-08-31",
+          "description": "Managed two product brands for an FMCG group, including packaging refreshes and the annual communication plan with the agency."
+        },
+        {
+          "roleTitle": "Brand Director",
+          "startDate": "2020-09-01",
+          "endDate": null,
+          "description": "Sets positioning and brand architecture across the portfolio, owns the guidelines and the annual brand tracking study, and manages two brand managers."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "University of National and World Economy",
+          "specialty": "Marketing Management",
+          "level": "MASTERS",
+          "startDate": "2013-09-15",
+          "endDate": "2015-06-30"
+        }
+      ],
+      "courses": []
+    },
+    {
+      "key": "mkt-social-junior-1",
+      "area": "Marketing",
+      "diagnostic": null,
+      "headline": "Social media coordinator",
+      "description": "I look after four channels for a fitness chain and produce most of the video myself. Fifteen months in. My strongest skill is knowing what will not work before we spend money on it.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": true,
+      "flexibleHours": true,
+      "skills": ["apply social media marketing", "social media management", "plan social media marketing campaigns"],
+      "experiences": [
+        {
+          "roleTitle": "Social Media Coordinator",
+          "startDate": "2025-05-05",
+          "endDate": null,
+          "description": "Plans and publishes across four social channels, produces short-form video in-house, and handles community responses and the monthly engagement report."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "New Bulgarian University",
+          "specialty": "Advertising and Public Relations",
+          "level": "BACHELORS",
+          "startDate": "2021-09-20",
+          "endDate": "2025-06-25"
+        }
+      ],
+      "courses": []
+    },
+    {
+      "key": "mkt-overqualified-1",
+      "area": "Marketing",
+      "diagnostic": "overqualified",
+      "headline": "Senior marketing manager",
+      "description": "Twelve years across content, campaigns and brand, most recently leading a team of six. I am deliberately looking at smaller roles again - I would rather write and plan than sit in the meetings that come with the title.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": false,
+      "flexibleHours": false,
+      "skills": ["content marketing strategy", "apply social media marketing", "perform copywriting", "plan marketing campaigns", "search engine optimisation", "brand marketing techniques", "manage brand assets"],
+      "experiences": [
+        {
+          "roleTitle": "Marketing Manager",
+          "startDate": "2014-02-03",
+          "endDate": "2019-12-31",
+          "description": "Ran content and campaign marketing for a telecoms reseller, including the editorial calendar, the agency relationship and the annual campaign plan."
+        },
+        {
+          "roleTitle": "Senior Marketing Manager",
+          "startDate": "2020-01-06",
+          "endDate": null,
+          "description": "Leads a team of six across content, social and campaigns for a retail group, owns the marketing budget and reports performance to the executive team."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "University of National and World Economy",
+          "specialty": "Marketing",
+          "level": "MASTERS",
+          "startDate": "2011-09-15",
+          "endDate": "2013-06-30"
+        }
+      ],
+      "courses": []
+    },
+    {
+      "key": "mkt-education-gate-fail-1",
+      "area": "Marketing",
+      "diagnostic": "education-gate-fail",
+      "headline": "Content and social coordinator",
+      "description": "I did not go to university - I started writing for an online magazine at nineteen and moved into marketing from there. Two years coordinating content for a furniture retailer, and I have taught myself the analytics side out of necessity.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": false,
+      "flexibleHours": true,
+      "skills": ["content marketing strategy", "apply social media marketing", "perform copywriting", "plan marketing campaigns"],
+      "experiences": [
+        {
+          "roleTitle": "Marketing Coordinator",
+          "startDate": "2024-06-03",
+          "endDate": null,
+          "description": "Runs the content calendar and social channels for a furniture retailer, briefs freelance writers and photographers, and compiles the monthly campaign performance summary."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "91st German Language School",
+          "specialty": null,
+          "level": "SECONDARY",
+          "startDate": "2017-09-15",
+          "endDate": "2022-05-31"
+        }
+      ],
+      "courses": [
+        { "name": "Digital Marketing Fundamentals", "issuingOrganization": "Google Digital Garage" }
+      ]
+    },
+
+    {
+      "key": "fin-accountant-junior-1",
+      "area": "Finance & Accounting",
+      "diagnostic": null,
+      "headline": "Junior accountant",
+      "description": "Eighteen months posting and reconciling for a group of three small companies. I am the person who notices when the bank line does not tie, which is apparently rarer than it should be.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": false,
+      "flexibleHours": false,
+      "skills": ["accounting", "accounting entries", "use spreadsheets software"],
+      "experiences": [
+        {
+          "roleTitle": "Junior Accountant",
+          "startDate": "2025-02-03",
+          "endDate": null,
+          "description": "Posts purchase and sales ledger entries, reconciles bank and supplier accounts, and prepares the supporting schedules for the monthly close."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "University of National and World Economy",
+          "specialty": "Accounting and Control",
+          "level": "BACHELORS",
+          "startDate": "2020-09-15",
+          "endDate": "2024-07-05"
+        }
+      ],
+      "courses": []
+    },
+    {
+      "key": "fin-analyst-mid-1",
+      "area": "Finance & Accounting",
+      "diagnostic": null,
+      "headline": "Financial analyst",
+      "description": "Four years building the models that decide where an investment company puts its money, and rebuilding them every time someone changes the assumptions. I spend more time on data quality than on the analysis itself and I have stopped resenting that.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": true,
+      "flexibleHours": false,
+      "skills": ["financial analysis", "analyse financial performance of a company", "use spreadsheets software", "data analytics"],
+      "experiences": [
+        {
+          "roleTitle": "Financial Analyst",
+          "startDate": "2022-06-01",
+          "endDate": null,
+          "description": "Maintains the valuation and cash-flow models behind quarterly portfolio reviews, analyses company performance against forecast, and prepares the pack the investment committee works from."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "University of National and World Economy",
+          "specialty": "Finance",
+          "level": "BACHELORS",
+          "startDate": "2018-09-15",
+          "endDate": "2022-06-30"
+        }
+      ],
+      "courses": [
+        { "name": "Financial Modelling and Valuation", "issuingOrganization": "Corporate Finance Institute" }
+      ]
+    },
+    {
+      "key": "fin-controller-senior-1",
+      "area": "Finance & Accounting",
+      "diagnostic": null,
+      "headline": "Financial controller, manufacturing",
+      "description": "Thirteen years in industrial finance and seven of them as controller of a plant in Plovdiv. I know where the margin hides in a manufacturing business and I have had the argument with production about it more than once.",
+      "location": "Plovdiv, Bulgaria",
+      "openToRemote": false,
+      "flexibleHours": false,
+      "skills": ["cost management", "manage budgets", "conduct financial audits", "accounting"],
+      "experiences": [
+        {
+          "roleTitle": "Cost Accountant",
+          "startDate": "2013-09-02",
+          "endDate": "2019-08-30",
+          "description": "Built and maintained standard costing for two production lines and investigated the variances the plant manager did not want to hear about."
+        },
+        {
+          "roleTitle": "Financial Controller",
+          "startDate": "2019-09-02",
+          "endDate": null,
+          "description": "Owns the monthly and annual close for a two-plant manufacturer, runs the budgeting and forecasting cycle, and is the primary contact for the external auditors."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "University of Economics - Varna",
+          "specialty": "Accounting and Finance",
+          "level": "MASTERS",
+          "startDate": "2011-09-15",
+          "endDate": "2013-06-30"
+        }
+      ],
+      "courses": []
+    },
+    {
+      "key": "fin-audit-mid-1",
+      "area": "Finance & Accounting",
+      "diagnostic": null,
+      "headline": "Internal auditor",
+      "description": "Five years in internal audit for a banking group. The job is largely writing findings that people will act on rather than argue with, so I have become a much better writer than I was.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": true,
+      "flexibleHours": false,
+      "skills": ["conduct financial audits", "audit techniques", "internal auditing", "accounting"],
+      "experiences": [
+        {
+          "roleTitle": "Internal Auditor",
+          "startDate": "2021-09-01",
+          "endDate": null,
+          "description": "Plans and executes internal audit assignments across credit operations and finance, tests controls, and presents findings and remediation deadlines to the audit committee."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "University of National and World Economy",
+          "specialty": "Accounting and Control",
+          "level": "BACHELORS",
+          "startDate": "2017-09-15",
+          "endDate": "2021-07-05"
+        }
+      ],
+      "courses": []
+    },
+    {
+      "key": "fin-payroll-junior-1",
+      "area": "Finance & Accounting",
+      "diagnostic": null,
+      "headline": "Payroll and accounts assistant",
+      "description": "Two years running payroll for about a hundred and eighty people alongside the general ledger work. It is the part of accounting where a mistake is personal to someone, which keeps me careful.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": false,
+      "flexibleHours": false,
+      "skills": ["manage payroll", "accounting entries", "use spreadsheets software", "accounting"],
+      "experiences": [
+        {
+          "roleTitle": "Payroll and Accounts Assistant",
+          "startDate": "2024-08-01",
+          "endDate": null,
+          "description": "Prepares monthly payroll for around 180 employees including deductions and statutory filings, and posts the resulting journals into the general ledger."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "University of Economics - Varna",
+          "specialty": "Accounting",
+          "level": "BACHELORS",
+          "startDate": "2020-09-15",
+          "endDate": "2024-06-28"
+        }
+      ],
+      "courses": []
+    },
+    {
+      "key": "fin-ongoing-degree-1",
+      "area": "Finance & Accounting",
+      "diagnostic": "ongoing-degree",
+      "headline": "Senior financial accountant",
+      "description": "Six years in financial accounting for an industrial group in Plovdiv, currently a year into a part-time Master's in accounting and finance that I am taking because I want the controller role, not because anyone asked me to.",
+      "location": "Plovdiv, Bulgaria",
+      "openToRemote": false,
+      "flexibleHours": true,
+      "skills": ["accounting", "manage budgets", "cost management", "financial analysis"],
+      "experiences": [
+        {
+          "roleTitle": "Senior Financial Accountant",
+          "startDate": "2020-04-01",
+          "endDate": null,
+          "description": "Runs the monthly close for two legal entities, maintains the cost allocation model across production centres, and prepares the annual budget submission with the plant management team."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "Plovdiv University Paisii Hilendarski",
+          "specialty": "Accounting and Control",
+          "level": "BACHELORS",
+          "startDate": "2015-09-20",
+          "endDate": "2019-07-10"
+        },
+        {
+          "institutionName": "University of National and World Economy",
+          "specialty": "Accounting and Finance",
+          "level": "MASTERS",
+          "startDate": "2025-09-01",
+          "endDate": null
+        }
+      ],
+      "courses": []
+    },
+
+    {
+      "key": "hr-recruiter-junior-1",
+      "area": "HR",
+      "diagnostic": null,
+      "headline": "Recruitment specialist",
+      "description": "Eighteen months recruiting for retail and warehouse roles, which means high volume and a lot of phone screening. I am better at the first conversation than at the paperwork and I am working on the paperwork.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": true,
+      "flexibleHours": false,
+      "skills": ["recruit employees", "interview techniques", "recruit personnel"],
+      "experiences": [
+        {
+          "roleTitle": "Recruitment Specialist",
+          "startDate": "2025-01-06",
+          "endDate": null,
+          "description": "Sources and screens candidates for retail and warehouse vacancies, runs first-stage interviews, and manages the offer and onboarding paperwork with the hiring managers."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "Sofia University St. Kliment Ohridski",
+          "specialty": "Psychology",
+          "level": "BACHELORS",
+          "startDate": "2020-09-15",
+          "endDate": "2024-07-01"
+        }
+      ],
+      "courses": []
+    },
+    {
+      "key": "hr-generalist-mid-1",
+      "area": "HR",
+      "diagnostic": null,
+      "headline": "HR generalist",
+      "description": "Sole HR person for a distribution business of a hundred and forty people. Contracts, payroll handover, disciplinaries, and the labour-law question that always arrives late on a Friday. I read the Labour Code more often than most lawyers do.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": true,
+      "flexibleHours": false,
+      "skills": ["personnel management", "labour law", "manage payroll", "human resources department processes"],
+      "experiences": [
+        {
+          "roleTitle": "HR Generalist",
+          "startDate": "2022-01-10",
+          "endDate": null,
+          "description": "Handles the full employee lifecycle for around 140 staff: contracts and amendments, payroll input, absence and disciplinary process, and day-to-day labour-law advice to managers."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "University of National and World Economy",
+          "specialty": "Human Resource Management",
+          "level": "BACHELORS",
+          "startDate": "2017-09-15",
+          "endDate": "2021-07-05"
+        }
+      ],
+      "courses": []
+    },
+    {
+      "key": "hr-head-senior-1",
+      "area": "HR",
+      "diagnostic": null,
+      "headline": "Head of people",
+      "description": "Fourteen years in HR, the last eight leading the function through a period where we tripled headcount. Most of what I am proud of is the things we stopped doing. I expect to be in the room when strategy is decided, not told about it afterwards.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": true,
+      "flexibleHours": false,
+      "skills": ["human resources department processes", "talent management strategies", "develop employee retention programs", "personnel management"],
+      "experiences": [
+        {
+          "roleTitle": "HR Manager",
+          "startDate": "2012-09-03",
+          "endDate": "2018-08-31",
+          "description": "Built the HR function for a growing outsourcing company from two people to eight, and introduced its first structured performance and pay review process."
+        },
+        {
+          "roleTitle": "Head of People",
+          "startDate": "2018-09-03",
+          "endDate": null,
+          "description": "Leads people strategy for a software business that grew from 80 to 240 staff: hiring capacity, compensation framework, retention programmes and the leadership development track."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "Sofia University St. Kliment Ohridski",
+          "specialty": "Human Resource Management",
+          "level": "MASTERS",
+          "startDate": "2010-09-15",
+          "endDate": "2012-06-30"
+        }
+      ],
+      "courses": []
+    },
+    {
+      "key": "hr-recruiter-mid-1",
+      "area": "HR",
+      "diagnostic": null,
+      "headline": "Technical recruiter",
+      "description": "Four years recruiting engineers, which taught me to stop pretending I understand their work and start asking better questions instead. Based in Varna and happy to stay remote.",
+      "location": "Varna, Bulgaria",
+      "openToRemote": true,
+      "flexibleHours": true,
+      "skills": ["recruit employees", "interview techniques", "identify talent", "talent management strategies"],
+      "experiences": [
+        {
+          "roleTitle": "Technical Recruiter",
+          "startDate": "2022-09-01",
+          "endDate": null,
+          "description": "Runs end-to-end hiring for engineering and product roles, builds the sourcing pipelines, calibrates interview scorecards with hiring managers and reports on funnel conversion."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "University of Economics - Varna",
+          "specialty": "Business Administration",
+          "level": "BACHELORS",
+          "startDate": "2018-09-15",
+          "endDate": "2022-07-01"
+        }
+      ],
+      "courses": []
+    },
+    {
+      "key": "hr-training-mid-1",
+      "area": "HR",
+      "diagnostic": null,
+      "headline": "Learning and development specialist",
+      "description": "Five years designing and running internal training, mostly for first-time managers. The measurable part is attendance; the part that matters is whether anyone behaves differently three months later, and I have become stubborn about measuring that instead.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": true,
+      "flexibleHours": false,
+      "skills": ["develop training programmes", "identify training needs", "evaluate training", "coach employees"],
+      "experiences": [
+        {
+          "roleTitle": "Learning and Development Specialist",
+          "startDate": "2021-06-01",
+          "endDate": null,
+          "description": "Runs the training needs analysis, designs and delivers the internal management development programme, and evaluates its impact against retention and promotion data."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "New Bulgarian University",
+          "specialty": "Organisational Psychology",
+          "level": "BACHELORS",
+          "startDate": "2016-10-01",
+          "endDate": "2020-06-30"
+        }
+      ],
+      "courses": []
+    },
+    {
+      "key": "hr-education-gate-pass-1",
+      "area": "HR",
+      "diagnostic": "education-gate-pass",
+      "headline": "HR business partner",
+      "description": "Three and a half years partnering with commercial teams on everything from headcount planning to the conversations nobody wants to have. I came into HR through a Master's rather than through admin, which I think shows in how I approach the policy side.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": true,
+      "flexibleHours": false,
+      "skills": ["personnel management", "labour law", "manage payroll"],
+      "experiences": [
+        {
+          "roleTitle": "HR Business Partner",
+          "startDate": "2023-02-01",
+          "endDate": null,
+          "description": "Supports two commercial departments of around 90 people on headcount planning, performance management and employee relations cases, and reviews contract and policy changes for labour-law compliance."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "University of National and World Economy",
+          "specialty": "Human Resource Management",
+          "level": "MASTERS",
+          "startDate": "2020-09-15",
+          "endDate": "2022-06-30"
+        }
+      ],
+      "courses": []
+    },
+
+    {
+      "key": "dsg-graphic-junior-1",
+      "area": "Design",
+      "diagnostic": null,
+      "headline": "Graphic designer",
+      "description": "Two years of studio production work - layouts, social assets, packaging adaptations. I am fussy about type in a way that occasionally annoys account managers, and I intend to stay that way.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": true,
+      "flexibleHours": true,
+      "skills": ["graphic design", "Adobe Photoshop", "Adobe Illustrator", "typography"],
+      "experiences": [
+        {
+          "roleTitle": "Graphic Designer",
+          "startDate": "2024-10-01",
+          "endDate": null,
+          "description": "Produces print and digital layouts for retail and hospitality clients, adapts packaging artwork across formats, and prepares the artwork files that go to print."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "National Academy of Art",
+          "specialty": "Graphic Design",
+          "level": "BACHELORS",
+          "startDate": "2020-09-20",
+          "endDate": "2024-06-30"
+        }
+      ],
+      "courses": []
+    },
+    {
+      "key": "dsg-ux-mid-1",
+      "area": "Design",
+      "diagnostic": null,
+      "headline": "UX designer",
+      "description": "Four years designing software people use because they have to, not because they want to - warehouse systems, then a clinical tool. Most of my value is in the research, and most of my arguments are about scope.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": true,
+      "flexibleHours": false,
+      "skills": ["design thinking", "create prototype of user experience solutions", "create website wireframe", "application usability"],
+      "experiences": [
+        {
+          "roleTitle": "UX Designer",
+          "startDate": "2022-08-01",
+          "endDate": null,
+          "description": "Runs contextual research and usability sessions with operational staff, produces wireframes and interactive prototypes, and works with engineers through implementation."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "New Bulgarian University",
+          "specialty": "Interaction Design",
+          "level": "BACHELORS",
+          "startDate": "2018-10-01",
+          "endDate": "2022-06-28"
+        }
+      ],
+      "courses": [
+        { "name": "Interaction Design Foundation Membership", "issuingOrganization": "Interaction Design Foundation" }
+      ]
+    },
+    {
+      "key": "dsg-lead-senior-1",
+      "area": "Design",
+      "diagnostic": null,
+      "headline": "Design lead",
+      "description": "Twelve years in design and five leading teams. I still design, but the part of the week that matters most is the critique session. I have shipped one design system that outlived the product it was built for.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": true,
+      "flexibleHours": false,
+      "skills": ["manage visual communications", "create brand guidelines", "design thinking", "graphic design"],
+      "experiences": [
+        {
+          "roleTitle": "Senior Designer",
+          "startDate": "2014-03-03",
+          "endDate": "2019-12-31",
+          "description": "Handled brand and campaign design for an agency's largest retail account, including the guidelines the client's in-house team still works from."
+        },
+        {
+          "roleTitle": "Design Lead",
+          "startDate": "2020-01-06",
+          "endDate": null,
+          "description": "Leads four designers across product and brand work, owns the design system and the review process, and represents design in roadmap planning."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "National Academy of Art",
+          "specialty": "Visual Communication",
+          "level": "MASTERS",
+          "startDate": "2012-09-20",
+          "endDate": "2014-06-30"
+        }
+      ],
+      "courses": []
+    },
+    {
+      "key": "dsg-graphic-mid-1",
+      "area": "Design",
+      "diagnostic": null,
+      "headline": "Senior graphic designer",
+      "description": "Five years in-house at a beverage company doing packaging, point of sale and the occasional brand refresh. I have learned to design for a printing process rather than for a screenshot.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": true,
+      "flexibleHours": false,
+      "skills": ["graphic design", "Adobe Photoshop", "adobe creative suite", "create brand guidelines", "typography"],
+      "experiences": [
+        {
+          "roleTitle": "Graphic Designer",
+          "startDate": "2021-07-01",
+          "endDate": null,
+          "description": "Designs packaging and in-store point-of-sale material for a beverage portfolio, maintains the brand asset library and briefs external print suppliers."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "National Academy of Art",
+          "specialty": "Graphic Design",
+          "level": "BACHELORS",
+          "startDate": "2017-09-20",
+          "endDate": "2021-06-30"
+        }
+      ],
+      "courses": []
+    },
+    {
+      "key": "dsg-ux-junior-1",
+      "area": "Design",
+      "diagnostic": null,
+      "headline": "Junior UX designer",
+      "description": "Eighteen months into my first design role, working on an internal tool for a bank. I have run six usability sessions and been surprised by all of them, which I am told does not stop happening.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": true,
+      "flexibleHours": true,
+      "skills": ["create website wireframe", "design thinking", "application usability"],
+      "experiences": [
+        {
+          "roleTitle": "Junior UX Designer",
+          "startDate": "2025-03-03",
+          "endDate": null,
+          "description": "Produces wireframes and clickable prototypes for an internal banking tool and assists with moderated usability testing and the write-up of findings."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "New Bulgarian University",
+          "specialty": "Interaction Design",
+          "level": "BACHELORS",
+          "startDate": "2021-10-01",
+          "endDate": "2025-01-31"
+        }
+      ],
+      "courses": []
+    },
+    {
+      "key": "dsg-career-changer-1",
+      "area": "Design",
+      "diagnostic": "career-changer",
+      "headline": "UX designer, previously marketing",
+      "description": "Six years in marketing before I moved into UX two years ago. The overlap is real but smaller than people assume - marketing taught me to argue from evidence, and very little about how to structure an interface.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": true,
+      "flexibleHours": false,
+      "skills": ["design thinking", "create website wireframe", "application usability", "plan marketing campaigns"],
+      "experiences": [
+        {
+          "roleTitle": "Marketing Specialist",
+          "startDate": "2018-09-03",
+          "endDate": "2024-08-30",
+          "description": "Planned and ran acquisition campaigns for an online retailer, owned the landing page programme and worked closely with the design team on creative testing."
+        },
+        {
+          "roleTitle": "UX Designer",
+          "startDate": "2024-09-02",
+          "endDate": null,
+          "description": "Designs and tests checkout and account flows for an e-commerce platform, producing wireframes and prototypes and running the moderated usability sessions."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "University of National and World Economy",
+          "specialty": "Marketing",
+          "level": "BACHELORS",
+          "startDate": "2014-09-15",
+          "endDate": "2018-07-01"
+        }
+      ],
+      "courses": [
+        { "name": "Google UX Design Certificate", "issuingOrganization": "Google" }
+      ]
+    },
+
+    {
+      "key": "ops-coordinator-junior-1",
+      "area": "Operations",
+      "diagnostic": null,
+      "headline": "Logistics coordinator",
+      "description": "Eighteen months at a freight depot in Varna, coordinating between the warehouse floor, the drivers and whoever is on the phone about a late delivery. I am good in the part of the day when everything goes wrong at once.",
+      "location": "Varna, Bulgaria",
+      "openToRemote": false,
+      "flexibleHours": false,
+      "skills": ["inventory management rules", "manage warehouse inventory", "customer service"],
+      "experiences": [
+        {
+          "roleTitle": "Logistics Coordinator",
+          "startDate": "2025-02-03",
+          "endDate": null,
+          "description": "Coordinates daily dispatch between the warehouse, carriers and customers, maintains stock records and cycle counts, and resolves delivery exceptions."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "Vocational School of Transport - Varna",
+          "specialty": "Transport Logistics",
+          "level": "SECONDARY",
+          "startDate": "2019-09-15",
+          "endDate": "2023-05-31"
+        }
+      ],
+      "courses": []
+    },
+    {
+      "key": "ops-supplychain-mid-1",
+      "area": "Operations",
+      "diagnostic": null,
+      "headline": "Supply chain specialist",
+      "description": "Four and a half years planning replenishment across a regional depot network. The job is a permanent argument between stock availability and working capital, and I have got reasonably good at holding both numbers in my head.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": true,
+      "flexibleHours": false,
+      "skills": ["supply chain management", "supplier management", "carry out inventory planning", "supply chain principles"],
+      "experiences": [
+        {
+          "roleTitle": "Supply Chain Specialist",
+          "startDate": "2022-01-10",
+          "endDate": null,
+          "description": "Plans replenishment for four regional depots, manages the supplier order book and lead times, and reports on stock availability and inventory holding value."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "University of National and World Economy",
+          "specialty": "Logistics and Supply Chain Management",
+          "level": "BACHELORS",
+          "startDate": "2017-09-15",
+          "endDate": "2021-07-05"
+        }
+      ],
+      "courses": []
+    },
+    {
+      "key": "ops-manager-senior-1",
+      "area": "Operations",
+      "diagnostic": null,
+      "headline": "Operations manager",
+      "description": "Fifteen years in industrial operations, the last seven running two warehouses and a transport fleet. I have rebuilt one operation from the process outwards and inherited another that nobody had touched since 2016.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": true,
+      "flexibleHours": false,
+      "skills": ["manage warehouse operations", "identify process improvements", "project management", "manage budgets"],
+      "experiences": [
+        {
+          "roleTitle": "Warehouse Manager",
+          "startDate": "2011-09-01",
+          "endDate": "2018-12-31",
+          "description": "Ran a 12,000 square metre distribution centre and its 35 staff, including the shift structure and the pick-accuracy improvement programme."
+        },
+        {
+          "roleTitle": "Operations Manager",
+          "startDate": "2019-01-07",
+          "endDate": null,
+          "description": "Responsible for two warehouses and a transport fleet with a combined headcount of 40, owns the operational budget, and led the process redesign that cut order cycle time by a third."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "University of National and World Economy",
+          "specialty": "Industrial Business and Entrepreneurship",
+          "level": "MASTERS",
+          "startDate": "2009-09-15",
+          "endDate": "2011-06-30"
+        }
+      ],
+      "courses": []
+    },
+    {
+      "key": "ops-procurement-mid-1",
+      "area": "Operations",
+      "diagnostic": null,
+      "headline": "Procurement specialist",
+      "description": "Five years buying indirect goods and services for a manufacturing group. Most of the saving comes from writing the specification properly, not from the negotiation everyone focuses on.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": true,
+      "flexibleHours": false,
+      "skills": ["perform procurement processes", "negotiate terms with suppliers", "supplier management", "develop procurement strategy"],
+      "experiences": [
+        {
+          "roleTitle": "Procurement Specialist",
+          "startDate": "2021-09-01",
+          "endDate": null,
+          "description": "Runs tender and supplier selection processes for indirect categories, negotiates framework agreements and manages supplier performance reviews."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "University of National and World Economy",
+          "specialty": "Business Logistics",
+          "level": "BACHELORS",
+          "startDate": "2017-09-15",
+          "endDate": "2021-07-05"
+        }
+      ],
+      "courses": []
+    },
+    {
+      "key": "ops-logistics-senior-1",
+      "area": "Operations",
+      "diagnostic": null,
+      "headline": "Logistics manager",
+      "description": "Nine years in logistics management, currently responsible for warehousing and distribution across three sites. I left university with a bachelor's and never went back, which has cost me at least one job I wanted.",
+      "location": "Sofia, Bulgaria",
+      "openToRemote": false,
+      "flexibleHours": false,
+      "skills": ["develop efficiency plans for logistics operations", "manage warehouse operations", "supply chain management", "identify process improvements"],
+      "experiences": [
+        {
+          "roleTitle": "Logistics Manager",
+          "startDate": "2017-06-01",
+          "endDate": null,
+          "description": "Manages warehousing and distribution across three sites, owns the carrier contracts and service levels, and led the slotting redesign that raised picking productivity by a fifth."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "University of Economics - Varna",
+          "specialty": "Transport Logistics",
+          "level": "BACHELORS",
+          "startDate": "2012-09-15",
+          "endDate": "2016-07-01"
+        }
+      ],
+      "courses": []
+    },
+    {
+      "key": "ops-warehouse-junior-1",
+      "area": "Operations",
+      "diagnostic": null,
+      "headline": "Warehouse administrator",
+      "description": "Eleven months handling stock paperwork and goods receipt at a distribution centre outside Varna. First proper job. I would like to move into planning eventually.",
+      "location": "Varna, Bulgaria",
+      "openToRemote": false,
+      "flexibleHours": false,
+      "skills": ["handle paperwork related to warehouse stock", "manage warehouse inventory", "inventory management rules"],
+      "experiences": [
+        {
+          "roleTitle": "Warehouse Administrator",
+          "startDate": "2025-09-29",
+          "endDate": null,
+          "description": "Processes goods receipt and dispatch documentation, runs cycle counts and investigates stock discrepancies with the shift supervisors."
+        }
+      ],
+      "educations": [
+        {
+          "institutionName": "Vocational School of Economics - Varna",
+          "specialty": "Business Administration",
+          "level": "SECONDARY",
+          "startDate": "2020-09-15",
+          "endDate": "2024-05-31"
+        }
+      ],
+      "courses": []
+    }
+  ]
+}

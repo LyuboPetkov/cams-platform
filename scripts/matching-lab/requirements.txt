@@ -1,0 +1,15 @@
+# matching-lab dependencies.
+#
+# Two packages, both of which the harness genuinely needs:
+#   numpy    - cosine similarity, and the agreement statistics in audit_sample.py
+#   requests - the HTTP client for embedding-service
+#
+# scipy is deliberately not used: Cohen's kappa is not in it (that is
+# scikit-learn), and Spearman rho is ~10 lines of numpy. Both statistics are
+# implemented in audit_sample.py with the reasoning commented inline, which
+# keeps the lab running on a stock Python with two very common packages.
+#
+# Versions are the ones this harness was actually run against, not a
+# speculative resolve.
+numpy==1.26.4
+requests==2.32.2

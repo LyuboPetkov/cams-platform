@@ -1,0 +1,226 @@
+{
+  "_note": "Benchmark listings. 18 listings: 3 per professional area (IT, Marketing, Finance & Accounting, HR, Design, Operations), one per seniority band (JUNIOR / MID / SENIOR). requiredEducationLevel is set on 9 of 18 (6 BACHELORS, 3 MASTERS) and null on the rest - it is a fixture-only field and exists in no migration. Every skill name is verified against fixtures/vocabulary.txt, which is regenerated from the skill seed migrations by build_vocabulary.py. Five listings are non-remote (two in cities other than Sofia) so the LocationEligibility gate is exercised rather than assumed away; the other thirteen are remote and gate nobody.",
+  "listings": [
+    {
+      "key": "it-frontend-junior",
+      "area": "IT",
+      "companyName": "Larkspur Digital",
+      "title": "Junior Frontend Developer",
+      "description": "You will work on the customer-facing side of our booking product, turning designs into components and fixing the rough edges real users keep reporting. Expect close pairing with a senior for the first few months. We are looking for someone early in their career who already writes their own JavaScript rather than assembling it from snippets, and who cares when a page feels slow.",
+      "location": "Sofia, Bulgaria",
+      "remote": true,
+      "level": "JUNIOR",
+      "requiredEducationLevel": null,
+      "skills": ["JavaScript", "React", "Git"]
+    },
+    {
+      "key": "it-backend-mid",
+      "area": "IT",
+      "companyName": "Vertex Systems",
+      "title": "Backend Engineer - Java & Spring",
+      "description": "Own backend services in a Java and Spring Boot stack, design the REST endpoints our web and mobile clients depend on, and work with a PostgreSQL schema that sees real load rather than demo traffic. You will be on call for what you ship, which is also why you get to decide how it is built. The team runs in two-week iterations and you would be expected to take part in planning them, not just receive them. We care more about how you reason about data and failure than about how many frameworks you have listed.",
+      "location": "Sofia, Bulgaria",
+      "remote": true,
+      "level": "MID",
+      "requiredEducationLevel": "BACHELORS",
+      "skills": ["Java (computer programming)", "SQL", "Spring Boot", "Agile project management"]
+    },
+    {
+      "key": "it-devops-senior",
+      "area": "IT",
+      "companyName": "Orbital Freight Tech",
+      "title": "Senior DevOps Engineer",
+      "description": "We run about sixty services across three Kubernetes clusters and the build pipeline has grown faster than anyone planned. You would own it: container images, deployment automation, the monitoring that tells us before a customer does. This is a senior role because we want the person who has already lived through the outage this setup is heading towards, and can say what to change first.",
+      "location": "Sofia, Bulgaria",
+      "remote": true,
+      "level": "SENIOR",
+      "requiredEducationLevel": null,
+      "skills": ["DevOps", "Docker", "Kubernetes", "CI/CD"]
+    },
+
+    {
+      "key": "mkt-content-junior",
+      "area": "Marketing",
+      "companyName": "Northwind Retail",
+      "title": "Junior Content Marketing Specialist",
+      "description": "Write for our blog and social channels, help shape the monthly campaign calendar, and report on what actually moved engagement rather than what looked busy. This is a first or second marketing role for someone who writes well in Bulgarian and English and is curious about the numbers underneath the content. You will sit with the wider commercial team in our Sofia office.",
+      "location": "Sofia, Bulgaria",
+      "remote": false,
+      "level": "JUNIOR",
+      "requiredEducationLevel": "BACHELORS",
+      "skills": ["content marketing strategy", "apply social media marketing"]
+    },
+    {
+      "key": "mkt-digital-mid",
+      "area": "Marketing",
+      "companyName": "Halcyon Travel Group",
+      "title": "Digital Marketing Manager",
+      "description": "Take the whole digital funnel: paid and organic search, the email programme, and the reporting that tells the board where the bookings came from. You will own a real budget and decide how it is split. We need someone who has already run campaigns end to end and can argue with a spreadsheet when it disagrees with them.",
+      "location": "Sofia, Bulgaria",
+      "remote": true,
+      "level": "MID",
+      "requiredEducationLevel": null,
+      "skills": ["plan marketing campaigns", "search engine optimisation", "execute email marketing"]
+    },
+    {
+      "key": "mkt-brand-senior",
+      "area": "Marketing",
+      "companyName": "Kestrel Foods",
+      "title": "Head of Brand",
+      "description": "Our brand has been run by committee for four years and it shows. You would set the positioning, rebuild the guidelines, and hold the line on them across packaging, retail and everything the agencies produce. The role reports to the CMO and carries two direct reports. Expect to spend as much time persuading colleagues as designing anything.",
+      "location": "Sofia, Bulgaria",
+      "remote": false,
+      "level": "SENIOR",
+      "requiredEducationLevel": "MASTERS",
+      "skills": ["brand marketing techniques", "lead the brand strategic planning process", "perform brand analysis"]
+    },
+
+    {
+      "key": "fin-accountant-junior",
+      "area": "Finance & Accounting",
+      "companyName": "Sabina Group",
+      "title": "Junior Accountant",
+      "description": "Post and reconcile the daily ledger entries, prepare supporting schedules for the monthly close, and chase the documents nobody sent. It is unglamorous and it is how you learn where the numbers actually come from. You will report to the chief accountant and work from our Sofia office alongside a team of five.",
+      "location": "Sofia, Bulgaria",
+      "remote": false,
+      "level": "JUNIOR",
+      "requiredEducationLevel": "BACHELORS",
+      "skills": ["accounting", "accounting entries", "use spreadsheets software"]
+    },
+    {
+      "key": "fin-analyst-mid",
+      "area": "Finance & Accounting",
+      "companyName": "Meridian Capital",
+      "title": "Financial Analyst",
+      "description": "Build and maintain the models behind our portfolio reviews, turn the monthly actuals into something the investment committee can argue about, and flag the trend nobody has noticed yet. You will spend a lot of the week in spreadsheets and the rest explaining what they mean to people who do not want to open them.",
+      "location": "Sofia, Bulgaria",
+      "remote": true,
+      "level": "MID",
+      "requiredEducationLevel": null,
+      "skills": ["financial analysis", "analyse financial performance of a company", "use spreadsheets software"]
+    },
+    {
+      "key": "fin-controller-senior",
+      "area": "Finance & Accounting",
+      "companyName": "Rhodope Manufacturing",
+      "title": "Financial Controller",
+      "description": "Own the monthly and annual close for a manufacturing business with two plants, run the budgeting cycle, and be the person the auditors deal with. Cost accounting is the heart of this job: we make physical things and the margin lives in the detail. Based at the Plovdiv site, on site, because that is where the operation is.",
+      "location": "Plovdiv, Bulgaria",
+      "remote": false,
+      "level": "SENIOR",
+      "requiredEducationLevel": "MASTERS",
+      "skills": ["cost management", "manage budgets", "conduct financial audits"]
+    },
+
+    {
+      "key": "hr-recruiter-junior",
+      "area": "HR",
+      "companyName": "Bluewater Services",
+      "title": "Junior Recruitment Specialist",
+      "description": "Source and screen for our commercial and support roles, run first-stage interviews, and keep candidates informed instead of leaving them wondering. We hire about forty people a year, so you will see the whole cycle quickly. Good fit for someone a year or two into recruitment, or moving in from a people-facing role.",
+      "location": "Sofia, Bulgaria",
+      "remote": true,
+      "level": "JUNIOR",
+      "requiredEducationLevel": null,
+      "skills": ["recruit employees", "interview techniques"]
+    },
+    {
+      "key": "hr-generalist-mid",
+      "area": "HR",
+      "companyName": "Danube Logistics",
+      "title": "HR Generalist",
+      "description": "The single HR point of contact for around two hundred staff across three sites: contracts, payroll handover, the awkward conversations, and the labour-law questions that arrive at four on a Friday. You need to know Bulgarian employment law well enough to be trusted without a lawyer in the room for the routine cases.",
+      "location": "Sofia, Bulgaria",
+      "remote": true,
+      "level": "MID",
+      "requiredEducationLevel": "BACHELORS",
+      "skills": ["personnel management", "labour law", "manage payroll"]
+    },
+    {
+      "key": "hr-head-senior",
+      "area": "HR",
+      "companyName": "Aeon Software",
+      "title": "Head of People",
+      "description": "We grew from thirty to two hundred and forty people in three years and the practices have not kept up. You would rebuild them: how we hire, how we decide what someone is paid, why our best engineers stay. Reports to the CEO, sits on the leadership team, and will be expected to disagree with it in writing when necessary.",
+      "location": "Sofia, Bulgaria",
+      "remote": true,
+      "level": "SENIOR",
+      "requiredEducationLevel": null,
+      "skills": ["human resources department processes", "talent management strategies", "develop employee retention programs"]
+    },
+
+    {
+      "key": "dsg-graphic-junior",
+      "area": "Design",
+      "companyName": "Studio Osem",
+      "title": "Junior Graphic Designer",
+      "description": "Production work for a small studio with retail and hospitality clients: layouts, social assets, the occasional packaging adaptation, and a lot of resizing. You will get art direction rather than being left alone with a brief, and you will be expected to care about type. Portfolio matters far more to us than years.",
+      "location": "Sofia, Bulgaria",
+      "remote": true,
+      "level": "JUNIOR",
+      "requiredEducationLevel": null,
+      "skills": ["graphic design", "Adobe Photoshop", "Adobe Illustrator", "typography"]
+    },
+    {
+      "key": "dsg-ux-mid",
+      "area": "Design",
+      "companyName": "Cobalt Health",
+      "title": "UX Designer",
+      "description": "Design the flows clinicians actually use, which means sitting in a ward watching someone fight our software before you open any design tool. Wireframes, prototypes and usability sessions are the daily work; the visual polish is shared with a colleague. We would rather you came back and told us the feature should not be built.",
+      "location": "Sofia, Bulgaria",
+      "remote": true,
+      "level": "MID",
+      "requiredEducationLevel": "BACHELORS",
+      "skills": ["design thinking", "create prototype of user experience solutions", "create website wireframe", "application usability"]
+    },
+    {
+      "key": "dsg-lead-senior",
+      "area": "Design",
+      "companyName": "Perla Interactive",
+      "title": "Design Lead",
+      "description": "Lead a team of four across product and brand work, own the design system, and be the person who decides what ships when the deadline and the craft disagree. Half the job is reviewing other people's work well enough that they get better at it. We are looking for someone who has already led designers, not only projects.",
+      "location": "Sofia, Bulgaria",
+      "remote": true,
+      "level": "SENIOR",
+      "requiredEducationLevel": null,
+      "skills": ["manage visual communications", "create brand guidelines", "design thinking"]
+    },
+
+    {
+      "key": "ops-coordinator-junior",
+      "area": "Operations",
+      "companyName": "Pontos Shipping",
+      "title": "Logistics Coordinator",
+      "description": "Keep the daily flow moving between the Varna warehouse, the carriers and the customers who call when a delivery is late. Stock counts, paperwork, and the phone. It is an entry-level operations job in a port city and the shifts are real shifts - the work is on site at the depot, not from a laptop.",
+      "location": "Varna, Bulgaria",
+      "remote": false,
+      "level": "JUNIOR",
+      "requiredEducationLevel": null,
+      "skills": ["inventory management rules", "manage warehouse inventory", "customer service"]
+    },
+    {
+      "key": "ops-supplychain-mid",
+      "area": "Operations",
+      "companyName": "Verano Distribution",
+      "title": "Supply Chain Specialist",
+      "description": "Plan replenishment across four regional depots, manage the supplier relationships that keep them stocked, and reduce the amount of capital sitting still on our shelves. You will be measured on stock availability and on working capital at the same time, which is the interesting part of the job.",
+      "location": "Sofia, Bulgaria",
+      "remote": true,
+      "level": "MID",
+      "requiredEducationLevel": "BACHELORS",
+      "skills": ["supply chain management", "supplier management", "carry out inventory planning"]
+    },
+    {
+      "key": "ops-manager-senior",
+      "area": "Operations",
+      "companyName": "Iskar Industrial",
+      "title": "Operations Manager",
+      "description": "Run the whole operation: two warehouses, a transport fleet, forty-odd people and a budget that has not been rebuilt since 2021. We want the processes redesigned rather than defended, and we want the person doing it to have run something at this scale before. Reports to the managing director.",
+      "location": "Sofia, Bulgaria",
+      "remote": true,
+      "level": "SENIOR",
+      "requiredEducationLevel": "MASTERS",
+      "skills": ["manage warehouse operations", "identify process improvements", "project management", "manage budgets"]
+    }
+  ]
+}

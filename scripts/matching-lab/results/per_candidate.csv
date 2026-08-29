@@ -1,0 +1,281 @@
+approach,candidateKey,area,diagnostic,precision_at_5,ndcg_at_5,recall_at_10,mrr
+M0_rule_based_v1,it-backend-mid-1,IT,,0.2,1.0,1.0,1.0
+M0_rule_based_v1,it-backend-mid-1-superset,IT,skill-superset,0.2,0.8609101556836468,1.0,1.0
+M0_rule_based_v1,it-vocabulary-gap-1,IT,vocabulary-gap,0.2,0.9699816683043281,1.0,1.0
+M0_rule_based_v1,it-frontend-junior-1,IT,,0.2,0.9680147827042069,1.0,1.0
+M0_rule_based_v1,it-frontend-mid-1,IT,,0.2,1.0,1.0,1.0
+M0_rule_based_v1,it-devops-senior-1,IT,,0.2,0.9224037382324788,1.0,1.0
+M0_rule_based_v1,it-esco-gap-1,IT,esco-gap,0.2,1.0,1.0,1.0
+M0_rule_based_v1,it-thin-profile-1,IT,thin-profile,0.2,0.9138778446351128,1.0,1.0
+M0_rule_based_v1,it-underqualified-1,IT,underqualified,0.2,1.0,1.0,1.0
+M0_rule_based_v1,it-cross-domain-1,IT,cross-domain-tenure,0.0,1.0,0.0,0.0
+M0_rule_based_v1,mkt-content-junior-1,Marketing,,0.2,0.9173194127129571,1.0,1.0
+M0_rule_based_v1,mkt-digital-mid-1,Marketing,,0.2,0.8609101556836468,1.0,1.0
+M0_rule_based_v1,mkt-brand-senior-1,Marketing,,0.2,0.938506417451168,1.0,1.0
+M0_rule_based_v1,mkt-social-junior-1,Marketing,,0.2,0.9639404333166532,1.0,1.0
+M0_rule_based_v1,mkt-overqualified-1,Marketing,overqualified,0.2,0.8213137146137828,1.0,0.5
+M0_rule_based_v1,mkt-education-gate-fail-1,Marketing,education-gate-fail,0.0,1.0,0.0,0.0
+M0_rule_based_v1,fin-accountant-junior-1,Finance & Accounting,,0.2,0.9828422279067397,1.0,1.0
+M0_rule_based_v1,fin-analyst-mid-1,Finance & Accounting,,0.2,0.9737576937588317,1.0,1.0
+M0_rule_based_v1,fin-controller-senior-1,Finance & Accounting,,0.2,0.9828422279067397,1.0,1.0
+M0_rule_based_v1,fin-audit-mid-1,Finance & Accounting,,0.0,0.8772153153380493,0.0,0.0
+M0_rule_based_v1,fin-payroll-junior-1,Finance & Accounting,,0.2,0.9832184408687481,1.0,1.0
+M0_rule_based_v1,fin-ongoing-degree-1,Finance & Accounting,ongoing-degree,0.2,1.0,1.0,1.0
+M0_rule_based_v1,hr-recruiter-junior-1,HR,,0.2,0.9828422279067397,1.0,1.0
+M0_rule_based_v1,hr-generalist-mid-1,HR,,0.2,1.0,1.0,1.0
+M0_rule_based_v1,hr-head-senior-1,HR,,0.2,0.938506417451168,1.0,1.0
+M0_rule_based_v1,hr-recruiter-mid-1,HR,,0.2,0.878961873034099,1.0,1.0
+M0_rule_based_v1,hr-training-mid-1,HR,,0.0,0.6508205185601091,0.0,0.0
+M0_rule_based_v1,hr-education-gate-pass-1,HR,education-gate-pass,0.2,0.8609101556836468,1.0,1.0
+M0_rule_based_v1,dsg-graphic-junior-1,Design,,0.2,1.0,1.0,1.0
+M0_rule_based_v1,dsg-ux-mid-1,Design,,0.2,1.0,1.0,1.0
+M0_rule_based_v1,dsg-lead-senior-1,Design,,0.2,0.9496967575479828,1.0,1.0
+M0_rule_based_v1,dsg-graphic-mid-1,Design,,0.2,0.8903894887369824,1.0,1.0
+M0_rule_based_v1,dsg-ux-junior-1,Design,,0.2,0.9639404333166532,1.0,1.0
+M0_rule_based_v1,dsg-career-changer-1,Design,career-changer,0.2,0.811925988329848,1.0,1.0
+M0_rule_based_v1,ops-coordinator-junior-1,Operations,,0.2,0.9173194127129571,1.0,1.0
+M0_rule_based_v1,ops-supplychain-mid-1,Operations,,0.2,0.9173194127129571,1.0,1.0
+M0_rule_based_v1,ops-manager-senior-1,Operations,,0.2,0.9173194127129571,1.0,1.0
+M0_rule_based_v1,ops-procurement-mid-1,Operations,,0.0,0.6131471927654584,0.0,0.0
+M0_rule_based_v1,ops-logistics-senior-1,Operations,,0.0,1.0,0.0,0.0
+M0_rule_based_v1,ops-warehouse-junior-1,Operations,,0.0,1.0,0.0,0.0
+M1_embedding_fused,it-backend-mid-1,IT,,0.2,1.0,1.0,1.0
+M1_embedding_fused,it-backend-mid-1-superset,IT,skill-superset,0.2,1.0,1.0,1.0
+M1_embedding_fused,it-vocabulary-gap-1,IT,vocabulary-gap,0.2,1.0,1.0,1.0
+M1_embedding_fused,it-frontend-junior-1,IT,,0.2,1.0,1.0,1.0
+M1_embedding_fused,it-frontend-mid-1,IT,,0.2,1.0,1.0,1.0
+M1_embedding_fused,it-devops-senior-1,IT,,0.2,0.9753714271839448,1.0,1.0
+M1_embedding_fused,it-esco-gap-1,IT,esco-gap,0.2,1.0,1.0,1.0
+M1_embedding_fused,it-thin-profile-1,IT,thin-profile,0.2,0.9224037382324788,1.0,1.0
+M1_embedding_fused,it-underqualified-1,IT,underqualified,0.2,1.0,1.0,1.0
+M1_embedding_fused,it-cross-domain-1,IT,cross-domain-tenure,0.0,1.0,0.0,0.0
+M1_embedding_fused,mkt-content-junior-1,Marketing,,0.2,1.0,1.0,1.0
+M1_embedding_fused,mkt-digital-mid-1,Marketing,,0.2,1.0,1.0,1.0
+M1_embedding_fused,mkt-brand-senior-1,Marketing,,0.2,0.991474106402634,1.0,1.0
+M1_embedding_fused,mkt-social-junior-1,Marketing,,0.2,1.0,1.0,1.0
+M1_embedding_fused,mkt-overqualified-1,Marketing,overqualified,0.2,1.0,1.0,1.0
+M1_embedding_fused,mkt-education-gate-fail-1,Marketing,education-gate-fail,0.0,1.0,0.0,0.0
+M1_embedding_fused,fin-accountant-junior-1,Finance & Accounting,,0.2,0.9173194127129571,1.0,1.0
+M1_embedding_fused,fin-analyst-mid-1,Finance & Accounting,,0.2,0.9828422279067397,1.0,1.0
+M1_embedding_fused,fin-controller-senior-1,Finance & Accounting,,0.2,0.9828422279067397,1.0,1.0
+M1_embedding_fused,fin-audit-mid-1,Finance & Accounting,,0.0,1.0,0.0,0.0
+M1_embedding_fused,fin-payroll-junior-1,Finance & Accounting,,0.2,0.9726097514324383,1.0,1.0
+M1_embedding_fused,fin-ongoing-degree-1,Finance & Accounting,ongoing-degree,0.2,1.0,1.0,1.0
+M1_embedding_fused,hr-recruiter-junior-1,HR,,0.2,0.9173194127129571,1.0,1.0
+M1_embedding_fused,hr-generalist-mid-1,HR,,0.2,1.0,1.0,1.0
+M1_embedding_fused,hr-head-senior-1,HR,,0.2,0.938506417451168,1.0,1.0
+M1_embedding_fused,hr-recruiter-mid-1,HR,,0.2,0.5792374606819809,1.0,0.5
+M1_embedding_fused,hr-training-mid-1,HR,,0.0,0.7653606369886217,0.0,0.0
+M1_embedding_fused,hr-education-gate-pass-1,HR,education-gate-pass,0.2,0.938506417451168,1.0,1.0
+M1_embedding_fused,dsg-graphic-junior-1,Design,,0.2,0.9828422279067397,1.0,1.0
+M1_embedding_fused,dsg-ux-mid-1,Design,,0.2,1.0,1.0,1.0
+M1_embedding_fused,dsg-lead-senior-1,Design,,0.2,1.0,1.0,1.0
+M1_embedding_fused,dsg-graphic-mid-1,Design,,0.2,0.9751957567060058,1.0,1.0
+M1_embedding_fused,dsg-ux-junior-1,Design,,0.2,0.7967075809905066,1.0,0.5
+M1_embedding_fused,dsg-career-changer-1,Design,career-changer,0.2,0.7943233365467345,1.0,1.0
+M1_embedding_fused,ops-coordinator-junior-1,Operations,,0.2,1.0,1.0,1.0
+M1_embedding_fused,ops-supplychain-mid-1,Operations,,0.2,0.9737576937588317,1.0,1.0
+M1_embedding_fused,ops-manager-senior-1,Operations,,0.2,1.0,1.0,1.0
+M1_embedding_fused,ops-procurement-mid-1,Operations,,0.0,0.8503449055347546,0.0,0.0
+M1_embedding_fused,ops-logistics-senior-1,Operations,,0.0,1.0,0.0,0.0
+M1_embedding_fused,ops-warehouse-junior-1,Operations,,0.0,1.0,0.0,0.0
+M2_embedding_fused_level,it-backend-mid-1,IT,,0.2,1.0,1.0,1.0
+M2_embedding_fused_level,it-backend-mid-1-superset,IT,skill-superset,0.2,1.0,1.0,1.0
+M2_embedding_fused_level,it-vocabulary-gap-1,IT,vocabulary-gap,0.2,1.0,1.0,1.0
+M2_embedding_fused_level,it-frontend-junior-1,IT,,0.2,1.0,1.0,1.0
+M2_embedding_fused_level,it-frontend-mid-1,IT,,0.2,1.0,1.0,1.0
+M2_embedding_fused_level,it-devops-senior-1,IT,,0.2,0.9753714271839448,1.0,1.0
+M2_embedding_fused_level,it-esco-gap-1,IT,esco-gap,0.2,1.0,1.0,1.0
+M2_embedding_fused_level,it-thin-profile-1,IT,thin-profile,0.2,0.9699816683043281,1.0,1.0
+M2_embedding_fused_level,it-underqualified-1,IT,underqualified,0.2,1.0,1.0,1.0
+M2_embedding_fused_level,it-cross-domain-1,IT,cross-domain-tenure,0.0,1.0,0.0,0.0
+M2_embedding_fused_level,mkt-content-junior-1,Marketing,,0.2,1.0,1.0,1.0
+M2_embedding_fused_level,mkt-digital-mid-1,Marketing,,0.2,1.0,1.0,1.0
+M2_embedding_fused_level,mkt-brand-senior-1,Marketing,,0.2,0.9860843475230173,1.0,1.0
+M2_embedding_fused_level,mkt-social-junior-1,Marketing,,0.2,1.0,1.0,1.0
+M2_embedding_fused_level,mkt-overqualified-1,Marketing,overqualified,0.2,1.0,1.0,1.0
+M2_embedding_fused_level,mkt-education-gate-fail-1,Marketing,education-gate-fail,0.0,1.0,0.0,0.0
+M2_embedding_fused_level,fin-accountant-junior-1,Finance & Accounting,,0.2,0.9173194127129571,1.0,1.0
+M2_embedding_fused_level,fin-analyst-mid-1,Finance & Accounting,,0.2,0.9828422279067397,1.0,1.0
+M2_embedding_fused_level,fin-controller-senior-1,Finance & Accounting,,0.2,0.9828422279067397,1.0,1.0
+M2_embedding_fused_level,fin-audit-mid-1,Finance & Accounting,,0.0,1.0,0.0,0.0
+M2_embedding_fused_level,fin-payroll-junior-1,Finance & Accounting,,0.2,0.878961873034099,1.0,1.0
+M2_embedding_fused_level,fin-ongoing-degree-1,Finance & Accounting,ongoing-degree,0.2,1.0,1.0,1.0
+M2_embedding_fused_level,hr-recruiter-junior-1,HR,,0.2,0.9680147827042069,1.0,1.0
+M2_embedding_fused_level,hr-generalist-mid-1,HR,,0.2,0.9860843475230173,1.0,1.0
+M2_embedding_fused_level,hr-head-senior-1,HR,,0.2,0.9224037382324788,1.0,1.0
+M2_embedding_fused_level,hr-recruiter-mid-1,HR,,0.2,0.5792374606819809,1.0,0.5
+M2_embedding_fused_level,hr-training-mid-1,HR,,0.0,0.7653606369886217,0.0,0.0
+M2_embedding_fused_level,hr-education-gate-pass-1,HR,education-gate-pass,0.2,0.938506417451168,1.0,1.0
+M2_embedding_fused_level,dsg-graphic-junior-1,Design,,0.2,0.9828422279067397,1.0,1.0
+M2_embedding_fused_level,dsg-ux-mid-1,Design,,0.2,1.0,1.0,1.0
+M2_embedding_fused_level,dsg-lead-senior-1,Design,,0.2,1.0,1.0,1.0
+M2_embedding_fused_level,dsg-graphic-mid-1,Design,,0.2,0.9751957567060058,1.0,1.0
+M2_embedding_fused_level,dsg-ux-junior-1,Design,,0.2,1.0,1.0,1.0
+M2_embedding_fused_level,dsg-career-changer-1,Design,career-changer,0.2,0.8724997542842517,1.0,1.0
+M2_embedding_fused_level,ops-coordinator-junior-1,Operations,,0.2,1.0,1.0,1.0
+M2_embedding_fused_level,ops-supplychain-mid-1,Operations,,0.2,0.9828422279067397,1.0,1.0
+M2_embedding_fused_level,ops-manager-senior-1,Operations,,0.2,1.0,1.0,1.0
+M2_embedding_fused_level,ops-procurement-mid-1,Operations,,0.0,0.9197207891481876,0.0,0.0
+M2_embedding_fused_level,ops-logistics-senior-1,Operations,,0.0,1.0,0.0,0.0
+M2_embedding_fused_level,ops-warehouse-junior-1,Operations,,0.0,1.0,0.0,0.0
+M3_embedding_sections,it-backend-mid-1,IT,,0.2,1.0,1.0,1.0
+M3_embedding_sections,it-backend-mid-1-superset,IT,skill-superset,0.2,0.9860843475230173,1.0,1.0
+M3_embedding_sections,it-vocabulary-gap-1,IT,vocabulary-gap,0.2,1.0,1.0,1.0
+M3_embedding_sections,it-frontend-junior-1,IT,,0.2,1.0,1.0,1.0
+M3_embedding_sections,it-frontend-mid-1,IT,,0.2,1.0,1.0,1.0
+M3_embedding_sections,it-devops-senior-1,IT,,0.2,0.9699816683043281,1.0,1.0
+M3_embedding_sections,it-esco-gap-1,IT,esco-gap,0.2,0.9614557747069621,1.0,1.0
+M3_embedding_sections,it-thin-profile-1,IT,thin-profile,0.2,0.991474106402634,1.0,1.0
+M3_embedding_sections,it-underqualified-1,IT,underqualified,0.2,1.0,1.0,1.0
+M3_embedding_sections,it-cross-domain-1,IT,cross-domain-tenure,0.0,1.0,0.0,0.0
+M3_embedding_sections,mkt-content-junior-1,Marketing,,0.2,1.0,1.0,1.0
+M3_embedding_sections,mkt-digital-mid-1,Marketing,,0.2,1.0,1.0,1.0
+M3_embedding_sections,mkt-brand-senior-1,Marketing,,0.2,0.991474106402634,1.0,1.0
+M3_embedding_sections,mkt-social-junior-1,Marketing,,0.2,1.0,1.0,1.0
+M3_embedding_sections,mkt-overqualified-1,Marketing,overqualified,0.2,0.8213137146137828,1.0,0.5
+M3_embedding_sections,mkt-education-gate-fail-1,Marketing,education-gate-fail,0.0,1.0,0.0,0.0
+M3_embedding_sections,fin-accountant-junior-1,Finance & Accounting,,0.2,1.0,1.0,1.0
+M3_embedding_sections,fin-analyst-mid-1,Finance & Accounting,,0.2,1.0,1.0,1.0
+M3_embedding_sections,fin-controller-senior-1,Finance & Accounting,,0.2,0.9828422279067397,1.0,1.0
+M3_embedding_sections,fin-audit-mid-1,Finance & Accounting,,0.0,1.0,0.0,0.0
+M3_embedding_sections,fin-payroll-junior-1,Finance & Accounting,,0.2,1.0,1.0,1.0
+M3_embedding_sections,fin-ongoing-degree-1,Finance & Accounting,ongoing-degree,0.2,1.0,1.0,1.0
+M3_embedding_sections,hr-recruiter-junior-1,HR,,0.2,0.9680147827042069,1.0,1.0
+M3_embedding_sections,hr-generalist-mid-1,HR,,0.2,1.0,1.0,1.0
+M3_embedding_sections,hr-head-senior-1,HR,,0.2,0.9753714271839448,1.0,1.0
+M3_embedding_sections,hr-recruiter-mid-1,HR,,0.2,0.878961873034099,1.0,1.0
+M3_embedding_sections,hr-training-mid-1,HR,,0.0,0.7653606369886217,0.0,0.0
+M3_embedding_sections,hr-education-gate-pass-1,HR,education-gate-pass,0.2,0.991474106402634,1.0,1.0
+M3_embedding_sections,dsg-graphic-junior-1,Design,,0.2,1.0,1.0,1.0
+M3_embedding_sections,dsg-ux-mid-1,Design,,0.2,1.0,1.0,1.0
+M3_embedding_sections,dsg-lead-senior-1,Design,,0.2,1.0,1.0,1.0
+M3_embedding_sections,dsg-graphic-mid-1,Design,,0.2,1.0,1.0,1.0
+M3_embedding_sections,dsg-ux-junior-1,Design,,0.2,0.9639404333166532,1.0,1.0
+M3_embedding_sections,dsg-career-changer-1,Design,career-changer,0.2,0.8724997542842517,1.0,1.0
+M3_embedding_sections,ops-coordinator-junior-1,Operations,,0.2,1.0,1.0,1.0
+M3_embedding_sections,ops-supplychain-mid-1,Operations,,0.2,1.0,1.0,1.0
+M3_embedding_sections,ops-manager-senior-1,Operations,,0.2,1.0,1.0,1.0
+M3_embedding_sections,ops-procurement-mid-1,Operations,,0.0,1.0,0.0,0.0
+M3_embedding_sections,ops-logistics-senior-1,Operations,,0.0,1.0,0.0,0.0
+M3_embedding_sections,ops-warehouse-junior-1,Operations,,0.0,1.0,0.0,0.0
+M4_hybrid_structural,it-backend-mid-1,IT,,0.2,0.938506417451168,1.0,1.0
+M4_hybrid_structural,it-backend-mid-1-superset,IT,skill-superset,0.2,0.9224037382324788,1.0,1.0
+M4_hybrid_structural,it-vocabulary-gap-1,IT,vocabulary-gap,0.2,0.938506417451168,1.0,1.0
+M4_hybrid_structural,it-frontend-junior-1,IT,,0.2,1.0,1.0,1.0
+M4_hybrid_structural,it-frontend-mid-1,IT,,0.2,1.0,1.0,1.0
+M4_hybrid_structural,it-devops-senior-1,IT,,0.2,0.9138778446351128,1.0,1.0
+M4_hybrid_structural,it-esco-gap-1,IT,esco-gap,0.2,0.938506417451168,1.0,1.0
+M4_hybrid_structural,it-thin-profile-1,IT,thin-profile,0.2,0.8609101556836468,1.0,1.0
+M4_hybrid_structural,it-underqualified-1,IT,underqualified,0.2,1.0,1.0,1.0
+M4_hybrid_structural,it-cross-domain-1,IT,cross-domain-tenure,0.0,1.0,0.0,0.0
+M4_hybrid_structural,mkt-content-junior-1,Marketing,,0.2,0.9173194127129571,1.0,1.0
+M4_hybrid_structural,mkt-digital-mid-1,Marketing,,0.2,0.8609101556836468,1.0,1.0
+M4_hybrid_structural,mkt-brand-senior-1,Marketing,,0.2,0.8609101556836468,1.0,1.0
+M4_hybrid_structural,mkt-social-junior-1,Marketing,,0.2,0.8262346571285599,1.0,1.0
+M4_hybrid_structural,mkt-overqualified-1,Marketing,overqualified,0.2,0.7075790686744426,1.0,0.25
+M4_hybrid_structural,mkt-education-gate-fail-1,Marketing,education-gate-fail,0.0,0.6131471927654584,0.0,0.0
+M4_hybrid_structural,fin-accountant-junior-1,Finance & Accounting,,0.2,1.0,1.0,1.0
+M4_hybrid_structural,fin-analyst-mid-1,Finance & Accounting,,0.2,1.0,1.0,1.0
+M4_hybrid_structural,fin-controller-senior-1,Finance & Accounting,,0.2,0.9173194127129571,1.0,1.0
+M4_hybrid_structural,fin-audit-mid-1,Finance & Accounting,,0.0,0.38685280723454163,0.0,0.0
+M4_hybrid_structural,fin-payroll-junior-1,Finance & Accounting,,0.2,1.0,1.0,1.0
+M4_hybrid_structural,fin-ongoing-degree-1,Finance & Accounting,ongoing-degree,0.2,1.0,1.0,1.0
+M4_hybrid_structural,hr-recruiter-junior-1,HR,,0.2,0.9173194127129571,1.0,1.0
+M4_hybrid_structural,hr-generalist-mid-1,HR,,0.2,0.938506417451168,1.0,1.0
+M4_hybrid_structural,hr-head-senior-1,HR,,0.2,0.8609101556836468,1.0,1.0
+M4_hybrid_structural,hr-recruiter-mid-1,HR,,0.2,0.8304853296300547,1.0,1.0
+M4_hybrid_structural,hr-training-mid-1,HR,,0.0,0.6508205185601091,0.0,0.0
+M4_hybrid_structural,hr-education-gate-pass-1,HR,education-gate-pass,0.2,0.8609101556836468,1.0,1.0
+M4_hybrid_structural,dsg-graphic-junior-1,Design,,0.2,1.0,1.0,1.0
+M4_hybrid_structural,dsg-ux-mid-1,Design,,0.2,0.938506417451168,1.0,1.0
+M4_hybrid_structural,dsg-lead-senior-1,Design,,0.2,0.8912965015913479,1.0,1.0
+M4_hybrid_structural,dsg-graphic-mid-1,Design,,0.2,0.9055866445611575,1.0,1.0
+M4_hybrid_structural,dsg-ux-junior-1,Design,,0.2,0.9639404333166532,1.0,1.0
+M4_hybrid_structural,dsg-career-changer-1,Design,career-changer,0.2,0.7072908790226796,1.0,1.0
+M4_hybrid_structural,ops-coordinator-junior-1,Operations,,0.2,0.9173194127129571,1.0,1.0
+M4_hybrid_structural,ops-supplychain-mid-1,Operations,,0.2,0.9173194127129571,1.0,1.0
+M4_hybrid_structural,ops-manager-senior-1,Operations,,0.2,0.9173194127129571,1.0,1.0
+M4_hybrid_structural,ops-procurement-mid-1,Operations,,0.0,0.6131471927654584,0.0,0.0
+M4_hybrid_structural,ops-logistics-senior-1,Operations,,0.0,0.6131471927654584,0.0,0.0
+M4_hybrid_structural,ops-warehouse-junior-1,Operations,,0.0,1.0,0.0,0.0
+M5_hybrid_relevance_weighted,it-backend-mid-1,IT,,0.2,0.938506417451168,1.0,1.0
+M5_hybrid_relevance_weighted,it-backend-mid-1-superset,IT,skill-superset,0.2,0.8609101556836468,1.0,1.0
+M5_hybrid_relevance_weighted,it-vocabulary-gap-1,IT,vocabulary-gap,0.2,0.938506417451168,1.0,1.0
+M5_hybrid_relevance_weighted,it-frontend-junior-1,IT,,0.2,0.9173194127129571,1.0,1.0
+M5_hybrid_relevance_weighted,it-frontend-mid-1,IT,,0.2,0.878961873034099,1.0,1.0
+M5_hybrid_relevance_weighted,it-devops-senior-1,IT,,0.2,0.9084880857554961,1.0,1.0
+M5_hybrid_relevance_weighted,it-esco-gap-1,IT,esco-gap,0.2,0.938506417451168,1.0,1.0
+M5_hybrid_relevance_weighted,it-thin-profile-1,IT,thin-profile,0.2,0.938506417451168,1.0,1.0
+M5_hybrid_relevance_weighted,it-underqualified-1,IT,underqualified,0.2,1.0,1.0,1.0
+M5_hybrid_relevance_weighted,it-cross-domain-1,IT,cross-domain-tenure,0.0,0.0,0.0,0.0
+M5_hybrid_relevance_weighted,mkt-content-junior-1,Marketing,,0.2,0.9173194127129571,1.0,1.0
+M5_hybrid_relevance_weighted,mkt-digital-mid-1,Marketing,,0.2,0.938506417451168,1.0,1.0
+M5_hybrid_relevance_weighted,mkt-brand-senior-1,Marketing,,0.2,0.938506417451168,1.0,1.0
+M5_hybrid_relevance_weighted,mkt-social-junior-1,Marketing,,0.2,0.8262346571285599,1.0,1.0
+M5_hybrid_relevance_weighted,mkt-overqualified-1,Marketing,overqualified,0.2,0.7002755876478819,1.0,0.5
+M5_hybrid_relevance_weighted,mkt-education-gate-fail-1,Marketing,education-gate-fail,0.0,0.38685280723454163,0.0,0.0
+M5_hybrid_relevance_weighted,fin-accountant-junior-1,Finance & Accounting,,0.2,0.9173194127129571,1.0,1.0
+M5_hybrid_relevance_weighted,fin-analyst-mid-1,Finance & Accounting,,0.2,1.0,1.0,1.0
+M5_hybrid_relevance_weighted,fin-controller-senior-1,Finance & Accounting,,0.2,0.9173194127129571,1.0,1.0
+M5_hybrid_relevance_weighted,fin-audit-mid-1,Finance & Accounting,,0.0,0.6131471927654584,0.0,0.0
+M5_hybrid_relevance_weighted,fin-payroll-junior-1,Finance & Accounting,,0.2,0.7262287617954056,1.0,1.0
+M5_hybrid_relevance_weighted,fin-ongoing-degree-1,Finance & Accounting,ongoing-degree,0.2,0.9327783893101107,1.0,1.0
+M5_hybrid_relevance_weighted,hr-recruiter-junior-1,HR,,0.2,0.9173194127129571,1.0,1.0
+M5_hybrid_relevance_weighted,hr-generalist-mid-1,HR,,0.2,0.938506417451168,1.0,1.0
+M5_hybrid_relevance_weighted,hr-head-senior-1,HR,,0.2,0.938506417451168,1.0,1.0
+M5_hybrid_relevance_weighted,hr-recruiter-mid-1,HR,,0.2,0.819876640193745,1.0,1.0
+M5_hybrid_relevance_weighted,hr-training-mid-1,HR,,0.0,0.46927872602275644,0.0,0.0
+M5_hybrid_relevance_weighted,hr-education-gate-pass-1,HR,education-gate-pass,0.2,0.938506417451168,1.0,1.0
+M5_hybrid_relevance_weighted,dsg-graphic-junior-1,Design,,0.2,0.9173194127129571,1.0,1.0
+M5_hybrid_relevance_weighted,dsg-ux-mid-1,Design,,0.2,0.991474106402634,1.0,1.0
+M5_hybrid_relevance_weighted,dsg-lead-senior-1,Design,,0.2,0.9948813634680627,1.0,1.0
+M5_hybrid_relevance_weighted,dsg-graphic-mid-1,Design,,0.2,0.7672735788411231,1.0,1.0
+M5_hybrid_relevance_weighted,dsg-ux-junior-1,Design,,0.2,0.9639404333166532,1.0,1.0
+M5_hybrid_relevance_weighted,dsg-career-changer-1,Design,career-changer,0.2,0.9218235822624828,1.0,1.0
+M5_hybrid_relevance_weighted,ops-coordinator-junior-1,Operations,,0.2,0.9173194127129571,1.0,1.0
+M5_hybrid_relevance_weighted,ops-supplychain-mid-1,Operations,,0.2,0.9173194127129571,1.0,1.0
+M5_hybrid_relevance_weighted,ops-manager-senior-1,Operations,,0.2,1.0,1.0,1.0
+M5_hybrid_relevance_weighted,ops-procurement-mid-1,Operations,,0.0,0.6131471927654584,0.0,0.0
+M5_hybrid_relevance_weighted,ops-logistics-senior-1,Operations,,0.0,0.6131471927654584,0.0,0.0
+M5_hybrid_relevance_weighted,ops-warehouse-junior-1,Operations,,0.0,1.0,0.0,0.0
+M6_hybrid_level_adaptive,it-backend-mid-1,IT,,0.2,0.938506417451168,1.0,1.0
+M6_hybrid_level_adaptive,it-backend-mid-1-superset,IT,skill-superset,0.2,0.8609101556836468,1.0,1.0
+M6_hybrid_level_adaptive,it-vocabulary-gap-1,IT,vocabulary-gap,0.2,0.938506417451168,1.0,1.0
+M6_hybrid_level_adaptive,it-frontend-junior-1,IT,,0.2,0.9173194127129571,1.0,1.0
+M6_hybrid_level_adaptive,it-frontend-mid-1,IT,,0.2,0.878961873034099,1.0,1.0
+M6_hybrid_level_adaptive,it-devops-senior-1,IT,,0.2,0.9084880857554961,1.0,1.0
+M6_hybrid_level_adaptive,it-esco-gap-1,IT,esco-gap,0.2,0.938506417451168,1.0,1.0
+M6_hybrid_level_adaptive,it-thin-profile-1,IT,thin-profile,0.2,0.938506417451168,1.0,1.0
+M6_hybrid_level_adaptive,it-underqualified-1,IT,underqualified,0.2,1.0,1.0,1.0
+M6_hybrid_level_adaptive,it-cross-domain-1,IT,cross-domain-tenure,0.0,0.0,0.0,0.0
+M6_hybrid_level_adaptive,mkt-content-junior-1,Marketing,,0.2,0.9173194127129571,1.0,1.0
+M6_hybrid_level_adaptive,mkt-digital-mid-1,Marketing,,0.2,0.938506417451168,1.0,1.0
+M6_hybrid_level_adaptive,mkt-brand-senior-1,Marketing,,0.2,0.938506417451168,1.0,1.0
+M6_hybrid_level_adaptive,mkt-social-junior-1,Marketing,,0.2,0.8262346571285599,1.0,1.0
+M6_hybrid_level_adaptive,mkt-overqualified-1,Marketing,overqualified,0.2,0.7002755876478819,1.0,0.5
+M6_hybrid_level_adaptive,mkt-education-gate-fail-1,Marketing,education-gate-fail,0.0,0.6131471927654584,0.0,0.0
+M6_hybrid_level_adaptive,fin-accountant-junior-1,Finance & Accounting,,0.2,0.9173194127129571,1.0,1.0
+M6_hybrid_level_adaptive,fin-analyst-mid-1,Finance & Accounting,,0.2,1.0,1.0,1.0
+M6_hybrid_level_adaptive,fin-controller-senior-1,Finance & Accounting,,0.2,0.9173194127129571,1.0,1.0
+M6_hybrid_level_adaptive,fin-audit-mid-1,Finance & Accounting,,0.0,0.6131471927654584,0.0,0.0
+M6_hybrid_level_adaptive,fin-payroll-junior-1,Finance & Accounting,,0.2,0.7262287617954056,1.0,1.0
+M6_hybrid_level_adaptive,fin-ongoing-degree-1,Finance & Accounting,ongoing-degree,0.2,1.0,1.0,1.0
+M6_hybrid_level_adaptive,hr-recruiter-junior-1,HR,,0.2,0.9173194127129571,1.0,1.0
+M6_hybrid_level_adaptive,hr-generalist-mid-1,HR,,0.2,0.938506417451168,1.0,1.0
+M6_hybrid_level_adaptive,hr-head-senior-1,HR,,0.2,0.938506417451168,1.0,1.0
+M6_hybrid_level_adaptive,hr-recruiter-mid-1,HR,,0.2,0.819876640193745,1.0,1.0
+M6_hybrid_level_adaptive,hr-training-mid-1,HR,,0.0,0.46927872602275644,0.0,0.0
+M6_hybrid_level_adaptive,hr-education-gate-pass-1,HR,education-gate-pass,0.2,0.938506417451168,1.0,1.0
+M6_hybrid_level_adaptive,dsg-graphic-junior-1,Design,,0.2,0.9173194127129571,1.0,1.0
+M6_hybrid_level_adaptive,dsg-ux-mid-1,Design,,0.2,0.991474106402634,1.0,1.0
+M6_hybrid_level_adaptive,dsg-lead-senior-1,Design,,0.2,1.0,1.0,1.0
+M6_hybrid_level_adaptive,dsg-graphic-mid-1,Design,,0.2,0.8616869342799657,1.0,1.0
+M6_hybrid_level_adaptive,dsg-ux-junior-1,Design,,0.2,0.9639404333166532,1.0,1.0
+M6_hybrid_level_adaptive,dsg-career-changer-1,Design,career-changer,0.2,0.9218235822624828,1.0,1.0
+M6_hybrid_level_adaptive,ops-coordinator-junior-1,Operations,,0.2,0.9173194127129571,1.0,1.0
+M6_hybrid_level_adaptive,ops-supplychain-mid-1,Operations,,0.2,0.9173194127129571,1.0,1.0
+M6_hybrid_level_adaptive,ops-manager-senior-1,Operations,,0.2,1.0,1.0,1.0
+M6_hybrid_level_adaptive,ops-procurement-mid-1,Operations,,0.0,0.6131471927654584,0.0,0.0
+M6_hybrid_level_adaptive,ops-logistics-senior-1,Operations,,0.0,0.6131471927654584,0.0,0.0
+M6_hybrid_level_adaptive,ops-warehouse-junior-1,Operations,,0.0,1.0,0.0,0.0
