@@ -194,7 +194,12 @@ public class CandidacyService {
         return transitionStatus(candidacyId, CandidacyStatus.REJECTED, ApplicationStatus.REJECTED);
     }
 
-    // One body for both decisions - ownership check, terminal-state guard and
+    @Transactional
+    public CandidacyResponse offer(Long candidacyId) {
+        return transitionStatus(candidacyId, CandidacyStatus.OFFERED, ApplicationStatus.OFFERED);
+    }
+
+    // One body for all decisions - ownership check, allowed-transition guard and
     // linked-application sync are identical. The target state comes from the
     // endpoint, never a request body.
     private CandidacyResponse transitionStatus(Long candidacyId,
@@ -206,8 +211,7 @@ public class CandidacyService {
         // Same company-scoped authorization as the read.
         jobListingService.getListingOwnedByCompany(candidacy.getJobListing().getId());
 
-        // Terminal in both directions - no un-accept, no un-reject, no swapping.
-        if (candidacy.getStatus() != CandidacyStatus.SUBMITTED) {
+        if (!isTransitionAllowed(candidacy.getStatus(), target)) {
             throw new CandidacyAlreadyDecidedException("This candidacy has already been decided");
         }
 
@@ -219,6 +223,19 @@ public class CandidacyService {
         jobApplicationService.syncStatusFromCandidacy(saved, linkedStatus);
 
         return mapper.toResponse(saved);
+    }
+
+    // SUBMITTED is the only entry point for ACCEPTED. OFFERED is the post-interview
+    // step, reachable only from ACCEPTED. REJECTED is reachable both straight from
+    // SUBMITTED and as a post-interview outcome from ACCEPTED. OFFERED and any
+    // REJECTED stay terminal - no further move out of them.
+    private boolean isTransitionAllowed(CandidacyStatus current, CandidacyStatus target) {
+        return switch (target) {
+            case ACCEPTED -> current == CandidacyStatus.SUBMITTED;
+            case OFFERED -> current == CandidacyStatus.ACCEPTED;
+            case REJECTED -> current == CandidacyStatus.SUBMITTED || current == CandidacyStatus.ACCEPTED;
+            default -> false;
+        };
     }
 
 }
