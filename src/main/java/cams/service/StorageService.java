@@ -70,7 +70,7 @@ public class StorageService {
             throw new InvalidFileUploadException("Failed to read uploaded file");
         }
 
-        return publicUrlBase + "/" + bucket + "/" + key;
+        return publicUrlBase + "/" + key;
     }
 
     // Deferred to first upload so an unreachable storage backend doesn't
