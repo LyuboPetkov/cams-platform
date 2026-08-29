@@ -135,14 +135,14 @@ All versions below are the ones currently pinned in `pom.xml`,
 ## Architecture
 
 ```
-                         ┌──────────────┐
+                          ┌──────────────┐
         browser  ───────▶ │    Nginx     │  serves the React build,
                           │  (frontend)  │  proxies /api/* to the backend
                           └──────┬───────┘
                                  │ /api/*
                           ┌──────▼───────┐        ┌───────────────────┐
-                          │ Spring Boot  │ ─────▶ │ embedding-service  │
-                          │   REST API   │  HTTP  │  (FastAPI + model) │
+                          │ Spring Boot  │ ─────▶ │ embedding-service │
+                          │   REST API   │  HTTP  │  (FastAPI + model)│
                           └──────┬───────┘        └───────────────────┘
                                  │ JDBC
                     ┌────────────▼────────────┐   ┌───────────────┐
