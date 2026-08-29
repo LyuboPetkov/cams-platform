@@ -1,0 +1,37 @@
+# Build context for the `backend` service (docker-compose.yml -> context: .).
+#
+# The Dockerfile needs exactly two things: pom.xml and src/. Everything listed
+# below is packed up and shipped to the Docker daemon on every build and then
+# discarded, which on a small VM is the difference between a fast rebuild and a
+# slow one. Nothing here changes the resulting image - only what the daemon has
+# to read to produce it.
+
+# Version control and IDE/tooling state
+.git
+.gitattributes
+.gitignore
+.github
+.idea
+.claude
+*.iml
+
+# Maven output - regenerated inside the build stage
+target/
+
+# The other two services build from their OWN contexts (./frontend and
+# ./embedding-service), so neither belongs in the backend's context.
+frontend/
+embedding-service/
+
+# Local-only working material: evaluation harnesses, thesis docs, ESCO source
+scripts/
+docs/
+esco-v1.2.1-en/
+
+# Secrets and compose files - never needed inside a build
+.env
+docker-compose.yml
+docker-compose.local.yml
+
+# Documentation
+*.md

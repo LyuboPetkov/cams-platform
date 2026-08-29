@@ -1,0 +1,47 @@
+# Maven compiled output
+target/
+
+# Node / Vite
+frontend/node_modules/
+frontend/dist/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# macOS
+.DS_Store
+
+# Spring Boot - do not commit if it contains plaintext secrets
+
+.env
+
+# Local development notes (not part of the shipped repo)
+CLAUDE.md
+
+# Local planning docs, not part of the shipped repo
+docs/
+
+# ESCO source dataset - only needed to regenerate the skills seed migration;
+# the migration itself is the artifact of record, so the 9MB CSV stays out
+# of the repo
+esco-v1.2.1-en/
+
+# Superseded evaluation harness - local virtualenv and bytecode cache
+scripts/matching-eval/.venv/
+scripts/matching-eval/__pycache__/scripts/
+
+# Local runtime state (scheduled task locks, local settings) - machine-specific, never shared
+.claude/
+
+# Local eval scripts - not part of the shipped repo
+scripts/matching-eval/
+
+# matching-lab - local runtime state only. Everything else under
+# scripts/matching-lab/, INCLUDING results/, is committed on purpose: the
+# results are thesis evidence, same tracked-folder precedent as
+# scripts/skill-scope/ (and unlike the gitignored matching-eval/ above).
+scripts/matching-lab/.venv/
+scripts/matching-lab/__pycache__/
+scripts/matching-lab/**/__pycache__/
+scripts/matching-lab/.embedding_cache.json
