@@ -16,6 +16,10 @@ export function rejectCandidacy(id) {
   return axiosInstance.post(`/api/candidacies/${id}/reject`)
 }
 
+export function offerCandidacy(id) {
+  return axiosInstance.post(`/api/candidacies/${id}/offer`)
+}
+
 export function getCandidateProfileForCandidacy(id) {
   return axiosInstance.get(`/api/candidacies/${id}/candidate-profile`)
 }

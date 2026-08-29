@@ -8,11 +8,12 @@ import EmptyState from '../components/ui/EmptyState'
 import LoadingSpinner from '../components/ui/LoadingSpinner'
 import Avatar from '../components/ui/Avatar'
 import { getListing, getCandidaciesForListing } from '../api/jobListings'
-import { acceptCandidacy, rejectCandidacy } from '../api/candidacies'
+import { acceptCandidacy, rejectCandidacy, offerCandidacy } from '../api/candidacies'
 
 const CANDIDACY_STATUS_COLORS = {
   SUBMITTED: '#3b82f6',
   ACCEPTED: '#10b981',
+  OFFERED: '#8b5cf6',
   REJECTED: '#ef4444',
 }
 
@@ -179,6 +180,24 @@ function ListingApplicants() {
                           onClick={() => handleDecide(candidacy.id, acceptCandidacy)}
                         >
                           Accept
+                        </Button>
+                        <Button
+                          variant="danger"
+                          disabled={decidingId === candidacy.id}
+                          onClick={() => handleDecide(candidacy.id, rejectCandidacy)}
+                        >
+                          Reject
+                        </Button>
+                      </>
+                    )}
+                    {candidacy.status === 'ACCEPTED' && (
+                      <>
+                        <Button
+                          variant="primary"
+                          disabled={decidingId === candidacy.id}
+                          onClick={() => handleDecide(candidacy.id, offerCandidacy)}
+                        >
+                          Mark Offered
                         </Button>
                         <Button
                           variant="danger"
