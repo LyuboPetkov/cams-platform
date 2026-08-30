@@ -2,13 +2,15 @@ import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import Avatar from './ui/Avatar'
 
+// Discovery first (Browse Jobs is where candidates land on login), then the
+// candidate's own things.
 const CANDIDATE_LINKS = [
-  { to: '/dashboard', label: 'Dashboard' },
-  { to: '/applications', label: 'My Applications' },
   { to: '/jobs', label: 'Browse Jobs' },
   { to: '/companies', label: 'Companies' },
-  { to: '/candidacies', label: 'My Candidacies' },
   { to: '/matches', label: 'Matches' },
+  { to: '/dashboard', label: 'Dashboard' },
+  { to: '/applications', label: 'My Applications' },
+  { to: '/candidacies', label: 'My Candidacies' },
 ]
 
 const EMPLOYER_LINKS = [
