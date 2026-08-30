@@ -68,8 +68,10 @@ services:
       EMBEDDING_SERVICE_URL: http://embedding-service:8000
       # Backend reaches MinIO on the container network; the public URL saved on
       # uploads uses the host-mapped port, which is what the browser resolves.
+      # Path-style MinIO needs the bucket in the URL (unlike prod's R2, where the
+      # bucket is baked into the domain and StorageService appends only the key).
       STORAGE_ENDPOINT: http://minio:9000
-      STORAGE_PUBLIC_URL_BASE: http://localhost:9000
+      STORAGE_PUBLIC_URL_BASE: http://localhost:9000/cams-uploads
       STORAGE_ACCESS_KEY: ${STORAGE_ACCESS_KEY}
       STORAGE_SECRET_KEY: ${STORAGE_SECRET_KEY}
       TZ: Europe/Sofia

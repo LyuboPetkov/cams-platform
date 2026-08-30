@@ -45,3 +45,7 @@ scripts/matching-lab/.venv/
 scripts/matching-lab/__pycache__/
 scripts/matching-lab/**/__pycache__/
 scripts/matching-lab/.embedding_cache.json
+
+# seed-demo - local tooling for populating demo data, not part of the shipped
+# repo (same as scripts/matching-eval/ above).
+scripts/seed-demo/
