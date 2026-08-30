@@ -104,7 +104,7 @@ function ListingDetail() {
         <Card>
           <div className="flex items-start justify-between">
             <div className="flex items-start gap-3">
-              <Avatar src={listing.company?.logoUrl} name={listing.company?.name} size="md" />
+              <Avatar src={listing.company?.logoUrl} name={listing.company?.name} size="lg" variant="logo" />
               <div>
                 <h1 className="text-xl font-bold text-gray-800">{listing.title}</h1>
                 <p className="text-sm text-gray-500 mt-1">

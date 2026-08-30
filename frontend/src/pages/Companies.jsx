@@ -83,7 +83,7 @@ function Companies() {
                     className="flex items-center gap-3"
                     onClick={() => navigate(`/companies/${company.id}`)}
                   >
-                    <Avatar src={company.logoUrl} name={company.name} size="md" />
+                    <Avatar src={company.logoUrl} name={company.name} size="lg" variant="logo" />
                     <div>
                       <h3 className="text-base font-semibold text-gray-800">{company.name}</h3>
                       {company.description && (

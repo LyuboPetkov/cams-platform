@@ -95,7 +95,7 @@ function CompanyProfile() {
 
       <div className="max-w-3xl mx-auto px-6 py-8 space-y-6">
         <div className="flex items-center gap-4">
-          <Avatar src={logoUrl} name={company.name} size="lg" />
+          <Avatar src={logoUrl} name={company.name} size="xl" variant="logo" />
           <div>
             <EditableFullName fullName={user?.fullName} onSaved={updateUserFullName} />
             <p className="text-sm text-gray-500">{user?.email}</p>
@@ -150,7 +150,7 @@ function CompanyProfile() {
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Logo</label>
               <div className="flex items-center gap-3">
-                <Avatar src={logoUrl} name={company.name} size="md" />
+                <Avatar src={logoUrl} name={company.name} size="md" variant="logo" />
                 <input
                   type="file"
                   accept="image/png,image/jpeg,image/webp"

@@ -36,7 +36,7 @@ function JobListingCard({ listing, matchScore, onClick }) {
           </p>
         )}
         <div className="flex items-center gap-2 mt-1">
-          <Avatar src={listing.company?.logoUrl} name={listing.company?.name} size="sm" />
+          <Avatar src={listing.company?.logoUrl} name={listing.company?.name} size="md" variant="logo" />
           <p className="text-sm text-gray-500">
             {listing.company?.name} · {listing.location || 'No location listed'}
             {listing.remote ? ' · Remote' : ''}

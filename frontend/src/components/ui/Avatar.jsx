@@ -11,6 +11,7 @@ const SIZE_CLASSES = {
   sm: 'w-8 h-8 text-xs',
   md: 'w-10 h-10 text-sm',
   lg: 'w-16 h-16 text-lg',
+  xl: 'w-20 h-20 text-xl',
 }
 
 function initialsOf(name) {
@@ -31,27 +32,36 @@ function colorOf(name) {
 
 // Shared picture/logo fallback: a plain <img> when the URL loads, otherwise
 // initials in a deterministic color circle instead of the broken-image icon.
-function Avatar({ src, name, size = 'md', className = '' }) {
+//
+// variant "avatar" (default) is for people — round, cropped to fill (object-cover).
+// variant "logo" is for company logos — rounded square, whole logo visible
+// (object-contain) on a padded white tile so wordmarks/wide marks aren't cut off.
+function Avatar({ src, name, size = 'md', variant = 'avatar', className = '' }) {
   const [failed, setFailed] = useState(false)
 
   useEffect(() => setFailed(false), [src])
 
   const sizeClasses = SIZE_CLASSES[size] ?? SIZE_CLASSES.md
+  const isLogo = variant === 'logo'
+  const shapeClasses = isLogo ? 'rounded-lg' : 'rounded-full'
 
   if (src && !failed) {
+    const imgFit = isLogo
+      ? 'object-contain bg-white border border-gray-200 p-1'
+      : 'object-cover'
     return (
       <img
         src={src}
         alt={name || 'Avatar'}
         onError={() => setFailed(true)}
-        className={`${sizeClasses} rounded-full object-cover shrink-0 ${className}`}
+        className={`${sizeClasses} ${shapeClasses} ${imgFit} shrink-0 ${className}`}
       />
     )
   }
 
   return (
     <div
-      className={`${sizeClasses} rounded-full flex items-center justify-center font-semibold text-white shrink-0 ${className}`}
+      className={`${sizeClasses} ${shapeClasses} flex items-center justify-center font-semibold text-white shrink-0 ${className}`}
       style={{ backgroundColor: colorOf(name) }}
     >
       {initialsOf(name)}
