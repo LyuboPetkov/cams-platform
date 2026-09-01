@@ -115,7 +115,7 @@ function CompanyDetail() {
           {!listingsLoading && !listingsError && listings.length > 0 && (
             <div className="space-y-3">
               {listings.map((listing) => (
-                <Link key={listing.id} to={`/jobs/${listing.id}`} state={{ listing }}>
+                <Link key={listing.id} to={`/jobs/${listing.id}`} state={{ listing }} className="block">
                   <JobListingCard listing={listing} />
                 </Link>
               ))}
