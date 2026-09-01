@@ -139,6 +139,9 @@ public class CandidateProfileService {
         if (request.getLocation() != null) {
             profile.setLocation(request.getLocation());
         }
+        if (request.getPhoneNumber() != null) {
+            profile.setPhoneNumber(request.getPhoneNumber());
+        }
         if (request.getPictureUrl() != null) {
             profile.setPictureUrl(request.getPictureUrl());
         }

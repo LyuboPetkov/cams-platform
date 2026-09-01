@@ -27,6 +27,9 @@ public class CandidateProfileResponse {
     @Schema(description = "Where the candidate is based", example = "Sofia, Bulgaria", nullable = true)
     private String location;
 
+    @Schema(description = "Contact phone number", example = "+359 88 123 4567", nullable = true)
+    private String phoneNumber;
+
     @Schema(description = "URL of the candidate's profile picture", nullable = true)
     private String pictureUrl;
 

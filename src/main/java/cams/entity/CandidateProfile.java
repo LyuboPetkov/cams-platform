@@ -40,6 +40,9 @@ public class CandidateProfile {
     @Column(name = "location")
     private String location;
 
+    @Column(name = "phone_number")
+    private String phoneNumber;
+
     @Column(name = "picture_url")
     private String pictureUrl;
 

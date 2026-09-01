@@ -83,6 +83,7 @@ function CandidateProfile() {
   const [headline, setHeadline] = useState('')
   const [description, setDescription] = useState('')
   const [location, setLocation] = useState('')
+  const [phoneNumber, setPhoneNumber] = useState('')
   const [pictureUrl, setPictureUrl] = useState('')
   const [openToRemote, setOpenToRemote] = useState(false)
   const [flexibleHours, setFlexibleHours] = useState(false)
@@ -136,6 +137,7 @@ function CandidateProfile() {
         setHeadline(data.headline ?? '')
         setDescription(data.description ?? '')
         setLocation(data.location ?? '')
+        setPhoneNumber(data.phoneNumber ?? '')
         setPictureUrl(data.pictureUrl ?? '')
         setOpenToRemote(Boolean(data.openToRemote))
         setFlexibleHours(Boolean(data.flexibleHours))
@@ -173,6 +175,7 @@ function CandidateProfile() {
         headline,
         description,
         location,
+        phoneNumber,
         openToRemote,
         flexibleHours,
         desiredWorkingHours: desiredWorkingHours || null,
@@ -180,7 +183,7 @@ function CandidateProfile() {
     }, PROFILE_AUTOSAVE_DEBOUNCE_MS)
 
     return () => clearTimeout(timer)
-  }, [headline, description, location, openToRemote, flexibleHours, desiredWorkingHours])
+  }, [headline, description, location, phoneNumber, openToRemote, flexibleHours, desiredWorkingHours])
 
   // Unlike the debounced text autosave above, a picture upload fires immediately
   // on file selection and surfaces StorageService's content-type/size errors.
@@ -411,6 +414,17 @@ function CandidateProfile() {
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
                 placeholder="Sofia, Bulgaria"
+                className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Phone number</label>
+              <input
+                type="tel"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+                placeholder="+359 88 123 4567"
                 className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>

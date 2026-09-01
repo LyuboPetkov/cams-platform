@@ -29,6 +29,7 @@ public class CandidateProfileMapper {
                 .headline(entity.getHeadline())
                 .description(entity.getDescription())
                 .location(entity.getLocation())
+                .phoneNumber(entity.getPhoneNumber())
                 .pictureUrl(entity.getPictureUrl())
                 .openToRemote(entity.getOpenToRemote())
                 .flexibleHours(entity.getFlexibleHours())

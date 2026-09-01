@@ -117,6 +117,9 @@ function CandidateDetail() {
                 {profile.location && (
                   <p className="text-sm text-gray-500 mt-1">{profile.location}</p>
                 )}
+                {profile.phoneNumber && (
+                  <p className="text-sm text-gray-500 mt-1">{profile.phoneNumber}</p>
+                )}
               </div>
             </div>
             {status && <Badge status={status} colors={CANDIDACY_STATUS_COLORS} />}

@@ -23,6 +23,10 @@ public class CandidateProfileUpdateRequest {
     @Schema(description = "Where the candidate is based", example = "Sofia, Bulgaria")
     private String location;
 
+    @Size(max = 30, message = "Phone number must be at most 30 characters")
+    @Schema(description = "Contact phone number", example = "+359 88 123 4567")
+    private String phoneNumber;
+
     @URL(message = "Picture URL must be a valid URL")
     @Size(max = 500, message = "Picture URL must be at most 500 characters")
     @Schema(description = "URL of the candidate's profile picture")
