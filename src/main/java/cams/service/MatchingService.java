@@ -1,10 +1,12 @@
 package cams.service;
 
 import cams.dto.JobListingMatchResponse;
+import cams.dto.MatchScoreResponse;
 import cams.entity.CandidateProfile;
 import cams.entity.JobListing;
 import cams.entity.JobListingSkill;
 import cams.entity.JobListingStatus;
+import cams.entity.Role;
 import cams.entity.Skill;
 import cams.entity.User;
 import cams.exception.NoEmbeddingAvailableException;
@@ -75,6 +77,32 @@ public class MatchingService {
                         .similarityScore(embeddingSimilarity.cosineSimilarity(profile.getEmbedding(), listing.getEmbedding()))
                         .build())
                 .toList();
+    }
+
+    // Single-listing score for the listing detail page, computed on demand when a
+    // candidate opens a listing from browse. Unlike getMatchesForCandidate() a
+    // missing embedding on either side is not an error here - it degrades to a
+    // null score and the page simply omits the badge. Not gated on having a
+    // Candidacy; non-candidate callers always get null.
+    @Transactional(readOnly = true)
+    public MatchScoreResponse getMatchScoreForListing(Long listingId) {
+        User user = getAuthenticatedUser();
+
+        JobListing listing = jobListingRepository.findById(listingId)
+                .orElseThrow(() -> new ResourceNotFoundException("Job listing not found"));
+
+        if (user.getRole() != Role.CANDIDATE) {
+            return new MatchScoreResponse(null);
+        }
+
+        CandidateProfile profile = candidateProfileRepository.findByUserId(user.getId()).orElse(null);
+
+        if (listing.getEmbedding() == null || profile == null || profile.getEmbedding() == null) {
+            return new MatchScoreResponse(null);
+        }
+
+        return new MatchScoreResponse(
+                embeddingSimilarity.cosineSimilarity(profile.getEmbedding(), listing.getEmbedding()));
     }
 
     private Map<Long, List<Skill>> getSkillsOfAllListings(List<JobListing> listings) {

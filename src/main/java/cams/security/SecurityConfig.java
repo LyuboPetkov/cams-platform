@@ -50,6 +50,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/api/job-listings").authenticated()
                         .requestMatchers(HttpMethod.GET, "/api/job-listings/matches").authenticated()
                         .requestMatchers(HttpMethod.GET, "/api/job-listings/*/candidate-view").authenticated()
+                        .requestMatchers(HttpMethod.GET, "/api/job-listings/*/my-match-score").authenticated()
                         .requestMatchers("/api/job-listings/**").hasRole("EMPLOYER")
                         .anyRequest().authenticated()
                 )

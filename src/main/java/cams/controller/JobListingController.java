@@ -5,6 +5,7 @@ import cams.dto.JobListingBrowseResponse;
 import cams.dto.JobListingCreateRequest;
 import cams.dto.JobListingMatchResponse;
 import cams.dto.JobListingResponse;
+import cams.dto.MatchScoreResponse;
 import cams.dto.JobListingSkillsUpdateRequest;
 import cams.dto.JobListingUpdateRequest;
 import cams.dto.PageResponse;
@@ -192,6 +193,23 @@ public class JobListingController {
     @GetMapping("/api/job-listings/matches")
     public ResponseEntity<List<JobListingMatchResponse>> getMatches() {
         return ResponseEntity.ok(matchingService.getMatchesForCandidate());
+    }
+
+    @Operation(summary = "Get the caller's match score against a single listing",
+            description = """
+                    Candidate-facing: cosine similarity between the caller's CandidateProfile embedding \
+                    and this listing's embedding, for the badge shown when opening a listing from browse. \
+                    Returns a null score rather than an error when the caller is not a candidate, their \
+                    profile has no embedding yet, or the listing has none. Unlike /candidate-view this is \
+                    not gated on the caller already having a Candidacy against the listing.""")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Score retrieved (the score field may be null)"),
+            @ApiResponse(responseCode = "403", description = "Missing or invalid JWT token"),
+            @ApiResponse(responseCode = "404", description = "Listing not found")
+    })
+    @GetMapping("/api/job-listings/{id}/my-match-score")
+    public ResponseEntity<MatchScoreResponse> getMyMatchScore(@PathVariable Long id) {
+        return ResponseEntity.ok(matchingService.getMatchScoreForListing(id));
     }
 
     // Lives here, not in CandidacyController: the EMPLOYER role gate is keyed on
