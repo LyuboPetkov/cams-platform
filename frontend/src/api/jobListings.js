@@ -16,6 +16,10 @@ export function getMyMatches() {
   return axiosInstance.get('/api/job-listings/matches')
 }
 
+export function getMyMatchScore(id) {
+  return axiosInstance.get(`/api/job-listings/${id}/my-match-score`)
+}
+
 export function createListing(data) {
   return axiosInstance.post('/api/job-listings', data)
 }

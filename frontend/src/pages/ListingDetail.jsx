@@ -7,7 +7,7 @@ import Avatar from '../components/ui/Avatar'
 import Badge from '../components/ui/Badge'
 import LoadingSpinner from '../components/ui/LoadingSpinner'
 import { applyToListing } from '../api/candidacies'
-import { getListingForCandidate } from '../api/jobListings'
+import { getListingForCandidate, getMyMatchScore } from '../api/jobListings'
 import { formatRelativeTime } from '../utils/formatRelativeTime'
 import { formatEnumLabel } from '../utils/formatEnumLabel'
 
@@ -29,6 +29,11 @@ function ListingDetail() {
   const [loading, setLoading] = useState(!location.state?.listing)
   const [loadError, setLoadError] = useState(null)
 
+  // Semantic match score for the badge. Its own request, independent of whether
+  // the listing came from router state or the fallback fetch. Null - no badge -
+  // when the viewer isn't a candidate, has no profile embedding, or on any error.
+  const [matchScore, setMatchScore] = useState(null)
+
   const backTo = location.state?.from ?? '/jobs'
   const backLabel = backTo === '/matches' ? 'Back to Matches' : 'Back to Browse Jobs'
 
@@ -43,6 +48,12 @@ function ListingDetail() {
       .catch(() => setLoadError('Failed to load this listing.'))
       .finally(() => setLoading(false))
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id])
+
+  useEffect(() => {
+    getMyMatchScore(id)
+      .then((response) => setMatchScore(response.data.score))
+      .catch(() => setMatchScore(null))
   }, [id])
 
   if (loading) {
@@ -107,6 +118,11 @@ function ListingDetail() {
               <Avatar src={listing.company?.logoUrl} name={listing.company?.name} size="lg" variant="logo" />
               <div>
                 <h1 className="text-xl font-bold text-gray-800">{listing.title}</h1>
+                {matchScore != null && (
+                  <span className="inline-block text-xs font-medium text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full mt-1">
+                    {Math.round(matchScore * 100)}% match
+                  </span>
+                )}
                 <p className="text-sm text-gray-500 mt-1">
                   {listing.company?.name} · {listing.location || 'No location listed'}
                   {listing.remote ? ' · Remote' : ''}
