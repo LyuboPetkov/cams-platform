@@ -130,14 +130,14 @@ function ListingDetail() {
               </div>
             </div>
             <div className="flex flex-col items-end gap-2 shrink-0">
+              <span className="text-xs font-medium text-gray-500 bg-gray-100 px-2.5 py-1 rounded-full">
+                {formatEnumLabel(listing.level)}
+              </span>
               {matchScore != null && (
                 <span className="text-xs font-medium text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full whitespace-nowrap">
                   {Math.round(matchScore * 100)}% match
                 </span>
               )}
-              <span className="text-xs font-medium text-gray-500 bg-gray-100 px-2.5 py-1 rounded-full">
-                {formatEnumLabel(listing.level)}
-              </span>
             </div>
           </div>
 
