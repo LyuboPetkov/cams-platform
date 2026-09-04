@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Navbar from '../components/Navbar'
 import Card from '../components/ui/Card'
 import Button from '../components/ui/Button'
@@ -22,6 +22,7 @@ function CompanyProfile() {
   const [logoUrl, setLogoUrl] = useState('')
   const [logoUploading, setLogoUploading] = useState(false)
   const [logoError, setLogoError] = useState(null)
+  const logoInputRef = useRef(null)
 
   useEffect(() => {
     getMyCompany()
@@ -152,14 +153,21 @@ function CompanyProfile() {
               <div className="flex items-center gap-3">
                 <Avatar src={logoUrl} name={company.name} size="md" variant="logo" />
                 <input
+                  ref={logoInputRef}
                   type="file"
                   accept="image/png,image/jpeg,image/webp"
                   onChange={handleLogoUpload}
-                  disabled={logoUploading}
-                  className="flex-1 text-sm text-gray-600 file:mr-3 file:py-1.5 file:px-3 file:rounded file:border-0 file:text-sm file:font-medium file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 file:cursor-pointer disabled:opacity-50"
+                  className="hidden"
                 />
+                <button
+                  type="button"
+                  onClick={() => logoInputRef.current?.click()}
+                  disabled={logoUploading}
+                  className="py-1.5 px-3 rounded text-sm font-medium bg-blue-50 text-blue-700 hover:bg-blue-100 cursor-pointer disabled:opacity-50"
+                >
+                  {logoUploading ? 'Uploading…' : 'Choose file'}
+                </button>
               </div>
-              {logoUploading && <p className="text-xs text-gray-400 mt-1">Uploading...</p>}
               {logoError && <p className="text-sm text-red-500 mt-1">{logoError}</p>}
             </div>
 

@@ -93,6 +93,7 @@ function CandidateProfile() {
 
   const [pictureUploading, setPictureUploading] = useState(false)
   const [pictureError, setPictureError] = useState(null)
+  const pictureInputRef = useRef(null)
 
   const [skillsSaving, setSkillsSaving] = useState(false)
   const [skillsSavedAt, setSkillsSavedAt] = useState(null)
@@ -396,14 +397,21 @@ function CandidateProfile() {
               <div className="flex items-center gap-3">
                 <Avatar src={pictureUrl} name={user?.fullName} size="md" />
                 <input
+                  ref={pictureInputRef}
                   type="file"
                   accept="image/png,image/jpeg,image/webp"
                   onChange={handlePictureUpload}
-                  disabled={pictureUploading}
-                  className="flex-1 text-sm text-gray-600 file:mr-3 file:py-1.5 file:px-3 file:rounded file:border-0 file:text-sm file:font-medium file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 file:cursor-pointer disabled:opacity-50"
+                  className="hidden"
                 />
+                <button
+                  type="button"
+                  onClick={() => pictureInputRef.current?.click()}
+                  disabled={pictureUploading}
+                  className="py-1.5 px-3 rounded text-sm font-medium bg-blue-50 text-blue-700 hover:bg-blue-100 cursor-pointer disabled:opacity-50"
+                >
+                  {pictureUploading ? 'Uploading…' : 'Choose file'}
+                </button>
               </div>
-              {pictureUploading && <p className="text-xs text-gray-400 mt-1">Uploading...</p>}
               {pictureError && <p className="text-sm text-red-500 mt-1">{pictureError}</p>}
             </div>
 
