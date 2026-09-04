@@ -48,27 +48,33 @@ function DatePicker({
   const minDate = useMemo(() => parseValue(min), [min])
   const maxDate = useMemo(() => parseValue(max), [max])
 
+  // react-datepicker renders the calendar popper and its focus-trap element as
+  // siblings of the input wrapper. This block wrapper keeps them from becoming
+  // extra grid/flex items in the caller's layout when the calendar opens, which
+  // otherwise pushed the next field onto a new row.
   return (
-    <ReactDatePicker
-      selected={selected}
-      onChange={(date) => onChange(formatValue(date))}
-      calendarStartDay={1}
-      showMonthYearPicker={isMonth}
-      dateFormat={isMonth ? 'MMMM yyyy' : 'dd MMM yyyy'}
-      minDate={minDate}
-      maxDate={maxDate}
-      isClearable={isClearable && !disabled}
-      placeholderText={placeholder}
-      disabled={disabled}
-      required={required}
-      id={id}
-      name={name}
-      autoComplete="off"
-      showPopperArrow={false}
-      popperPlacement="bottom-start"
-      className={INPUT_CLASS}
-      wrapperClassName="w-full"
-    />
+    <div className="w-full">
+      <ReactDatePicker
+        selected={selected}
+        onChange={(date) => onChange(formatValue(date))}
+        calendarStartDay={1}
+        showMonthYearPicker={isMonth}
+        dateFormat={isMonth ? 'MMMM yyyy' : 'dd MMM yyyy'}
+        minDate={minDate}
+        maxDate={maxDate}
+        isClearable={isClearable && !disabled}
+        placeholderText={placeholder}
+        disabled={disabled}
+        required={required}
+        id={id}
+        name={name}
+        autoComplete="off"
+        showPopperArrow={false}
+        popperPlacement="bottom-start"
+        className={INPUT_CLASS}
+        wrapperClassName="w-full"
+      />
+    </div>
   )
 }
 
