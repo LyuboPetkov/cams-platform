@@ -23,7 +23,7 @@ public class SkillService {
         List<Skill> skills =
                 (query == null || query.isBlank())
                         ? skillRepository.findAll(pageable).getContent()
-                        : skillRepository.findByNameContainingIgnoreCase(query.trim(), pageable);
+                        : skillRepository.searchByNameRanked(query.trim(), pageable);
 
         return skills.stream().map(mapper::toResponse).toList();
     }
