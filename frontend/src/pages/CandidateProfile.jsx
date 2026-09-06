@@ -46,6 +46,7 @@ function formatMonthYear(dateStr) {
 
 function toExperienceRequest(entry) {
   return {
+    companyName: entry.companyName,
     roleTitle: entry.roleTitle,
     startDate: entry.startDate,
     endDate: entry.endDate,
@@ -99,6 +100,7 @@ function CandidateProfile() {
   const [skillsSavedAt, setSkillsSavedAt] = useState(null)
 
   const [experienceForm, setExperienceForm] = useState({
+    companyName: '',
     roleTitle: '',
     startDate: '',
     endDate: '',
@@ -248,15 +250,16 @@ function CandidateProfile() {
 
   async function addExperience(e) {
     e.preventDefault()
-    if (!experienceForm.roleTitle.trim() || !experienceForm.startDate) return
+    if (!experienceForm.roleTitle.trim() || !experienceForm.companyName.trim() || !experienceForm.startDate) return
     const entry = {
+      companyName: experienceForm.companyName,
       roleTitle: experienceForm.roleTitle,
       startDate: experienceForm.startDate,
       endDate: experienceForm.endDate || null,
       description: experienceForm.description || null,
     }
     await saveExperience([...profile.experience, entry])
-    setExperienceForm({ roleTitle: '', startDate: '', endDate: '', description: '' })
+    setExperienceForm({ companyName: '', roleTitle: '', startDate: '', endDate: '', description: '' })
   }
 
   async function removeExperience(id) {
@@ -534,7 +537,7 @@ function CandidateProfile() {
               >
                 <div>
                   <p className="text-sm font-medium text-gray-800">
-                    {entry.roleTitle} · {formatMonthYear(entry.startDate)} –{' '}
+                    {entry.roleTitle} · {entry.companyName} · {formatMonthYear(entry.startDate)} –{' '}
                     {entry.endDate ? formatMonthYear(entry.endDate) : 'Present'}
                   </p>
                   {entry.description && (
@@ -561,6 +564,13 @@ function CandidateProfile() {
               value={experienceForm.roleTitle}
               onChange={(e) => setExperienceForm({ ...experienceForm, roleTitle: e.target.value })}
               placeholder="Role title"
+              className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <input
+              type="text"
+              value={experienceForm.companyName}
+              onChange={(e) => setExperienceForm({ ...experienceForm, companyName: e.target.value })}
+              placeholder="Company"
               className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <textarea

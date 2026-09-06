@@ -154,7 +154,7 @@ function CandidateDetail() {
             {profile.experience.map((entry) => (
               <div key={entry.id} className="border border-gray-200 rounded p-3">
                 <p className="text-sm font-medium text-gray-800">
-                  {entry.roleTitle} · {formatMonthYear(entry.startDate)} –{' '}
+                  {entry.roleTitle} · {entry.companyName} · {formatMonthYear(entry.startDate)} –{' '}
                   {entry.endDate ? formatMonthYear(entry.endDate) : 'Present'}
                 </p>
                 {entry.description && (
