@@ -1,0 +1,721 @@
+﻿candidate_key,listing_key,grade,reason
+it-backend-mid-1,it-frontend-junior,1,"Backend rather than frontend, a band above JUNIOR, and none of JavaScript, React or Git evidenced; floored at 1 as a same-area near-miss"
+it-backend-mid-1,it-backend-mid,3,"Exact sub-specialty, 5.5 years sits inside the MID band, all four required skills held structurally, and the BACHELORS requirement is met"
+it-backend-mid-1,it-devops-senior,1,"Backend rather than infrastructure, a band below SENIOR, and no container or pipeline ownership evidenced anywhere in the profile"
+it-backend-mid-1,mkt-content-junior,0,No evidence in this professional area
+it-backend-mid-1,mkt-digital-mid,0,No evidence in this professional area
+it-backend-mid-1,mkt-brand-senior,0,No evidence in this professional area
+it-backend-mid-1,fin-accountant-junior,0,No evidence in this professional area
+it-backend-mid-1,fin-analyst-mid,0,No evidence in this professional area
+it-backend-mid-1,fin-controller-senior,0,No evidence in this professional area
+it-backend-mid-1,hr-recruiter-junior,0,No evidence in this professional area
+it-backend-mid-1,hr-generalist-mid,0,No evidence in this professional area
+it-backend-mid-1,hr-head-senior,0,No evidence in this professional area
+it-backend-mid-1,dsg-graphic-junior,0,No evidence in this professional area
+it-backend-mid-1,dsg-ux-mid,0,No evidence in this professional area
+it-backend-mid-1,dsg-lead-senior,0,No evidence in this professional area
+it-backend-mid-1,ops-coordinator-junior,0,No evidence in this professional area
+it-backend-mid-1,ops-supplychain-mid,0,No evidence in this professional area
+it-backend-mid-1,ops-manager-senior,0,No evidence in this professional area
+it-backend-mid-1-superset,it-frontend-junior,1,"Copied verbatim from it-backend-mid-1: the two profiles differ only in six extra unrelated skill names, which per rubric 3.3 change nothing. Pair reason: Backend rather than frontend, a band above JUNIOR, and none of JavaScript, React or Git evidenced; floored at 1 as a same-area near-miss"
+it-backend-mid-1-superset,it-backend-mid,3,"Copied verbatim from it-backend-mid-1: the two profiles differ only in six extra unrelated skill names, which per rubric 3.3 change nothing. Pair reason: Exact sub-specialty, 5.5 years sits inside the MID band, all four required skills held structurally, and the BACHELORS requirement is met"
+it-backend-mid-1-superset,it-devops-senior,1,"Copied verbatim from it-backend-mid-1: the two profiles differ only in six extra unrelated skill names, which per rubric 3.3 change nothing. Pair reason: Backend rather than infrastructure, a band below SENIOR, and no container or pipeline ownership evidenced anywhere in the profile"
+it-backend-mid-1-superset,mkt-content-junior,0,No evidence in this professional area
+it-backend-mid-1-superset,mkt-digital-mid,0,No evidence in this professional area
+it-backend-mid-1-superset,mkt-brand-senior,0,No evidence in this professional area
+it-backend-mid-1-superset,fin-accountant-junior,0,No evidence in this professional area
+it-backend-mid-1-superset,fin-analyst-mid,0,No evidence in this professional area
+it-backend-mid-1-superset,fin-controller-senior,0,No evidence in this professional area
+it-backend-mid-1-superset,hr-recruiter-junior,0,No evidence in this professional area
+it-backend-mid-1-superset,hr-generalist-mid,0,No evidence in this professional area
+it-backend-mid-1-superset,hr-head-senior,0,No evidence in this professional area
+it-backend-mid-1-superset,dsg-graphic-junior,0,No evidence in this professional area
+it-backend-mid-1-superset,dsg-ux-mid,0,No evidence in this professional area
+it-backend-mid-1-superset,dsg-lead-senior,0,No evidence in this professional area
+it-backend-mid-1-superset,ops-coordinator-junior,0,No evidence in this professional area
+it-backend-mid-1-superset,ops-supplychain-mid,0,No evidence in this professional area
+it-backend-mid-1-superset,ops-manager-senior,0,No evidence in this professional area
+it-vocabulary-gap-1,it-frontend-junior,1,"Backend rather than frontend, a band above JUNIOR, and no frontend skill evidenced"
+it-vocabulary-gap-1,it-backend-mid,3,"Exact sub-specialty, 4.6 years inside the MID band, BACHELORS met; Java, SQL and Spring Boot are structural and the Agile project management requirement is covered by two years of documented Scrum facilitation"
+it-vocabulary-gap-1,it-devops-senior,1,"Backend and delivery work rather than infrastructure, a band below SENIOR, no required skill evidenced"
+it-vocabulary-gap-1,mkt-content-junior,0,No evidence in this professional area
+it-vocabulary-gap-1,mkt-digital-mid,0,No evidence in this professional area
+it-vocabulary-gap-1,mkt-brand-senior,0,No evidence in this professional area
+it-vocabulary-gap-1,fin-accountant-junior,0,No evidence in this professional area
+it-vocabulary-gap-1,fin-analyst-mid,0,No evidence in this professional area
+it-vocabulary-gap-1,fin-controller-senior,0,No evidence in this professional area
+it-vocabulary-gap-1,hr-recruiter-junior,0,No evidence in this professional area
+it-vocabulary-gap-1,hr-generalist-mid,0,No evidence in this professional area
+it-vocabulary-gap-1,hr-head-senior,0,No evidence in this professional area
+it-vocabulary-gap-1,dsg-graphic-junior,0,No evidence in this professional area
+it-vocabulary-gap-1,dsg-ux-mid,0,No evidence in this professional area
+it-vocabulary-gap-1,dsg-lead-senior,0,No evidence in this professional area
+it-vocabulary-gap-1,ops-coordinator-junior,0,No evidence in this professional area
+it-vocabulary-gap-1,ops-supplychain-mid,0,No evidence in this professional area
+it-vocabulary-gap-1,ops-manager-senior,0,No evidence in this professional area
+it-frontend-junior-1,it-frontend-junior,3,"Exact sub-specialty, 2.0 years inside the JUNIOR band, all three required skills held, no education requirement"
+it-frontend-junior-1,it-backend-mid,1,"Frontend rather than backend, a band below MID, and none of the four required backend skills evidenced"
+it-frontend-junior-1,it-devops-senior,0,Two or more bands below SENIOR with no infrastructure evidence at all
+it-frontend-junior-1,mkt-content-junior,0,No evidence in this professional area
+it-frontend-junior-1,mkt-digital-mid,0,No evidence in this professional area
+it-frontend-junior-1,mkt-brand-senior,0,No evidence in this professional area
+it-frontend-junior-1,fin-accountant-junior,0,No evidence in this professional area
+it-frontend-junior-1,fin-analyst-mid,0,No evidence in this professional area
+it-frontend-junior-1,fin-controller-senior,0,No evidence in this professional area
+it-frontend-junior-1,hr-recruiter-junior,0,No evidence in this professional area
+it-frontend-junior-1,hr-generalist-mid,0,No evidence in this professional area
+it-frontend-junior-1,hr-head-senior,0,No evidence in this professional area
+it-frontend-junior-1,dsg-graphic-junior,0,No evidence in this professional area
+it-frontend-junior-1,dsg-ux-mid,0,No evidence in this professional area
+it-frontend-junior-1,dsg-lead-senior,0,No evidence in this professional area
+it-frontend-junior-1,ops-coordinator-junior,0,No evidence in this professional area
+it-frontend-junior-1,ops-supplychain-mid,0,No evidence in this professional area
+it-frontend-junior-1,ops-manager-senior,0,No evidence in this professional area
+it-frontend-mid-1,it-frontend-junior,2,"Right sub-specialty and full skill coverage, but five years is a band above a role that expects close pairing with a senior"
+it-frontend-mid-1,it-backend-mid,1,"Frontend rather than backend; inside the MID band but no Java, SQL, Spring Boot or agile delivery evidence"
+it-frontend-mid-1,it-devops-senior,1,"Frontend rather than infrastructure, a band below SENIOR, none of the required skills evidenced"
+it-frontend-mid-1,mkt-content-junior,0,No evidence in this professional area
+it-frontend-mid-1,mkt-digital-mid,0,No evidence in this professional area
+it-frontend-mid-1,mkt-brand-senior,0,No evidence in this professional area
+it-frontend-mid-1,fin-accountant-junior,0,No evidence in this professional area
+it-frontend-mid-1,fin-analyst-mid,0,No evidence in this professional area
+it-frontend-mid-1,fin-controller-senior,0,No evidence in this professional area
+it-frontend-mid-1,hr-recruiter-junior,0,No evidence in this professional area
+it-frontend-mid-1,hr-generalist-mid,0,No evidence in this professional area
+it-frontend-mid-1,hr-head-senior,0,No evidence in this professional area
+it-frontend-mid-1,dsg-graphic-junior,0,No evidence in this professional area
+it-frontend-mid-1,dsg-ux-mid,0,No evidence in this professional area
+it-frontend-mid-1,dsg-lead-senior,0,No evidence in this professional area
+it-frontend-mid-1,ops-coordinator-junior,0,No evidence in this professional area
+it-frontend-mid-1,ops-supplychain-mid,0,No evidence in this professional area
+it-frontend-mid-1,ops-manager-senior,0,No evidence in this professional area
+it-devops-senior-1,it-frontend-junior,1,Infrastructure rather than frontend and two-plus bands above a junior role; capped at 1 as over-qualification
+it-devops-senior-1,it-backend-mid,1,"Infrastructure rather than backend, a band above MID, and no backend skill evidenced"
+it-devops-senior-1,it-devops-senior,3,"Exact sub-specialty, 9.6 years inside the SENIOR band, all four required skills held and five years of Kubernetes ownership described"
+it-devops-senior-1,mkt-content-junior,0,No evidence in this professional area
+it-devops-senior-1,mkt-digital-mid,0,No evidence in this professional area
+it-devops-senior-1,mkt-brand-senior,0,No evidence in this professional area
+it-devops-senior-1,fin-accountant-junior,0,No evidence in this professional area
+it-devops-senior-1,fin-analyst-mid,0,No evidence in this professional area
+it-devops-senior-1,fin-controller-senior,0,No evidence in this professional area
+it-devops-senior-1,hr-recruiter-junior,0,No evidence in this professional area
+it-devops-senior-1,hr-generalist-mid,0,No evidence in this professional area
+it-devops-senior-1,hr-head-senior,0,No evidence in this professional area
+it-devops-senior-1,dsg-graphic-junior,0,No evidence in this professional area
+it-devops-senior-1,dsg-ux-mid,0,No evidence in this professional area
+it-devops-senior-1,dsg-lead-senior,0,No evidence in this professional area
+it-devops-senior-1,ops-coordinator-junior,0,No evidence in this professional area
+it-devops-senior-1,ops-supplychain-mid,0,No evidence in this professional area
+it-devops-senior-1,ops-manager-senior,0,No evidence in this professional area
+it-esco-gap-1,it-frontend-junior,1,"Backend rather than frontend, a band above JUNIOR, no frontend skill evidenced"
+it-esco-gap-1,it-backend-mid,3,"Exact sub-specialty, 5.2 years inside the MID band, BACHELORS met. Only Java is claimed structurally, but the work history describes the Spring Boot and PostgreSQL work plainly, and prose evidence counts in full (rubric 3.5)"
+it-esco-gap-1,it-devops-senior,1,"Backend rather than infrastructure, a band below SENIOR, no required skill evidenced"
+it-esco-gap-1,mkt-content-junior,0,No evidence in this professional area
+it-esco-gap-1,mkt-digital-mid,0,No evidence in this professional area
+it-esco-gap-1,mkt-brand-senior,0,No evidence in this professional area
+it-esco-gap-1,fin-accountant-junior,0,No evidence in this professional area
+it-esco-gap-1,fin-analyst-mid,0,No evidence in this professional area
+it-esco-gap-1,fin-controller-senior,0,No evidence in this professional area
+it-esco-gap-1,hr-recruiter-junior,0,No evidence in this professional area
+it-esco-gap-1,hr-generalist-mid,0,No evidence in this professional area
+it-esco-gap-1,hr-head-senior,0,No evidence in this professional area
+it-esco-gap-1,dsg-graphic-junior,0,No evidence in this professional area
+it-esco-gap-1,dsg-ux-mid,0,No evidence in this professional area
+it-esco-gap-1,dsg-lead-senior,0,No evidence in this professional area
+it-esco-gap-1,ops-coordinator-junior,0,No evidence in this professional area
+it-esco-gap-1,ops-supplychain-mid,0,No evidence in this professional area
+it-esco-gap-1,ops-manager-senior,0,No evidence in this professional area
+it-thin-profile-1,it-frontend-junior,1,Infrastructure rather than frontend and two-plus bands above; capped at 1 as over-qualification
+it-thin-profile-1,it-backend-mid,1,"Infrastructure rather than backend, a band above MID, no backend skill evidenced"
+it-thin-profile-1,it-devops-senior,3,"Exact sub-specialty, 8.3 years inside the SENIOR band, all four required skills held. Graded on the structured facts alone with no discount for the empty description (rubric section 6)"
+it-thin-profile-1,mkt-content-junior,0,No evidence in this professional area
+it-thin-profile-1,mkt-digital-mid,0,No evidence in this professional area
+it-thin-profile-1,mkt-brand-senior,0,No evidence in this professional area
+it-thin-profile-1,fin-accountant-junior,0,No evidence in this professional area
+it-thin-profile-1,fin-analyst-mid,0,No evidence in this professional area
+it-thin-profile-1,fin-controller-senior,0,No evidence in this professional area
+it-thin-profile-1,hr-recruiter-junior,0,No evidence in this professional area
+it-thin-profile-1,hr-generalist-mid,0,No evidence in this professional area
+it-thin-profile-1,hr-head-senior,0,No evidence in this professional area
+it-thin-profile-1,dsg-graphic-junior,0,No evidence in this professional area
+it-thin-profile-1,dsg-ux-mid,0,No evidence in this professional area
+it-thin-profile-1,dsg-lead-senior,0,No evidence in this professional area
+it-thin-profile-1,ops-coordinator-junior,0,No evidence in this professional area
+it-thin-profile-1,ops-supplychain-mid,0,No evidence in this professional area
+it-thin-profile-1,ops-manager-senior,0,No evidence in this professional area
+it-underqualified-1,it-frontend-junior,2,"Right sub-specialty and two of three required skills, but eight months places them a band below JUNIOR"
+it-underqualified-1,it-backend-mid,0,"Eight months is two or more bands below MID; under-qualification at this distance is a wrong match, not a weak one"
+it-underqualified-1,it-devops-senior,0,"Eight months against a SENIOR infrastructure role is three bands below, with no required skill evidenced"
+it-underqualified-1,mkt-content-junior,0,No evidence in this professional area
+it-underqualified-1,mkt-digital-mid,0,No evidence in this professional area
+it-underqualified-1,mkt-brand-senior,0,No evidence in this professional area
+it-underqualified-1,fin-accountant-junior,0,No evidence in this professional area
+it-underqualified-1,fin-analyst-mid,0,No evidence in this professional area
+it-underqualified-1,fin-controller-senior,0,No evidence in this professional area
+it-underqualified-1,hr-recruiter-junior,0,No evidence in this professional area
+it-underqualified-1,hr-generalist-mid,0,No evidence in this professional area
+it-underqualified-1,hr-head-senior,0,No evidence in this professional area
+it-underqualified-1,dsg-graphic-junior,0,No evidence in this professional area
+it-underqualified-1,dsg-ux-mid,0,No evidence in this professional area
+it-underqualified-1,dsg-lead-senior,0,No evidence in this professional area
+it-underqualified-1,ops-coordinator-junior,0,No evidence in this professional area
+it-underqualified-1,ops-supplychain-mid,0,No evidence in this professional area
+it-underqualified-1,ops-manager-senior,0,No evidence in this professional area
+it-cross-domain-1,it-frontend-junior,0,No evidence of frontend work of any kind; the five years are electrical engineering
+it-cross-domain-1,it-backend-mid,1,"The only software evidence is SQL against an asset database and an evening Python course. The 5.4 years are electrical engineering and do not place them on the software ladder (rubric 3.5), so this is a near-beginner touching one of four requirements"
+it-cross-domain-1,it-devops-senior,0,"No infrastructure evidence; the tenure is in electrical design, not software operations"
+it-cross-domain-1,mkt-content-junior,0,No evidence in this professional area
+it-cross-domain-1,mkt-digital-mid,0,No evidence in this professional area
+it-cross-domain-1,mkt-brand-senior,0,No evidence in this professional area
+it-cross-domain-1,fin-accountant-junior,0,No evidence in this professional area
+it-cross-domain-1,fin-analyst-mid,0,No evidence in this professional area
+it-cross-domain-1,fin-controller-senior,0,No evidence in this professional area
+it-cross-domain-1,hr-recruiter-junior,0,No evidence in this professional area
+it-cross-domain-1,hr-generalist-mid,0,No evidence in this professional area
+it-cross-domain-1,hr-head-senior,0,No evidence in this professional area
+it-cross-domain-1,dsg-graphic-junior,0,No evidence in this professional area
+it-cross-domain-1,dsg-ux-mid,0,No evidence in this professional area
+it-cross-domain-1,dsg-lead-senior,0,No evidence in this professional area
+it-cross-domain-1,ops-coordinator-junior,0,No evidence in this professional area
+it-cross-domain-1,ops-supplychain-mid,0,No evidence in this professional area
+it-cross-domain-1,ops-manager-senior,0,No evidence in this professional area
+mkt-content-junior-1,it-frontend-junior,0,No evidence in this professional area
+mkt-content-junior-1,it-backend-mid,0,No evidence in this professional area
+mkt-content-junior-1,it-devops-senior,0,No evidence in this professional area
+mkt-content-junior-1,mkt-content-junior,3,"Exact sub-specialty, 1.8 years inside the JUNIOR band, both required skills held, BACHELORS met, and based in Sofia for an on-site role"
+mkt-content-junior-1,mkt-digital-mid,1,"Content rather than performance marketing, a band below MID, and none of campaign planning, SEO or email evidenced"
+mkt-content-junior-1,mkt-brand-senior,0,"Two or more bands below SENIOR, with no brand strategy evidence"
+mkt-content-junior-1,fin-accountant-junior,0,No evidence in this professional area
+mkt-content-junior-1,fin-analyst-mid,0,No evidence in this professional area
+mkt-content-junior-1,fin-controller-senior,0,No evidence in this professional area
+mkt-content-junior-1,hr-recruiter-junior,0,No evidence in this professional area
+mkt-content-junior-1,hr-generalist-mid,0,No evidence in this professional area
+mkt-content-junior-1,hr-head-senior,0,No evidence in this professional area
+mkt-content-junior-1,dsg-graphic-junior,0,No evidence in this professional area
+mkt-content-junior-1,dsg-ux-mid,0,No evidence in this professional area
+mkt-content-junior-1,dsg-lead-senior,0,No evidence in this professional area
+mkt-content-junior-1,ops-coordinator-junior,0,No evidence in this professional area
+mkt-content-junior-1,ops-supplychain-mid,0,No evidence in this professional area
+mkt-content-junior-1,ops-manager-senior,0,No evidence in this professional area
+mkt-digital-mid-1,it-frontend-junior,0,No evidence in this professional area
+mkt-digital-mid-1,it-backend-mid,0,No evidence in this professional area
+mkt-digital-mid-1,it-devops-senior,0,No evidence in this professional area
+mkt-digital-mid-1,mkt-content-junior,1,"Performance rather than content marketing, a band above JUNIOR, and neither required content skill evidenced"
+mkt-digital-mid-1,mkt-digital-mid,3,"Exact sub-specialty, 5.6 years inside the MID band, all three required skills held and full funnel ownership described"
+mkt-digital-mid-1,mkt-brand-senior,1,"Acquisition rather than brand, a band below SENIOR, and the MASTERS requirement is unmet against a BACHELORS"
+mkt-digital-mid-1,fin-accountant-junior,0,No evidence in this professional area
+mkt-digital-mid-1,fin-analyst-mid,0,No evidence in this professional area
+mkt-digital-mid-1,fin-controller-senior,0,No evidence in this professional area
+mkt-digital-mid-1,hr-recruiter-junior,0,No evidence in this professional area
+mkt-digital-mid-1,hr-generalist-mid,0,No evidence in this professional area
+mkt-digital-mid-1,hr-head-senior,0,No evidence in this professional area
+mkt-digital-mid-1,dsg-graphic-junior,0,No evidence in this professional area
+mkt-digital-mid-1,dsg-ux-mid,0,No evidence in this professional area
+mkt-digital-mid-1,dsg-lead-senior,0,No evidence in this professional area
+mkt-digital-mid-1,ops-coordinator-junior,0,No evidence in this professional area
+mkt-digital-mid-1,ops-supplychain-mid,0,No evidence in this professional area
+mkt-digital-mid-1,ops-manager-senior,0,No evidence in this professional area
+mkt-brand-senior-1,it-frontend-junior,0,No evidence in this professional area
+mkt-brand-senior-1,it-backend-mid,0,No evidence in this professional area
+mkt-brand-senior-1,it-devops-senior,0,No evidence in this professional area
+mkt-brand-senior-1,mkt-content-junior,1,Two or more bands above a junior content role; capped at 1 as over-qualification
+mkt-brand-senior-1,mkt-digital-mid,1,"Brand rather than performance marketing, a band above MID, and none of the three required digital skills evidenced"
+mkt-brand-senior-1,mkt-brand-senior,3,"Exact sub-specialty, 11.0 years inside the SENIOR band, all three required skills held, MASTERS met, based in Sofia"
+mkt-brand-senior-1,fin-accountant-junior,0,No evidence in this professional area
+mkt-brand-senior-1,fin-analyst-mid,0,No evidence in this professional area
+mkt-brand-senior-1,fin-controller-senior,0,No evidence in this professional area
+mkt-brand-senior-1,hr-recruiter-junior,0,No evidence in this professional area
+mkt-brand-senior-1,hr-generalist-mid,0,No evidence in this professional area
+mkt-brand-senior-1,hr-head-senior,0,No evidence in this professional area
+mkt-brand-senior-1,dsg-graphic-junior,0,No evidence in this professional area
+mkt-brand-senior-1,dsg-ux-mid,0,No evidence in this professional area
+mkt-brand-senior-1,dsg-lead-senior,0,No evidence in this professional area
+mkt-brand-senior-1,ops-coordinator-junior,0,No evidence in this professional area
+mkt-brand-senior-1,ops-supplychain-mid,0,No evidence in this professional area
+mkt-brand-senior-1,ops-manager-senior,0,No evidence in this professional area
+mkt-social-junior-1,it-frontend-junior,0,No evidence in this professional area
+mkt-social-junior-1,it-backend-mid,0,No evidence in this professional area
+mkt-social-junior-1,it-devops-senior,0,No evidence in this professional area
+mkt-social-junior-1,mkt-content-junior,2,"Social rather than long-form content, inside the JUNIOR band, and one of the two required skills held; a genuine shortlist entry rather than the obvious first choice"
+mkt-social-junior-1,mkt-digital-mid,1,"Social coordination is a band below the MID digital role and covers none of campaign planning, SEO or email"
+mkt-social-junior-1,mkt-brand-senior,0,Two or more bands below SENIOR with no brand strategy evidence
+mkt-social-junior-1,fin-accountant-junior,0,No evidence in this professional area
+mkt-social-junior-1,fin-analyst-mid,0,No evidence in this professional area
+mkt-social-junior-1,fin-controller-senior,0,No evidence in this professional area
+mkt-social-junior-1,hr-recruiter-junior,0,No evidence in this professional area
+mkt-social-junior-1,hr-generalist-mid,0,No evidence in this professional area
+mkt-social-junior-1,hr-head-senior,0,No evidence in this professional area
+mkt-social-junior-1,dsg-graphic-junior,0,No evidence in this professional area
+mkt-social-junior-1,dsg-ux-mid,0,No evidence in this professional area
+mkt-social-junior-1,dsg-lead-senior,0,No evidence in this professional area
+mkt-social-junior-1,ops-coordinator-junior,0,No evidence in this professional area
+mkt-social-junior-1,ops-supplychain-mid,0,No evidence in this professional area
+mkt-social-junior-1,ops-manager-senior,0,No evidence in this professional area
+mkt-overqualified-1,it-frontend-junior,0,No evidence in this professional area
+mkt-overqualified-1,it-backend-mid,0,No evidence in this professional area
+mkt-overqualified-1,it-devops-senior,0,No evidence in this professional area
+mkt-overqualified-1,mkt-content-junior,1,Twelve and a half years against a first or second marketing role is two-plus bands above the band; capped at 1 however well the skills line up
+mkt-overqualified-1,mkt-digital-mid,2,"Campaign ownership and SEO are both evidenced and the domain is right, but twelve years is a band above a MID role"
+mkt-overqualified-1,mkt-brand-senior,1,"Senior generalist rather than a brand specialist: only brand marketing techniques of the three requirements, with no positioning or brand analysis work described"
+mkt-overqualified-1,fin-accountant-junior,0,No evidence in this professional area
+mkt-overqualified-1,fin-analyst-mid,0,No evidence in this professional area
+mkt-overqualified-1,fin-controller-senior,0,No evidence in this professional area
+mkt-overqualified-1,hr-recruiter-junior,0,No evidence in this professional area
+mkt-overqualified-1,hr-generalist-mid,0,No evidence in this professional area
+mkt-overqualified-1,hr-head-senior,0,No evidence in this professional area
+mkt-overqualified-1,dsg-graphic-junior,0,No evidence in this professional area
+mkt-overqualified-1,dsg-ux-mid,0,No evidence in this professional area
+mkt-overqualified-1,dsg-lead-senior,0,No evidence in this professional area
+mkt-overqualified-1,ops-coordinator-junior,0,No evidence in this professional area
+mkt-overqualified-1,ops-supplychain-mid,0,No evidence in this professional area
+mkt-overqualified-1,ops-manager-senior,0,No evidence in this professional area
+mkt-education-gate-fail-1,it-frontend-junior,0,No evidence in this professional area
+mkt-education-gate-fail-1,it-backend-mid,0,No evidence in this professional area
+mkt-education-gate-fail-1,it-devops-senior,0,No evidence in this professional area
+mkt-education-gate-fail-1,mkt-content-junior,1,"Would otherwise be a 3 - exact sub-specialty, inside the JUNIOR band, both required skills held - but holds only a SECONDARY qualification against a BACHELORS requirement, which caps the pair at 1 (rubric section 4)"
+mkt-education-gate-fail-1,mkt-digital-mid,1,"Content rather than performance marketing, a band below MID, and only campaign planning of the three requirements"
+mkt-education-gate-fail-1,mkt-brand-senior,0,Two or more bands below SENIOR with no brand strategy evidence
+mkt-education-gate-fail-1,fin-accountant-junior,0,No evidence in this professional area
+mkt-education-gate-fail-1,fin-analyst-mid,0,No evidence in this professional area
+mkt-education-gate-fail-1,fin-controller-senior,0,No evidence in this professional area
+mkt-education-gate-fail-1,hr-recruiter-junior,0,No evidence in this professional area
+mkt-education-gate-fail-1,hr-generalist-mid,0,No evidence in this professional area
+mkt-education-gate-fail-1,hr-head-senior,0,No evidence in this professional area
+mkt-education-gate-fail-1,dsg-graphic-junior,0,No evidence in this professional area
+mkt-education-gate-fail-1,dsg-ux-mid,0,No evidence in this professional area
+mkt-education-gate-fail-1,dsg-lead-senior,0,No evidence in this professional area
+mkt-education-gate-fail-1,ops-coordinator-junior,0,No evidence in this professional area
+mkt-education-gate-fail-1,ops-supplychain-mid,0,No evidence in this professional area
+mkt-education-gate-fail-1,ops-manager-senior,0,No evidence in this professional area
+fin-accountant-junior-1,it-frontend-junior,0,No evidence in this professional area
+fin-accountant-junior-1,it-backend-mid,0,No evidence in this professional area
+fin-accountant-junior-1,it-devops-senior,0,No evidence in this professional area
+fin-accountant-junior-1,mkt-content-junior,0,No evidence in this professional area
+fin-accountant-junior-1,mkt-digital-mid,0,No evidence in this professional area
+fin-accountant-junior-1,mkt-brand-senior,0,No evidence in this professional area
+fin-accountant-junior-1,fin-accountant-junior,3,"Exact sub-specialty, 1.6 years inside the JUNIOR band, all three required skills held, BACHELORS met, based in Sofia for an on-site role"
+fin-accountant-junior-1,fin-analyst-mid,1,"Bookkeeping rather than analysis, a band below MID, and only spreadsheets of the three requirements"
+fin-accountant-junior-1,fin-controller-senior,0,Location: the role is on site in Plovdiv and the candidate is in Sofia
+fin-accountant-junior-1,hr-recruiter-junior,0,No evidence in this professional area
+fin-accountant-junior-1,hr-generalist-mid,0,No evidence in this professional area
+fin-accountant-junior-1,hr-head-senior,0,No evidence in this professional area
+fin-accountant-junior-1,dsg-graphic-junior,0,No evidence in this professional area
+fin-accountant-junior-1,dsg-ux-mid,0,No evidence in this professional area
+fin-accountant-junior-1,dsg-lead-senior,0,No evidence in this professional area
+fin-accountant-junior-1,ops-coordinator-junior,0,No evidence in this professional area
+fin-accountant-junior-1,ops-supplychain-mid,0,No evidence in this professional area
+fin-accountant-junior-1,ops-manager-senior,0,No evidence in this professional area
+fin-analyst-mid-1,it-frontend-junior,0,No evidence in this professional area
+fin-analyst-mid-1,it-backend-mid,0,No evidence in this professional area
+fin-analyst-mid-1,it-devops-senior,0,No evidence in this professional area
+fin-analyst-mid-1,mkt-content-junior,0,No evidence in this professional area
+fin-analyst-mid-1,mkt-digital-mid,0,No evidence in this professional area
+fin-analyst-mid-1,mkt-brand-senior,0,No evidence in this professional area
+fin-analyst-mid-1,fin-accountant-junior,1,"Analysis rather than ledger work, a band above JUNIOR, and only spreadsheets of the three requirements"
+fin-analyst-mid-1,fin-analyst-mid,3,"Exact sub-specialty, 4.2 years inside the MID band, all three required skills held and committee-facing modelling described"
+fin-analyst-mid-1,fin-controller-senior,0,Location: the role is on site in Plovdiv and the candidate is in Sofia
+fin-analyst-mid-1,hr-recruiter-junior,0,No evidence in this professional area
+fin-analyst-mid-1,hr-generalist-mid,0,No evidence in this professional area
+fin-analyst-mid-1,hr-head-senior,0,No evidence in this professional area
+fin-analyst-mid-1,dsg-graphic-junior,0,No evidence in this professional area
+fin-analyst-mid-1,dsg-ux-mid,0,No evidence in this professional area
+fin-analyst-mid-1,dsg-lead-senior,0,No evidence in this professional area
+fin-analyst-mid-1,ops-coordinator-junior,0,No evidence in this professional area
+fin-analyst-mid-1,ops-supplychain-mid,0,No evidence in this professional area
+fin-analyst-mid-1,ops-manager-senior,0,No evidence in this professional area
+fin-controller-senior-1,it-frontend-junior,0,No evidence in this professional area
+fin-controller-senior-1,it-backend-mid,0,No evidence in this professional area
+fin-controller-senior-1,it-devops-senior,0,No evidence in this professional area
+fin-controller-senior-1,mkt-content-junior,0,No evidence in this professional area
+fin-controller-senior-1,mkt-digital-mid,0,No evidence in this professional area
+fin-controller-senior-1,mkt-brand-senior,0,No evidence in this professional area
+fin-controller-senior-1,fin-accountant-junior,0,Location: the role is on site in Sofia and the candidate is in Plovdiv
+fin-controller-senior-1,fin-analyst-mid,1,"Controlling rather than investment analysis, a band above MID, and none of the three required skills evidenced"
+fin-controller-senior-1,fin-controller-senior,3,"Exact sub-specialty, 13.0 years inside the SENIOR band, all three required skills held, MASTERS met, and already based in Plovdiv for an on-site manufacturing role"
+fin-controller-senior-1,hr-recruiter-junior,0,No evidence in this professional area
+fin-controller-senior-1,hr-generalist-mid,0,No evidence in this professional area
+fin-controller-senior-1,hr-head-senior,0,No evidence in this professional area
+fin-controller-senior-1,dsg-graphic-junior,0,No evidence in this professional area
+fin-controller-senior-1,dsg-ux-mid,0,No evidence in this professional area
+fin-controller-senior-1,dsg-lead-senior,0,No evidence in this professional area
+fin-controller-senior-1,ops-coordinator-junior,0,No evidence in this professional area
+fin-controller-senior-1,ops-supplychain-mid,0,No evidence in this professional area
+fin-controller-senior-1,ops-manager-senior,0,No evidence in this professional area
+fin-audit-mid-1,it-frontend-junior,0,No evidence in this professional area
+fin-audit-mid-1,it-backend-mid,0,No evidence in this professional area
+fin-audit-mid-1,it-devops-senior,0,No evidence in this professional area
+fin-audit-mid-1,mkt-content-junior,0,No evidence in this professional area
+fin-audit-mid-1,mkt-digital-mid,0,No evidence in this professional area
+fin-audit-mid-1,mkt-brand-senior,0,No evidence in this professional area
+fin-audit-mid-1,fin-accountant-junior,1,"Audit rather than ledger work, a band above JUNIOR, and only accounting of the three requirements"
+fin-audit-mid-1,fin-analyst-mid,1,"Inside the MID band and in the right area, but controls testing is not financial analysis and none of the three required skills is evidenced"
+fin-audit-mid-1,fin-controller-senior,0,Location: the role is on site in Plovdiv and the candidate is in Sofia
+fin-audit-mid-1,hr-recruiter-junior,0,No evidence in this professional area
+fin-audit-mid-1,hr-generalist-mid,0,No evidence in this professional area
+fin-audit-mid-1,hr-head-senior,0,No evidence in this professional area
+fin-audit-mid-1,dsg-graphic-junior,0,No evidence in this professional area
+fin-audit-mid-1,dsg-ux-mid,0,No evidence in this professional area
+fin-audit-mid-1,dsg-lead-senior,0,No evidence in this professional area
+fin-audit-mid-1,ops-coordinator-junior,0,No evidence in this professional area
+fin-audit-mid-1,ops-supplychain-mid,0,No evidence in this professional area
+fin-audit-mid-1,ops-manager-senior,0,No evidence in this professional area
+fin-payroll-junior-1,it-frontend-junior,0,No evidence in this professional area
+fin-payroll-junior-1,it-backend-mid,0,No evidence in this professional area
+fin-payroll-junior-1,it-devops-senior,0,No evidence in this professional area
+fin-payroll-junior-1,mkt-content-junior,0,No evidence in this professional area
+fin-payroll-junior-1,mkt-digital-mid,0,No evidence in this professional area
+fin-payroll-junior-1,mkt-brand-senior,0,No evidence in this professional area
+fin-payroll-junior-1,fin-accountant-junior,2,"Payroll rather than general ledger, but inside the JUNIOR band with all three required skills held and journal posting described"
+fin-payroll-junior-1,fin-analyst-mid,1,"Payroll rather than analysis, a band below MID, and only spreadsheets of the three requirements"
+fin-payroll-junior-1,fin-controller-senior,0,Location: the role is on site in Plovdiv and the candidate is in Sofia
+fin-payroll-junior-1,hr-recruiter-junior,0,No evidence in this professional area
+fin-payroll-junior-1,hr-generalist-mid,1,"Not an HR profile, but payroll for 180 employees is their core function and is one of the three named requirements; no personnel management or labour-law evidence, so a 1 rather than a 0"
+fin-payroll-junior-1,hr-head-senior,0,No evidence in this professional area
+fin-payroll-junior-1,dsg-graphic-junior,0,No evidence in this professional area
+fin-payroll-junior-1,dsg-ux-mid,0,No evidence in this professional area
+fin-payroll-junior-1,dsg-lead-senior,0,No evidence in this professional area
+fin-payroll-junior-1,ops-coordinator-junior,0,No evidence in this professional area
+fin-payroll-junior-1,ops-supplychain-mid,0,No evidence in this professional area
+fin-payroll-junior-1,ops-manager-senior,0,No evidence in this professional area
+fin-ongoing-degree-1,it-frontend-junior,0,No evidence in this professional area
+fin-ongoing-degree-1,it-backend-mid,0,No evidence in this professional area
+fin-ongoing-degree-1,it-devops-senior,0,No evidence in this professional area
+fin-ongoing-degree-1,mkt-content-junior,0,No evidence in this professional area
+fin-ongoing-degree-1,mkt-digital-mid,0,No evidence in this professional area
+fin-ongoing-degree-1,mkt-brand-senior,0,No evidence in this professional area
+fin-ongoing-degree-1,fin-accountant-junior,0,Location: the role is on site in Sofia and the candidate is in Plovdiv
+fin-ongoing-degree-1,fin-analyst-mid,1,"Financial accounting rather than investment analysis, a band above MID, and only financial analysis of the three requirements"
+fin-ongoing-degree-1,fin-controller-senior,2,"Right sub-specialty, 6.4 years inside the SENIOR band, based in Plovdiv, and cost management and budgeting both held; no audit ownership evidenced. The MASTERS requirement is satisfied by the degree in progress, which counts at its stated level (rubric section 4)"
+fin-ongoing-degree-1,hr-recruiter-junior,0,No evidence in this professional area
+fin-ongoing-degree-1,hr-generalist-mid,0,No evidence in this professional area
+fin-ongoing-degree-1,hr-head-senior,0,No evidence in this professional area
+fin-ongoing-degree-1,dsg-graphic-junior,0,No evidence in this professional area
+fin-ongoing-degree-1,dsg-ux-mid,0,No evidence in this professional area
+fin-ongoing-degree-1,dsg-lead-senior,0,No evidence in this professional area
+fin-ongoing-degree-1,ops-coordinator-junior,0,No evidence in this professional area
+fin-ongoing-degree-1,ops-supplychain-mid,0,No evidence in this professional area
+fin-ongoing-degree-1,ops-manager-senior,0,No evidence in this professional area
+hr-recruiter-junior-1,it-frontend-junior,0,No evidence in this professional area
+hr-recruiter-junior-1,it-backend-mid,0,No evidence in this professional area
+hr-recruiter-junior-1,it-devops-senior,0,No evidence in this professional area
+hr-recruiter-junior-1,mkt-content-junior,0,No evidence in this professional area
+hr-recruiter-junior-1,mkt-digital-mid,0,No evidence in this professional area
+hr-recruiter-junior-1,mkt-brand-senior,0,No evidence in this professional area
+hr-recruiter-junior-1,fin-accountant-junior,0,No evidence in this professional area
+hr-recruiter-junior-1,fin-analyst-mid,0,No evidence in this professional area
+hr-recruiter-junior-1,fin-controller-senior,0,No evidence in this professional area
+hr-recruiter-junior-1,hr-recruiter-junior,3,"Exact sub-specialty, 1.6 years inside the JUNIOR band, both required skills held and full-cycle volume recruiting described"
+hr-recruiter-junior-1,hr-generalist-mid,1,"Recruitment rather than generalist HR, a band below MID, and none of personnel management, labour law or payroll evidenced"
+hr-recruiter-junior-1,hr-head-senior,0,Two or more bands below SENIOR with no people-strategy evidence
+hr-recruiter-junior-1,dsg-graphic-junior,0,No evidence in this professional area
+hr-recruiter-junior-1,dsg-ux-mid,0,No evidence in this professional area
+hr-recruiter-junior-1,dsg-lead-senior,0,No evidence in this professional area
+hr-recruiter-junior-1,ops-coordinator-junior,0,No evidence in this professional area
+hr-recruiter-junior-1,ops-supplychain-mid,0,No evidence in this professional area
+hr-recruiter-junior-1,ops-manager-senior,0,No evidence in this professional area
+hr-generalist-mid-1,it-frontend-junior,0,No evidence in this professional area
+hr-generalist-mid-1,it-backend-mid,0,No evidence in this professional area
+hr-generalist-mid-1,it-devops-senior,0,No evidence in this professional area
+hr-generalist-mid-1,mkt-content-junior,0,No evidence in this professional area
+hr-generalist-mid-1,mkt-digital-mid,0,No evidence in this professional area
+hr-generalist-mid-1,mkt-brand-senior,0,No evidence in this professional area
+hr-generalist-mid-1,fin-accountant-junior,0,No evidence in this professional area
+hr-generalist-mid-1,fin-analyst-mid,0,No evidence in this professional area
+hr-generalist-mid-1,fin-controller-senior,0,No evidence in this professional area
+hr-generalist-mid-1,hr-recruiter-junior,1,"Generalist rather than recruitment, a band above JUNIOR, and neither required skill evidenced"
+hr-generalist-mid-1,hr-generalist-mid,3,"Exact sub-specialty, 4.6 years inside the MID band, all three required skills held, BACHELORS met, and sole-HR ownership of 140 staff described"
+hr-generalist-mid-1,hr-head-senior,1,"Operational HR rather than people strategy, a band below SENIOR, and only department processes of the three requirements"
+hr-generalist-mid-1,dsg-graphic-junior,0,No evidence in this professional area
+hr-generalist-mid-1,dsg-ux-mid,0,No evidence in this professional area
+hr-generalist-mid-1,dsg-lead-senior,0,No evidence in this professional area
+hr-generalist-mid-1,ops-coordinator-junior,0,No evidence in this professional area
+hr-generalist-mid-1,ops-supplychain-mid,0,No evidence in this professional area
+hr-generalist-mid-1,ops-manager-senior,0,No evidence in this professional area
+hr-head-senior-1,it-frontend-junior,0,No evidence in this professional area
+hr-head-senior-1,it-backend-mid,0,No evidence in this professional area
+hr-head-senior-1,it-devops-senior,0,No evidence in this professional area
+hr-head-senior-1,mkt-content-junior,0,No evidence in this professional area
+hr-head-senior-1,mkt-digital-mid,0,No evidence in this professional area
+hr-head-senior-1,mkt-brand-senior,0,No evidence in this professional area
+hr-head-senior-1,fin-accountant-junior,0,No evidence in this professional area
+hr-head-senior-1,fin-analyst-mid,0,No evidence in this professional area
+hr-head-senior-1,fin-controller-senior,0,No evidence in this professional area
+hr-head-senior-1,hr-recruiter-junior,1,Two or more bands above a junior recruitment role; capped at 1 as over-qualification
+hr-head-senior-1,hr-generalist-mid,1,"People strategy rather than day-to-day generalist work, a band above MID, and only personnel management of the three requirements"
+hr-head-senior-1,hr-head-senior,3,"Exact sub-specialty, 14.0 years inside the SENIOR band, all three required skills held, and function-building through 3x headcount growth described"
+hr-head-senior-1,dsg-graphic-junior,0,No evidence in this professional area
+hr-head-senior-1,dsg-ux-mid,0,No evidence in this professional area
+hr-head-senior-1,dsg-lead-senior,0,No evidence in this professional area
+hr-head-senior-1,ops-coordinator-junior,0,No evidence in this professional area
+hr-head-senior-1,ops-supplychain-mid,0,No evidence in this professional area
+hr-head-senior-1,ops-manager-senior,0,No evidence in this professional area
+hr-recruiter-mid-1,it-frontend-junior,0,No evidence in this professional area
+hr-recruiter-mid-1,it-backend-mid,0,No evidence in this professional area
+hr-recruiter-mid-1,it-devops-senior,0,No evidence in this professional area
+hr-recruiter-mid-1,mkt-content-junior,0,No evidence in this professional area
+hr-recruiter-mid-1,mkt-digital-mid,0,No evidence in this professional area
+hr-recruiter-mid-1,mkt-brand-senior,0,No evidence in this professional area
+hr-recruiter-mid-1,fin-accountant-junior,0,No evidence in this professional area
+hr-recruiter-mid-1,fin-analyst-mid,0,No evidence in this professional area
+hr-recruiter-mid-1,fin-controller-senior,0,No evidence in this professional area
+hr-recruiter-mid-1,hr-recruiter-junior,2,"Right sub-specialty and both required skills held, but four years is a band above a role aimed at someone one or two years in; remote-eligible from Varna"
+hr-recruiter-mid-1,hr-generalist-mid,1,Recruitment rather than generalist HR; inside the MID band but none of the three required skills evidenced
+hr-recruiter-mid-1,hr-head-senior,1,"Recruitment rather than people strategy, a band below SENIOR, and only talent management strategies of the three requirements"
+hr-recruiter-mid-1,dsg-graphic-junior,0,No evidence in this professional area
+hr-recruiter-mid-1,dsg-ux-mid,0,No evidence in this professional area
+hr-recruiter-mid-1,dsg-lead-senior,0,No evidence in this professional area
+hr-recruiter-mid-1,ops-coordinator-junior,0,No evidence in this professional area
+hr-recruiter-mid-1,ops-supplychain-mid,0,No evidence in this professional area
+hr-recruiter-mid-1,ops-manager-senior,0,No evidence in this professional area
+hr-training-mid-1,it-frontend-junior,0,No evidence in this professional area
+hr-training-mid-1,it-backend-mid,0,No evidence in this professional area
+hr-training-mid-1,it-devops-senior,0,No evidence in this professional area
+hr-training-mid-1,mkt-content-junior,0,No evidence in this professional area
+hr-training-mid-1,mkt-digital-mid,0,No evidence in this professional area
+hr-training-mid-1,mkt-brand-senior,0,No evidence in this professional area
+hr-training-mid-1,fin-accountant-junior,0,No evidence in this professional area
+hr-training-mid-1,fin-analyst-mid,0,No evidence in this professional area
+hr-training-mid-1,fin-controller-senior,0,No evidence in this professional area
+hr-training-mid-1,hr-recruiter-junior,1,"Learning and development rather than recruitment, a band above JUNIOR, and neither required skill evidenced"
+hr-training-mid-1,hr-generalist-mid,1,"Learning and development rather than generalist HR; inside the MID band but no personnel management, labour law or payroll work described"
+hr-training-mid-1,hr-head-senior,1,"Retention impact is measured in this profile, which is genuine adjacency, but the role is a band above and covers none of the three requirements structurally"
+hr-training-mid-1,dsg-graphic-junior,0,No evidence in this professional area
+hr-training-mid-1,dsg-ux-mid,0,No evidence in this professional area
+hr-training-mid-1,dsg-lead-senior,0,No evidence in this professional area
+hr-training-mid-1,ops-coordinator-junior,0,No evidence in this professional area
+hr-training-mid-1,ops-supplychain-mid,0,No evidence in this professional area
+hr-training-mid-1,ops-manager-senior,0,No evidence in this professional area
+hr-education-gate-pass-1,it-frontend-junior,0,No evidence in this professional area
+hr-education-gate-pass-1,it-backend-mid,0,No evidence in this professional area
+hr-education-gate-pass-1,it-devops-senior,0,No evidence in this professional area
+hr-education-gate-pass-1,mkt-content-junior,0,No evidence in this professional area
+hr-education-gate-pass-1,mkt-digital-mid,0,No evidence in this professional area
+hr-education-gate-pass-1,mkt-brand-senior,0,No evidence in this professional area
+hr-education-gate-pass-1,fin-accountant-junior,0,No evidence in this professional area
+hr-education-gate-pass-1,fin-analyst-mid,0,No evidence in this professional area
+hr-education-gate-pass-1,fin-controller-senior,0,No evidence in this professional area
+hr-education-gate-pass-1,hr-recruiter-junior,1,"Business partnering rather than recruitment, a band above JUNIOR, and neither required skill evidenced"
+hr-education-gate-pass-1,hr-generalist-mid,3,"Business partnering is the same sub-specialty, 3.6 years is inside the MID band, all three required skills held, and the BACHELORS requirement is satisfied by a MASTERS - the gate passes on >=, not on == (rubric section 4)"
+hr-education-gate-pass-1,hr-head-senior,1,"Business partnering rather than people strategy, a band below SENIOR, and only personnel management of the three requirements"
+hr-education-gate-pass-1,dsg-graphic-junior,0,No evidence in this professional area
+hr-education-gate-pass-1,dsg-ux-mid,0,No evidence in this professional area
+hr-education-gate-pass-1,dsg-lead-senior,0,No evidence in this professional area
+hr-education-gate-pass-1,ops-coordinator-junior,0,No evidence in this professional area
+hr-education-gate-pass-1,ops-supplychain-mid,0,No evidence in this professional area
+hr-education-gate-pass-1,ops-manager-senior,0,No evidence in this professional area
+dsg-graphic-junior-1,it-frontend-junior,0,No evidence in this professional area
+dsg-graphic-junior-1,it-backend-mid,0,No evidence in this professional area
+dsg-graphic-junior-1,it-devops-senior,0,No evidence in this professional area
+dsg-graphic-junior-1,mkt-content-junior,0,No evidence in this professional area
+dsg-graphic-junior-1,mkt-digital-mid,0,No evidence in this professional area
+dsg-graphic-junior-1,mkt-brand-senior,0,No evidence in this professional area
+dsg-graphic-junior-1,fin-accountant-junior,0,No evidence in this professional area
+dsg-graphic-junior-1,fin-analyst-mid,0,No evidence in this professional area
+dsg-graphic-junior-1,fin-controller-senior,0,No evidence in this professional area
+dsg-graphic-junior-1,hr-recruiter-junior,0,No evidence in this professional area
+dsg-graphic-junior-1,hr-generalist-mid,0,No evidence in this professional area
+dsg-graphic-junior-1,hr-head-senior,0,No evidence in this professional area
+dsg-graphic-junior-1,dsg-graphic-junior,3,"Exact sub-specialty, 1.9 years inside the JUNIOR band, all four required skills held and studio production work described"
+dsg-graphic-junior-1,dsg-ux-mid,1,"Graphic rather than UX design, a band below MID, and none of the four required research and prototyping skills evidenced"
+dsg-graphic-junior-1,dsg-lead-senior,0,Two or more bands below SENIOR with no team leadership evidence
+dsg-graphic-junior-1,ops-coordinator-junior,0,No evidence in this professional area
+dsg-graphic-junior-1,ops-supplychain-mid,0,No evidence in this professional area
+dsg-graphic-junior-1,ops-manager-senior,0,No evidence in this professional area
+dsg-ux-mid-1,it-frontend-junior,0,No evidence in this professional area
+dsg-ux-mid-1,it-backend-mid,0,No evidence in this professional area
+dsg-ux-mid-1,it-devops-senior,0,No evidence in this professional area
+dsg-ux-mid-1,mkt-content-junior,0,No evidence in this professional area
+dsg-ux-mid-1,mkt-digital-mid,0,No evidence in this professional area
+dsg-ux-mid-1,mkt-brand-senior,0,No evidence in this professional area
+dsg-ux-mid-1,fin-accountant-junior,0,No evidence in this professional area
+dsg-ux-mid-1,fin-analyst-mid,0,No evidence in this professional area
+dsg-ux-mid-1,fin-controller-senior,0,No evidence in this professional area
+dsg-ux-mid-1,hr-recruiter-junior,0,No evidence in this professional area
+dsg-ux-mid-1,hr-generalist-mid,0,No evidence in this professional area
+dsg-ux-mid-1,hr-head-senior,0,No evidence in this professional area
+dsg-ux-mid-1,dsg-graphic-junior,1,"UX rather than graphic design, a band above JUNIOR, and none of the four required production skills evidenced"
+dsg-ux-mid-1,dsg-ux-mid,3,"Exact sub-specialty, 4.1 years inside the MID band, all four required skills held, BACHELORS met, and contextual research with operational users described"
+dsg-ux-mid-1,dsg-lead-senior,1,"Individual contributor rather than lead, a band below SENIOR, and only design thinking of the three requirements"
+dsg-ux-mid-1,ops-coordinator-junior,0,No evidence in this professional area
+dsg-ux-mid-1,ops-supplychain-mid,0,No evidence in this professional area
+dsg-ux-mid-1,ops-manager-senior,0,No evidence in this professional area
+dsg-lead-senior-1,it-frontend-junior,0,No evidence in this professional area
+dsg-lead-senior-1,it-backend-mid,0,No evidence in this professional area
+dsg-lead-senior-1,it-devops-senior,0,No evidence in this professional area
+dsg-lead-senior-1,mkt-content-junior,0,No evidence in this professional area
+dsg-lead-senior-1,mkt-digital-mid,0,No evidence in this professional area
+dsg-lead-senior-1,mkt-brand-senior,1,"Real brand evidence - guidelines a client in-house team still uses - but on the execution side of the strategy line, with no positioning or brand analysis work described"
+dsg-lead-senior-1,fin-accountant-junior,0,No evidence in this professional area
+dsg-lead-senior-1,fin-analyst-mid,0,No evidence in this professional area
+dsg-lead-senior-1,fin-controller-senior,0,No evidence in this professional area
+dsg-lead-senior-1,hr-recruiter-junior,0,No evidence in this professional area
+dsg-lead-senior-1,hr-generalist-mid,0,No evidence in this professional area
+dsg-lead-senior-1,hr-head-senior,0,No evidence in this professional area
+dsg-lead-senior-1,dsg-graphic-junior,1,Two or more bands above a junior production role; capped at 1 as over-qualification
+dsg-lead-senior-1,dsg-ux-mid,1,"Leadership and brand rather than hands-on UX, a band above MID, and only design thinking of the four requirements"
+dsg-lead-senior-1,dsg-lead-senior,3,"Exact sub-specialty, 12.5 years inside the SENIOR band, all three required skills held, and five years leading designers described"
+dsg-lead-senior-1,ops-coordinator-junior,0,No evidence in this professional area
+dsg-lead-senior-1,ops-supplychain-mid,0,No evidence in this professional area
+dsg-lead-senior-1,ops-manager-senior,0,No evidence in this professional area
+dsg-graphic-mid-1,it-frontend-junior,0,No evidence in this professional area
+dsg-graphic-mid-1,it-backend-mid,0,No evidence in this professional area
+dsg-graphic-mid-1,it-devops-senior,0,No evidence in this professional area
+dsg-graphic-mid-1,mkt-content-junior,0,No evidence in this professional area
+dsg-graphic-mid-1,mkt-digital-mid,0,No evidence in this professional area
+dsg-graphic-mid-1,mkt-brand-senior,1,"Brand asset and guideline work is genuine evidence in the brand domain, but at asset level rather than strategy, and the MASTERS requirement is unmet against a BACHELORS"
+dsg-graphic-mid-1,fin-accountant-junior,0,No evidence in this professional area
+dsg-graphic-mid-1,fin-analyst-mid,0,No evidence in this professional area
+dsg-graphic-mid-1,fin-controller-senior,0,No evidence in this professional area
+dsg-graphic-mid-1,hr-recruiter-junior,0,No evidence in this professional area
+dsg-graphic-mid-1,hr-generalist-mid,0,No evidence in this professional area
+dsg-graphic-mid-1,hr-head-senior,0,No evidence in this professional area
+dsg-graphic-mid-1,dsg-graphic-junior,2,"Right sub-specialty and three of four required skills, but five years is a band above a junior production role"
+dsg-graphic-mid-1,dsg-ux-mid,1,Graphic rather than UX design; inside the MID band but none of the four required research and prototyping skills evidenced
+dsg-graphic-mid-1,dsg-lead-senior,1,"Individual contributor rather than lead, a band below SENIOR, and only brand guidelines of the three requirements"
+dsg-graphic-mid-1,ops-coordinator-junior,0,No evidence in this professional area
+dsg-graphic-mid-1,ops-supplychain-mid,0,No evidence in this professional area
+dsg-graphic-mid-1,ops-manager-senior,0,No evidence in this professional area
+dsg-ux-junior-1,it-frontend-junior,0,No evidence in this professional area
+dsg-ux-junior-1,it-backend-mid,0,No evidence in this professional area
+dsg-ux-junior-1,it-devops-senior,0,No evidence in this professional area
+dsg-ux-junior-1,mkt-content-junior,0,No evidence in this professional area
+dsg-ux-junior-1,mkt-digital-mid,0,No evidence in this professional area
+dsg-ux-junior-1,mkt-brand-senior,0,No evidence in this professional area
+dsg-ux-junior-1,fin-accountant-junior,0,No evidence in this professional area
+dsg-ux-junior-1,fin-analyst-mid,0,No evidence in this professional area
+dsg-ux-junior-1,fin-controller-senior,0,No evidence in this professional area
+dsg-ux-junior-1,hr-recruiter-junior,0,No evidence in this professional area
+dsg-ux-junior-1,hr-generalist-mid,0,No evidence in this professional area
+dsg-ux-junior-1,hr-head-senior,0,No evidence in this professional area
+dsg-ux-junior-1,dsg-graphic-junior,1,UX rather than graphic design; inside the JUNIOR band but none of the four required production skills evidenced
+dsg-ux-junior-1,dsg-ux-mid,2,"Right sub-specialty and three of four required skills, but 1.5 years places them a band below MID"
+dsg-ux-junior-1,dsg-lead-senior,0,Two or more bands below SENIOR with no leadership evidence
+dsg-ux-junior-1,ops-coordinator-junior,0,No evidence in this professional area
+dsg-ux-junior-1,ops-supplychain-mid,0,No evidence in this professional area
+dsg-ux-junior-1,ops-manager-senior,0,No evidence in this professional area
+dsg-career-changer-1,it-frontend-junior,0,No evidence in this professional area
+dsg-career-changer-1,it-backend-mid,0,No evidence in this professional area
+dsg-career-changer-1,it-devops-senior,0,No evidence in this professional area
+dsg-career-changer-1,mkt-content-junior,1,"Six real years of marketing, but they ended two years ago and are therefore stale (rubric 3.5), the tenure is a band above JUNIOR, and neither required content skill is evidenced"
+dsg-career-changer-1,mkt-digital-mid,1,"Marketing evidence is real and inside the MID band, but two years stale, and only campaign planning of the three requirements is covered"
+dsg-career-changer-1,mkt-brand-senior,1,"Stale marketing evidence a band below SENIOR, and the MASTERS requirement is unmet against a BACHELORS"
+dsg-career-changer-1,fin-accountant-junior,0,No evidence in this professional area
+dsg-career-changer-1,fin-analyst-mid,0,No evidence in this professional area
+dsg-career-changer-1,fin-controller-senior,0,No evidence in this professional area
+dsg-career-changer-1,hr-recruiter-junior,0,No evidence in this professional area
+dsg-career-changer-1,hr-generalist-mid,0,No evidence in this professional area
+dsg-career-changer-1,hr-head-senior,0,No evidence in this professional area
+dsg-career-changer-1,dsg-graphic-junior,1,UX rather than graphic design and none of the four required production skills evidenced; the two relevant UX years do sit inside the JUNIOR band
+dsg-career-changer-1,dsg-ux-mid,2,"Right sub-specialty and three of four required skills, but only the most recent two years are UX, which places them a band below MID however much total tenure the profile shows"
+dsg-career-changer-1,dsg-lead-senior,0,"Two relevant UX years is two or more bands below SENIOR. Graded against relevant rather than total tenure: eight total years would read SENIOR, and that reading is wrong"
+dsg-career-changer-1,ops-coordinator-junior,0,No evidence in this professional area
+dsg-career-changer-1,ops-supplychain-mid,0,No evidence in this professional area
+dsg-career-changer-1,ops-manager-senior,0,No evidence in this professional area
+ops-coordinator-junior-1,it-frontend-junior,0,No evidence in this professional area
+ops-coordinator-junior-1,it-backend-mid,0,No evidence in this professional area
+ops-coordinator-junior-1,it-devops-senior,0,No evidence in this professional area
+ops-coordinator-junior-1,mkt-content-junior,0,No evidence in this professional area
+ops-coordinator-junior-1,mkt-digital-mid,0,No evidence in this professional area
+ops-coordinator-junior-1,mkt-brand-senior,0,No evidence in this professional area
+ops-coordinator-junior-1,fin-accountant-junior,0,No evidence in this professional area
+ops-coordinator-junior-1,fin-analyst-mid,0,No evidence in this professional area
+ops-coordinator-junior-1,fin-controller-senior,0,No evidence in this professional area
+ops-coordinator-junior-1,hr-recruiter-junior,0,No evidence in this professional area
+ops-coordinator-junior-1,hr-generalist-mid,0,No evidence in this professional area
+ops-coordinator-junior-1,hr-head-senior,0,No evidence in this professional area
+ops-coordinator-junior-1,dsg-graphic-junior,0,No evidence in this professional area
+ops-coordinator-junior-1,dsg-ux-mid,0,No evidence in this professional area
+ops-coordinator-junior-1,dsg-lead-senior,0,No evidence in this professional area
+ops-coordinator-junior-1,ops-coordinator-junior,3,"Exact sub-specialty, 1.6 years inside the JUNIOR band, all three required skills held, no education requirement, and already in Varna for an on-site depot role"
+ops-coordinator-junior-1,ops-supplychain-mid,1,"Coordination rather than planning, a band below MID, no required skill evidenced, and the BACHELORS requirement is unmet against a SECONDARY qualification"
+ops-coordinator-junior-1,ops-manager-senior,0,Two or more bands below SENIOR with no management evidence
+ops-supplychain-mid-1,it-frontend-junior,0,No evidence in this professional area
+ops-supplychain-mid-1,it-backend-mid,0,No evidence in this professional area
+ops-supplychain-mid-1,it-devops-senior,0,No evidence in this professional area
+ops-supplychain-mid-1,mkt-content-junior,0,No evidence in this professional area
+ops-supplychain-mid-1,mkt-digital-mid,0,No evidence in this professional area
+ops-supplychain-mid-1,mkt-brand-senior,0,No evidence in this professional area
+ops-supplychain-mid-1,fin-accountant-junior,0,No evidence in this professional area
+ops-supplychain-mid-1,fin-analyst-mid,0,No evidence in this professional area
+ops-supplychain-mid-1,fin-controller-senior,0,No evidence in this professional area
+ops-supplychain-mid-1,hr-recruiter-junior,0,No evidence in this professional area
+ops-supplychain-mid-1,hr-generalist-mid,0,No evidence in this professional area
+ops-supplychain-mid-1,hr-head-senior,0,No evidence in this professional area
+ops-supplychain-mid-1,dsg-graphic-junior,0,No evidence in this professional area
+ops-supplychain-mid-1,dsg-ux-mid,0,No evidence in this professional area
+ops-supplychain-mid-1,dsg-lead-senior,0,No evidence in this professional area
+ops-supplychain-mid-1,ops-coordinator-junior,0,Location: the role is on site in Varna and the candidate is in Sofia
+ops-supplychain-mid-1,ops-supplychain-mid,3,"Exact sub-specialty, 4.6 years inside the MID band, all three required skills held, BACHELORS met, and the availability-versus-working-capital trade-off described directly"
+ops-supplychain-mid-1,ops-manager-senior,1,"Planning rather than operational management, a band below SENIOR, and the MASTERS requirement is unmet against a BACHELORS"
+ops-manager-senior-1,it-frontend-junior,0,No evidence in this professional area
+ops-manager-senior-1,it-backend-mid,0,No evidence in this professional area
+ops-manager-senior-1,it-devops-senior,0,No evidence in this professional area
+ops-manager-senior-1,mkt-content-junior,0,No evidence in this professional area
+ops-manager-senior-1,mkt-digital-mid,0,No evidence in this professional area
+ops-manager-senior-1,mkt-brand-senior,0,No evidence in this professional area
+ops-manager-senior-1,fin-accountant-junior,0,No evidence in this professional area
+ops-manager-senior-1,fin-analyst-mid,0,No evidence in this professional area
+ops-manager-senior-1,fin-controller-senior,0,No evidence in this professional area
+ops-manager-senior-1,hr-recruiter-junior,0,No evidence in this professional area
+ops-manager-senior-1,hr-generalist-mid,0,No evidence in this professional area
+ops-manager-senior-1,hr-head-senior,0,No evidence in this professional area
+ops-manager-senior-1,dsg-graphic-junior,0,No evidence in this professional area
+ops-manager-senior-1,dsg-ux-mid,0,No evidence in this professional area
+ops-manager-senior-1,dsg-lead-senior,0,No evidence in this professional area
+ops-manager-senior-1,ops-coordinator-junior,0,Location: the role is on site in Varna and the candidate is in Sofia
+ops-manager-senior-1,ops-supplychain-mid,1,"Operational management rather than replenishment planning, a band above MID, and none of the three required skills evidenced"
+ops-manager-senior-1,ops-manager-senior,3,"Exact sub-specialty, 15.0 years inside the SENIOR band, all four required skills held, MASTERS met, and a process redesign at exactly this scale described"
+ops-procurement-mid-1,it-frontend-junior,0,No evidence in this professional area
+ops-procurement-mid-1,it-backend-mid,0,No evidence in this professional area
+ops-procurement-mid-1,it-devops-senior,0,No evidence in this professional area
+ops-procurement-mid-1,mkt-content-junior,0,No evidence in this professional area
+ops-procurement-mid-1,mkt-digital-mid,0,No evidence in this professional area
+ops-procurement-mid-1,mkt-brand-senior,0,No evidence in this professional area
+ops-procurement-mid-1,fin-accountant-junior,0,No evidence in this professional area
+ops-procurement-mid-1,fin-analyst-mid,0,No evidence in this professional area
+ops-procurement-mid-1,fin-controller-senior,0,No evidence in this professional area
+ops-procurement-mid-1,hr-recruiter-junior,0,No evidence in this professional area
+ops-procurement-mid-1,hr-generalist-mid,0,No evidence in this professional area
+ops-procurement-mid-1,hr-head-senior,0,No evidence in this professional area
+ops-procurement-mid-1,dsg-graphic-junior,0,No evidence in this professional area
+ops-procurement-mid-1,dsg-ux-mid,0,No evidence in this professional area
+ops-procurement-mid-1,dsg-lead-senior,0,No evidence in this professional area
+ops-procurement-mid-1,ops-coordinator-junior,0,Location: the role is on site in Varna and the candidate is in Sofia
+ops-procurement-mid-1,ops-supplychain-mid,1,"Procurement rather than replenishment planning; inside the MID band and supplier management is held, but neither supply chain management nor inventory planning is evidenced"
+ops-procurement-mid-1,ops-manager-senior,1,"Procurement rather than operational management, a band below SENIOR, and the MASTERS requirement is unmet against a BACHELORS"
+ops-logistics-senior-1,it-frontend-junior,0,No evidence in this professional area
+ops-logistics-senior-1,it-backend-mid,0,No evidence in this professional area
+ops-logistics-senior-1,it-devops-senior,0,No evidence in this professional area
+ops-logistics-senior-1,mkt-content-junior,0,No evidence in this professional area
+ops-logistics-senior-1,mkt-digital-mid,0,No evidence in this professional area
+ops-logistics-senior-1,mkt-brand-senior,0,No evidence in this professional area
+ops-logistics-senior-1,fin-accountant-junior,0,No evidence in this professional area
+ops-logistics-senior-1,fin-analyst-mid,0,No evidence in this professional area
+ops-logistics-senior-1,fin-controller-senior,0,No evidence in this professional area
+ops-logistics-senior-1,hr-recruiter-junior,0,No evidence in this professional area
+ops-logistics-senior-1,hr-generalist-mid,0,No evidence in this professional area
+ops-logistics-senior-1,hr-head-senior,0,No evidence in this professional area
+ops-logistics-senior-1,dsg-graphic-junior,0,No evidence in this professional area
+ops-logistics-senior-1,dsg-ux-mid,0,No evidence in this professional area
+ops-logistics-senior-1,dsg-lead-senior,0,No evidence in this professional area
+ops-logistics-senior-1,ops-coordinator-junior,0,Location: the role is on site in Varna and the candidate is in Sofia
+ops-logistics-senior-1,ops-supplychain-mid,1,"Logistics management rather than replenishment planning, a band above MID, and only supply chain management of the three requirements"
+ops-logistics-senior-1,ops-manager-senior,1,"Would otherwise be a 2 - right sub-specialty, inside the SENIOR band, warehouse operations and process improvement both held - but the MASTERS requirement is unmet against a BACHELORS, which caps the pair at 1"
+ops-warehouse-junior-1,it-frontend-junior,0,No evidence in this professional area
+ops-warehouse-junior-1,it-backend-mid,0,No evidence in this professional area
+ops-warehouse-junior-1,it-devops-senior,0,No evidence in this professional area
+ops-warehouse-junior-1,mkt-content-junior,0,No evidence in this professional area
+ops-warehouse-junior-1,mkt-digital-mid,0,No evidence in this professional area
+ops-warehouse-junior-1,mkt-brand-senior,0,No evidence in this professional area
+ops-warehouse-junior-1,fin-accountant-junior,0,No evidence in this professional area
+ops-warehouse-junior-1,fin-analyst-mid,0,No evidence in this professional area
+ops-warehouse-junior-1,fin-controller-senior,0,No evidence in this professional area
+ops-warehouse-junior-1,hr-recruiter-junior,0,No evidence in this professional area
+ops-warehouse-junior-1,hr-generalist-mid,0,No evidence in this professional area
+ops-warehouse-junior-1,hr-head-senior,0,No evidence in this professional area
+ops-warehouse-junior-1,dsg-graphic-junior,0,No evidence in this professional area
+ops-warehouse-junior-1,dsg-ux-mid,0,No evidence in this professional area
+ops-warehouse-junior-1,dsg-lead-senior,0,No evidence in this professional area
+ops-warehouse-junior-1,ops-coordinator-junior,1,"Warehouse administration rather than dispatch coordination, and eleven months places them a band below JUNIOR, though two of three required skills are held and they are already in Varna"
+ops-warehouse-junior-1,ops-supplychain-mid,0,Eleven months is two or more bands below MID
+ops-warehouse-junior-1,ops-manager-senior,0,"Eleven months is three bands below SENIOR, with no management evidence"
