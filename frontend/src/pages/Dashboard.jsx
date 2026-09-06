@@ -4,18 +4,11 @@ import Navbar from '../components/Navbar'
 import EmptyState from '../components/ui/EmptyState'
 import { getApplications } from '../api/applications'
 import { formatEnumLabel } from '../utils/formatEnumLabel'
+import { STATUS_STYLES, UNKNOWN_STATUS_STYLE } from '../components/ui/statusStyles'
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer,
   PieChart, Pie, Cell, Legend
 } from 'recharts'
-
-const STATUS_COLORS = {
-  APPLIED: '#3b82f6',
-  INTERVIEWING: '#f59e0b',
-  OFFERED: '#10b981',
-  REJECTED: '#ef4444',
-  WITHDRAWN: '#6b7280'
-}
 
 const SOURCE_COLOR = '#3b82f6'
 
@@ -128,7 +121,7 @@ function Dashboard() {
                     style={{ cursor: 'pointer' }}
                 >
                   {statusData.map(entry => (
-                    <Cell key={entry.name} fill={STATUS_COLORS[entry.name] ?? '#cbd5e1'} />
+                    <Cell key={entry.name} fill={(STATUS_STYLES[entry.name] ?? UNKNOWN_STATUS_STYLE).chart} />
                   ))}
                 </Pie>
                 <Tooltip formatter={(value, name) => [value, formatEnumLabel(name)]} />

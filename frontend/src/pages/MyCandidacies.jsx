@@ -7,13 +7,7 @@ import EmptyState from '../components/ui/EmptyState'
 import LoadingSpinner from '../components/ui/LoadingSpinner'
 import { getMyCandidacies } from '../api/candidacies'
 
-const STATUS_COLORS = {
-  SUBMITTED: '#3b82f6',
-  ACCEPTED: '#10b981',
-  REJECTED: '#ef4444',
-}
-
-const TABS = ['ALL', 'SUBMITTED', 'ACCEPTED', 'REJECTED']
+const TABS = ['ALL', 'SUBMITTED', 'ACCEPTED', 'OFFERED', 'REJECTED']
 
 function MyCandidacies() {
   const navigate = useNavigate()
@@ -101,7 +95,7 @@ function MyCandidacies() {
                       {new Date(candidacy.appliedAt).toLocaleDateString()}
                     </p>
                   </div>
-                  <Badge status={candidacy.status} colors={STATUS_COLORS} />
+                  <Badge status={candidacy.status} />
                 </div>
               </Card>
             ))}

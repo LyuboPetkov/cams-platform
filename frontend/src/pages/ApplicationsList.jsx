@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import Navbar from '../components/Navbar'
+import Badge from '../components/ui/Badge'
 import { getApplications, deleteApplication } from '../api/applications'
 import { formatEnumLabel } from '../utils/formatEnumLabel'
 
@@ -130,9 +131,7 @@ async function fetchApplications() {
                     <td className="px-4 py-3 font-medium text-gray-800">{app.companyName}</td>
                     <td className="px-4 py-3 text-gray-600">{app.jobTitle}</td>
                     <td className="px-4 py-3">
-                      <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusStyle(app.status)}`}>
-                        {formatEnumLabel(app.status)}
-                      </span>
+                      <Badge status={app.status} />
                     </td>
                     <td className="px-4 py-3 text-gray-600">{formatEnumLabel(app.source)}</td>
                     <td className="px-4 py-3 text-gray-600">{app.appliedDate}</td>
@@ -215,9 +214,7 @@ async function fetchApplications() {
         <div className="grid grid-cols-2 gap-4">
           <div>
             <p className="text-gray-500 font-medium">Status</p>
-            <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusStyle(viewApp.status)}`}>
-              {formatEnumLabel(viewApp.status)}
-            </span>
+            <Badge status={viewApp.status} />
           </div>
           <div>
             <p className="text-gray-500 font-medium">Source</p>
@@ -287,17 +284,6 @@ async function fetchApplications() {
       </div>
     </div>
   )
-}
-
-function getStatusStyle(status) {
-  switch (status) {
-    case 'APPLIED': return 'bg-blue-100 text-blue-700'
-    case 'INTERVIEWING': return 'bg-yellow-100 text-yellow-700'
-    case 'OFFERED': return 'bg-green-100 text-green-700'
-    case 'REJECTED': return 'bg-red-100 text-red-700'
-    case 'WITHDRAWN': return 'bg-gray-100 text-gray-600'
-    default: return 'bg-gray-100 text-gray-600'
-  }
 }
 
 export default ApplicationsList

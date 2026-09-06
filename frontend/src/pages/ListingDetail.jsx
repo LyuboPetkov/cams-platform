@@ -11,12 +11,6 @@ import { getListingForCandidate, getMyMatchScore } from '../api/jobListings'
 import { formatRelativeTime } from '../utils/formatRelativeTime'
 import { formatEnumLabel } from '../utils/formatEnumLabel'
 
-const CANDIDACY_STATUS_COLORS = {
-  SUBMITTED: '#3b82f6',
-  ACCEPTED: '#10b981',
-  REJECTED: '#ef4444',
-}
-
 // Reached with the listing in router state, or without it (typed URL, refresh),
 // when it falls back to GET /api/job-listings/{id}/candidate-view - gated on
 // having a Candidacy, not on OPEN, so an applied-to listing stays viewable after archiving.
@@ -189,7 +183,7 @@ function ListingDetail() {
                 </Link>
               </div>
             ) : listing.myCandidacyStatus ? (
-              <Badge status={listing.myCandidacyStatus} colors={CANDIDACY_STATUS_COLORS} />
+              <Badge status={listing.myCandidacyStatus} />
             ) : (
               <>
                 <Button onClick={handleApply} disabled={applying}>

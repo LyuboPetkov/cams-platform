@@ -137,7 +137,7 @@ function ManageListing() {
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-bold text-gray-800">{listing.title}</h1>
           <div className="flex items-center gap-3">
-            <Badge status={listing.status} colors={{ OPEN: '#10b981', ARCHIVED: '#6b7280' }} />
+            <Badge status={listing.status} />
             <Link to={`/listings/${id}/applicants`} className="text-sm text-blue-600 hover:underline">
               Applicants →
             </Link>

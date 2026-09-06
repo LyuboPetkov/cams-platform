@@ -10,11 +10,6 @@ import { getMyListings } from '../api/jobListings'
 import { formatRelativeTime } from '../utils/formatRelativeTime'
 import { formatEnumLabel } from '../utils/formatEnumLabel'
 
-const STATUS_COLORS = {
-  OPEN: '#10b981',
-  ARCHIVED: '#6b7280',
-}
-
 function MyListings() {
   const navigate = useNavigate()
   const [listings, setListings] = useState([])
@@ -63,7 +58,7 @@ function MyListings() {
                 <div onClick={() => navigate(`/listings/${listing.id}`)}>
                   <div className="flex items-center justify-between">
                     <h3 className="text-base font-semibold text-gray-800">{listing.title}</h3>
-                    <Badge status={listing.status} colors={STATUS_COLORS} />
+                    <Badge status={listing.status} />
                   </div>
                   <p className="text-sm text-gray-500 mt-1">
                     {listing.location || 'No location listed'}

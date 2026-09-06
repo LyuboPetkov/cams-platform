@@ -53,7 +53,7 @@ function ListingOverview() {
       <div className="max-w-3xl mx-auto px-6 py-8 space-y-6">
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-bold text-gray-800">{listing.title}</h1>
-          <Badge status={listing.status} colors={{ OPEN: '#10b981', ARCHIVED: '#6b7280' }} />
+          <Badge status={listing.status} />
         </div>
 
         <Card>

@@ -10,12 +10,6 @@ import { promoteToAdmin } from '../api/users'
 
 const TABS = ['PENDING', 'APPROVED', 'REJECTED']
 
-const STATUS_COLORS = {
-  PENDING: '#f59e0b',
-  APPROVED: '#10b981',
-  REJECTED: '#ef4444',
-}
-
 function AdminEmployerRequests() {
   const [activeTab, setActiveTab] = useState('PENDING')
   const [requests, setRequests] = useState([])
@@ -170,7 +164,7 @@ function AdminEmployerRequests() {
               <Card key={request.id}>
                 <div className="flex items-center justify-between">
                   <h3 className="text-base font-semibold text-gray-800">{request.companyName}</h3>
-                  <Badge status={request.status} colors={STATUS_COLORS} />
+                  <Badge status={request.status} />
                 </div>
 
                 <p className="text-sm text-gray-600 mt-2">

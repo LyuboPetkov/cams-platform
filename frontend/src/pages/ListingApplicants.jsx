@@ -10,13 +10,6 @@ import Avatar from '../components/ui/Avatar'
 import { getListing, getCandidaciesForListing } from '../api/jobListings'
 import { acceptCandidacy, rejectCandidacy, offerCandidacy } from '../api/candidacies'
 
-const CANDIDACY_STATUS_COLORS = {
-  SUBMITTED: '#3b82f6',
-  ACCEPTED: '#10b981',
-  OFFERED: '#8b5cf6',
-  REJECTED: '#ef4444',
-}
-
 function ListingApplicants() {
   const { id } = useParams()
 
@@ -144,7 +137,7 @@ function ListingApplicants() {
                           Location may not match
                         </span>
                       )}
-                      <Badge status={candidacy.status} colors={CANDIDACY_STATUS_COLORS} />
+                      <Badge status={candidacy.status} />
                     </div>
                   </div>
 

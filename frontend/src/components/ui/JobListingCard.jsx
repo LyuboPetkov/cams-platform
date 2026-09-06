@@ -4,12 +4,6 @@ import Badge from './Badge'
 import { formatRelativeTime } from '../../utils/formatRelativeTime'
 import { formatEnumLabel } from '../../utils/formatEnumLabel'
 
-const CANDIDACY_STATUS_COLORS = {
-  SUBMITTED: '#3b82f6',
-  ACCEPTED: '#10b981',
-  REJECTED: '#ef4444',
-}
-
 // Shared between BrowseListings and CandidateMatches - they differ only in
 // which optional badges they pass (matchScore, myCandidacyStatus).
 function JobListingCard({ listing, matchScore, onClick }) {
@@ -26,7 +20,7 @@ function JobListingCard({ listing, matchScore, onClick }) {
             )}
             <span className="text-xs text-gray-500">{formatEnumLabel(listing.level)}</span>
             {listing.myCandidacyStatus && (
-              <Badge status={listing.myCandidacyStatus} colors={CANDIDACY_STATUS_COLORS} />
+              <Badge status={listing.myCandidacyStatus} />
             )}
           </div>
         </div>

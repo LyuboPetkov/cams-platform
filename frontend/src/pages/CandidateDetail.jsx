@@ -9,12 +9,6 @@ import LoadingSpinner from '../components/ui/LoadingSpinner'
 import { getCandidateProfileForCandidacy, acceptCandidacy, rejectCandidacy } from '../api/candidacies'
 import { formatEnumLabel } from '../utils/formatEnumLabel'
 
-const CANDIDACY_STATUS_COLORS = {
-  SUBMITTED: '#3b82f6',
-  ACCEPTED: '#10b981',
-  REJECTED: '#ef4444',
-}
-
 function formatMonthYear(dateStr) {
   const [year, month] = dateStr.split('-')
   return new Date(Number(year), Number(month) - 1).toLocaleDateString('en-US', {
@@ -122,7 +116,7 @@ function CandidateDetail() {
                 )}
               </div>
             </div>
-            {status && <Badge status={status} colors={CANDIDACY_STATUS_COLORS} />}
+            {status && <Badge status={status} />}
           </div>
 
           {profile.description && (
