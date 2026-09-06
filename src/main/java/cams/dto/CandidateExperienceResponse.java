@@ -16,6 +16,9 @@ public class CandidateExperienceResponse {
     @Schema(description = "Unique identifier of the experience entry", example = "1")
     private Long id;
 
+    @Schema(description = "Employer the role was held at", example = "Acme Software")
+    private String companyName;
+
     @Schema(description = "Role title", example = "Backend Engineer")
     private String roleTitle;
 

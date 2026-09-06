@@ -45,6 +45,7 @@ public class CandidateProfileMapper {
     public CandidateExperienceResponse toResponse(CandidateExperience entity) {
         return CandidateExperienceResponse.builder()
                 .id(entity.getId())
+                .companyName(entity.getCompanyName())
                 .roleTitle(entity.getRoleTitle())
                 .startDate(entity.getStartDate())
                 .endDate(entity.getEndDate())

@@ -57,6 +57,8 @@ public class EmbeddingService {
         return String.join(". ", parts);
     }
 
+    // companyName is deliberately left out: no listing asks for a specific employer,
+    // and changing this text would invalidate the M0-M6 benchmark measured against it.
     private String describeExperience(CandidateExperience experience) {
         if (experience.getDescription() != null && !experience.getDescription().isBlank()) {
             return experience.getRoleTitle() + ": " + experience.getDescription();

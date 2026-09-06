@@ -213,6 +213,7 @@ public class CandidateProfileService {
         List<CandidateExperience> toInsert = requests.stream()
                 .map(request -> CandidateExperience.builder()
                         .candidateProfile(profile)
+                        .companyName(request.getCompanyName())
                         .roleTitle(request.getRoleTitle())
                         .startDate(request.getStartDate())
                         .endDate(request.getEndDate())

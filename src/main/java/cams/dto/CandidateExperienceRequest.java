@@ -14,6 +14,10 @@ import java.time.LocalDate;
 public class CandidateExperienceRequest {
 
     @NotBlank
+    @Schema(description = "Employer the role was held at", example = "Acme Software")
+    private String companyName;
+
+    @NotBlank
     @Schema(description = "Role title", example = "Backend Engineer")
     private String roleTitle;
 
