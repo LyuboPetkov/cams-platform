@@ -1,10 +1,10 @@
 """
 M4 - hybrid_structural: embeddings for semantics, explicit logic for counting.
 
-The first rung that stops asking the embedding to do arithmetic. Skill
-coverage is counted, seniority is compared against a band, education is an
-ordinal gate; the embedding is left to do the one thing it is good at -
-deciding whether this person's work is in the same domain as this job.
+The first rung that stops asking the embedding to do arithmetic. Skill coverage
+is counted, seniority is compared against a band, and education is an ordinal
+gate. The embedding is left to decide whether this person's work is in the same
+domain as this job, which is what it is good at.
 
     education gate fails  -> 0.0, {"excluded": "education"}
     location gate fails   -> 0.0, {"excluded": "location"}
@@ -14,9 +14,9 @@ deciding whether this person's work is in the same domain as this job.
           + 0.40 * rescale(semantic_role)
           + 0.25 * seniority_score(total_years, level)
 
-Ineligible pairs score 0.0 and STAY IN THE RANKING rather than being dropped.
+Ineligible pairs score 0.0 and stay in the ranking rather than being dropped.
 Dropping them would leave each approach ranking a different pool, and the
-metrics would no longer be comparable across rungs.
+metrics would stop being comparable between rungs.
 """
 
 from components import (
@@ -33,11 +33,10 @@ from components import (
 
 def semantic_role_texts(candidate: dict, listing: dict) -> tuple[str, str]:
     """
-    Candidate side is headline + description + every experience description;
-    listing side is title + description. Experience text is included because
-    what someone actually did is the strongest domain evidence available -
-    and because M5 needs the same pairing to measure its relevance weights
-    against.
+    Candidate side is headline + description + every experience description.
+    Listing side is title + description. Experience text is in there because what
+    someone actually did is the strongest domain evidence available, and because
+    M5 measures its relevance weights against the same pairing.
     """
     candidate_parts = [candidate.get("headline"), candidate.get("description")]
     candidate_parts += [describe_experience(e) for e in candidate.get("experiences", [])]

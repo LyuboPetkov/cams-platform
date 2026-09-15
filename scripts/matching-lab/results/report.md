@@ -1,13 +1,14 @@
 # Matching Algorithm Comparison
 
-Run date: 2026-08-29 20:40  
+Run date: 2026-09-15 08:27  
 Reference date used for ongoing tenure (`today`): **2026-08-27**  
 TAU: 0.35 · BACKFILL_CAP: 0.7 · M4/M5 weights: {'skills': 0.35, 'semantic': 0.4, 'seniority': 0.25}  
 Embedding HTTP calls this run: 0 · cache hits: 34742
 
-_Re-running with unchanged fixtures reproduces every result file byte for byte. The run date
-and the HTTP-call line above are the only content that varies between runs, and neither is a
-measurement - a warm-cache run reports 0 calls precisely because the cache is working._
+_Written by `run_experiments.py`. Re-running with unchanged fixtures reproduces every
+result file byte for byte; the run date and the HTTP-call line above are the only parts
+that vary. Neither is a measurement, and a warm-cache run reports 0 calls because the
+cache is doing its job._
 
 ## Fixture set
 
@@ -16,19 +17,19 @@ measurement - a warm-cache run reports 0 calls precisely because the cache is wo
 - Graded pairs in `labels.json`: 720 (complete set would be 720)
 - Fixture skill names not found in the seeded vocabulary: 0
 
-> **Ground truth: all 720 (candidate, listing) pairs, graded 0-3 against fixtures/rubric.md, which was written before any grade existed. No algorithm had been run on these fixtures when these grades were authored and no score, ranking or approach output was consulted. 126 pairs are individually authored with a specific reason; the remaining 594 are pairs where the candidate has no evidence of work in the listing's professional area, which rubric 3.1 grades 0 by rule. That bucket is determined by EVIDENCE, never by the `area` tag: dsg-career-changer-1's Marketing pairs and it-cross-domain-1's IT pairs are individually authored precisely because tag and evidence disagree there. it-backend-mid-1-superset's 18 grades are COPIED from it-backend-mid-1 rather than re-authored, so the skill-superset pair's labels cannot drift apart.**
+> All 720 (candidate, listing) pairs, graded 0-3 against fixtures/rubric.md. The rubric was written first, and no approach had been run on these fixtures when the grades were authored, so no score or ranking was consulted. 126 pairs are graded individually with a reason of their own. The other 594 are pairs where the candidate has no evidence of work in the listing's professional area, which rubric 3.1 grades 0 by rule. That bucket follows the evidence, not the `area` tag: dsg-career-changer-1's Marketing pairs and it-cross-domain-1's IT pairs are graded individually because tag and evidence disagree there. it-backend-mid-1-superset's 18 grades are copied from it-backend-mid-1 rather than re-authored, so the two halves of the skill-superset pair cannot drift apart.
 
 ## Reading these numbers
 
-**precision_at_5, recall_at_10 came out IDENTICAL for all seven approaches, and discriminate nothing on this fixture set.** This is a property of the benchmark's shape, not a bug and not a result: with only 18 listings, a top-5 cut is more than a quarter of the pool, and every approach places every grade->=2 listing inside it for every candidate. Recall@10 is worse still - two thirds of the pool. Raising the relevance threshold to 2 fixed the saturation those metrics had at threshold 1, but it could not fix the pool being too small for a top-k cut to separate anything. **Read nDCG@5 and nothing else for the comparison between approaches.** Reporting the identical P@5 figures as though seven approaches 'tied' would be misleading: they did not tie, the metric simply cannot see them. Measuring precision and recall meaningfully would need a listing pool several times larger, which is a fixture change, not an algorithm change.
+**precision_at_5, recall_at_10 came out identical for all seven approaches** and separate nothing here. That is the shape of the benchmark rather than a result: with 18 listings a top-5 cut is over a quarter of the pool, and every approach puts every grade->=2 listing inside it for every candidate. Recall@10 is worse, at two thirds of the pool. Raising the relevance threshold to 2 fixed the saturation these metrics had at a threshold of 1, but it could not fix the pool being too small for a top-k cut to separate anything. So compare the approaches on nDCG@5 and nothing else. The matching P@5 figures are not seven approaches tying; the metric simply cannot see the difference between them. Measuring precision and recall properly would need a listing pool several times larger, which is a fixture change rather than an algorithm change.
 
-**Relevance threshold.** Precision@5, Recall@10 and MRR count a pair as relevant at **grade >= 2** ("a genuine shortlist entry"), not at the grade >= 1 the matching-eval harness used. The rubric's floor rule (rubric.md 3.4) puts nearly every same-area pair at 1 or above, so at a threshold of 1 those three metrics collapse into "did the approach get the professional area right", which every approach does, and they saturate. **nDCG@5 is unchanged** - it reads the graded gains directly and never had a threshold - which is why it is the headline metric here: the threshold decision cannot have moved it. The cost is that the matching-eval harness's P@5, Recall and MRR figures are no longer directly comparable; its nDCG figures still are.
+**Relevance threshold.** Precision@5, Recall@10 and MRR count a pair as relevant at grade >= 2, which rubric.md calls a genuine shortlist entry, rather than at grade >= 1. The floor rule (rubric.md 3.4) puts nearly every same-area pair at 1 or above, so at a threshold of 1 those three metrics turn into "did the approach get the professional area right", which all of them do, and they saturate. nDCG@5 reads the graded gains directly and has no threshold, so this decision cannot have moved it. That is the main reason it is the headline metric here.
 
-**7 of 40 candidates have no pair graded >= 2 anywhere in the fixture set** (fin-audit-mid-1, hr-training-mid-1, it-cross-domain-1, mkt-education-gate-fail-1, ops-logistics-senior-1, ops-procurement-mid-1, ops-warehouse-junior-1). They contribute a constant 0 to P@5, Recall@10 and MRR for *every* approach, which deflates those three absolute numbers without affecting any comparison between approaches. Three of them are diagnostics where that is the intended result; the rest are specialists with no matching listing in an 18-listing set. Their nDCG is unaffected, since a pool of grade-1 pairs still has a non-zero ideal DCG.
+**7 of 40 candidates have no pair graded >= 2 anywhere in the fixture set** (fin-audit-mid-1, hr-training-mid-1, it-cross-domain-1, mkt-education-gate-fail-1, ops-logistics-senior-1, ops-procurement-mid-1, ops-warehouse-junior-1). They contribute a constant 0 to P@5, Recall@10 and MRR under every approach, which pulls those three absolute numbers down without changing any comparison between approaches. Three of them are diagnostics where that is the intended result; the rest are specialists with no matching listing in a pool this small. Their nDCG is unaffected, since a pool of grade-1 pairs still has a non-zero ideal DCG.
 
-**The education gate is deliberately not harmonised.** The rubric caps an unmet education requirement at grade 1 (rubric.md section 4); M4, M5 and M6 return a hard 0 and exclude the pair. This disagreement is intentional and was not reconciled: it is what lets the data show whether a hard structural gate **over-penalises** relative to how a recruiter would actually read an unmet formal requirement. Watch `mkt-education-gate-fail-1` and `ops-logistics-senior-1` in `diagnostics.md` for the effect.
+**The rubric and the hybrids disagree about education, on purpose.** The rubric caps an unmet education requirement at grade 1 (rubric.md section 4), while M4, M5 and M6 return a hard 0 and drop the pair. Leaving that unreconciled is what lets the data show whether a hard structural gate over-penalises compared with how a recruiter would read an unmet formal requirement. `mkt-education-gate-fail-1` and `ops-logistics-senior-1` in `diagnostics.md` show the effect.
 
-**On the ESCO vocabulary gap.** CAMS's manual skill supplement has partly closed the framework-name gap in the ESCO taxonomy. `Spring Boot`, `React`, `Docker`, `Kubernetes`, `CI/CD` and `DevOps` are all in the seeded vocabulary today - so the `esco-gap` fixture tests **under-claiming a skill that exists**, not vocabulary absence. The `vocabulary-gap` fixture tests the remaining, narrower case: `Scrum` is genuinely absent, so no structured skill could express it and only semantic evidence can reach it. Any claim that the vocabulary cannot express modern framework names should be narrowed accordingly.
+**On the ESCO vocabulary gap.** The manual skill supplement has already closed most of the framework-name gap in the ESCO taxonomy. `Spring Boot`, `React`, `Docker`, `Kubernetes`, `CI/CD` and `DevOps` are all in the seeded vocabulary now, so the `esco-gap` fixture tests a candidate under-claiming a skill that exists rather than the vocabulary missing one. `vocabulary-gap` covers the narrower remaining case: `Scrum` really is absent, so no structured skill can express it and only semantic evidence reaches it. A claim that the vocabulary cannot handle modern framework names should be narrowed to that.
 
 ## Summary
 
@@ -61,16 +62,16 @@ Highest mean nDCG@5: **M3_embedding_sections** (0.9780).
 Runner-up: M2_embedding_fused_level (0.9647), a margin of +0.0134.
 
 Paired bootstrap on that margin: 95% CI [-0.0046, +0.0353] over 2000 resamples of the 40 candidates (seed 35).
-**The interval straddles zero, so this is INCONCLUSIVE.** M3_embedding_sections has the highest mean, but the benchmark cannot distinguish it from M2_embedding_fused_level, and reporting it as a win would overstate what 40 query candidates can show. See the pairwise table below for which differences, if any, are conclusive.
+**The interval straddles zero, so this one is inconclusive.** M3_embedding_sections has the highest mean, but the benchmark cannot tell it apart from M2_embedding_fused_level, and calling it a win would claim more than 40 candidates can support. The pairwise table below shows which differences are conclusive.
 
-See `diagnostics.md` for the per-fixture traces, and read them before trusting this line -
-a diagnostic that contradicts the aggregate is the more interesting result.
+`diagnostics.md` has the per-fixture traces. Read those before trusting this line: a
+diagnostic that contradicts the aggregate is the more interesting result.
 
 ## Pairwise differences (paired bootstrap)
 
-2000 iterations, seed 35, resampling the 40 query candidates with replacement. Every approach is scored on the *same* resample in each iteration, so the shared "this resample was easy" effect cancels in the difference. `diff` is B minus A: positive means B scored higher.
+2000 iterations, seed 35, resampling the 40 query candidates with replacement. Every approach is scored on the same resample in each iteration, so the shared "this resample was an easy one" effect cancels out of the difference. `diff` is B minus A, so a positive value means B scored higher.
 
-**A difference whose interval contains zero is inconclusive, not a win.**
+A difference whose interval contains zero is inconclusive, not a win.
 
 | Metric | A | B | diff (B-A) | 95% CI | Verdict |
 |---|---|---|---|---|---|
@@ -122,11 +123,11 @@ Full table also in `bootstrap_pairwise.csv`.
 
 ## Gate alignment: does a hard gate over-penalise?
 
-M4, M5 and M6 return a hard 0 and exclude a pair when a gate fails. The rubric does not agree with them about education: it caps an unmet education requirement at grade 1 rather than 0 (rubric.md section 4), and that disagreement was left deliberately unreconciled so the cost could be measured instead of argued about. Counted below on `M4_hybrid_structural` (all three hybrids gate identically).
+M4, M5 and M6 return a hard 0 and drop a pair when a gate fails. The rubric caps an unmet education requirement at grade 1 instead (rubric.md section 4). That disagreement was left in place so the cost of the hard gate could be counted rather than argued about. Counted below on `M4_hybrid_structural`; all three hybrids gate the same way.
 
 | Gate | Pairs excluded | Of those, labelled relevant (grade >= 1) | Reading |
 |---|---|---|---|
-| education | 111 | 8 | **Over-penalises: 8 pair(s) the rubric grades >= 1 are forced to 0** |
+| education | 111 | 8 | Over-penalises: 8 pair(s) the rubric grades >= 1 are forced to 0 |
 | location | 52 | 0 | Agrees with the labels on every pair it excludes |
 
 The education-gated pairs the labels disagree with, each forced from a shortlist-adjacent grade to the bottom of an 18-listing ranking:
@@ -142,27 +143,26 @@ The education-gated pairs the labels disagree with, each forced from a shortlist
 | `ops-procurement-mid-1` | `ops-manager-senior` | 1 |
 | `ops-supplychain-mid-1` | `ops-manager-senior` | 1 |
 
-This is a real and quantified cost of the hard gate, and it is part of why the hybrid rungs score below the embedding rungs here. It is **not** the whole story - see the ablation deltas - and this benchmark deliberately does not re-run the hybrids with a softened gate, because choosing a gate policy after seeing which one scores better is tuning on the test set. Porting a soft education score and re-measuring is a next-phase question with the measurement now in hand.
+That is a measured cost of the hard gate, and part of why the hybrid rungs score below the embedding rungs here. It is not the whole story, as the ablation deltas show. The hybrids are not re-run with a softened gate: picking a gate policy after seeing which one scores better is tuning on the test set. Softening it and measuring again would be a separate piece of work.
 
 ## Stated limitations
 
 - This is a **synthetic benchmark**. Its labels encode the designer's model of relevance.
   It supports *relative* comparison between approaches on identical data; it is not a claim
   about absolute real-world matching quality.
-- Labels are authored **by construction**, from candidate and listing content alone, with no
-  algorithm output consulted. `audit_agreement.md` reports how well an independent blind
-  grading of a ~10% sample agrees with them - that figure, not this one, is the honest answer
-  to "how do you know your labels are right".
+- Labels were graded by hand from candidate and listing content alone, with no algorithm
+  output consulted. `audit_agreement.md` reports how closely a second blind pass over a
+  sample of them agrees with the originals.
 - No number here rests on a single arbitrary constant without a check: see `sensitivity.md`
   for the TAU and weight sweep.
 - Overlapping experience entries are summed rather than de-overlapped (see `total_years`).
-- **The seniority labels are contaminated, not convergent.** The rubric was authored with
-  the algorithm design already in hand, so M4+'s asymmetric
-  `seniority_score` and its `LEVEL_BANDS` had a direct path into the ground truth. Any
-  M3 -> M4 gain is partly the labels agreeing with M4's design rather than evidence that M4
-  is better, and must be read that way. M4 -> M5 -> M6 is unaffected: all three share the
-  identical seniority component. See rubric.md section 8.2.
-- The bootstrap quantifies sampling variability over these 40 candidates only. It says
-  nothing about whether the fixture set is representative, and a tight interval around a
-  contaminated difference is still a contaminated difference.
+- **The seniority labels are contaminated, not convergent.** The rubric was written with the
+  algorithm design already in hand, so M4's asymmetric `seniority_score` and its
+  `LEVEL_BANDS` had a direct path into the ground truth. An M3 to M4 gain is partly the
+  labels agreeing with M4's design rather than evidence that M4 is better, and should be
+  read that way. M4 to M5 to M6 is unaffected, since all three share the same seniority
+  component. See rubric.md section 8.2.
+- The bootstrap covers sampling variability over these 40 candidates and nothing else. It
+  says nothing about whether the fixture set is representative, and a tight interval around
+  a contaminated difference is still a contaminated difference.
 

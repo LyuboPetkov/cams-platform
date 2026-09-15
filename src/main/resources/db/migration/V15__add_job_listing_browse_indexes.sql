@@ -5,7 +5,7 @@ CREATE INDEX idx_job_listings_open_created
     ON job_listings (created_at DESC, id DESC)
     WHERE status = 'OPEN'::job_listing_status;
 
--- uq_job_listing_skills indexes (job_listing_id, skill_id) — the wrong leading
+-- uq_job_listing_skills indexes (job_listing_id, skill_id), the wrong leading
 -- column for "which listings require skill X", which is exactly what the filter asks.
 CREATE INDEX idx_job_listing_skills_skill
     ON job_listing_skills (skill_id);

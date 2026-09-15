@@ -1,17 +1,16 @@
 """
-M2 - embedding_fused_level: M1 with seniority text added to the LISTING side.
+M2 - embedding_fused_level: M1 with seniority text added to the listing side.
 
-The one change vs M1: "Level: MID" is appended to the listing's text, and
-"Requires: BACHELORS" too when requiredEducationLevel is set. The candidate
-side is untouched. Nothing else differs.
+The only change from M1 is that "Level: MID" is appended to the listing's text,
+along with "Requires: BACHELORS" when requiredEducationLevel is set. The
+candidate side is untouched and there is no scoring change at all.
 
-This isolates the listing-text seniority fix. If M2 beats M1, the gain is
-attributable to the listing text having carried no seniority signal at all
-(weakness 1) - not to any scoring change, because there isn't one.
+That isolates the listing-text seniority fix. If M2 beats M1, the gain comes
+from the listing text having carried no seniority signal before.
 
-The appended parts join with ". " like every other part, so the resulting
-string is what buildEmbeddingText would produce if extraParts were non-empty
-on the listing path.
+The appended parts join with ". " like every other part, so the result is what
+buildEmbeddingText would produce if extraParts were non-empty on the listing
+path.
 """
 
 from components import (

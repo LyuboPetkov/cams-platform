@@ -1,11 +1,14 @@
 # Diagnostic fixtures
 
-Aggregate metrics say *which* approach wins; these say *why*. Each fixture below is a
-designed case where the approaches are expected to diverge.
+Written by `run_experiments.py`.
+
+The aggregate metrics say which approach scores best. These say why. Each fixture
+below is a case built to make the approaches disagree, shown against the listings in
+that candidate's own area.
 
 ## `career-changer`
 
-Years in one area, most recent years in another. Tests whether recent, relevant work outweighs older, irrelevant work. The labels vary across the three bands of the new area and are deliberately INVERTED against total tenure, so M4 (total_years) and M5 (relevant_years) cannot score it identically.
+Years in one area, most recent years in another. Does recent relevant work outweigh older irrelevant work? The labels vary across the three bands of the new area and run opposite to total tenure, so M4 (total_years) and M5 (relevant_years) cannot score it identically.
 
 **dsg-career-changer-1** (area: Design)
 
@@ -23,7 +26,7 @@ Intended grades: dsg-graphic-junior=1, dsg-ux-mid=2, dsg-lead-senior=0
 
 ## `cross-domain-tenure`
 
-5+ years in an unrelated field, applying in another. Tests weakness 2: does irrelevant tenure add noise instead of seniority signal?
+Five or more years in an unrelated field, applying in another. Does irrelevant tenure add noise instead of seniority signal?
 
 **it-cross-domain-1** (area: IT)
 
@@ -41,7 +44,7 @@ Intended grades: it-frontend-junior=0, it-backend-mid=1, it-devops-senior=0
 
 ## `education-gate-fail`
 
-Holds less than the listing requires. Tests that the gate actually excludes, and that the exclusion is visible rather than silent.
+Holds less than the listing requires. Does the gate exclude, and is the exclusion visible rather than silent?
 
 **mkt-education-gate-fail-1** (area: Marketing)
 
@@ -59,7 +62,7 @@ Intended grades: mkt-content-junior=1, mkt-digital-mid=1, mkt-brand-senior=0
 
 ## `education-gate-pass`
 
-Holds more than the listing requires. Tests that the ordinal gate passes on >=, not on ==.
+Holds more than the listing requires. Does the ordinal gate pass on >= rather than ==?
 
 **hr-education-gate-pass-1** (area: HR)
 
@@ -77,7 +80,7 @@ Intended grades: hr-recruiter-junior=1, hr-generalist-mid=3, hr-head-senior=1
 
 ## `esco-gap`
 
-UNDER-CLAIMING a skill that IS in the seeded vocabulary: `Spring Boot` exists (it is in the manual skill supplement) but this candidate never selected it, though their work history describes the work plainly. Tests the genuine strength of the embedding approach, which any replacement must not lose.
+A candidate under-claiming a skill that is in the seeded vocabulary. `Spring Boot` is there (the manual supplement added it) but this candidate never selected it, although their work history describes the work plainly. This is a real strength of the embedding approach and any replacement has to keep it.
 
 **it-esco-gap-1** (area: IT)
 
@@ -95,7 +98,7 @@ Intended grades: it-frontend-junior=1, it-backend-mid=3, it-devops-senior=1
 
 ## `ongoing-degree`
 
-Degree in progress against a listing requiring it. Tests the 'ongoing counts at its stated level' decision.
+Degree in progress against a listing requiring it. Checks the 'ongoing counts at its stated level' decision.
 
 **fin-ongoing-degree-1** (area: Finance & Accounting)
 
@@ -113,7 +116,7 @@ Intended grades: fin-accountant-junior=0, fin-analyst-mid=1, fin-controller-seni
 
 ## `overqualified`
 
-Far more tenure than the listing's band. Tests that over-qualification is penalised gently.
+Far more tenure than the listing's band. Is over-qualification penalised gently?
 
 **mkt-overqualified-1** (area: Marketing)
 
@@ -131,7 +134,7 @@ Intended grades: mkt-content-junior=1, mkt-digital-mid=2, mkt-brand-senior=1
 
 ## `skill-superset`
 
-Identical to a paired candidate except for extra unrelated skills. Tests weakness 3: does mean-pooling dilution push a superset candidate below its own twin?
+Identical to a paired candidate except for extra unrelated skills. Does mean-pooling dilution push the superset candidate below its own twin?
 
 **it-backend-mid-1-superset** (area: IT)
 
@@ -149,8 +152,8 @@ Intended grades: it-frontend-junior=1, it-backend-mid=3, it-devops-senior=1
 
 ### Dilution measurement vs `it-backend-mid-1`
 
-Both members are identical apart from the extra skills, so any non-zero delta is
-attributable to dilution alone. Negative means the superset candidate scored *lower*.
+The two candidates are identical apart from the extra skills, so any non-zero
+delta comes from dilution alone. Negative means the superset candidate scored lower.
 
 | Approach | delta on it-frontend-junior | delta on it-backend-mid | delta on it-devops-senior |
 |---|---|---|---|
@@ -164,7 +167,7 @@ attributable to dilution alone. Negative means the superset candidate scored *lo
 
 ## `thin-profile`
 
-Strong structured skills, almost no free text. Tests how much each approach depends on prose.
+Strong structured skills, almost no free text. How much does each approach depend on prose?
 
 **it-thin-profile-1** (area: IT)
 
@@ -182,7 +185,7 @@ Intended grades: it-frontend-junior=1, it-backend-mid=1, it-devops-senior=3
 
 ## `underqualified`
 
-Far less tenure than the listing's band. Tests that under-qualification is penalised harder than over-qualification.
+Far less tenure than the listing's band. Is under-qualification penalised harder than over-qualification?
 
 **it-underqualified-1** (area: IT)
 
@@ -200,7 +203,7 @@ Intended grades: it-frontend-junior=2, it-backend-mid=0, it-devops-senior=0
 
 ## `vocabulary-gap`
 
-A skill the seeded vocabulary CANNOT express: the candidate's history is explicit about Scrum, but `Scrum` is in no seeded skill list, so no structured skill could have been selected. The listing requires `Agile project management`, which is in the vocabulary. Structural coverage alone cannot reach this pair; only semantic evidence can. This is the case `esco-gap` does not cover.
+A skill the seeded vocabulary cannot express. The candidate's history is explicit about Scrum, but `Scrum` is in no seeded skill list, so there was no structured skill to select. The listing requires `Agile project management`, which is in the vocabulary. Structural coverage cannot reach this pair; only semantic evidence can.
 
 **it-vocabulary-gap-1** (area: IT)
 

@@ -1,19 +1,18 @@
 """
 M1 - embedding_fused: production exactly as it is today.
 
-One fused text per side, one cosine. This rung is the control every other rung
-is measured against, so it must be a faithful mirror of
-cams.service.EmbeddingService - the text builders live in components.py with
-the Java quoted alongside them.
+One fused text per side, one cosine. This is the control every other rung is
+measured against, so it has to mirror cams.service.EmbeddingService faithfully.
+The text builders are in components.py with the Java quoted alongside them.
 
     candidate text = headline. description. Skills: a, b. <experiences>. <educations>. <courses>
     listing text   = title. description. Skills: x, y
     score          = cosineSimilarity(embed(candidate), embed(listing))
 
-The score is clamped at 0 on the low side to honour the scorer contract's
-[0, 1] range. MiniLM cosines on this kind of text are effectively never
-negative, and clamping cannot change a ranking except among already-tied
-zeroes, so the raw value is kept in the explanation dict for inspection.
+The score is clamped at 0 on the low side to stay inside the [0, 1] range the
+scorer contract promises. MiniLM cosines on this kind of text are never
+negative in practice, and the clamp can only affect already-tied zeroes, but the
+raw value is kept in the explanation dict anyway.
 """
 
 from components import candidate_embedding_text, listing_embedding_text, location_eligible

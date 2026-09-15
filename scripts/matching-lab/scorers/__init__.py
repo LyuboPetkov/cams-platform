@@ -1,17 +1,15 @@
 """
-The algorithm ladder. Every scorer exposes the identical signature:
+The ladder. Every scorer has the same signature:
 
     score(candidate: dict, listing: dict, ctx: Context) -> tuple[float, dict]
 
-returning a score in [0, 1] and a mandatory explanation dict of named
-sub-scores. The explanation is not optional decoration: it is what makes
-results/rankings.csv and the diagnostics narrative possible, and it is how a
-given ranking is explained after the fact.
+returning a score in [0, 1] and an explanation dict of named sub-scores. The
+explanation is required, not decoration: it is what fills rankings.csv and the
+diagnostics tables, and it is how a given ranking gets explained afterwards.
 
-REGISTRY order is the ladder order (M0 -> M6) and is the order results are
-reported in. Each rung adds exactly one mechanism over the previous one, so
-any metric gain is attributable to that mechanism rather than to an
-undifferentiated "the hybrid works better".
+REGISTRY order is the ladder order, M0 through M6, and the order results are
+reported in. Each rung adds one mechanism over the one below it, so a metric
+gain belongs to that mechanism rather than to "the hybrid works better".
 """
 
 from scorers import (
@@ -34,7 +32,7 @@ REGISTRY = {
     "M6_hybrid_level_adaptive": m6_hybrid_level_adaptive.score,
 }
 
-# Which rungs each swept constant actually reaches - used by sensitivity.py so
-# it does not waste embedding calls re-running rungs a constant cannot touch.
+# Which rungs each swept constant reaches. sensitivity.py uses these so it does
+# not re-run rungs a constant cannot touch.
 TAU_SENSITIVE = ["M4_hybrid_structural", "M5_hybrid_relevance_weighted", "M6_hybrid_level_adaptive"]
 WEIGHT_SENSITIVE = ["M4_hybrid_structural", "M5_hybrid_relevance_weighted"]

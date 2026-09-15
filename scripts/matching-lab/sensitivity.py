@@ -1,27 +1,24 @@
 """
-Sensitivity sweep over TAU and the M4/M5 weight triple.
+Sweep over TAU and the M4/M5 weight triple.
 
-The point is not to find better constants. It is to show that the conclusion
-does not rest on one arbitrary number - and to report honestly if it does.
-A winner that only wins at TAU = 0.35 is not a winner.
+Not an attempt to find better constants. The point is to check whether the
+conclusion holds across a range of them, since a winner that only wins at
+TAU = 0.35 is not much of a winner.
 
     python sensitivity.py                 # writes results/sensitivity.csv + .md
     python sensitivity.py --today 2026-08-27
 
 Two sweeps:
 
-1. TAU, 0.20 to 0.50 in steps of 0.05. Reaches every rung that calls
-   rescale() - M4, M5, M6. M0-M3 do not use TAU at all, so they are scored
-   once and carried across as a flat reference line; re-scoring them per tau
-   would produce seven identical rows and imply a dependence that does not
-   exist.
+1. TAU, 0.20 to 0.50 in steps of 0.05. Reaches every rung that calls rescale(),
+   so M4, M5 and M6. M0-M3 never touch TAU, so they are scored once and carried
+   across as a flat reference line rather than repeated per value.
 
-2. The M4/M5 weight triple, over a coarse grid of triples summing to 1.0.
-   M6 is excluded because its weights come from the level profile, not from
-   this triple - sweeping it here would sweep a constant it ignores.
+2. The M4/M5 weight triple over a coarse grid summing to 1.0. M6 is left out
+   because its weights come from the level profile rather than this triple.
 
-Every combination reuses the same embedding cache, so the whole sweep costs
-zero additional HTTP calls once run_experiments.py has been run once.
+Everything reuses the embedding cache, so the whole sweep costs no extra HTTP
+calls once run_experiments.py has been run.
 """
 
 import argparse
@@ -42,9 +39,8 @@ RESULTS = BASE / "results"
 
 TAU_VALUES = [0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50]
 
-# Coarse grid: skills and semantic vary, seniority is whatever is left, and
-# triples that would push a component outside 0.15-0.45 are dropped as
-# implausible rather than swept for completeness.
+# Skills and semantic vary, seniority takes whatever is left. Triples that push
+# a component outside 0.15-0.45 are dropped as implausible.
 GRID_VALUES = [0.25, 0.30, 0.35, 0.40, 0.45]
 COMPONENT_MIN, COMPONENT_MAX = 0.15, 0.45
 
@@ -153,8 +149,10 @@ def write_markdown(reference: dict, tau_results: dict, weight_results: dict, cli
     lines = [
         "# Sensitivity of the result to TAU and the M4/M5 weights",
         "",
-        "A conclusion that only holds at one value of an arbitrary constant is not a conclusion.",
-        "This file exists to check that, and to say so plainly if the check fails.",
+        "Written by `sensitivity.py`.",
+        "",
+        "A conclusion that only holds at one value of an arbitrary constant is not worth much.",
+        "This file checks that, and says so plainly if the check fails.",
         "",
         f"Embedding HTTP calls for the whole sweep: {client.http_calls} (everything reuses the cache).",
         "",
@@ -219,12 +217,14 @@ def write_markdown(reference: dict, tau_results: dict, weight_results: dict, cli
         lines.append("")
 
     lines += ["## How to read this", "",
-              "A small spread means the rung's ranking is driven by its structure rather than by the",
+              "A small spread means the rung's ranking comes from its structure rather than from the",
               "constants, and the headline result stands on its own. A large spread, or a winner that",
-              "changes across the sweep, means the opposite - and in that case the honest report is the",
-              "range, not the best cell in it. **Do not select the best-performing constants from this",
-              "sweep and rerun the headline experiment with them: that is tuning on the test set, and it",
-              "would make the result indefensible.**",
+              "changes across the sweep, means the opposite, and then the thing to report is the range",
+              "rather than the best cell in it.",
+              "",
+              "The constants were not changed afterwards to match whichever cell scored best. Picking",
+              "them from this sweep and rerunning the headline experiment would be tuning on the test",
+              "set.",
               ""]
 
     (RESULTS / "sensitivity.md").write_text("\n".join(lines) + "\n", encoding="utf-8")

@@ -1,12 +1,12 @@
 """
 HTTP client for embedding-service, with an on-disk cache.
 
-Talks to the same container the backend does (embedding-service, host port 8000
-per docker-compose.local.yml), over the same POST /embed contract, consumed
-as-is. Every embedded text is cached to .embedding_cache.json keyed by
-sha256(text), so a second run with unchanged fixtures makes zero HTTP calls and
-reproduces the previous run byte-for-byte. The /health probe is lazy for the
-same reason - it fires only when a cache miss is about to force a real request.
+Talks to the same container the backend does (host port 8000 per
+docker-compose.local.yml) over the same POST /embed contract. Every embedded
+text is cached in .embedding_cache.json under sha256(text), so a second run with
+unchanged fixtures makes no HTTP calls and reproduces the previous run exactly.
+The /health probe is lazy for the same reason: it only fires when a cache miss is
+about to force a real request.
 """
 
 import atexit
@@ -22,9 +22,9 @@ import requests
 DEFAULT_URL = "http://localhost:8000"
 CACHE_PATH = Path(__file__).parent / ".embedding_cache.json"
 
-# The MiniLM model embedding-service loads is all-MiniLM-L6-v2 -> 384 dims.
-# Asserted rather than assumed, so a swapped model fails loudly instead of
-# silently producing incomparable results.
+# embedding-service loads all-MiniLM-L6-v2, which gives 384 dims. Checked rather
+# than assumed, so a swapped model fails loudly instead of quietly producing
+# numbers that cannot be compared with these.
 EXPECTED_DIMS = 384
 
 
@@ -42,7 +42,7 @@ class EmbeddingClient:
         self._dirty = False
         self._health_checked = False
 
-        # Call counters; the runner prints these to show a warm run hits no network.
+        # The runner prints these to show a warm run hits no network.
         self.http_calls = 0
         self.cache_hits = 0
 
@@ -83,11 +83,11 @@ class EmbeddingClient:
 
     def embed(self, text: str) -> list:
         """
-        Return the 384-dim embedding for `text`, from cache when possible.
+        The 384-dim embedding for `text`, from cache when possible.
 
         embedding-service rejects blank text with HTTP 400, so blank input is
-        short-circuited here rather than sent - callers that build text from
-        optional fixture fields can legitimately produce an empty string.
+        handled here rather than sent. Callers that build text out of optional
+        fixture fields can legitimately produce an empty string.
         """
         if not text or not text.strip():
             return [0.0] * EXPECTED_DIMS
@@ -109,8 +109,8 @@ class EmbeddingClient:
         vector = response.json()["embedding"]
         if len(vector) != EXPECTED_DIMS:
             raise EmbeddingServiceUnavailable(
-                f"embedding-service returned {len(vector)} dims, expected {EXPECTED_DIMS} - "
-                f"the model behind /embed is not the one these results were calibrated on."
+                f"embedding-service returned {len(vector)} dims, expected {EXPECTED_DIMS}. "
+                f"The model behind /embed is not the one these results were measured on."
             )
 
         self.cache[key] = vector
@@ -120,9 +120,9 @@ class EmbeddingClient:
 
 def cosine(a, b) -> float:
     """
-    Same formula as cams.util.EmbeddingSimilarity.cosineSimilarity:
-    dot(a, b) / (||a|| * ||b||). Zero vectors (blank text) score 0.0 rather
-    than dividing by zero.
+    Same formula as cams.util.EmbeddingSimilarity.cosineSimilarity,
+    dot(a, b) / (||a|| * ||b||). Zero vectors score 0.0 rather than dividing by
+    zero.
     """
     vec_a = np.asarray(a, dtype=np.float64)
     vec_b = np.asarray(b, dtype=np.float64)

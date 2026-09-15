@@ -1,21 +1,21 @@
 """
-Derive the seeded skill vocabulary from the Flyway migrations.
+Rebuild the seeded skill vocabulary from the Flyway migrations.
 
-Every fixture skill name must exist in CAMS's real seeded vocabulary - a name
-that is not there silently scores zero structural coverage, which would look
-like an algorithm result rather than a typo. The lab runs with no Postgres, so
-the vocabulary is reconstructed from the two seed migrations and written to
-fixtures/vocabulary.txt, committed alongside the fixtures.
+Every fixture skill name has to exist in the real seeded vocabulary. A name that
+is not there scores zero structural coverage, which looks like an algorithm
+result rather than the typo it is. The lab runs without Postgres, so the
+vocabulary is reconstructed from the two seed migrations into
+fixtures/vocabulary.txt and committed with the fixtures.
 
-    V30  ESCO office-relevant skill/knowledge concepts (generated)
+    V30  ESCO office-relevant skill and knowledge concepts (generated)
     V31  hand-curated non-ESCO supplement (tech products, soft skills)
 
-Run this only when those migrations change:
+Run it when those migrations change:
 
     python build_vocabulary.py
 
-It reads nothing but SQL files and writes one text file. The generated file,
-not this script's output stream, is what run_experiments.py checks against.
+It reads SQL files and writes one text file. run_experiments.py checks against
+the generated file, not against this script.
 """
 
 import re
@@ -70,8 +70,8 @@ def main() -> None:
         seeded.extend(rows)
         print(f"{name:<48} +{len(rows)}")
 
-    # Deduplicate case-insensitively, same rule the table's unique index uses,
-    # keeping the first-seeded casing as the canonical display form.
+    # Deduplicate case-insensitively, the same rule the table's unique index
+    # uses, keeping the first-seeded casing as the display form.
     final = {}
     for name in seeded:
         final.setdefault(name.lower(), name)

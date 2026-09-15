@@ -7,11 +7,11 @@ departments CAMS targets.
 occupations within 11 department-scoped ISCO-08 groups (IT/Software,
 Marketing & PR, Sales, Finance & Accounting, HR, Admin/Clerical, Management,
 Customer Service, Operations, Legal, Design) to their essential/optional
-skill relations, producing `keep_list.csv` — the resulting skill-name
+skill relations, producing `keep_list.csv`, the resulting skill-name
 allowlist.
 
 **Not run at migration time.** `keep_list.csv`'s output is baked directly
 into `V30__seed_office_skill_vocabulary.sql` as a static insert. Both files
 are kept here as the documented derivation behind that migration's skill
-set, not as live tooling — re-running the script would regenerate the same
+set rather than as live tooling. Re-running the script regenerates the same
 allowlist, but nothing in the running application reads either file.

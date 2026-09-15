@@ -1,15 +1,15 @@
 """
-Ranking metrics, matching the conventions of scripts/matching-eval/ so the two
-harnesses' numbers mean the same thing: gain is 2**g - 1; ideal DCG is computed
-from the full graded pool truncated to k; an absent (candidate, listing) pair
-counts as grade 0 and stays in the ranking. K = 5 for precision and nDCG,
-K = 10 for recall.
+Ranking metrics for the lab.
 
-One deliberate departure: "relevant" means grade >= 2, not >= 1. The rubric's
-floor rule (rubric.md 3.4) puts nearly every same-area pair at 1, so at a
-threshold of 1 precision, recall and MRR collapse into "did the approach get the
-area right" and saturate. nDCG is unchanged - it reads the graded gains directly
-and never had a threshold - which is why it is the headline metric.
+Conventions: gain is 2**g - 1, ideal DCG comes from the full graded pool
+truncated to k, and an absent (candidate, listing) pair counts as grade 0 and
+stays in the ranking. K = 5 for precision and nDCG, K = 10 for recall.
+
+"Relevant" means grade >= 2 rather than >= 1. The rubric's floor rule
+(rubric.md 3.4) puts nearly every same-area pair at 1, so at a threshold of 1
+precision, recall and MRR turn into "did the approach get the area right" and
+saturate. nDCG reads the graded gains directly and has no threshold, which is
+why it is the headline metric.
 """
 
 import math
@@ -18,8 +18,8 @@ K_PRECISION = 5
 K_NDCG = 5
 K_RECALL = 10
 
-# Grade at or above which a pair counts as "relevant" for the set-based metrics.
-# 2 = "a genuine shortlist entry" in rubric.md's scale; see the module docstring.
+# Grade at or above which a pair counts as relevant for the set-based metrics.
+# 2 is "a genuine shortlist entry" in rubric.md's scale.
 RELEVANT_THRESHOLD = 2
 
 

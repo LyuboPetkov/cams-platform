@@ -27,25 +27,19 @@ docs/
 # of the repo
 esco-v1.2.1-en/
 
-# Superseded evaluation harness - local virtualenv and bytecode cache
-scripts/matching-eval/.venv/
-scripts/matching-eval/__pycache__/scripts/
-
 # Local runtime state (scheduled task locks, local settings) - machine-specific, never shared
 .claude/
 
-# Local eval scripts - not part of the shipped repo
+# Scratch eval scripts, superseded by scripts/matching-lab/
 scripts/matching-eval/
 
-# matching-lab - local runtime state only. Everything else under
-# scripts/matching-lab/, INCLUDING results/, is committed on purpose: the
-# results are thesis evidence, same tracked-folder precedent as
-# scripts/skill-scope/ (and unlike the gitignored matching-eval/ above).
+# matching-lab: local runtime state only. Everything else under
+# scripts/matching-lab/, results/ included, is committed on purpose, same as
+# scripts/skill-scope/.
 scripts/matching-lab/.venv/
 scripts/matching-lab/__pycache__/
 scripts/matching-lab/**/__pycache__/
 scripts/matching-lab/.embedding_cache.json
 
-# seed-demo - local tooling for populating demo data, not part of the shipped
-# repo (same as scripts/matching-eval/ above).
+# Local tooling for populating demo data, not part of the shipped repo
 scripts/seed-demo/

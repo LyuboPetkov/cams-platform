@@ -1,7 +1,9 @@
 # Sensitivity of the result to TAU and the M4/M5 weights
 
-A conclusion that only holds at one value of an arbitrary constant is not a conclusion.
-This file exists to check that, and to say so plainly if the check fails.
+Written by `sensitivity.py`.
+
+A conclusion that only holds at one value of an arbitrary constant is not worth much.
+This file checks that, and says so plainly if the check fails.
 
 Embedding HTTP calls for the whole sweep: 0 (everything reuses the cache).
 
@@ -55,10 +57,12 @@ Coarse grid of 23 triples summing to 1.0, each component held within 0.15-0.45, 
 
 ## How to read this
 
-A small spread means the rung's ranking is driven by its structure rather than by the
+A small spread means the rung's ranking comes from its structure rather than from the
 constants, and the headline result stands on its own. A large spread, or a winner that
-changes across the sweep, means the opposite - and in that case the honest report is the
-range, not the best cell in it. **Do not select the best-performing constants from this
-sweep and rerun the headline experiment with them: that is tuning on the test set, and it
-would make the result indefensible.**
+changes across the sweep, means the opposite, and then the thing to report is the range
+rather than the best cell in it.
+
+The constants were not changed afterwards to match whichever cell scored best. Picking
+them from this sweep and rerunning the headline experiment would be tuning on the test
+set.
 

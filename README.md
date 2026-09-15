@@ -13,6 +13,8 @@ with the `pgvector` extension for similarity search, and a small Python service
 that turns text into embeddings. Everything runs together with one Docker Compose
 command.
 
+Live deployment: **https://cams-tracker.online**
+
 ---
 
 ## What It Does
@@ -64,7 +66,9 @@ Technical version:
   HTTP by a FastAPI app. It produces 384-dimensional vectors.
 - Embeddings are computed **asynchronously, after the triggering database
   transaction commits** - never inline with the user's request. A failed
-  embedding call is logged and retried later, and never blocks a save.
+  embedding call is logged and leaves the previous vector in place; it never
+  blocks or fails the user's save. Vectors can be rebuilt in bulk from the admin
+  re-embed endpoints.
 - Candidate and listing vectors are stored in `vector(384)` columns on
   `candidate_profiles` and `job_listings`.
 - The candidate-facing match query orders open listings by cosine distance to
@@ -72,11 +76,50 @@ Technical version:
   applies a coarse location eligibility check (remote, or a location-text
   overlap). The employer-facing applicant view computes a cosine similarity per
   applicant for display.
-- A separate offline evaluation harness (`scripts/matching-lab/`) compares
-  several scoring strategies against a hand-graded benchmark set; it is research
-  tooling and is not part of the running application.
+- The choice of what goes into the embedded text was not made by intuition. A
+  separate offline experiment (`scripts/matching-lab/`) compared seven scoring
+  strategies against a hand-graded benchmark; see **The Matching Lab** below.
 
 ---
+
+## The Matching Lab
+
+`scripts/matching-lab/` is a self-contained, offline experiment that compares
+seven candidate-to-listing scoring strategies. It is the evidence behind the
+matching design, not runtime code: it runs against `embedding-service` alone and
+touches neither the database, the backend, nor the deployed application.
+
+**The ladder.** Each rung adds one mechanism to the previous one, so a change in
+the metric is attributable to that mechanism:
+
+| ID | Name | What it adds |
+|----|------|--------------|
+| M0 | `rule_based_v1` | Rule-based baseline: skill overlap, title similarity, location, remote |
+| M1 | `embedding_fused` | One fused text per side, one cosine similarity |
+| M2 | `embedding_fused_level` | The listing's seniority level added to its text |
+| M3 | `embedding_sections` | Per-section embeddings, weighted cosine sum |
+| M4 | `hybrid_structural` | Structural skill coverage, seniority band, education gate |
+| M5 | `hybrid_relevance_weighted` | Relevance-weighted tenure, semantic skill backfill |
+| M6 | `hybrid_level_adaptive` | Weights vary with the listing's seniority |
+
+**The benchmark.** 40 candidate profiles x 18 listings across 6 professional
+areas = 720 pairs, every one graded 0-3 against `fixtures/rubric.md`, which was
+written before any grade existed. A blind 60-pair re-grade agrees with the
+original labels at Cohen's kappa 0.854.
+
+**Reproducibility.** Every embedded text is cached by `sha256`, so a re-run with
+unchanged fixtures makes zero HTTP calls and reproduces every result file byte
+for byte. Differences between approaches are reported with a paired bootstrap
+95% interval; an interval containing zero is reported as inconclusive, never as
+a win.
+
+**The record** is committed under `scripts/matching-lab/results/`. Start with
+`results/report.md`. Its "Reading these numbers" section states the benchmark's
+limitations before quoting any figure. `M2` is the strategy the deployed
+application uses.
+
+Full instructions in `scripts/matching-lab/README.md`.
+
 
 ## Tech Stack
 
@@ -313,7 +356,7 @@ cams-platform/
 │   ├── entity/ dto/ mapper/ security/ client/ event/ exception/
 ├── src/main/resources/
 │   ├── application.yml           # configuration; secrets via env vars
-│   └── db/migration/             # Flyway migrations (V1…V31)
+│   └── db/migration/             # Flyway migrations (V1…V35)
 ├── frontend/                     # React + Vite single-page app
 │   ├── src/
 │   ├── Dockerfile                # multi-stage: Vite build → Nginx
@@ -325,7 +368,7 @@ cams-platform/
 │   └── Dockerfile
 ├── scripts/
 │   ├── skill-scope/              # generates the seeded skill vocabulary
-│   └── matching-lab/             # offline matching-strategy evaluation harness
+│   └── matching-lab/             # offline matching experiment + committed results
 ├── Dockerfile                    # backend: multi-stage Maven build → JRE
 ├── docker-compose.local.yml      # local stack (plain HTTP)
 └── docker-compose.yml            # production stack (HTTPS via Nginx)

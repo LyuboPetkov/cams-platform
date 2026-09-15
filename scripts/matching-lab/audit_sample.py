@@ -1,15 +1,15 @@
 """
-Blind audit of the by-construction labels, against the circularity objection
-(same person designed and graded the fixtures). Emits a fixed-seed ~10% sample
-of candidate/listing text only - no grades or scores - for independent grading,
-then reports agreement with the labels.
+Blind re-grade of the labels, which answers the obvious objection that the same
+person designed the fixtures and graded them. Emits a fixed-seed sample of
+candidate and listing text with no grades or scores attached, ready to be graded
+again from scratch, then reports how closely the two passes agree.
 
     python audit_sample.py --emit     # write results/audit_worksheet.csv
     ... fill in the human_grade column by hand ...
     python audit_sample.py --score    # write results/audit_agreement.md
 
-Cohen's kappa and Spearman are implemented here against numpy rather than
-pulling in scipy/scikit-learn for two functions.
+Cohen's kappa and Spearman rho are implemented here in numpy rather than pulling
+in scipy or scikit-learn for two functions.
 """
 
 import argparse
@@ -33,13 +33,13 @@ AGREEMENT = RESULTS / "audit_agreement.md"
 DEFAULT_SEED = 35
 MIN_GRADE, MAX_GRADE = 0, 3
 
-# Stratified, ~60 of 720 pairs, not a uniform 10%: a uniform draw is mostly
-# cross-area pairs graded 0 by rule and trivial to agree on. The strata
-# over-weight the contaminated/hard pairs, with a cross-area quota kept for balance.
+# 60 of 720, stratified rather than uniform. A uniform draw is mostly cross-area
+# pairs graded 0 by rule, which are trivial to agree on. These strata favour the
+# hard pairs, with a cross-area quota kept so the easy end is still represented.
 SAME_AREA_TARGET = 40
 CROSS_AREA_TARGET = 20
 
-# Within the same-area quota, fill the contaminated strata first.
+# Within the same-area quota, fill the hardest strata first.
 SENIORITY_MISMATCH_TARGET = 18
 EDUCATION_CAPPED_TARGET = 10
 
@@ -57,8 +57,8 @@ def load_json(path: Path) -> dict:
 
 def render_candidate(candidate: dict) -> str:
     """
-    Everything a human grader needs and nothing that would prime them: no key,
-    no area tag, no diagnostic tag, no grade.
+    Everything a grader needs and nothing that would prime them: no key, no area
+    tag, no diagnostic tag, no grade.
     """
     lines = [
         f"HEADLINE: {candidate.get('headline') or '-'}",
@@ -98,8 +98,8 @@ def band_index(level) -> int | None:
 
 def candidate_band(candidate: dict) -> int | None:
     """
-    Which band the candidate TOTAL tenure falls in. Total rather than
-    relevant, because this only picks strata - it never grades anything.
+    Which band the candidate's total tenure falls in. Total rather than relevant,
+    because this only picks strata and never grades anything.
     """
     years = total_years(candidate.get("experiences", []), date.today())
     for index, level in enumerate(["INTERN", "JUNIOR", "MID", "SENIOR"]):
@@ -111,9 +111,9 @@ def candidate_band(candidate: dict) -> int | None:
 
 def classify(candidate: dict, listing: dict) -> str:
     """
-    Which stratum a pair belongs to. Deliberately computed from the FIXTURES
-    only - never from labels.json - so that building the worksheet cannot leak
-    a by-construction grade into the selection.
+    Which stratum a pair belongs to, computed from the fixtures only and never
+    from labels.json, so building the worksheet cannot leak a grade into the
+    selection.
     """
     if candidate.get("area") != listing.get("area"):
         return "cross-area"
@@ -131,8 +131,8 @@ def emit(seed: int) -> None:
     listings = load_json(FIXTURES / "listings.json")["listings"]
 
     pairs = [(c, l) for c in candidates for l in listings]
-    # Sorted first, then sampled from a seeded RNG: the sample must not depend
-    # on JSON key order or dict iteration, only on the seed.
+    # Sorted first, then sampled from a seeded RNG, so the sample depends on the
+    # seed alone and not on JSON key order.
     pairs.sort(key=lambda pair: (pair[0]["key"], pair[1]["key"]))
 
     strata = {}
@@ -160,11 +160,10 @@ def emit(seed: int) -> None:
         writer.writerow(["# seed", seed, "# sample", f"{len(sample)}/{len(pairs)}",
                          "# scale", "0=not relevant, 1=weak/partial, 2=good, 3=excellent"])
         writer.writerow(["# strata", json.dumps(counts, separators=(",", ":")),
-                         "# note", "STRATIFIED, not uniform: over-weights seniority-mismatch and "
-                                   "education-capped pairs, which are the hardest cases and the ones "
-                                   "most likely to be contaminated. Agreement measured on this sample "
-                                   "is therefore CONSERVATIVE - a uniform sample would score higher "
-                                   "because it would be mostly trivial cross-area zeroes."])
+                         "# note", "Stratified, not uniform. Favours seniority-mismatch and "
+                                   "education-capped pairs, which are the hardest cases. Agreement "
+                                   "measured on this sample is conservative: a uniform sample would "
+                                   "score higher, being mostly cross-area zeroes."])
         writer.writerow(["candidateKey", "listingKey", "candidate_text", "listing_text", "human_grade"])
         for candidate, listing in sample:
             writer.writerow([
@@ -175,7 +174,6 @@ def emit(seed: int) -> None:
 
     print(f"Wrote {WORKSHEET.relative_to(BASE)} - {len(sample)} of {len(pairs)} pairs (seed {seed}).")
     print(f"Strata: {counts}")
-    print("Stratified toward hard cases on purpose, so the agreement figure is conservative.")
     print("Fill in the human_grade column (0-3) without looking at labels.json or any results, "
           "then run: python audit_sample.py --score")
 
@@ -190,9 +188,9 @@ def read_worksheet() -> tuple[list, int]:
     header_row = rows[0]
     seed = int(header_row[1]) if len(header_row) > 1 and header_row[0].startswith("# seed") else DEFAULT_SEED
 
-    # Banner rows start with "#"; the first non-banner row is the column header,
-    # detected rather than indexed so an extra banner line can't eat a data row.
-    # Zipped against the header by hand - csv.DictReader wants raw lines, not lists.
+    # Banner rows start with "#". The first non-banner row is the column header,
+    # found rather than indexed so an extra banner line cannot eat a data row.
+    # Zipped by hand because csv.DictReader wants raw lines, not lists.
     header_index = next(i for i, r in enumerate(rows) if r and not r[0].startswith("#"))
     header = rows[header_index]
     graded = []
@@ -216,14 +214,13 @@ def read_worksheet() -> tuple[list, int]:
 
 def quadratic_weighted_kappa(a: np.ndarray, b: np.ndarray) -> float:
     """
-    Cohen's kappa with quadratic weights, over the fixed 0-3 grade scale.
+    Cohen's kappa with quadratic weights over the 0-3 grade scale.
 
-    Quadratic rather than unweighted because the scale is ordinal: grading a
-    pair 2 where the label says 3 is a much smaller disagreement than grading
-    it 0, and an unweighted kappa would treat both as simply "wrong".
+    Weighted rather than plain because the scale is ordinal: grading a pair 2
+    where the label says 3 is a much smaller disagreement than grading it 0, and
+    an unweighted kappa counts both as simply wrong.
 
-    1.0 = perfect agreement, 0.0 = no better than chance, negative = worse
-    than chance.
+    1.0 is perfect agreement, 0.0 is chance, negative is worse than chance.
     """
     categories = list(range(MIN_GRADE, MAX_GRADE + 1))
     n = len(categories)
@@ -270,8 +267,7 @@ def spearman_rho(a: np.ndarray, b: np.ndarray) -> float:
 
 
 def interpret_kappa(kappa: float) -> str:
-    # Landis & Koch (1977) bands - the conventional reading, stated so the
-    # number in the report is not left for the reader to interpret alone.
+    # Landis & Koch (1977) bands, the conventional reading of a kappa value.
     if kappa < 0.0:
         return "worse than chance"
     if kappa < 0.20:
@@ -310,18 +306,21 @@ def score() -> None:
     within_one = float(np.mean(np.abs(human_array - construction_array) <= 1))
 
     lines = [
-        "# Label audit - agreement between by-construction and blind human grading",
+        "# Label audit: agreement between the original labels and a blind re-grade",
+        "",
+        "Written by `audit_sample.py --score`, from the worksheet emitted by `--emit` and graded",
+        "by hand in between.",
         "",
         f"Sample: {len(graded)} pairs, drawn with seed {seed}.  ",
-        "Graded from candidate and listing text alone: no by-construction grade, no scores and no",
-        "algorithm output appeared on the worksheet.",
+        "Graded from candidate and listing text alone. No original grade, no score and no algorithm",
+        "output appeared on the worksheet.",
         "",
-        "**The sample is stratified, not uniform.** It over-weights seniority-mismatch pairs - the",
-        "part of the ground truth contaminated by the algorithm design, see rubric.md 8.2 -",
-        "and education-capped pairs, where the rubric deliberately disagrees with the M4+ hard gate,",
-        "while keeping a cross-area quota so the easy end of the scale is still represented.",
-        "Agreement measured this way is **conservative**: a uniform 10% draw would be roughly 83%",
-        "cross-area zeroes and would score substantially higher without telling you anything.",
+        "The sample is stratified rather than uniform. It favours seniority-mismatch pairs, which",
+        "are the part of the ground truth most exposed to the algorithm design (rubric.md 8.2), and",
+        "education-capped pairs, where the rubric disagrees with the M4 hard gate on purpose. A",
+        "cross-area quota keeps the easy end of the scale represented. Agreement measured this way",
+        "is conservative: a uniform 10% draw would be about 83% cross-area zeroes and would score",
+        "higher without showing much.",
         "",
         "| Statistic | Value |",
         "|---|---|",
@@ -332,16 +331,15 @@ def score() -> None:
         "",
         "## Reading",
         "",
-        f"A quadratic-weighted kappa of {kappa:.3f} is **{interpret_kappa(kappa)}** agreement on the",
-        "conventional Landis & Koch bands. Kappa corrects for agreement that chance alone would",
-        f"produce; the quadratic weighting means a one-grade disagreement counts far less than a",
-        f"three-grade one, which is the right treatment for an ordinal 0-3 scale. Spearman rho",
-        f"({rho:.3f}) says the same thing about ordering rather than about exact values.",
+        f"A quadratic-weighted kappa of {kappa:.3f} counts as {interpret_kappa(kappa)} agreement on the",
+        "usual Landis & Koch bands. Kappa corrects for the agreement chance alone would produce, and",
+        "the quadratic weighting means a one-grade disagreement counts for much less than a",
+        f"three-grade one, which suits an ordinal 0-3 scale. Spearman rho ({rho:.3f}) says the same",
+        "thing about ordering rather than about exact values.",
         "",
-        "This figure is the honest answer to \"how do you know your labels are right\". It does not",
-        "make the benchmark objective - the sample was graded by the same person who designed the",
-        "fixtures, just without sight of the original grades - but it does bound how much of the",
-        "result could be an artefact of one particular grading pass.",
+        "This does not make the benchmark objective. The sample was graded by the same person who",
+        "designed the fixtures, only without sight of the original grades. What it does is bound how",
+        "much of the result could be an artefact of one particular grading pass.",
         "",
     ]
 

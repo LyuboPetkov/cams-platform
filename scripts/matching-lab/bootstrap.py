@@ -1,18 +1,19 @@
 """
 Paired bootstrap confidence intervals over the ladder.
 
-With only 40 query candidates, a 0.02 nDCG@5 difference between two approaches
-is inside resampling noise; this module puts an interval around every number so
-a difference indistinguishable from zero is reported as inconclusive, not a win.
+On 40 query candidates a 0.02 nDCG@5 difference between two approaches sits
+inside resampling noise, so this puts an interval around every number and a
+difference that cannot be told from zero gets reported as inconclusive.
 
-"Paired": each iteration draws one resample of the 40 candidate keys and scores
-every approach on it, so the per-iteration difference between two approaches
-cancels the shared "this resample was easy" effect. An unpaired bootstrap would
-be far too conservative. The resample is over candidates, the unit of evaluation.
+Paired means each iteration draws one resample of the candidate keys and scores
+every approach on it, so the difference between two approaches cancels the
+shared "this resample happened to be easy" effect. An unpaired bootstrap would
+be far too conservative here. The resample is over candidates, which is the unit
+of evaluation.
 
-Deterministic (fixed seed and ordering). Quantifies sampling variability over
-these 40 candidates only - it says nothing about fixture representativeness and
-cannot correct for the label contamination in rubric.md 8.2.
+Fixed seed and fixed ordering, so it is deterministic. It covers sampling
+variability over these 40 candidates and nothing else: not whether the fixtures
+are representative, and not the label contamination in rubric.md 8.2.
 """
 
 import numpy as np
@@ -28,9 +29,8 @@ BOOTSTRAP_METRICS = ["ndcg_at_5", "precision_at_5"]
 
 def _metric_matrix(results: dict, approaches: list, candidate_keys: list, metric: str) -> np.ndarray:
     """
-    Rows = approaches, columns = candidates, in the given fixed orders.
-    Built once so every iteration is a cheap column-index operation rather
-    than a re-walk of the results dict.
+    Rows are approaches, columns are candidates, both in fixed order. Built once
+    so each iteration is a column index rather than a re-walk of the results.
     """
     return np.array(
         [[results[a][c]["metrics"][metric] for c in candidate_keys] for a in approaches],
@@ -56,8 +56,8 @@ def run(results: dict, candidate_keys: list,
     n = len(candidate_keys)
 
     rng = np.random.default_rng(seed)
-    # One index matrix reused across metrics: the SAME resamples must be seen
-    # by every metric and every approach, otherwise the pairing is broken.
+    # One index matrix reused across metrics. Every metric and every approach
+    # has to see the same resamples or the pairing breaks.
     draws = rng.integers(0, n, size=(iterations, n))
 
     per_approach = {a: {} for a in approaches}
@@ -80,8 +80,8 @@ def run(results: dict, candidate_keys: list,
 
         for i in range(len(approaches)):
             for j in range(i + 1, len(approaches)):
-                # Per-iteration difference on the SAME resample - this is the
-                # pairing, and it is why the intervals are usable at n=40.
+                # Difference on the same resample. This is the pairing, and it
+                # is what makes the intervals usable at n=40.
                 diffs = resampled_means[:, j] - resampled_means[:, i]
                 low = float(np.percentile(diffs, CI_LOW_PCT))
                 high = float(np.percentile(diffs, CI_HIGH_PCT))

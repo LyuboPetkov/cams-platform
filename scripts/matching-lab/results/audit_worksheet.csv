@@ -1,5 +1,5 @@
 # seed,35,# sample,60/720,# scale,"0=not relevant, 1=weak/partial, 2=good, 3=excellent"
-# strata,"{""cross-area"":20,""education-capped"":10,""same-area-other"":12,""seniority-mismatch"":18}",# note,"STRATIFIED, not uniform: over-weights seniority-mismatch and education-capped pairs, which are the hardest cases and the ones most likely to be contaminated. Agreement measured on this sample is therefore CONSERVATIVE - a uniform sample would score higher because it would be mostly trivial cross-area zeroes."
+# strata,"{""cross-area"":20,""education-capped"":10,""same-area-other"":12,""seniority-mismatch"":18}",# note,"Stratified, not uniform. Favours seniority-mismatch and education-capped pairs, which are the hardest cases. Agreement measured on this sample is conservative: a uniform sample would score higher, being mostly cross-area zeroes."
 candidateKey,listingKey,candidate_text,listing_text,human_grade
 dsg-graphic-junior-1,dsg-graphic-junior,"HEADLINE: Graphic designer
 ABOUT: Two years of studio production work - layouts, social assets, packaging adaptations. I am fussy about type in a way that occasionally annoys account managers, and I intend to stay that way.

@@ -1,7 +1,5 @@
-# VERBATIM COPY of scripts/matching-eval/rule_based_baseline.py, copied not
-# imported because that folder is gitignored and this harness must run from a
-# fresh clone. DO NOT EDIT - its value is continuity with the earlier baseline
-# numbers; re-copy if the original changes rather than patching here.
+# The rule-based baseline, kept frozen. Its whole value is being a fixed bottom
+# rung: if this changes, every earlier M0 number stops being comparable.
 
 import difflib
 

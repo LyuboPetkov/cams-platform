@@ -33,8 +33,8 @@ function colorOf(name) {
 // Shared picture/logo fallback: a plain <img> when the URL loads, otherwise
 // initials in a deterministic color circle instead of the broken-image icon.
 //
-// variant "avatar" (default) is for people — round, cropped to fill (object-cover).
-// variant "logo" is for company logos — rounded square, whole logo visible
+// variant "avatar" (default) is for people: round, cropped to fill (object-cover).
+// variant "logo" is for company logos: rounded square, whole logo visible
 // (object-contain) on a padded white tile so wordmarks/wide marks aren't cut off.
 function Avatar({ src, name, size = 'md', variant = 'avatar', className = '' }) {
   const [failed, setFailed] = useState(false)

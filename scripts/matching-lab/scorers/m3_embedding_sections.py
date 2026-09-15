@@ -11,15 +11,14 @@ should actually be judged against:
     education   0.10   joined describeEducation      vs  "Requires: X", else title + description
                        + course parts
 
-WEIGHT RENORMALISATION: a candidate with no courses and no education would
-otherwise be structurally capped at 0.90 no matter how
-good a fit they are, which would penalise a thin profile for a missing
-section rather than for a bad match. So the weights are renormalised over the
-sections whose CANDIDATE text is non-empty. A candidate with only a role
-section is scored purely on role, at full scale.
+The weights are renormalised over the sections whose candidate text is
+non-empty. Without that, a candidate with no courses and no education would be
+capped at 0.90 however good a fit they are, which penalises a thin profile for a
+missing section rather than for a bad match. A candidate with only a role
+section is scored on role alone, at full scale.
 
-The listing side is never empty in practice (title + description always
-exist), so only the candidate side drives the renormalisation.
+The listing side is never empty in practice, since title and description always
+exist, so only the candidate side drives the renormalisation.
 """
 
 from components import (

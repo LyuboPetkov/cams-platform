@@ -1,32 +1,31 @@
 """
-M5 - hybrid_relevance_weighted: M4 with the two ideas that answer the audit.
+M5 - hybrid_relevance_weighted: M4 with two substitutions.
 
-Same shape and same weights as M4, with two substitutions:
+Same shape and same weights as M4, with two things swapped in:
 
-1. RELEVANCE-WEIGHTED TENURE (fixes weakness 2 - irrelevant experience).
-   total_years -> relevant_years, where each entry's years are scaled by how
-   semantically close that entry is to the listing:
+1. Relevance-weighted tenure, which addresses irrelevant experience.
+   total_years becomes relevant_years, where each entry's years are scaled by
+   how semantically close that entry is to the listing:
 
        w_i            = rescale(cosine(embed(exp_i), embed(title + description)))
        relevant_years = sum of w_i * years_i
 
-   Five years of electrical engineering contribute ~0 effective years to a
-   software listing; three years of backend work contribute ~3. Embeddings
-   decide relevance, arithmetic does the counting, and every intermediate
-   number is inspectable in the explanation dict - which matters at a defence
-   far more than it matters to the metric.
+   Five years of electrical engineering contribute close to zero effective years
+   to a software listing, while three years of backend work contribute about
+   three. The embedding decides relevance and the arithmetic does the counting,
+   with every intermediate number kept in the explanation dict.
 
-2. SEMANTIC SKILL BACKFILL (fixes weakness 3 without losing the ESCO-gap
-   strength). Structural coverage handles what is countable; each UNCOVERED
-   required skill then earns partial credit if the candidate's free text
-   supports it:
+2. Semantic skill backfill, which addresses mean-pooling dilution without losing
+   what the embedding is good at. Structural coverage handles the countable
+   part, then each uncovered required skill earns partial credit if the
+   candidate's free text supports it:
 
        credit_r = BACKFILL_CAP * rescale(max cosine(embed(r), embed(evidence)))
 
-   Evidence texts are the headline, the description, and each experience
-   description. Credit is capped below a real structured match (0.7) because
+   Evidence texts are the headline, the description and each experience
+   description. Credit is capped below a real structured match (0.7), because
    inferred evidence is weaker evidence. Extra unrelated skills still cost
-   nothing, because coverage is still recall over the requirement.
+   nothing, since coverage is recall over the requirement.
 """
 
 from components import (
@@ -47,7 +46,7 @@ def listing_domain_text(listing: dict) -> str:
 def relevant_years(candidate: dict, listing: dict, ctx) -> tuple[float, list]:
     """
     Returns (relevant_years, per-entry trace). The trace is what makes the
-    cross-domain-tenure diagnostic readable in the results.
+    cross-domain-tenure diagnostic readable.
     """
     domain_text = listing_domain_text(listing)
     trace = []
@@ -72,9 +71,9 @@ def backfilled_coverage(candidate: dict, listing: dict, ctx) -> tuple[float, flo
     """
     Returns (coverage, structural_coverage, backfill trace).
 
-    Structural coverage first, then semantic credit for what it missed. The
-    final figure is capped at 1.0 so backfill can never manufacture more
-    coverage than the listing actually requires.
+    Structural coverage first, then semantic credit for whatever it missed. The
+    result is capped at 1.0 so backfill cannot manufacture more coverage than the
+    listing asks for.
     """
     candidate_skills = normalise_skills(candidate.get("skills"))
     required = normalise_skills(listing.get("skills"))
@@ -88,8 +87,8 @@ def backfilled_coverage(candidate: dict, listing: dict, ctx) -> tuple[float, flo
     evidence_texts += [e.get("description") for e in candidate.get("experiences", [])]
     evidence_texts = [t for t in evidence_texts if t and t.strip()]
 
-    # Original-cased names, so what gets embedded is the real skill label
-    # rather than its lowercased comparison key.
+    # Original casing, so what gets embedded is the real skill label rather than
+    # its lowercased comparison key.
     uncovered = [name for name in listing.get("skills", []) if normalise_skill(name) not in covered]
 
     credit_total = 0.0

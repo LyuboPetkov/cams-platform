@@ -1,17 +1,16 @@
 """
-M0 - rule_based_v1: the earlier weighted rule-based baseline, unchanged.
+M0 - rule_based_v1: the weighted rule-based baseline, unchanged.
 
 skills 0.5 / title 0.2 / location 0.15 / remote 0.15, computed by
-rule_based_baseline.py, a verbatim copy of the matching-eval module (see that
-file's header for why it is copied rather than imported).
+rule_based_baseline.py.
 
-Stated deviation: the original intersected skill *ids* read out of Postgres.
-The lab has no DB, so skills are matched by normalised *name* instead -
-equivalent for these fixtures, where names are the join key and are validated
-against the seeded vocabulary.
+One deviation: the original intersects skill ids read out of Postgres. The lab
+has no database, so skills are matched by normalised name instead. Equivalent
+for these fixtures, where names are the join key and are checked against the
+seeded vocabulary.
 
-The private helpers are called a second time to populate the explanation dict,
-reading rule_based_baseline's internals without modifying them.
+The private helpers are called again to fill in the explanation dict, which
+reads rule_based_baseline's internals without changing them.
 """
 
 import rule_based_baseline
