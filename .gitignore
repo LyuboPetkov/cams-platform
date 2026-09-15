@@ -27,8 +27,6 @@ docs/
 # of the repo
 esco-v1.2.1-en/
 
-# Local runtime state (scheduled task locks, local settings) - machine-specific, never shared
-.claude/
 
 # Scratch eval scripts, superseded by scripts/matching-lab/
 scripts/matching-eval/
