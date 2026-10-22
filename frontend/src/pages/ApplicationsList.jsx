@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar'
 import Badge from '../components/ui/Badge'
 import { getApplications, deleteApplication } from '../api/applications'
 import { formatEnumLabel } from '../utils/formatEnumLabel'
+import { EXPORT_FORMATS, exportApplications } from '../utils/exportApplications'
 
 const STATUS_OPTIONS = ['APPLIED', 'INTERVIEWING', 'OFFERED', 'REJECTED', 'WITHDRAWN']
 const SOURCE_OPTIONS = ['LINKEDIN', 'COMPANY_WEBSITE', 'REFERRAL', 'JOB_BOARD', 'OTHER']
@@ -17,6 +18,8 @@ function ApplicationsList() {
   const [error, setError] = useState(null)
   const [deleteId, setDeleteId] = useState(null)
   const [viewApp, setViewApp] = useState(null)
+  const [exportOpen, setExportOpen] = useState(false)
+  const [exporting, setExporting] = useState(false)
 
   const navigate = useNavigate()
 
@@ -52,6 +55,20 @@ async function fetchApplications() {
     }
   }
 
+  // Exports exactly what is currently shown, so active filters apply.
+  async function handleExport(format) {
+    setExportOpen(false)
+    setExporting(true)
+    setError(null)
+    try {
+      await exportApplications(applications, format)
+    } catch {
+      setError('Failed to export applications.')
+    } finally {
+      setExporting(false)
+    }
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
@@ -59,12 +76,40 @@ async function fetchApplications() {
       <div className="max-w-6xl mx-auto px-6 py-8">
         <div className="flex items-center justify-between mb-6">
           <h1 className="text-2xl font-bold text-gray-800">My Applications</h1>
-          <button
-            onClick={() => navigate('/applications/new')}
-            className="bg-blue-600 text-white px-4 py-2 rounded font-medium hover:bg-blue-700 transition-colors cursor-pointer"
-          >
-            + New Application
-          </button>
+          <div className="flex items-center gap-3">
+            <div className="relative">
+              <button
+                onClick={() => setExportOpen(!exportOpen)}
+                disabled={loading || exporting || applications.length === 0}
+                className="border border-gray-300 bg-white text-gray-700 px-4 py-2 rounded font-medium hover:bg-gray-50 transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {exporting ? 'Exporting...' : 'Export ▾'}
+              </button>
+              {exportOpen && (
+                <>
+                  {/* Invisible backdrop so a click anywhere else closes the menu */}
+                  <div className="fixed inset-0 z-10" onClick={() => setExportOpen(false)} />
+                  <div className="absolute right-0 mt-2 w-44 bg-white border border-gray-200 rounded shadow-lg z-20 py-1">
+                    {EXPORT_FORMATS.map(f => (
+                      <button
+                        key={f.value}
+                        onClick={() => handleExport(f.value)}
+                        className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                      >
+                        {f.label}
+                      </button>
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
+            <button
+              onClick={() => navigate('/applications/new')}
+              className="bg-blue-600 text-white px-4 py-2 rounded font-medium hover:bg-blue-700 transition-colors cursor-pointer"
+            >
+              + New Application
+            </button>
+          </div>
         </div>
 
         <div className="flex gap-4 mb-6">
