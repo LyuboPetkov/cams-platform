@@ -23,22 +23,22 @@ function ApplicationsList() {
 
   const navigate = useNavigate()
 
+  // Refetch whenever a filter changes. The fetch lives inside the effect so the
+  // effect only depends on status and source, not on a function redeclared every render.
+  // Loading/error are reset in handleFilterChange rather than here, because setting
+  // state synchronously inside an effect causes an extra render.
   useEffect(() => {
-    fetchApplications()
+    getApplications({ status, source })
+      .then((response) => setApplications(response.data))
+      .catch(() => setError('Failed to load applications.'))
+      .finally(() => setLoading(false))
   }, [status, source])
 
-async function fetchApplications() {
-  setLoading(true)
-  setError(null)
-  try {
-    const response = await getApplications({ status, source })
-    setApplications(response.data)
-  } catch (err) {
-    setError('Failed to load applications.')
-  } finally {
-    setLoading(false)
+  function handleFilterChange(setFilter, value) {
+    setLoading(true)
+    setError(null)
+    setFilter(value)
   }
-}
 
   async function handleDelete(id) {
     try {
@@ -115,7 +115,7 @@ async function fetchApplications() {
         <div className="flex gap-4 mb-6">
           <select
             value={status}
-            onChange={(e) => setStatus(e.target.value)}
+            onChange={(e) => handleFilterChange(setStatus, e.target.value)}
             className="border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="">All Statuses</option>
@@ -126,7 +126,7 @@ async function fetchApplications() {
 
           <select
             value={source}
-            onChange={(e) => setSource(e.target.value)}
+            onChange={(e) => handleFilterChange(setSource, e.target.value)}
             className="border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="">All Sources</option>
